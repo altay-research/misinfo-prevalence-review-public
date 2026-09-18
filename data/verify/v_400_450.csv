@@ -1,0 +1,51 @@
+eid,verdict,reason
+2-s2.0-85060013655,CONFIRM,Content analysis of 50 fake-news sites quantifying misinformation prevalence in stories
+2-s2.0-85137890194,REJECT,About virality/anger drivers; no prevalence/exposure/consumption estimate
+2-s2.0-85109001077,CONFIRM,Traffic analysis quantifying user traffic to fake-news websites vs real
+2-s2.0-85139497631,CONFIRM,66.7% of bladder cancer YouTube videos poor quality/misinformation prevalence
+2-s2.0-105037482660,CONFIRM,Quantifies quality/misinformation share across 151 AD TikTok videos
+2-s2.0-85118913556,UNSURE,Characterizes bot roles; no clear misinformation prevalence percentage
+2-s2.0-85106703963,CONFIRM,92 fake news identified and categorized; content-prevalence counts
+2-s2.0-84983509049,CONFIRM,Quantifies misinformation prevalence across 141 hydration websites
+2-s2.0-105041471187,CONFIRM,Content analysis of 114 hoaxes; structural prevalence quantified
+2-s2.0-85131297994,CONFIRM,Diffusion scope/speed of fake vs true news across 31k tweets
+2-s2.0-85060025053,CONFIRM,Prevalence of fake news sharing on Facebook panel
+2-s2.0-85093504656,CONFIRM,44.7% of shared dermatology content imprecise; prevalence quantified
+2-s2.0-85042209380,CONFIRM,Quantifies fake news audience size/consumption from visitation data
+2-s2.0-85197369320,CONFIRM,Content analysis of 812 hoaxes; frequency/typology quantified
+2-s2.0-85133668349,CONFIRM,Quantifies prevalence of fraud-video content/engagement on Twitter
+2-s2.0-85211132788,CONFIRM,39.6% of toothache posts contained misinformation; prevalence
+2-s2.0-85090200414,CONFIRM,Quantifies poor-quality/misinformation share across 110 COVID websites
+2-s2.0-105006846547,CONFIRM,Engagement with unreliable vs reliable climate sources across 20M posts
+2-s2.0-105038215392,CONFIRM,Quantifies quality/misinformation across 150 TikTok IOL videos
+2-s2.0-85066941307,CONFIRM,Quantifies exposure/reach of pro-Russian disinformation by ideology
+2-s2.0-85108840194,CONFIRM,232 misinformation pieces analyzed; type prevalence quantified
+2-s2.0-85172813494,CONFIRM,Survey quantifies reach of disinformation narratives in Spain
+2-s2.0-86000080679,CONFIRM,Fact-checked forum comments; majority inaccurate, prevalence quantified
+2-s2.0-85116608685,UNSURE,Quantifies rumor sources (WhatsApp 46%) but mainly source mapping
+2-s2.0-85194733750,CONFIRM,Supersharers account for 80% of fake news; concentration estimate
+2-s2.0-105039619015,CONFIRM,3.7% of adults consumed pink slime; consumption prevalence
+2-s2.0-85208681084,CONFIRM,46% of lichen sclerosus TikToks contained misinformation
+2-s2.0-85195375481,CONFIRM,Misinformation share in HPV Facebook articles quantified over years
+2-s2.0-85172444815,CONFIRM,Quantifies source quality (NewsGuard) shift in politicians' tweets
+2-s2.0-105034745484,CONFIRM,9% of COPD Facebook comments misleading; prevalence quantified
+2-s2.0-85147515236,CONFIRM,Quantifies pro-HCQ misinformation share across 751 YouTube videos
+2-s2.0-105009619554,CONFIRM,55% of ADHD TikTok characteristics misaligned with DSM; prevalence
+2-s2.0-33645965882,CONFIRM,Quantifies accuracy/misinformation across prostate-cancer websites
+2-s2.0-85099150264,REJECT,Survey on WhatsApp political info use; not misinformation prevalence
+2-s2.0-85114317455,CONFIRM,Quantifies junk-news proportion in algorithmic timeline exposure
+2-s2.0-85203845655,CONFIRM,Quantifies informative disorders across 78 ChatGPT news pieces
+2-s2.0-85196841622,UNSURE,Identifies rumors/engagement but unclear quantified prevalence share
+2-s2.0-105005857219,CONFIRM,76.8% of LBP websites mostly inaccurate; misinformation prevalence
+2-s2.0-85083041268,CONFIRM,Only 13.2% of BPH YouTube videos free of misinformation; prevalence
+2-s2.0-85146352693,CONFIRM,Quantifies disinformation sources/channels share in 2020 election
+2-s2.0-85038621544,UNSURE,Measures news flow between platforms; not clear misinformation prevalence
+2-s2.0-105011696813,CONFIRM,Quantifies share of Bolsonaro tweets sharing disinformation (20-41%)
+2-s2.0-85121751860,CONFIRM,Quantifies spread of flagged Trump misinformation tweets
+2-s2.0-85183913419,UNSURE,Reports 126M exposed but mostly content analysis of ads
+2-s2.0-85194077046,CONFIRM,Quantifies misinformation exposure ties/unfollowing rates
+2-s2.0-105018832745,CONFIRM,10.1% of scleritis TikToks contained misinformation; prevalence
+2-s2.0-85184568825,CONFIRM,Prevalence of perceived experts/misinformation in antivaccine community
+2-s2.0-85105454127,CONFIRM,Observed sharing data of fake news across 2300 Twitter users
+2-s2.0-85145735327,CONFIRM,Quantifies disinformation types/agents across 124 articles
+2-s2.0-85097484865,CONFIRM,43 fake narratives classified/quantified across platforms

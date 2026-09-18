@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-105008063892,CORRECT_EXCLUDE,survey on effects/attitudes not content prevalence
+2-s2.0-85195908941,FALSE_NEGATIVE,quantifies propaganda narrative spread on Twitter
+2-s2.0-85195211490,CORRECT_EXCLUDE,political activity dataset not misinfo prevalence
+2-s2.0-85162977814,CORRECT_EXCLUDE,vaccine uptake vs platform presence not prevalence
+2-s2.0-85148085654,CORRECT_EXCLUDE,literature review of QAnon drivers
+2-s2.0-85205355466,FALSE_NEGATIVE,topic modeling 25561 posts quantifies AH/misinfo content
+2-s2.0-85114329074,CORRECT_EXCLUDE,single hoax case study media coverage
+2-s2.0-85185333619,CORRECT_EXCLUDE,erratum not a study
+2-s2.0-105006604097,CORRECT_EXCLUDE,review of anti-HPV internet info quality
+2-s2.0-85192553031,CORRECT_EXCLUDE,detection method for disinfo websites
+2-s2.0-85133607423,CORRECT_EXCLUDE,perceived exposure and engagement not measured content
+2-s2.0-85129811488,CORRECT_EXCLUDE,survey of student use not content prevalence
+2-s2.0-85109490970,FALSE_NEGATIVE,quantifies online availability/demand of misinfo product
+2-s2.0-85161622606,CORRECT_EXCLUDE,emotional tone analysis not prevalence
+2-s2.0-85165944608,CORRECT_EXCLUDE,dataset paper religious misinfo
+2-s2.0-85100334459,CORRECT_EXCLUDE,survey self-report identify/spread not content prevalence
+2-s2.0-85126200994,CORRECT_EXCLUDE,website quality assessment not prevalence
+2-s2.0-105004995986,CORRECT_EXCLUDE,experimental trustworthiness of maps
+2-s2.0-85097085646,CORRECT_EXCLUDE,credibility checklist of 9 blogs not prevalence
+2-s2.0-105033821737,CORRECT_EXCLUDE,encyclopedia entry on news aggregation
+2-s2.0-85107454094,CORRECT_EXCLUDE,systematic review of antivaccine messages
+2-s2.0-85038372134,CORRECT_EXCLUDE,credibility perceptions of news consumers
+2-s2.0-85145380036,FALSE_NEGATIVE,quantifies volume of vaccine coverage in news
+2-s2.0-85114788121,CORRECT_EXCLUDE,quality assessment of 40 YouTube videos
+2-s2.0-85219702673,CORRECT_EXCLUDE,qualitative content analysis of creators
+2-s2.0-84938095348,CORRECT_EXCLUDE,survey on misperceptions/beliefs
+2-s2.0-85050410117,CORRECT_EXCLUDE,off-topic smartphone game fake news essay
+2-s2.0-85065625545,CORRECT_EXCLUDE,fake news detection method
+2-s2.0-85212250883,CORRECT_EXCLUDE,communication quality scoring of dentist posts
+2-s2.0-0032329219,CORRECT_EXCLUDE,survey on factual misperceptions/beliefs
+2-s2.0-105027424042,CORRECT_EXCLUDE,qualitative review of misleading practices
+2-s2.0-85123905239,CORRECT_EXCLUDE,perspective review not content measurement
+2-s2.0-84938214608,CORRECT_EXCLUDE,experiment on corrective advertising
+2-s2.0-105003689813,CORRECT_EXCLUDE,quality/reliability of YouTube videos
+2-s2.0-105041646279,CORRECT_EXCLUDE,reliability scoring of social media videos
+2-s2.0-85167737872,CORRECT_EXCLUDE,commentary essay on news misinformation rise
+2-s2.0-105009125227,CORRECT_EXCLUDE,content analysis of comments attitudes
+2-s2.0-85142077289,CORRECT_EXCLUDE,legal/human-rights analysis of misinfo laws
+2-s2.0-105036038683,CORRECT_EXCLUDE,commentary on social media framing themes
+2-s2.0-105018282022,CORRECT_EXCLUDE,book of reflections not quantitative

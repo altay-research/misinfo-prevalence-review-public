@@ -1,0 +1,222 @@
+==============================================================================
+BATCH 10 of 11  --  paste everything below this line into Perplexity, in a FRESH thread
+==============================================================================
+
+You are helping code data for a systematic review of how much misinformation people are exposed to. For each numbered item you are given a verbatim quote from a research paper and how that paper defined misinformation.
+
+Classify each item on three dimensions. The governing rule: THE CONSTRUCT IS SET BY THE DENOMINATOR -- by what the percentage is a share OF -- not by the topic and not by what is being counted on top. Ask yourself: if this percentage were 100%, what would that mean? The answer names the denominator.
+
+CONSTRUCT (choose exactly one):
+- CONTENT = share of items that exist in some corpus (posts, videos, articles, search results)
+- EXPOSURE = share of what people actually consumed (views, visits, clicks, time, news diet)
+- REACH = share of PEOPLE who encountered it at least once
+- SHARING = share of what was shared, retweeted, liked or engaged with
+- RECALL = share of people who SAID in a survey they had seen it
+- CONCENTRATION = activity attributable to a top slice of users or sources
+- QUALITY = a quality/usefulness rating rather than truth or falsity
+- OTHER = none of the above
+
+DENOMINATOR CLASS (choose exactly one):
+population | all_media | political_news | topical | curated_sample | single_source
+
+BREADTH -- how wide a net the paper cast in deciding what counts as misinformation:
+fabricated | false | misleading | unreliable_source | low_quality
+
+RULES THAT DECIDE THE HARD CASES:
+
+1. "Most-shared" as a SAMPLING METHOD is still CONTENT. If a paper collected the 500 most-shared posts and then coded how many are false, the denominator is those 500 POSTS. Code CONTENT. Sharing was only how the sample was drawn. Contrast: "3% of all links shared by our panel were fake-news links" -- there the denominator really is the shared links, so SHARING.
+
+2. Quality is not falsity. If the measure is about usefulness, completeness, reliability or guideline-adherence rather than truth, code QUALITY. Test: could the item be ACCURATE BUT UNHELPFUL? If a low score is compatible with the content being true, it is QUALITY. Note that a single paper often reports BOTH a quality score and a separate falsity measure -- judge the quote in front of you, not the paper as a whole.
+
+3. Visiting untrustworthy websites is EXPOSURE. Identifying misinformation by DOMAIN rather than by checking each article does not change the denominator; the denominator is still the person's browsing. Record that in breadth as unreliable_source.
+
+4. SURVEYS: the denominator is the PEOPLE ASKED, not the topic. "38% of respondents said they had seen false claims about COVID" is denominator_class = population. It is NOT topical just because the question named a topic. If it were 100%, it would mean every person surveyed said yes -- so the denominator is people. The same applies to "% of people who visited at least one unreliable site" (REACH): the denominator is the people observed, however narrow the thing being counted is.
+
+5. TWO KINDS OF "EVERYTHING" DENOMINATOR. Distinguish a person's WHOLE MEDIA diet from their NEWS diet -- they differ roughly twentyfold on the same phenomenon. "0.15% of total daily media consumption across TV, desktop and mobile" is all_media. "3.4% of all news web traffic" is a news-wide denominator: use all_media ONLY if the denominator includes non-news media too; if it is all news but NOT restricted to politics, choose the closest fit and say which in a trailing note. Use political_news only when the denominator is restricted to POLITICAL or ELECTION news.
+
+6. Denominators that are already misinformation. "Of the false claims we collected, 30% were about vaccines" is not a prevalence at all -- the denominator is the false items themselves. Code OTHER.
+
+Answer with ONE CSV line per item and NOTHING else -- no preamble, no commentary, no sources.
+Format: item_id,construct,denominator_class,breadth,confidence_1to5
+Use confidence 1-5 honestly; a 2 is genuinely useful information. If you cannot judge an item, output the item_id followed by UNSURE and nothing else for that row -- do not guess silently.
+
+
+ITEM F611
+Quote from paper: "Of Trump supporters, 36.2% (95% CI 29.7% to 42.6%) visited at least one untrustworthy website in 2020, while 17.8% (95% CI 13.7% to 22.0%) of Biden supporters visited at least one untrustworthy website"
+How that paper defined misinformation: Untrustworthy/misinformation websites = web domains rated by NewsGuard as 'repeatedly publishing false content', plus domains from Guess et al. 2020 (490) and Allcott et al. (66); total 1,796 domains.
+
+ITEM F612
+Quote from paper: "Of Trump supporters, 36.2% (95% CI 29.7% to 42.6%) visited at least one untrustworthy website in 2020, while 17.8% (95% CI 13.7% to 22.0%) of Biden supporters visited at least one untrustworthy website"
+How that paper defined misinformation: Untrustworthy/misinformation websites = web domains rated by NewsGuard as 'repeatedly publishing false content', plus domains from Guess et al. 2020 (490) and Allcott et al. (66); total 1,796 domains.
+
+ITEM F613
+Quote from paper: "while 56.2% (95% CI 49.7% to 62.7%) of people 65 years and older were exposed to untrustworthy websites in 2016, only 37.4% (95% CI 29.6% to 45.2%) of people 65 years and older were exposed in 2020"
+How that paper defined misinformation: Untrustworthy/misinformation websites = web domains rated by NewsGuard as 'repeatedly publishing false content', plus domains from Guess et al. 2020 (490) and Allcott et al. (66); total 1,796 domains.
+
+ITEM F614
+Quote from paper: "Exposure to low-credibility health sites by age (unweighted)... 18-29: 5 exposed of 104 (5 blue / 99 no-exposure)"
+How that paper defined misinformation: Low-credibility health websites: domains hand-coded as not credible (binary; inaccurate/misleading health info, unverified-claim sales sites, browser-flagged 'deceptive'/'untrustworthy', or unsourced/LLM-generated content). Binary 'any exposure' = visited at least one such domain in the ~4-week period.
+
+ITEM F615
+Quote from paper: "Exposure to low-credibility health sites by age (unweighted)... 30-44: 29 exposed / 266 no-exposure"
+How that paper defined misinformation: Low-credibility health websites: domains hand-coded as not credible (binary; inaccurate/misleading health info, unverified-claim sales sites, browser-flagged 'deceptive'/'untrustworthy', or unsourced/LLM-generated content). Binary 'any exposure' = visited at least one such domain in the ~4-week period.
+
+ITEM F616
+Quote from paper: "Exposure to low-credibility health sites by age (unweighted)... 45-59: 40 exposed / 262 no-exposure"
+How that paper defined misinformation: Low-credibility health websites: domains hand-coded as not credible (binary; inaccurate/misleading health info, unverified-claim sales sites, browser-flagged 'deceptive'/'untrustworthy', or unsourced/LLM-generated content). Binary 'any exposure' = visited at least one such domain in the ~4-week period.
+
+ITEM F617
+Quote from paper: "Exposure to low-credibility health sites by age (unweighted)... 60+: 75 exposed / 283 no-exposure"
+How that paper defined misinformation: Low-credibility health websites: domains hand-coded as not credible (binary; inaccurate/misleading health info, unverified-claim sales sites, browser-flagged 'deceptive'/'untrustworthy', or unsourced/LLM-generated content). Binary 'any exposure' = visited at least one such domain in the ~4-week period.
+
+ITEM F618
+Quote from paper: "Exposure to low-credibility health videos on YouTube by age (unweighted)... 18-29: 16 exposed / 88 no-exposure"
+How that paper defined misinformation: Low-credibility health websites: domains hand-coded as not credible (binary; inaccurate/misleading health info, unverified-claim sales sites, browser-flagged 'deceptive'/'untrustworthy', or unsourced/LLM-generated content). Binary 'any exposure' = visited at least one such domain in the ~4-week period.
+
+ITEM F619
+Quote from paper: "Exposure to low-credibility health videos on YouTube by age (unweighted)... 30-44: 28 exposed / 267 no-exposure"
+How that paper defined misinformation: Low-credibility health websites: domains hand-coded as not credible (binary; inaccurate/misleading health info, unverified-claim sales sites, browser-flagged 'deceptive'/'untrustworthy', or unsourced/LLM-generated content). Binary 'any exposure' = visited at least one such domain in the ~4-week period.
+
+ITEM F620
+Quote from paper: "Exposure to low-credibility health videos on YouTube by age (unweighted)... 45-59: 36 exposed / 266 no-exposure"
+How that paper defined misinformation: Low-credibility health websites: domains hand-coded as not credible (binary; inaccurate/misleading health info, unverified-claim sales sites, browser-flagged 'deceptive'/'untrustworthy', or unsourced/LLM-generated content). Binary 'any exposure' = visited at least one such domain in the ~4-week period.
+
+ITEM F621
+Quote from paper: "Exposure to low-credibility health videos on YouTube by age (unweighted)... 60+: 37 exposed / 321 no-exposure"
+How that paper defined misinformation: Low-credibility health websites: domains hand-coded as not credible (binary; inaccurate/misleading health info, unverified-claim sales sites, browser-flagged 'deceptive'/'untrustworthy', or unsourced/LLM-generated content). Binary 'any exposure' = visited at least one such domain in the ~4-week period.
+
+ITEM F622
+Quote from paper: "it shows that supersharers had a significantly higher percentage of women (59%) compared with all reference groups (average fake news sharer, 49%; SS-NF, 52%; and panelists, 50%)"
+How that paper defined misinformation: Source-level fake news: external links to domains that portray as legitimate news outlets but lack editorial norms for accuracy (Grinberg et al. 2019 manually-labelled list, updated with NewsGuard); r
+
+ITEM F623
+Quote from paper: "It also shows that supersharers had the highest proportion of Republicans (64%), including the Republican-leaning group of average fake news sharers (P < 0.001)."
+How that paper defined misinformation: Source-level fake news: external links to domains that portray as legitimate news outlets but lack editorial norms for accuracy (Grinberg et al. 2019 manually-labelled list, updated with NewsGuard); r
+
+ITEM F624
+Quote from paper: "Among Trump supporters, 56.7% read at least one article from an untrustworthy conservative website (95% CI = 51.7-61.8%) compared with 27.7% of Clinton supporters (95% CI = 23.1-32.4%)."
+How that paper defined misinformation: Content from 'untrustworthy' / 'factually dubious' websites - domains classified (following Pennycook/Lazer-type source lists) as routinely publishing false or low-quality news. Publisher/domain-level
+
+ITEM F625
+Quote from paper: "Among Trump supporters, 56.7% read at least one article from an untrustworthy conservative website (95% CI = 51.7-61.8%) compared with 27.7% of Clinton supporters (95% CI = 23.1-32.4%)."
+How that paper defined misinformation: Content from 'untrustworthy' / 'factually dubious' websites - domains classified (following Pennycook/Lazer-type source lists) as routinely publishing false or low-quality news. Publisher/domain-level
+
+ITEM F626
+Quote from paper: "Clinton supporters were more likely to have visited untrustworthy liberal websites (23.0%, 95% CI = 18.8-27.2%) than Trump supporters (10.7%, 95% CI = 8.1-13.3%)."
+How that paper defined misinformation: Content from 'untrustworthy' / 'factually dubious' websites - domains classified (following Pennycook/Lazer-type source lists) as routinely publishing false or low-quality news. Publisher/domain-level
+
+ITEM F627
+Quote from paper: "Clinton supporters were more likely to have visited untrustworthy liberal websites (23.0%, 95% CI = 18.8-27.2%) than Trump supporters (10.7%, 95% CI = 8.1-13.3%)."
+How that paper defined misinformation: Content from 'untrustworthy' / 'factually dubious' websites - domains classified (following Pennycook/Lazer-type source lists) as routinely publishing false or low-quality news. Publisher/domain-level
+
+ITEM F628
+Quote from paper: "Untrustworthy conservative websites made up 11.0% of the news diet of Trump supporters (95% CI = 9.2-12.8%) compared with only 0.8% among Clinton supporters (95% CI = 0.6-1.1%)."
+How that paper defined misinformation: Content from 'untrustworthy' / 'factually dubious' websites - domains classified (following Pennycook/Lazer-type source lists) as routinely publishing false or low-quality news. Publisher/domain-level
+
+ITEM F629
+Quote from paper: "Untrustworthy conservative websites made up 11.0% of the news diet of Trump supporters (95% CI = 9.2-12.8%) compared with only 0.8% among Clinton supporters (95% CI = 0.6-1.1%)."
+How that paper defined misinformation: Content from 'untrustworthy' / 'factually dubious' websites - domains classified (following Pennycook/Lazer-type source lists) as routinely publishing false or low-quality news. Publisher/domain-level
+
+ITEM F630
+Quote from paper: "The pattern was again reversed but of lesser magnitude for untrustworthy liberal websites-1.1% of pages on hard-news topics for Clinton supporters (95% CI = 0.7-1.5%) versus 0.4% for Trump supporters (95% CI = 0.2-0.6%)."
+How that paper defined misinformation: Content from 'untrustworthy' / 'factually dubious' websites - domains classified (following Pennycook/Lazer-type source lists) as routinely publishing false or low-quality news. Publisher/domain-level
+
+ITEM F631
+Quote from paper: "The pattern was again reversed but of lesser magnitude for untrustworthy liberal websites-1.1% of pages on hard-news topics for Clinton supporters (95% CI = 0.7-1.5%) versus 0.4% for Trump supporters (95% CI = 0.2-0.6%)."
+How that paper defined misinformation: Content from 'untrustworthy' / 'factually dubious' websites - domains classified (following Pennycook/Lazer-type source lists) as routinely publishing false or low-quality news. Publisher/domain-level
+
+ITEM F632
+Quote from paper: "39% of participants consulted information sources considered to be unreliable"
+How that paper defined misinformation: Sources deemed unreliable... conspiracy theories or false information (Storyzy)
+
+ITEM F633
+Quote from paper: "Among 8 health misinformation topics identified, the most common were posts promoting misinformation about Vitamin D (n=73, 1.3%)."
+How that paper defined misinformation: Health misinformation = inaccurate/false health information (e.g., UV tanning framed as a safe way to get Vitamin D)
+
+ITEM F634
+Quote from paper: "A second category was misinformation about tanning as a medical treatment (n=31 posts, 0.6%)"
+How that paper defined misinformation: Health misinformation = inaccurate/false health information (e.g., UV tanning framed as a safe way to get Vitamin D)
+
+ITEM F635
+Quote from paper: "Another category of misinformation was promoting misinformation about the benefits of a “base tan” (n=29 posts, 0.5%)"
+How that paper defined misinformation: Health misinformation = inaccurate/false health information (e.g., UV tanning framed as a safe way to get Vitamin D)
+
+ITEM F638
+Quote from paper: "For potential, exposed, and engaged audiences, 97% of false URLs in each case have audiences that are conservative on average."
+How that paper defined misinformation: News URL rated false by Meta's Third-Party Fact-Checking Program (3PFC) as of 15 Feb 2021; domains rated untrustworthy per aggregated third-party ratings
+
+ITEM F639
+Quote from paper: "For potential, exposed, and engaged audiences, 71, 76, and 76% of untrustworthy domains have audiences that are conservative on average (favorability score > 0)."
+How that paper defined misinformation: News URL rated false by Meta's Third-Party Fact-Checking Program (3PFC) as of 15 Feb 2021; domains rated untrustworthy per aggregated third-party ratings
+
+ITEM F640
+Quote from paper: "fewer than 5% of people on the left or in the center ever shared any fake news content"
+How that paper defined misinformation: Content from 'fake news sources' - websites identified (via Lazer et al. and journalistic lists, partitioned into black/red/orange tiers by editorial standards) as routinely publishing fabricated/fals
+
+ITEM F641
+Quote from paper: "(complement of reported subgroup; it shows that supersharers had a significantly higher percentage of women (59%) compared with all reference groups (aver)"
+How that paper defined misinformation: Source-level fake news: external links to domains that portray as legitimate news outlets but lack editorial norms for accuracy (Grinberg et al. 2019 manually-labelled list, updated with NewsGuard); r
+
+ITEM F642
+Quote from paper: "(complement of reported subgroup; It also shows that supersharers had the highest proportion of Republicans (64%), including the Republican-leaning group )"
+How that paper defined misinformation: Source-level fake news: external links to domains that portray as legitimate news outlets but lack editorial norms for accuracy (Grinberg et al. 2019 manually-labelled list, updated with NewsGuard); r
+
+ITEM F643
+Quote from paper: "(complement of reported subgroup; Examining the political ideology of superspreaders, we find that 91% (49 of 54) of the “political” accounts are conserva)"
+How that paper defined misinformation: Low-credibility content = content originally published by low-credibility/untrustworthy sources, identified via the Iffy+ list of 738 source domains compiled by professional fact-checkers (source-leve
+
+ITEM F648
+Quote from paper: "Die Linke: 0.2% of shared links misinformation (n=23 misinfo links)"
+How that paper defined misinformation: NewsGuard domain trust score < 60 (source/domain-level)
+
+ITEM F649
+Quote from paper: "CDU/CSU: 0.1% of shared links misinformation (n=7 misinfo links)"
+How that paper defined misinformation: NewsGuard domain trust score < 60 (source/domain-level)
+
+ITEM F650
+Quote from paper: "Gruppo Misto (mixed, IT): 9.7% of shared links misinformation (n=1846 misinfo links)"
+How that paper defined misinformation: NewsGuard domain trust score < 60 (source/domain-level)
+
+ITEM F651
+Quote from paper: "Lega: 9.2% of shared links misinformation (n=927 misinfo links)"
+How that paper defined misinformation: NewsGuard domain trust score < 60 (source/domain-level)
+
+ITEM F652
+Quote from paper: "Conservative Party: 0.5% of shared links misinformation (n=149 misinfo links)"
+How that paper defined misinformation: NewsGuard domain trust score < 60 (source/domain-level)
+
+ITEM F653
+Quote from paper: "Labour Party: 0.1% of shared links misinformation (n=59 misinfo links)"
+How that paper defined misinformation: NewsGuard domain trust score < 60 (source/domain-level)
+
+ITEM F659
+Quote from paper: "Among RE politicians, the highest proportion of misinformation was observed in the USA (11.1%), followed by the UK (6.8%)."
+How that paper defined misinformation: NewsGuard domain trust score < 60 (source/domain-level)
+
+ITEM F660
+Quote from paper: "Among RE politicians, the highest proportion of misinformation was observed in the USA (11.1%), followed by the UK (6.8%)."
+How that paper defined misinformation: NewsGuard domain trust score < 60 (source/domain-level)
+
+ITEM F665
+Quote from paper: "TikTok 31.7% [24.7-38.8], Instagram Reels 16.8% [11.6-22.1], YouTube Shorts 8% [4.2-11.8] (Results 3.3)"
+How that paper defined misinformation: St-Pierre et al. 2026 (Epileptic Disorders): video classified as containing disinformation/misinformation if it contained information contradicting clinical recommendations (e.g. promotion of unverifi
+
+ITEM F666
+Quote from paper: "TikTok 31.7% [24.7-38.8], Instagram Reels 16.8% [11.6-22.1], YouTube Shorts 8% [4.2-11.8] (Results 3.3)"
+How that paper defined misinformation: St-Pierre et al. 2026 (Epileptic Disorders): video classified as containing disinformation/misinformation if it contained information contradicting clinical recommendations (e.g. promotion of unverifi
+
+ITEM F667
+Quote from paper: "TikTok 31.7% [24.7-38.8], Instagram Reels 16.8% [11.6-22.1], YouTube Shorts 8% [4.2-11.8] (Results 3.3)"
+How that paper defined misinformation: St-Pierre et al. 2026 (Epileptic Disorders): video classified as containing disinformation/misinformation if it contained information contradicting clinical recommendations (e.g. promotion of unverifi
+
+ITEM F668
+Quote from paper: "Of the 332 web pages, 85% contained at least one misinformation statement"
+How that paper defined misinformation: DS web-page content violating modified CEWADS criteria (unapproved/non-compliant claims per Thai food-supplement regulations); page counted as misinfo if >=1 statement present
+
+ITEM F669
+Quote from paper: "Of the 332 web pages, 85% contained at least one misinformation statement"
+How that paper defined misinformation: DS web-page content violating modified CEWADS criteria (unapproved/non-compliant claims per Thai food-supplement regulations); page counted as misinfo if >=1 statement present
+
+ITEM F670
+Quote from paper: "Of the 332 web pages, 85% contained at least one misinformation statement"
+How that paper defined misinformation: DS web-page content violating modified CEWADS criteria (unapproved/non-compliant claims per Thai food-supplement regulations); page counted as misinfo if >=1 statement present

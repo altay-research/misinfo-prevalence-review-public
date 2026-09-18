@@ -1,0 +1,35 @@
+{
+  "run_utc": "20260620_075013",
+  "variants": {
+    "consumption_only": {
+      "query": "TITLE-ABS-KEY ( ( misinformation OR disinformation OR \"fake news\" OR \"false news\" OR \"unreliable news\" OR \"untrustworthy websites\" OR \"low-quality news\" OR \"junk news\" ) AND ( exposure OR consumption OR consume* OR reach OR audience OR \"news diet\" OR \"information diet\" OR prevalence OR circulation OR traffic OR visits ) ) AND NOT TITLE ( detection OR classifier OR classification OR \"deep learning\" OR \"neural network\" OR transformer )",
+      "corpus": 8713,
+      "recall_caught": 10,
+      "recall_indexed": 16
+    },
+    "v2_baseline": {
+      "query": "TITLE-ABS-KEY ( ( misinformation OR disinformation OR \"fake news\" OR \"false news\" OR \"unreliable news\" OR \"untrustworthy websites\" OR \"low-quality news\" OR \"junk news\" ) AND ( exposure OR consumption OR consume* OR reach OR audience OR \"news diet\" OR \"information diet\" OR prevalence OR circulation OR sharing OR shared OR spread OR diffusion OR dissemination OR quantif* OR \"how much\" OR supersharer* OR \"super-sharer*\" OR traffic OR visits OR engagement OR scale ) ) AND NOT TITLE ( detection OR classifier OR classification OR \"deep learning\" OR \"neural network\" OR transformer )",
+      "corpus": 20409,
+      "recall_caught": 14,
+      "recall_indexed": 16
+    },
+    "prox_W5": {
+      "query": "TITLE-ABS-KEY ( ( misinformation OR disinformation OR \"fake news\" OR \"false news\" ) W/5 ( exposure OR consumption OR sharing OR shared OR spread OR diffusion OR prevalence OR reach OR audience OR circulation OR supersharer* ) ) AND NOT TITLE ( detection OR classifier OR classification OR \"deep learning\" OR \"neural network\" OR transformer )",
+      "corpus": 6603,
+      "recall_caught": 11,
+      "recall_indexed": 16
+    },
+    "empirical": {
+      "query": "TITLE-ABS-KEY ( ( misinformation OR disinformation OR \"fake news\" OR \"false news\" OR \"unreliable news\" OR \"untrustworthy websites\" OR \"low-quality news\" OR \"junk news\" ) AND ( exposure OR consumption OR consume* OR reach OR audience OR \"news diet\" OR \"information diet\" OR prevalence OR circulation OR sharing OR shared OR spread OR diffusion OR dissemination OR quantif* OR \"how much\" OR supersharer* OR \"super-sharer*\" OR traffic OR visits OR engagement OR scale ) AND ( empirical OR survey OR panel OR sample OR respondents OR dataset OR proportion OR percent OR \"share of\" OR users OR participants ) ) AND NOT TITLE ( detection OR classifier OR classification OR \"deep learning\" OR \"neural network\" OR transformer )",
+      "corpus": 10113,
+      "recall_caught": 12,
+      "recall_indexed": 16
+    },
+    "prox_AND_emp": {
+      "query": "TITLE-ABS-KEY ( ( ( misinformation OR disinformation OR \"fake news\" OR \"false news\" ) W/5 ( exposure OR consumption OR sharing OR shared OR spread OR diffusion OR prevalence OR reach OR audience OR circulation OR supersharer* ) ) AND ( empirical OR survey OR panel OR sample OR respondents OR dataset OR proportion OR percent OR \"share of\" OR users OR participants ) ) AND NOT TITLE ( detection OR classifier OR classification OR \"deep learning\" OR \"neural network\" OR transformer )",
+      "corpus": 3517,
+      "recall_caught": 9,
+      "recall_indexed": 16
+    }
+  }
+}

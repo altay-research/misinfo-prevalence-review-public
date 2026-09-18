@@ -1,0 +1,11 @@
+"moderator","r2_adj","ci_lo","ci_hi","B"
+"ground_truth",22.8,17.4,29.1,200
+"id_method",21.8,16.6,27.4,200
+"construct",19.1,13.6,24.6,200
+"measurement",16.6,11.5,21.8,200
+"denom_fine",16.6,9.5,25.9,200
+"platform",14.1,10.6,21.4,200
+"sampling",12.7,8.3,19.4,200
+"breadth",12,6.7,18.2,200
+"topic",1.8,0,6.7,200
+"denom",0,0,1.6,200

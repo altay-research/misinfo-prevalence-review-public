@@ -1,0 +1,16 @@
+comparison,dimension,n,raw,kappa,ac1
+sacha vs dataset,construct(part1),24,0.708,0.646,0.67
+laura vs dataset,construct(part1),24,0.667,0.602,0.622
+sacha vs dataset,breadth,24,0.667,0.556,0.563
+laura vs dataset,breadth,24,0.792,0.718,0.746
+sacha vs dataset,denom_class,23,0.87,0.768,0.84
+laura vs dataset,denom_class,24,0.792,0.639,0.765
+sacha vs dataset,construct(part2),23,0.87,0.784,0.846
+laura vs dataset,construct(part2),24,0.792,0.697,0.765
+sacha vs laura (HUMAN CEILING),construct(part1),24,0.583,0.477,0.53
+sacha vs laura (HUMAN CEILING),breadth,24,0.667,0.558,0.592
+sacha vs laura (HUMAN CEILING),denom_class,23,0.913,0.841,0.899
+sacha vs laura (HUMAN CEILING),construct(part2),23,0.739,0.596,0.708
+sacha vs dataset,value_pct,23,0.87,eff=0.913,exact=20 alt=1 miss=2
+laura vs dataset,value_pct,24,0.583,eff=0.667,exact=14 alt=2 miss=8
+sacha vs laura (HUMAN CEILING),value_pct,23,0.652,,

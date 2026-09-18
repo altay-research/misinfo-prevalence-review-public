@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-85194837588,CORRECT_EXCLUDE,detection/source-tracing AI framework
+2-s2.0-85142905214,CORRECT_EXCLUDE,review on misinformation and health disparities
+2-s2.0-85198246689,FALSE_NEGATIVE,survey media consumption and disinformation Global South
+2-s2.0-85216762696,CORRECT_EXCLUDE,qualitative discourse analysis of anti-vaccine messages
+2-s2.0-105007030507,CORRECT_EXCLUDE,police communication tactics during riots
+2-s2.0-85109637895,FALSE_NEGATIVE,measures Covid disinformation spread on WhatsApp
+2-s2.0-85217671589,CORRECT_EXCLUDE,content analysis of health influencer profiles
+2-s2.0-85102718162,CORRECT_EXCLUDE,commentary on polio vaccine misinformation
+2-s2.0-85048644381,CORRECT_EXCLUDE,theory/commentary on social media career info validity
+2-s2.0-85144509793,CORRECT_EXCLUDE,Google Trends vaccination search volume not misinfo
+2-s2.0-105008269704,CORRECT_EXCLUDE,toxicity detection model on Telegram
+2-s2.0-85190799455,CORRECT_EXCLUDE,coordinated behavior detection not content prevalence
+2-s2.0-105014662831,CORRECT_EXCLUDE,general social media use survey not misinfo
+2-s2.0-85108732753,CORRECT_EXCLUDE,qualitative memetic analysis of meme hoaxes
+2-s2.0-85083574248,CORRECT_EXCLUDE,surveys of user sharing behavior experimental
+2-s2.0-85187864672,CORRECT_EXCLUDE,content moderation effectiveness analysis
+2-s2.0-85090319305,CORRECT_EXCLUDE,theory/argument on online activism left-right
+2-s2.0-85054165307,CORRECT_EXCLUDE,content analysis fake trend twitter strategies
+2-s2.0-85088997259,CORRECT_EXCLUDE,commentary on China state propaganda tactics
+2-s2.0-85105126834,CORRECT_EXCLUDE,descriptive chapter on India info ecosystem
+2-s2.0-85151415098,CORRECT_EXCLUDE,fake news detection sentiment analysis
+2-s2.0-105033103558,CORRECT_EXCLUDE,methodological framework for identifying actors
+2-s2.0-105023065879,CORRECT_EXCLUDE,fake news detection pipeline on Threads
+2-s2.0-105012514845,CORRECT_EXCLUDE,fact-checking platform coverage analysis
+2-s2.0-85169998829,FALSE_NEGATIVE,measures misinformation spread/retweets cross-lingual
+2-s2.0-85121749320,CORRECT_EXCLUDE,health info source credibility theory
+2-s2.0-85122127983,CORRECT_EXCLUDE,rumor topic dynamics text analysis
+2-s2.0-85183227116,CORRECT_EXCLUDE,theory/discourse on rumor as contention
+2-s2.0-85104164793,FALSE_NEGATIVE,reviews prevalence/consumption of fake news low
+2-s2.0-85125357882,CORRECT_EXCLUDE,survey exposure effects on perceptions
+2-s2.0-85150021066,CORRECT_EXCLUDE,detection pipeline claim-article support
+2-s2.0-85197732818,CORRECT_EXCLUDE,content analysis YouTube comment sources
+2-s2.0-85088252994,CORRECT_EXCLUDE,propaganda clickbait strategy analysis
+2-s2.0-105038709715,CORRECT_EXCLUDE,intervention community notes effectiveness
+2-s2.0-85100087939,CORRECT_EXCLUDE,fake news detection dataset
+2-s2.0-85141939349,FALSE_NEGATIVE,measures spread structure of cancer misinfo YouTube
+2-s2.0-105007041639,CORRECT_EXCLUDE,discourse analysis of hashtags polarization
+2-s2.0-105012942893,CORRECT_EXCLUDE,experiment misinformation effects on attitudes
+2-s2.0-85201248510,CORRECT_EXCLUDE,discourse analysis mpox tweets not misinfo prevalence
+2-s2.0-85154550041,FALSE_NEGATIVE,maps scale/scope of disinformation Telegram networks

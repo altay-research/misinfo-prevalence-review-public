@@ -1,0 +1,51 @@
+eid,verdict,reason
+2-s2.0-85121267888,REJECT,Topics/sentiment of misinfo tweets; no prevalence/exposure share of misinfo reported
+2-s2.0-85186741013,CONFIRM,Compares engagement across 40 misinfo/mainstream sites with quantified data
+2-s2.0-85141753781,CONFIRM,Tracks actor link-sharing; most shared links were misinformation
+2-s2.0-85166545309,REJECT,Survey correlations on exposure; no quantitative prevalence estimate
+2-s2.0-85192732462,CONFIRM,Telemetry quantifies referral/retention rates into unreliable content
+2-s2.0-85116615470,CONFIRM,101 false items; 25.74% in opinion-forming media; quantified content prevalence
+2-s2.0-105027587881,CONFIRM,Misinformation in 31% of stroke TikTok videos; content prevalence
+2-s2.0-85182846541,CONFIRM,Quantifies volume/proportion of low-credibility content; identifies top creators
+2-s2.0-105017960510,CONFIRM,Bot prevalence 2.22%; engagement ratios; actor-level quantification
+2-s2.0-105034674670,REJECT,Qualitative content/sentiment; no quantitative misinfo prevalence estimate
+2-s2.0-85189757456,CONFIRM,Quantifies bot vs human shares and skepticism percentages over time
+2-s2.0-105022112843,CONFIRM,Quantifies disinformation appeal types across 22k messages
+2-s2.0-85148963619,CONFIRM,Prevalence of low-credibility news; superspreaders account for 35% reshares
+2-s2.0-85145196122,CONFIRM,Misinfo 1.1% Twitter vs 0.3% Weibo; quantified content prevalence
+2-s2.0-85205078871,REJECT,Content themes of 239 hoaxes; no prevalence/exposure quantification
+2-s2.0-85048127619,CONFIRM,Rumors had 3x more shares than verified; observed sharing volume
+2-s2.0-85177420309,CONFIRM,Quantifies share of debunking vs CT content in Google results across countries
+2-s2.0-105030586804,CONFIRM,Quantifies circulation/sharing of 38k news links from biased media
+2-s2.0-85205258797,REJECT,Single-page content analysis; topic percentages not misinfo prevalence
+2-s2.0-105014185875,CONFIRM,18% accurate vs 29% misleading OCD videos; engagement quantified
+2-s2.0-85101747540,REJECT,Effects of fake-news exposure on trust; not a prevalence estimate
+2-s2.0-85169326292,CONFIRM,14% knowingly share misinformation; actor-level prevalence
+2-s2.0-105032711349,REJECT,Quality scores of rare-disease videos; no misinfo prevalence estimate
+2-s2.0-85065905229,CONFIRM,Prevalence of inaccurate articles per cancer; share counts quantified
+2-s2.0-85197085883,CONFIRM,52036 narratives across 1334 unreliable sites; prevalence/influence quantified
+2-s2.0-85092033301,CONFIRM,Quantifies volumes of misinfo across platforms; rumor amplification
+2-s2.0-85114467662,REJECT,Factuality/propaganda framing; no quantitative misinfo prevalence reported
+2-s2.0-105032541625,CONFIRM,Quantifies CT dissemination across 71k retweet comments; prevalence by theme
+2-s2.0-85022767858,UNSURE,Junk-news spread/prominence described qualitatively; unclear quantitative share
+2-s2.0-85190817518,CONFIRM,36% of Reddit content inaccurate; content prevalence quantified
+2-s2.0-78649725192,CONFIRM,4.5% of tweets identified as misinformation; content prevalence
+2-s2.0-85053521048,REJECT,Publication bias in tweeted surgical outcomes; not misinfo prevalence
+2-s2.0-105014632937,CONFIRM,Misinformation prevalent in 38% of YouTube videos; quantified
+2-s2.0-105041276064,CONFIRM,Misinfo prevalence and engagement in IUD TikTok videos quantified
+2-s2.0-85142396682,CONFIRM,Quantifies untrustworthy-source sharing by political elites over time
+2-s2.0-85174615177,CONFIRM,Misinformation in 5.4% of ophthalmology videos; engagement share
+2-s2.0-85203354546,CONFIRM,Quantifies proportions of misinfo categories across US/Japan
+2-s2.0-85192081358,REJECT,Quality scores; 14.8% misleading is video usefulness not misinfo prevalence
+2-s2.0-85171477190,CONFIRM,Quantifies production/consumption volume of questionable vs reliable sources
+2-s2.0-85102849802,CONFIRM,Quantifies disinformation ads within 14684 Facebook ads
+2-s2.0-105016506408,REJECT,Qualitative content analysis; posts infrequent but no quantitative estimate
+2-s2.0-105011907999,REJECT,NLP characteristics/trends of misinfo; no prevalence/exposure quantity
+2-s2.0-85083965254,CONFIRM,28% of posts health misinfo; 6.5M interactions; content/engagement prevalence
+2-s2.0-85214938393,REJECT,Quality/understandability of surgery videos; no misinfo prevalence estimate
+2-s2.0-85209206311,CONFIRM,Quantifies consumption of low-quality sites in news deserts via telemetry
+2-s2.0-85128353484,CONFIRM,255 fact-checks; quantifies share of COVID hoaxes and actors
+2-s2.0-85070239449,CONFIRM,Quantifies reach/interactions of junk vs mainstream news on Facebook
+2-s2.0-85081680257,CONFIRM,Two-thirds of vaccine YouTube videos contained unreliable info; prevalence
+2-s2.0-105002473473,CONFIRM,One-third of community content incorrect; content prevalence quantified
+2-s2.0-0033287165,REJECT,Print drug ad accuracy; not misinformation prevalence/exposure on platforms

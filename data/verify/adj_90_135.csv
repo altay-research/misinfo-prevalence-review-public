@@ -1,0 +1,46 @@
+eid,verdict,reason
+2-s2.0-85137890194,EXCLUDE,Drivers of virality (anger-retweet correlation); no prevalence/exposure share reported
+2-s2.0-85118913556,EXCLUDE,Bot roles in retweet networks; no audience-exposure prevalence estimate
+2-s2.0-85116608685,INCLUDE,Reports rumor source shares (WhatsApp 46%, Twitter 41%) content-level
+2-s2.0-85099150264,INCLUDE,64% receive weekly political news via WhatsApp, 24% five+; consumption survey
+2-s2.0-85196841622,FULLTEXT,Rumor engagement over time; share of misinfo content unclear from abstract
+2-s2.0-85038621544,FULLTEXT,Measures mainstream vs alternative news flow; quantitative share not in abstract
+2-s2.0-85183913419,INCLUDE,126 million Americans reportedly exposed to Russian 2016 election content
+2-s2.0-85105453320,FULLTEXT,Counts misinfo tweets in 2.5M dataset; share/prevalence not stated in abstract
+2-s2.0-85091275255,FULLTEXT,Content analysis of Facebook news verifiability; quantitative share not in abstract
+2-s2.0-85056602344,INCLUDE,Reports ~70% claims fact-checked, spread patterns; observed sharing dynamics
+2-s2.0-85132285149,EXCLUDE,Radicalization indicators in movement channels; not audience misinfo prevalence
+2-s2.0-85160286512,EXCLUDE,Fact-checker post engagement analysis; not misinformation prevalence/exposure
+2-s2.0-85169922225,EXCLUDE,Misinfo search behavior during outage; demand effect, no prevalence estimate
+2-s2.0-105031107861,EXCLUDE,Educational quality of videos; accuracy scores not misinfo-share prevalence
+2-s2.0-85207022230,FULLTEXT,Think-tank tweet themes and reach; misinfo-share prevalence unclear from abstract
+2-s2.0-105026155756,FULLTEXT,2572 disaster news analyzed for accuracy; false-content share not stated
+2-s2.0-85209813530,INCLUDE,Classifies 66 YouTube videos; useful/misleading shares reported, content-level
+2-s2.0-105009503529,INCLUDE,185 hoax-news content analysis with typology distribution; content-level
+2-s2.0-85162270923,FULLTEXT,Counts spreaders vs fact-checkers; misinfo content share not stated in abstract
+2-s2.0-85144802740,INCLUDE,Real-world following/sharing low-quality news linked to hesitancy; observed behavior
+2-s2.0-105012953237,EXCLUDE,Feasibility/methods pilot of web-monitoring; no exposure prevalence estimate
+2-s2.0-85203317819,FULLTEXT,85 sarcoidosis videos quality; misinfo share described qualitatively only
+2-s2.0-85083074621,EXCLUDE,IRA tweet vaccine valence analysis; no audience-exposure prevalence
+2-s2.0-85102493378,INCLUDE,200 HPV articles coded by tone; 23.5% negative content-level share
+2-s2.0-85108996494,INCLUDE,Top 100 vaccine links analyzed; content distribution of most-consumed
+2-s2.0-85192806272,INCLUDE,Infodemic prevalence 22.1%; TV main source 58.9%; population survey
+2-s2.0-85119233792,FULLTEXT,Veracity vs Twitter diffusion; quantitative share not given in abstract
+2-s2.0-85129781787,INCLUDE,40% of treatment coverage misleading; content-level prevalence of misinfo
+2-s2.0-85136577983,FULLTEXT,Coordinated link sharing of misinfo; prevalence share not stated in abstract
+2-s2.0-85097769512,EXCLUDE,Google Trends search growth modeling; no exposure-share prevalence estimate
+2-s2.0-105011342295,INCLUDE,100 vitiligo TikToks classified; HP vs NHP quality/misinfo shares reported
+2-s2.0-85131726850,EXCLUDE,Fake-account commenting suppression effect; not misinfo content prevalence
+2-s2.0-85132797380,INCLUDE,402 debunked hoaxes content analysis with typology distribution; content-level
+2-s2.0-85016088761,FULLTEXT,376M users news consumption concentration; misinfo-specific share not in abstract
+2-s2.0-105009542421,INCLUDE,97 videos: 54.6% reliable, ~45% non-reliable; content-level prevalence share
+2-s2.0-85189142904,INCLUDE,326 thyroid videos content analysis; misinfo/overdiagnosis-content shares reported
+2-s2.0-85183777415,INCLUDE,Misinformation proportion 48% among 844 residents; population survey prevalence
+2-s2.0-85098161724,FULLTEXT,WhatsApp audio disinfo circulation counts; prevalence share unclear from abstract
+2-s2.0-105017599346,INCLUDE,Tracks news quality/ideology of consumption in Facebook URL dataset; concentration
+2-s2.0-85163582822,EXCLUDE,Press actively opposed hoaxes; no quantitative misinfo-share prevalence
+2-s2.0-105012550022,INCLUDE,200 fibroid videos quality scores; low-quality content prevalence reported
+2-s2.0-85170522441,INCLUDE,481 rebuttals/409 misinfo pieces content analysis with distributions; content-level
+2-s2.0-85135458831,EXCLUDE,Self-reported hypothetical/recalled sharing survey; not observed real-world behavior
+2-s2.0-85188289417,EXCLUDE,Thematic ML classification of 506 debunked claims; detection/themes not prevalence
+2-s2.0-85198507211,INCLUDE,574 oral-contraceptive TikToks low quality/reliability scores; content-level prevalence

@@ -1,0 +1,101 @@
+eid,verdict,reason
+2-s2.0-84904717902,CORRECT_EXCLUDE,ML/detection of semantic attacks
+2-s2.0-85092738459,CORRECT_EXCLUDE,workshop proceedings not empirical study
+2-s2.0-0035181778,CORRECT_EXCLUDE,off-topic women/sex/internet
+2-s2.0-85123693853,CORRECT_EXCLUDE,off-topic digital history/historians
+2-s2.0-85137721320,CORRECT_EXCLUDE,commentary on news credibility
+2-s2.0-85191189645,CORRECT_EXCLUDE,off-topic ChatGPT genetic counseling
+2-s2.0-85067903125,CORRECT_EXCLUDE,off-topic forensic psychiatry/delusions
+2-s2.0-105021830825,CORRECT_EXCLUDE,simulation model not empirical measurement
+2-s2.0-85094485302,CORRECT_EXCLUDE,theory/commentary on propaganda
+2-s2.0-105033705164,CORRECT_EXCLUDE,modeling rumor dynamics not empirical prevalence
+2-s2.0-85138585038,CORRECT_EXCLUDE,off-topic COVID vaccination motivations
+2-s2.0-85145298392,CORRECT_EXCLUDE,off-topic gender/racial stereotypes social media
+2-s2.0-105016579481,CORRECT_EXCLUDE,off-topic sentiment analysis cochlear implants
+2-s2.0-105041049214,CORRECT_EXCLUDE,off-topic fluoridation resistance
+2-s2.0-85086319415,CORRECT_EXCLUDE,off-topic citizen journalism Malaysia
+2-s2.0-85096449950,CORRECT_EXCLUDE,off-topic SNS impact on COVID pandemic
+2-s2.0-105038543158,CORRECT_EXCLUDE,network algorithm not misinfo prevalence
+2-s2.0-85048557943,CORRECT_EXCLUDE,off-topic corporate environmental reporting
+2-s2.0-85197728450,CORRECT_EXCLUDE,off-topic political orientation/blame
+2-s2.0-105038231744,CORRECT_EXCLUDE,off-topic community journalism decline
+2-s2.0-85203496947,CORRECT_EXCLUDE,credibility perception not prevalence
+2-s2.0-85179846391,CORRECT_EXCLUDE,ML/detection fake news
+2-s2.0-85207121279,CORRECT_EXCLUDE,political actors/journalists role commentary
+2-s2.0-85212245315,CORRECT_EXCLUDE,off-topic vaccine hesitancy/professionalism
+2-s2.0-85210230000,CORRECT_EXCLUDE,off-topic media conversational leadership
+2-s2.0-105030331275,CORRECT_EXCLUDE,off-topic phoneme diversity speech synthesis
+2-s2.0-85185816098,CORRECT_EXCLUDE,conference proceedings
+2-s2.0-84862597897,CORRECT_EXCLUDE,off-topic HIV/HPV risk Pacific Islanders
+2-s2.0-85162975822,CORRECT_EXCLUDE,off-topic fake news as memes/sharing motives
+2-s2.0-85138909501,CORRECT_EXCLUDE,correction/response strategies not prevalence
+2-s2.0-38949147020,CORRECT_EXCLUDE,off-topic consumer rights food market
+2-s2.0-105017830733,CORRECT_EXCLUDE,off-topic social media academic medicine
+2-s2.0-85099302153,CORRECT_EXCLUDE,off-topic bat conservation/COVID fear
+2-s2.0-85159588370,CORRECT_EXCLUDE,off-topic mental health military workers
+2-s2.0-105035882512,CORRECT_EXCLUDE,off-topic AI impact on media trust
+2-s2.0-85183680882,CORRECT_EXCLUDE,off-topic opioid epidemic commentary
+2-s2.0-85182365339,CORRECT_EXCLUDE,network analysis COVID variants not misinfo prevalence
+2-s2.0-85120167228,CORRECT_EXCLUDE,credibility evaluation guidelines not prevalence
+2-s2.0-85099376841,CORRECT_EXCLUDE,vaccine hesitancy sentiment not misinfo prevalence
+2-s2.0-85194899308,CORRECT_EXCLUDE,browser extension intervention tool
+2-s2.0-85111484639,CORRECT_EXCLUDE,fact-checking as strategy commentary
+2-s2.0-85162236964,CORRECT_EXCLUDE,theory/commentary on disinformation politics
+2-s2.0-85091716953,CORRECT_EXCLUDE,off-topic information needs Italian citizens
+2-s2.0-85099454800,FN_CANDIDATE,bot activity % in climate Twitter discourse
+2-s2.0-105000891294,FN_CANDIDATE,prevalence misperceptions tobacco companies US adults
+2-s2.0-84950322242,CORRECT_EXCLUDE,ML/detection model for misinfo
+2-s2.0-105004291282,CORRECT_EXCLUDE,off-topic health literacy medication adherence
+2-s2.0-85046956038,CORRECT_EXCLUDE,off-topic collaboration/inaccuracy psychology
+2-s2.0-84960478458,FN_CANDIDATE,prevalence Ebola misconceptions rural residents
+2-s2.0-105008959158,CORRECT_EXCLUDE,ML/NLP fake news detection
+2-s2.0-85211041266,CORRECT_EXCLUDE,off-topic affective stimuli/attitudes psychology
+2-s2.0-105033646625,CORRECT_EXCLUDE,theory/framework disinformation multimodality
+2-s2.0-85103359995,CORRECT_EXCLUDE,intervention/awareness visual manipulation
+2-s2.0-85124355943,CORRECT_EXCLUDE,conference proceedings
+2-s2.0-85113348889,CORRECT_EXCLUDE,off-topic philosophy of ideas
+2-s2.0-105002175910,CORRECT_EXCLUDE,off-topic epistemic dependence/scientific literacy
+2-s2.0-85105989280,CORRECT_EXCLUDE,off-topic hotel stakeholder conflict
+2-s2.0-105014497147,CORRECT_EXCLUDE,off-topic COVID vaccine acceptance perceptions
+2-s2.0-85116995841,CORRECT_EXCLUDE,commentary on fake news/media literacy
+2-s2.0-85108198760,FN_CANDIDATE,content analysis misinfo in legacy vs user media
+2-s2.0-85108543737,CORRECT_EXCLUDE,off-topic COVID community engagement
+2-s2.0-85076276375,CORRECT_EXCLUDE,off-topic social media regulation/user data
+2-s2.0-85179504234,CORRECT_EXCLUDE,off-topic EV grid disinformation threat commentary
+2-s2.0-84886517027,CORRECT_EXCLUDE,off-topic gossip algorithm network
+2-s2.0-33745312164,CORRECT_EXCLUDE,off-topic personal travel essay
+2-s2.0-85212471936,CORRECT_EXCLUDE,off-topic noise disorder non-human
+2-s2.0-105031908500,CORRECT_EXCLUDE,intervention tool to prevent fake news spread
+2-s2.0-85153747236,CORRECT_EXCLUDE,off-topic participatory disinformation/political narratives
+2-s2.0-85103782309,CORRECT_EXCLUDE,off-topic right-wing online groups framing
+2-s2.0-85084004901,CORRECT_EXCLUDE,dataset/corpus for fact-checking ML
+2-s2.0-105028346373,CORRECT_EXCLUDE,off-topic drug-facilitated sexual assault
+2-s2.0-85074101163,CORRECT_EXCLUDE,off-topic measles clinical guide
+2-s2.0-85166148890,CORRECT_EXCLUDE,inoculation intervention RCT
+2-s2.0-71749090890,CORRECT_EXCLUDE,off-topic healthy eating guidelines South Africa
+2-s2.0-85137569912,CORRECT_EXCLUDE,off-topic COVID conceptualization pregnant women
+2-s2.0-85104030538,CORRECT_EXCLUDE,off-topic breathlessness opioid perceptions
+2-s2.0-105039178373,CORRECT_EXCLUDE,off-topic fake news events industry commentary
+2-s2.0-85210590739,CORRECT_EXCLUDE,off-topic political storytelling/populism
+2-s2.0-85129357600,CORRECT_EXCLUDE,off-topic perinatal public health social media
+2-s2.0-84940254550,CORRECT_EXCLUDE,conference proceedings signal processing
+2-s2.0-85192233150,CORRECT_EXCLUDE,correction/belief updating experiment
+2-s2.0-85129080428,CORRECT_EXCLUDE,tool for journalists not prevalence measurement
+2-s2.0-105019348995,CORRECT_EXCLUDE,off-topic backfire effect/debunking
+2-s2.0-85156221255,CORRECT_EXCLUDE,ML classifier user credibility
+2-s2.0-85125827163,CORRECT_EXCLUDE,beliefs about misinfo causes not prevalence
+2-s2.0-85206647477,CORRECT_EXCLUDE,off-topic media-democracy South Asia commentary
+2-s2.0-105036657924,CORRECT_EXCLUDE,off-topic AI risks framework media platforms
+2-s2.0-85108453146,CORRECT_EXCLUDE,sharing behavior individual differences not prevalence
+2-s2.0-85102764799,CORRECT_EXCLUDE,off-topic psychosocial effects social media Saudi
+2-s2.0-105034723440,CORRECT_EXCLUDE,off-topic diaspora nationalism/disinformation
+2-s2.0-85115411645,CORRECT_EXCLUDE,off-topic COVID vaccine uptake intervention
+2-s2.0-85081591417,CORRECT_EXCLUDE,off-topic energy efficient appliances marketing
+2-s2.0-85209714063,CORRECT_EXCLUDE,third-person effect vaccine misinfo beliefs
+2-s2.0-85103857770,CORRECT_EXCLUDE,argumentation analysis infodemic commentary
+2-s2.0-85088966172,CORRECT_EXCLUDE,off-topic COVID contagion/information general
+2-s2.0-105022901066,CORRECT_EXCLUDE,off-topic cognitive effects fake news/polarization
+2-s2.0-105033610013,CORRECT_EXCLUDE,network analysis detection approach
+2-s2.0-85191403735,FN_CANDIDATE,content analysis pseudoscience Instagram posts
+2-s2.0-105039938059,FN_CANDIDATE,content analysis fact-checking TikTok prevalence
+2-s2.0-85083832891,CORRECT_EXCLUDE,off-topic evolutionary psychology disinformation/demagogues

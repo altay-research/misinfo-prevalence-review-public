@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-85087304400,CORRECT_EXCLUDE,review/commentary on climate misinformation
+2-s2.0-85161009462,CORRECT_EXCLUDE,modeling diffusion methods not measured prevalence
+2-s2.0-105033145396,CORRECT_EXCLUDE,survey/review of methods on VSPs
+2-s2.0-85153960601,CORRECT_EXCLUDE,qualitative thematic analysis not quantitative prevalence
+2-s2.0-85178321054,CORRECT_EXCLUDE,Twitter sentiment/themes on HPV not misinfo prevalence
+2-s2.0-105016170952,CORRECT_EXCLUDE,classifying science vs action posts not prevalence
+2-s2.0-85094888053,CORRECT_EXCLUDE,survey on blame attribution not content prevalence
+2-s2.0-85153491855,CORRECT_EXCLUDE,theoretical model of propagation not measured prevalence
+2-s2.0-105026015167,CORRECT_EXCLUDE,survey belief/sharing correlates not real-life prevalence
+2-s2.0-85170101039,CORRECT_EXCLUDE,disease awareness on Twitter not misinfo prevalence
+2-s2.0-85062710079,CORRECT_EXCLUDE,quality of cosmetic surgery websites not prevalence
+2-s2.0-85119911087,FALSE_NEGATIVE,quantifies repeat misinfo offenders engagement on Facebook
+2-s2.0-85149914460,CORRECT_EXCLUDE,media use and ability to distinguish misinfo
+2-s2.0-85169294467,CORRECT_EXCLUDE,impact on prescriptions/searches not content prevalence
+2-s2.0-85218718396,CORRECT_EXCLUDE,qualitative user audit strategies not prevalence
+2-s2.0-85215979200,CORRECT_EXCLUDE,engagement with correction posts not misinfo prevalence
+2-s2.0-105013123044,CORRECT_EXCLUDE,systematic review of infodemic literature
+2-s2.0-85115146755,CORRECT_EXCLUDE,experimental sharing intention not observed prevalence
+2-s2.0-105001943973,CORRECT_EXCLUDE,perceived salience estimates not actual prevalence
+2-s2.0-85167919991,CORRECT_EXCLUDE,YouTube video quality assessment not prevalence
+2-s2.0-85184292282,CORRECT_EXCLUDE,sociotechnical focus group not quantitative prevalence
+2-s2.0-85109588392,CORRECT_EXCLUDE,how IRA accounts built followings not prevalence
+2-s2.0-105024007714,CORRECT_EXCLUDE,website quality assessment not prevalence
+2-s2.0-85215998618,FALSE_NEGATIVE,quantifies climate misinfo themes from fact-checker data
+2-s2.0-85149517556,CORRECT_EXCLUDE,commentary on conspiracy theories not measured prevalence
+2-s2.0-85163000879,CORRECT_EXCLUDE,qualitative WhatsApp circulation mechanism not prevalence
+2-s2.0-105002802436,CORRECT_EXCLUDE,review of dissemination/detection methods
+2-s2.0-85171977099,CORRECT_EXCLUDE,topology of diffusion behavior not prevalence
+2-s2.0-105032399299,CORRECT_EXCLUDE,qualitative single theory examination not prevalence
+2-s2.0-105030139165,CORRECT_EXCLUDE,experimental manipulation of ad cues not prevalence
+2-s2.0-85134329743,CORRECT_EXCLUDE,interest/search trends in chlorine dioxide not prevalence
+2-s2.0-105016433786,CORRECT_EXCLUDE,theoretical framework chapter not measured prevalence
+2-s2.0-105018963311,CORRECT_EXCLUDE,qualitative framing analysis of fake news impact
+2-s2.0-105017599875,CORRECT_EXCLUDE,predicting top spreaders methods not prevalence
+2-s2.0-85106434193,CORRECT_EXCLUDE,experimental sharing/verification behavior not observed prevalence
+2-s2.0-105003648015,CORRECT_EXCLUDE,correction notice not a study
+2-s2.0-85165440717,CORRECT_EXCLUDE,xenophobic violence diffusion not misinfo prevalence
+2-s2.0-85111474193,CORRECT_EXCLUDE,content/narrative analysis of TikTok not prevalence
+2-s2.0-85139393033,CORRECT_EXCLUDE,evaluates elevation of authoritative content intervention
+2-s2.0-85131044264,CORRECT_EXCLUDE,review/commentary on cancer misinfo not prevalence

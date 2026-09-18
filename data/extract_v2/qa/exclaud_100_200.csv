@@ -1,0 +1,101 @@
+eid,verdict,reason
+2-s2.0-85081696467,CORRECT_EXCLUDE,commentary on media/COVID not prevalence measure
+2-s2.0-85101747540,CORRECT_EXCLUDE,effects of fake news exposure on trust/attitudes
+2-s2.0-85098040251,CORRECT_EXCLUDE,book about digital regulations not empirical study
+2-s2.0-85135857201,CORRECT_EXCLUDE,vaccine hesitancy/misinformation beliefs not prevalence
+2-s2.0-85091295697,CORRECT_EXCLUDE,systematic review/taxonomy not empirical prevalence
+2-s2.0-84869059400,CORRECT_EXCLUDE,containment/intervention model not prevalence measure
+2-s2.0-84942296234,CORRECT_EXCLUDE,motivation/sharing behavior not prevalence measure
+2-s2.0-85085588617,CORRECT_EXCLUDE,commentary on COVID misinformation battle
+2-s2.0-85086711541,CORRECT_EXCLUDE,commentary/conceptual on infodemic spread
+2-s2.0-84882993742,CORRECT_EXCLUDE,intervention/storytelling against anti-vax beliefs
+2-s2.0-85020191750,CORRECT_EXCLUDE,survey on credibility perceptions not prevalence
+2-s2.0-85092729533,CORRECT_EXCLUDE,survey on risk perceptions/knowledge not prevalence
+2-s2.0-85076373399,CORRECT_EXCLUDE,off-topic fracture prevention clinical recommendations
+2-s2.0-85102439368,CORRECT_EXCLUDE,behavioral analysis of anti-vax infodemic sharing behavior
+2-s2.0-85061134196,CORRECT_EXCLUDE,off-topic plant disease study
+2-s2.0-84947750648,CORRECT_EXCLUDE,emotional dynamics theory/commentary not prevalence
+2-s2.0-84925667615,CORRECT_EXCLUDE,effects of misinformation headlines on beliefs
+2-s2.0-3142720516,CORRECT_EXCLUDE,off-topic AIDS traditional beliefs/stigma
+2-s2.0-84973334037,CORRECT_EXCLUDE,off-topic food allergy clinical study
+2-s2.0-85098843673,CORRECT_EXCLUDE,COVID misinformation beliefs/profiles not prevalence
+2-s2.0-85059746065,CORRECT_EXCLUDE,effects of fake news on brand attitudes
+2-s2.0-85092527527,CORRECT_EXCLUDE,off-topic blockchain for COVID tracking
+2-s2.0-84919897868,CORRECT_EXCLUDE,detection/classifier using cognitive psychology
+2-s2.0-85109365023,CORRECT_EXCLUDE,beliefs in conspiracy/misinformation associations
+2-s2.0-85052055989,CORRECT_EXCLUDE,theory/commentary on post-truth epistemic authorities
+2-s2.0-85092337337,CORRECT_EXCLUDE,web search behaviors/infodemic attitudes not prevalence
+2-s2.0-85107849459,CORRECT_EXCLUDE,health information seeking behavior not prevalence
+2-s2.0-85175196557,CORRECT_EXCLUDE,AI chatbot accuracy evaluation not misinfo prevalence
+2-s2.0-85105104633,CORRECT_EXCLUDE,qualitative study on vaccine hesitancy context
+2-s2.0-33745223464,CORRECT_EXCLUDE,off-topic fertility regulation barriers review
+2-s2.0-85041669389,CORRECT_EXCLUDE,fake news detection/classifier ML
+2-s2.0-85020460897,CORRECT_EXCLUDE,theory/commentary on post-truth information behavior
+2-s2.0-85092684734,CORRECT_EXCLUDE,why people share false info behavioral study
+2-s2.0-85087664629,CORRECT_EXCLUDE,off-topic COVID psychosocial crisis Bangladesh
+2-s2.0-85125740626,CORRECT_EXCLUDE,commentary on COVID misinformation impact
+2-s2.0-85147316910,CORRECT_EXCLUDE,conceptual/methodological commentary on misinfo
+2-s2.0-85061966571,CORRECT_EXCLUDE,theory/commentary on conspiracy and populism
+2-s2.0-85049891082,CORRECT_EXCLUDE,commentary on fake news accusation discursive practice
+2-s2.0-85118838284,CORRECT_EXCLUDE,COVID vaccine resistance attitudes not prevalence
+2-s2.0-84875330257,CORRECT_EXCLUDE,social diffusion model theory not empirical prevalence
+2-s2.0-85192958547,CORRECT_EXCLUDE,off-topic ChatGPT for language education
+2-s2.0-85064045767,CORRECT_EXCLUDE,off-topic network dismantling algorithm
+2-s2.0-85077880001,CORRECT_EXCLUDE,effects of disinformation news on vote choice
+2-s2.0-85067922602,CORRECT_EXCLUDE,information diffusion prediction ML model
+2-s2.0-85104887916,FN_CANDIDATE,measures sharing rates of misinfo vs fact-checks vs accurate
+2-s2.0-85104062930,CORRECT_EXCLUDE,overload/stress effects on fake news sharing behavior
+2-s2.0-77749261116,CORRECT_EXCLUDE,off-topic transportation infrastructure cost overruns
+2-s2.0-85046364318,CORRECT_EXCLUDE,crowdsourcing intervention to reduce fake news spread
+2-s2.0-85027921065,CORRECT_EXCLUDE,conspiracy beliefs about government statistics
+2-s2.0-85090319305,CORRECT_EXCLUDE,commentary on online activism left vs right
+2-s2.0-85040245875,CORRECT_EXCLUDE,crisis event analysis via pictures not misinfo prevalence
+2-s2.0-85055990871,FN_CANDIDATE,measures student susceptibility to hoax website exposure
+2-s2.0-85174238023,CORRECT_EXCLUDE,memory effects/misinformation effect paradigm not prevalence
+2-s2.0-85122332073,CORRECT_EXCLUDE,off-topic occupational radiation pregnancy review
+2-s2.0-85140856968,CORRECT_EXCLUDE,off-topic HIV implant acceptability study
+2-s2.0-85101470443,CORRECT_EXCLUDE,misperceptions about foreign countries attitudes
+2-s2.0-85107354944,CORRECT_EXCLUDE,fake news detection NLP/reproducibility study
+2-s2.0-105034248469,CORRECT_EXCLUDE,off-topic hate speech religious disinformation India
+2-s2.0-85136577983,FN_CANDIDATE,coordinated link sharing behavior on COVID misinformation spread
+2-s2.0-85176791702,CORRECT_EXCLUDE,fake news detection via reference network structure
+2-s2.0-84948776464,CORRECT_EXCLUDE,off-topic pink slime food controversy
+2-s2.0-21844517130,CORRECT_EXCLUDE,children's memory/misinformation effect paradigm
+2-s2.0-85111152803,CORRECT_EXCLUDE,COVID information seeking/knowledge/fear not prevalence
+2-s2.0-85111471278,CORRECT_EXCLUDE,drug utilization patterns off-topic COVID treatment
+2-s2.0-85118373305,CORRECT_EXCLUDE,off-topic language and media textbook
+2-s2.0-85182354607,CORRECT_EXCLUDE,epidemic modeling of political extremism not misinfo
+2-s2.0-85049809763,CORRECT_EXCLUDE,conference proceedings social computing off-topic
+2-s2.0-85100122311,CORRECT_EXCLUDE,intellectual humility predicting COVID misinfo scrutiny
+2-s2.0-105037433692,CORRECT_EXCLUDE,systematic review of AI in self-diagnosis
+2-s2.0-85200108303,CORRECT_EXCLUDE,case study COVID infodemic threat description
+2-s2.0-105038136417,CORRECT_EXCLUDE,fact-checkers roles/challenges qualitative Africa
+2-s2.0-85177419618,CORRECT_EXCLUDE,emotional-cognitive mechanisms conspiracy theory belief
+2-s2.0-85175843649,CORRECT_EXCLUDE,off-topic racial attacks COVID politicization
+2-s2.0-85204018748,CORRECT_EXCLUDE,theory/commentary fake news as persuasion
+2-s2.0-85175585206,CORRECT_EXCLUDE,effects of misinfo on public sentiment about abortion
+2-s2.0-85152940398,CORRECT_EXCLUDE,off-topic COVID probability/rationality philosophy
+2-s2.0-85121395177,CORRECT_EXCLUDE,national narcissism predicting conspiracy belief/dissemination
+2-s2.0-0036282174,CORRECT_EXCLUDE,off-topic skin disease online information analysis
+2-s2.0-81755181027,CORRECT_EXCLUDE,commentary/opinion piece not empirical prevalence
+2-s2.0-85074414293,CORRECT_EXCLUDE,theory/commentary on post-truth and fake news
+2-s2.0-85168452626,CORRECT_EXCLUDE,cybersecurity/election interference not misinfo prevalence
+2-s2.0-85101909179,CORRECT_EXCLUDE,off-topic anaemia awareness supplementation study
+2-s2.0-85050086580,CORRECT_EXCLUDE,commentary on statistical databases not misinfo
+2-s2.0-105009749495,CORRECT_EXCLUDE,off-topic mobile app vaccine anxiety intervention
+2-s2.0-85108289272,CORRECT_EXCLUDE,health literacy intervention not misinfo prevalence
+2-s2.0-85178422998,CORRECT_EXCLUDE,off-topic trust in maps study
+2-s2.0-105007657088,CORRECT_EXCLUDE,recommender system model not misinfo prevalence
+2-s2.0-105002151721,CORRECT_EXCLUDE,labels effect on engagement with fact-checks
+2-s2.0-85174110847,CORRECT_EXCLUDE,trust in business journalism not misinfo prevalence
+2-s2.0-85102494068,CORRECT_EXCLUDE,commentary on scientific misinformation
+2-s2.0-85084526033,CORRECT_EXCLUDE,off-topic anti-vax movement clinical allergist guidance
+2-s2.0-85214920027,CORRECT_EXCLUDE,off-topic generative AI service ads trust
+2-s2.0-85184282028,CORRECT_EXCLUDE,off-topic social media mining tools health review
+2-s2.0-105033721806,CORRECT_EXCLUDE,textbook/introductory overview not empirical study
+2-s2.0-85113362805,CORRECT_EXCLUDE,free speech regulation beliefs not misinfo prevalence
+2-s2.0-105023127627,CORRECT_EXCLUDE,off-topic vaccination messaging cultural tailoring
+2-s2.0-85178179723,CORRECT_EXCLUDE,disinformation impact on infrastructure model not prevalence
+2-s2.0-105039502385,CORRECT_EXCLUDE,off-topic AI-ready newsrooms report
+2-s2.0-85049298550,CORRECT_EXCLUDE,commentary on journalism evolution digital age
+2-s2.0-85219627766,CORRECT_EXCLUDE,off-topic ethics in electoral communication

@@ -1,0 +1,211 @@
+==============================================================================
+BATCH 5 of 11  --  paste everything below this line into Perplexity, in a FRESH thread
+==============================================================================
+
+You are helping code data for a systematic review of how much misinformation people are exposed to. For each numbered item you are given a verbatim quote from a research paper and how that paper defined misinformation.
+
+Classify each item on three dimensions. The governing rule: THE CONSTRUCT IS SET BY THE DENOMINATOR -- by what the percentage is a share OF -- not by the topic and not by what is being counted on top. Ask yourself: if this percentage were 100%, what would that mean? The answer names the denominator.
+
+CONSTRUCT (choose exactly one):
+- CONTENT = share of items that exist in some corpus (posts, videos, articles, search results)
+- EXPOSURE = share of what people actually consumed (views, visits, clicks, time, news diet)
+- REACH = share of PEOPLE who encountered it at least once
+- SHARING = share of what was shared, retweeted, liked or engaged with
+- RECALL = share of people who SAID in a survey they had seen it
+- CONCENTRATION = activity attributable to a top slice of users or sources
+- QUALITY = a quality/usefulness rating rather than truth or falsity
+- OTHER = none of the above
+
+DENOMINATOR CLASS (choose exactly one):
+population | all_media | political_news | topical | curated_sample | single_source
+
+BREADTH -- how wide a net the paper cast in deciding what counts as misinformation:
+fabricated | false | misleading | unreliable_source | low_quality
+
+RULES THAT DECIDE THE HARD CASES:
+
+1. "Most-shared" as a SAMPLING METHOD is still CONTENT. If a paper collected the 500 most-shared posts and then coded how many are false, the denominator is those 500 POSTS. Code CONTENT. Sharing was only how the sample was drawn. Contrast: "3% of all links shared by our panel were fake-news links" -- there the denominator really is the shared links, so SHARING.
+
+2. Quality is not falsity. If the measure is about usefulness, completeness, reliability or guideline-adherence rather than truth, code QUALITY. Test: could the item be ACCURATE BUT UNHELPFUL? If a low score is compatible with the content being true, it is QUALITY. Note that a single paper often reports BOTH a quality score and a separate falsity measure -- judge the quote in front of you, not the paper as a whole.
+
+3. Visiting untrustworthy websites is EXPOSURE. Identifying misinformation by DOMAIN rather than by checking each article does not change the denominator; the denominator is still the person's browsing. Record that in breadth as unreliable_source.
+
+4. SURVEYS: the denominator is the PEOPLE ASKED, not the topic. "38% of respondents said they had seen false claims about COVID" is denominator_class = population. It is NOT topical just because the question named a topic. If it were 100%, it would mean every person surveyed said yes -- so the denominator is people. The same applies to "% of people who visited at least one unreliable site" (REACH): the denominator is the people observed, however narrow the thing being counted is.
+
+5. TWO KINDS OF "EVERYTHING" DENOMINATOR. Distinguish a person's WHOLE MEDIA diet from their NEWS diet -- they differ roughly twentyfold on the same phenomenon. "0.15% of total daily media consumption across TV, desktop and mobile" is all_media. "3.4% of all news web traffic" is a news-wide denominator: use all_media ONLY if the denominator includes non-news media too; if it is all news but NOT restricted to politics, choose the closest fit and say which in a trailing note. Use political_news only when the denominator is restricted to POLITICAL or ELECTION news.
+
+6. Denominators that are already misinformation. "Of the false claims we collected, 30% were about vaccines" is not a prevalence at all -- the denominator is the false items themselves. Code OTHER.
+
+Answer with ONE CSV line per item and NOTHING else -- no preamble, no commentary, no sources.
+Format: item_id,construct,denominator_class,breadth,confidence_1to5
+Use confidence 1-5 honestly; a 2 is genuinely useful information. If you cannot judge an item, output the item_id followed by UNSURE and nothing else for that row -- do not guess silently.
+
+
+ITEM F265
+Quote from paper: "the misinformation classification model identifies 460,087 tweets as misinformation, accounting for over 27% of the dataset"
+How that paper defined misinformation: Misinformation = any false, inaccurate, or conspiratorial information pertaining to COVID-19 and vaccination (no distinction made between misinformation/disinformation or sub-types). Coded via the Mem
+
+ITEM F266
+Quote from paper: "Overall, 38.8% of posts were completely accurate, while 36.3% were either mostly or completely inaccurate"
+How that paper defined misinformation: Posts scored 'mostly inaccurate' (2) or 'completely inaccurate' (1) on a 4-point accuracy scale benchmarked against CDC, WHO and AAP breastfeeding guidelines; two raters + third-rater tiebreak.
+
+ITEM F268
+Quote from paper: "139 (80.35%) ... Natural immunity—People who have had COVID don't need to get vaccinated ... (n = 173)"
+How that paper defined misinformation: Five specific inaccurate COVID-19 claims (natural immunity removes vaccination need; vaccine protection doesn't last; boosters mean vaccines don't work; vaccines won't protect against Omicron; kids un
+
+ITEM F270
+Quote from paper: "63 (47.01%) ... Vaccine doesn't work—Booster shots were made because the vaccines don't work. (n = 134)"
+How that paper defined misinformation: Five specific inaccurate COVID-19 claims (natural immunity removes vaccination need; vaccine protection doesn't last; boosters mean vaccines don't work; vaccines won't protect against Omicron; kids un
+
+ITEM F272
+Quote from paper: "59 (29.95%) ... Kids at low risk—Kids under 5 years are at low risk of COVID-19 and do not need the vaccine. (n = 197)"
+How that paper defined misinformation: Five specific inaccurate COVID-19 claims (natural immunity removes vaccination need; vaccine protection doesn't last; boosters mean vaccines don't work; vaccines won't protect against Omicron; kids un
+
+ITEM F273
+Quote from paper: "across the 5 claims, 10%-43% of respondents reported hearing the misinformation in >= 3 different weeks"
+How that paper defined misinformation: Five specific inaccurate COVID-19 claims (natural immunity removes vaccination need; vaccine protection doesn't last; boosters mean vaccines don't work; vaccines won't protect against Omicron; kids un
+
+ITEM F274
+Quote from paper: "Among all comments, 46.1% are flagged as containing misinformation ... Nearly half of all comments (46.1%) were flagged for containing misinformation"
+How that paper defined misinformation: Comments classified by GPT-4o-mini as containing false or misleading content (incl. conspiracy theories, false/misleading claims, rumors); manual check of 100 flagged comments found 86 clearly misinfo
+
+ITEM F275
+Quote from paper: "Out of the 50 included #adhdtest videos, 92% (n = 46) were misleading. ... Out of the 50 selected videos, useful videos amounted to 8% (n = 4), while 92% (n = 46) were misleading videos."
+How that paper defined misinformation: Videos coded 'useful' if content contained >=4 of the 6 ASRS-v1.1 screener questions (the validated WHO adult-ADHD screening items); otherwise coded 'misleading'. 'Misleading' = ADHD self-tests not gr
+
+ITEM F277
+Quote from paper: "On Facebook, we identified 51,269 posts (0.25% of all posts) sharing links to Russian propaganda outlets"
+How that paper defined misinformation: Pierri et al. 2023 (WebSci): 'misinformation' = posts/tweets sharing links to (a) low-credibility news sites from the Iffy Index of Unreliable Sources (>600 MBFC-based domains, political leaning NOT a
+
+ITEM F279
+Quote from paper: "On Twitter, we identified 567,587 tweets (0.2% of all tweets) sharing links to Russian propaganda outlets"
+How that paper defined misinformation: Pierri et al. 2023 (WebSci): 'misinformation' = posts/tweets sharing links to (a) low-credibility news sites from the Iffy Index of Unreliable Sources (>600 MBFC-based domains, political leaning NOT a
+
+ITEM F282
+Quote from paper: "On Facebook, 5.9% of our users' news exposure comes from sources known for spreading misinformation"
+How that paper defined misinformation: News from sources rated by Media Bias/Fact Check (and NewsGuard) as 'known for spreading misinformation'; source-level labelling, which the authors note gives an UPPER BOUND on misinfo prevalence.
+
+ITEM F283
+Quote from paper: "off-platform, only 2.6% of our users' news consumption is from misinformation sources"
+How that paper defined misinformation: News from sources rated by Media Bias/Fact Check (and NewsGuard) as 'known for spreading misinformation'; source-level labelling, which the authors note gives an UPPER BOUND on misinfo prevalence.
+
+ITEM F284
+Quote from paper: "for the median user, the fraction of misinformation in their news exposure is 2% (x=6%, SD=12%)"
+How that paper defined misinformation: News from sources rated by Media Bias/Fact Check (and NewsGuard) as 'known for spreading misinformation'; source-level labelling, which the authors note gives an UPPER BOUND on misinfo prevalence.
+
+ITEM F285
+Quote from paper: "63% of users were exposed to misinformation at least once on Facebook, while 46% of users consumed misinformation at least once off Facebook"
+How that paper defined misinformation: News from sources rated by Media Bias/Fact Check (and NewsGuard) as 'known for spreading misinformation'; source-level labelling, which the authors note gives an UPPER BOUND on misinfo prevalence.
+
+ITEM F286
+Quote from paper: "63% of users were exposed to misinformation at least once on Facebook, while 46% of users consumed misinformation at least once off Facebook"
+How that paper defined misinformation: News from sources rated by Media Bias/Fact Check (and NewsGuard) as 'known for spreading misinformation'; source-level labelling, which the authors note gives an UPPER BOUND on misinfo prevalence.
+
+ITEM F287
+Quote from paper: "On an average day, 7.0% [95% confidence interval (CI): 6.7%, 7.4%] of all political news shared by the panel of 664,391 individuals linked to fake news sources"
+How that paper defined misinformation: Source-level fake news: external links to domains that portray as legitimate news outlets but lack editorial norms for accuracy (Grinberg et al. 2019 manually-labelled list, updated with NewsGuard); r
+
+ITEM F288
+Quote from paper: "an extremely small fraction of our sample (0.3%; only 2107 people) accounted for 80% of the tweets linking to fake news sources"
+How that paper defined misinformation: Source-level fake news: external links to domains that portray as legitimate news outlets but lack editorial norms for accuracy (Grinberg et al. 2019 manually-labelled list, updated with NewsGuard); r
+
+ITEM F289
+Quote from paper: "Germany II ... Percent of relevant content that is 'Junk News' 11.5; Junk News 1,055 ... Relevant Content Subtotal 9,182"
+How that paper defined misinformation: Neudert, Kollanyi & Howard 2017 (Oxford COMPROP data memo, not peer-reviewed): 'junk news' = sources that deliberately publish misleading/deceptive/incorrect information purporting to be real news; id
+
+ITEM F291
+Quote from paper: "talk shows demonstrated a greater propensity (14.79%, or 11.62% without Hart aber Fair matches with itself) for matches than news shows (2.28%)"
+How that paper defined misinformation: A statement on TV that semantically matches a claim previously fact-checked and rated as false/misleading/exaggeration/unfounded by one of six German fact-checking organizations (AFP, Correctiv, dpa, 
+
+ITEM F293
+Quote from paper: "In the Overall Sample, 226 out of 1,000 images contained elements of misinformation. Adjusted for sampling error, the estimate is between 20.1% and 25.1% at the 95% confidence interval."
+How that paper defined misinformation: Post-level (not source-level): an image post 'contains elements of misinformation' if it promotes unsubstantiated conspiracy theories, spreads known political disinformation, makes demonstrably false 
+
+ITEM F294
+Quote from paper: "Of the 1,000 images, 196 contained misinformation (17.5%-21.6% at 95%)."
+How that paper defined misinformation: Post-level (not source-level): an image post 'contains elements of misinformation' if it promotes unsubstantiated conspiracy theories, spreads known political disinformation, makes demonstrably false 
+
+ITEM F295
+Quote from paper: "For groups, of the 300 images, 111 were labeled as about U.S. politics; 34 of 111 (30%) images about U.S. politics were misleading;"
+How that paper defined misinformation: Post-level (not source-level): an image post 'contains elements of misinformation' if it promotes unsubstantiated conspiracy theories, spreads known political disinformation, makes demonstrably false 
+
+ITEM F296
+Quote from paper: "For pages, of the 300 images, 270 were labeled as about U.S. politics; 71 of 270 (26%) images about U.S. politics contained elements of misinformation."
+How that paper defined misinformation: Post-level (not source-level): an image post 'contains elements of misinformation' if it promotes unsubstantiated conspiracy theories, spreads known political disinformation, makes demonstrably false 
+
+ITEM F299
+Quote from paper: "From the 72 videos selected, about 40 (55.5%) of them had misleading information and about 32 (44.5%) of them had useful information"
+How that paper defined misinformation: Videos classified as accurate (useful) vs misleading/inaccurate content, judged against established current evidence by two coders (e.g., 'charcoal improves teeth colour' coded misleading).
+
+ITEM F300
+Quote from paper: "In total, 22.3% included misinformation, 19.6% were unverifiable, and 27.5% included correct information verifiable by the WHO or CDC."
+
+ITEM F301
+Quote from paper: "Only 1,44% of the tweets collected are fake news, plus they circulate only in very specific periods and within closed communities"
+
+ITEM F303
+Quote from paper: "over 75 percent of those videos included misinformative content ... 115 of those contained biased information"
+
+ITEM F305
+Quote from paper: "81.6 percent of respondents had read Covid-19-related material that turned out to be untrue"
+
+ITEM F306
+Quote from paper: "Misinformation was identified in approximately one-quarter of media articles, while none of the peer-reviewed journal articles contained misinformation or harmful information."
+
+ITEM F307
+Quote from paper: "The findings indicated that 21.8% of the analyzed posts contained misinformation"
+
+ITEM F308
+Quote from paper: "Among videos with the direct purpose of public health education (n=20), 55% contained inaccurate, non-evidence-based, or misleading information"
+
+ITEM F309
+Quote from paper: "The overall misinformation rate was 14.7% of all technically substantive messages."
+How that paper defined misinformation: Hadzic Beganovic et al. 2024: 'misinformation' = technically incorrect advice that could cause crop damage, economic loss, or health risk, rated by two trained agronomists (7-point scale, ICC=0.83) on
+
+ITEM F310
+Quote from paper: "TikTok had a larger proportion of completely inaccurate posts (10.8%), mainly related to weight loss."
+How that paper defined misinformation: Posts scored 'completely inaccurate' on an accuracy scale using a modified Social Media Evaluation Checklist and evidence-coding framework (accuracy of nutrition claims vs evidence).
+
+ITEM F313
+Quote from paper: "Of the 1,000 posts analyzed, 480 (48.0%) were coded as containing health misinformation, while 520 (52.0%) were coded as factual or accurate health content."
+
+ITEM F314
+Quote from paper: "Narrative N6 that states that COVID-19 pandemic was artificially caused by the West is the highest reaching narrative"
+How that paper defined misinformation: Disinformation = deliberately falsified information intended to cause harm (Wardle & Derakhshan 2017). Seven specific debunked narratives identified from three Serbian fact-checking portals (Istinomer
+
+ITEM F315
+Quote from paper: "even the least heard narrative (N2) still reaching a third of the survey population"
+How that paper defined misinformation: Disinformation = deliberately falsified information intended to cause harm (Wardle & Derakhshan 2017). Seven specific debunked narratives identified from three Serbian fact-checking portals (Istinomer
+
+ITEM F316
+Quote from paper: "Most of the respondents, 1,069 (89.4%), received some fake news about health."
+How that paper defined misinformation: Fake news = intentionally false information similar to credible news, with intent to manipulate the recipient; self-reported receipt of fake HEALTH news (Facebook/WhatsApp main routes).
+
+ITEM F317
+Quote from paper: "In total, 30 news articles (26.3%) contained misinformation."
+How that paper defined misinformation: Khamar et al. 2022 (STEM Fellowship J): news-article titles judged to contain misinformation via comparison with evidence-based/reputable sources (government agencies, international organizations, pee
+
+ITEM F318
+Quote from paper: "Overall, 26.19% aligned with at least one protocol, while 73.81% contained unsupported or non-aligned information"
+How that paper defined misinformation: Oral-hygiene content not aligned with official dental protocols (FDI, ADA, FOE/Ecuador Ministry of Health, FDE-Spain); 'aligned' = at least one recommendation matching an official protocol
+
+ITEM F320
+Quote from paper: "Of posts containing medical information, 63.5% were accurate, and 36.5% contained misinformation"
+
+ITEM F324
+Quote from paper: "the most widely-used false news website in our sample-Retenews24-reached 3.1% of the online Italian population (just over 1 million people) on average each month"
+
+ITEM F328
+Quote from paper: "Few videos believed that the vaccine was responsible for male infertility (6.9%)"
+
+ITEM F329
+Quote from paper: "Junk News and Information 366 4.2 (France, Table 3)"
+How that paper defined misinformation: Junk News and Information: domain-level sources that meet >=3 of 5 criteria (professionalism, style, credibility, bias, counterfeit) = deliberately produced misleading, deceptive, incorrect propaganda
+
+ITEM F330
+Quote from paper: "Junk News and Information account for 10.3% of all content shared"
+How that paper defined misinformation: Junk News and Information: domain-level sources that meet >=3 of 5 criteria (professionalism, style, credibility, bias, counterfeit) = deliberately produced misleading, deceptive, incorrect propaganda
+
+ITEM F333
+Quote from paper: "In terms of reliability categories, 51.4% (n = 257) were moderate, 40.0% (n = 200) were low, and 8.6% (n = 43) were high"
+How that paper defined misinformation: Posts rated LOW on information-quality instruments (Modified Treatment-Information Reliability, MTIR, 0-8; and Descriptive Coverage Index, DCI, 0-7). This is QUALITY/reliability of dental information,

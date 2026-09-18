@@ -1,0 +1,37 @@
+SCREENING CRITERIA v2 (2026-09-02) — title-stage RE-SCREEN of records excluded in June 2026.
+Supersedes screening_criteria.txt for this re-screen. The June criteria omitted self-reported
+recall and were read as "observed behaviour only"; both omissions are corrected here.
+
+Review: the PREVALENCE, EXPOSURE, SHARING and CONCENTRATION of misinformation. "Misinformation"
+is broad: misinformation, disinformation, fake/false news, unreliable/untrustworthy sources or
+websites, junk/low-quality news, inaccurate or misleading health content, conspiracy theories.
+
+Assign one label per TITLE, using judgment (do not keyword-match):
+
+INCLUDE — the title indicates a study that plausibly reports a quantitative share, with a
+denominator, of any of SIX constructs:
+  1. SELF-REPORTED RECALL: share of survey respondents who say they encountered, came across,
+     were exposed to, received, or shared misinformation (any wording, any window), including
+     "perceived exposure" or "perceived amount" of misinformation. Surveys of "fake news sharing",
+     "exposure to misinformation", "experience of fake news" COUNT even when the title frames
+     motivations, literacy, hesitancy or predictors.
+  2. CONTENT PREVALENCE: share of items in a sample (posts, videos, comments, articles, websites,
+     search results, chatbot answers, ads) classified as false, misleading, inaccurate, unreliable,
+     conspiratorial or misinformation. "Content analysis of misinformation on <platform>",
+     "accuracy of <topic> videos", "misinformation in <topic> content" COUNT.
+  3. AUDIENCE EXPOSURE (share of what people saw/visited that was misinformation, from logs/panels).
+  4. REACH (share of people who encountered it at least once, behavioural data).
+  5. OBSERVED SHARING (share of shares/retweets/posts/links carrying misinformation, or of users who
+     shared it, platform data).
+  6. CONCENTRATION (top users/sources accounting for a share of exposure or sharing; supersharers).
+
+MAYBE — plausibly one of the six but the title is ambiguous, or you are unsure.
+  >>> When in doubt choose MAYBE; never EXCLUDE a possibly relevant study. <<<
+
+EXCLUDE — only if the title is CLEARLY: detection/classification/algorithm method; intervention,
+correction, inoculation or fact-checking-effect study; belief in or susceptibility to specific
+false claims only (no exposure or sharing measure); hypothetical sharing intentions or "would you
+share" experiments; non-empirical (commentary, theory, book, editorial, proceedings, dataset paper);
+quality-score-only (DISCERN/GQS) with no accuracy coding; clearly off-topic.
+
+Output per record: label (INCLUDE/MAYBE/EXCLUDE) + reason of <= 12 words.

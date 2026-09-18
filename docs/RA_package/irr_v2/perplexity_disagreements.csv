@@ -1,0 +1,28 @@
+dimension,item_id,study_id,perplexity,ours,px_confidence,quote
+construct,A02,2-s2.0-85199110625,CONTENT,SHARING,4,"Reliable 330 1, 956, 941 121, 108, 643 1, 302, 008 6, 291, 579 ... Non-Trustworthy 81 155, 737 11, 225, 099 108, 703 2, "
+construct,A04,2-s2.0-105031357857,CONTENT,QUALITY,5,"33.3% (n = 59) as incorrect, 18.1% (n = 32) as overgeneralized"
+construct,A11,2-s2.0-85218245924,QUALITY,CONTENT,4,6.6% deemed uninformative (more than 50% of false information)
+construct,A14,2-s2.0-85047794238,CONTENT,QUALITY,5,"Fifty-eight percent of media articles were found to have inaccurately reported the question, results, intervention, or p"
+construct,A15,2-s2.0-85111545521,EXPOSURE,REACH,5,visits to these untrustworthy websites were very rare; 60.8% of respondents visited zero sites and 95.6% visited four or
+construct,A22,2-s2.0-105027856675,SHARING,OTHER,5,"AfD accounted for 95.5% of misinformation shared in Germany, FdI for 70.7% in Italy, the Conservative Party for 57.3% in"
+construct,A24,2-s2.0-85160248068,EXPOSURE,OTHER,4,"overall engagement (3.03% in 2018, 1.86% in 2020)"
+denom_class,A01,2-s2.0-85093940530,TOPICAL,CURATED_SAMPLE,5,The content coding identified 137 posts with verifiably true information and 161 posts with verifiable misinformation ab
+denom_class,A07,W4293124965,ALL_MEDIA,POLITICAL_NEWS,4,Table 3. Proportion of web traffic & Facebook engagement captured by news outlets repeatedly publishing false content. .
+denom_class,A15,2-s2.0-85111545521,ALL_MEDIA,POPULATION,5,visits to these untrustworthy websites were very rare; 60.8% of respondents visited zero sites and 95.6% visited four or
+denom_class,A18,OA-W7125772788,TOPICAL,POPULATION,3,"In the case of HIV, 54% of respondents suspected misinformation in their digital feeds, often related to 'permanent cure"
+denom_class,A20,2-s2.0-85177420309,CURATED_SAMPLE,TOPICAL,5,"It is lowest in Australia, Brazil, Germany and Switzerland ... with shares below 10%"
+denom_class,A22,2-s2.0-105027856675,POLITICAL_NEWS,,5,"AfD accounted for 95.5% of misinformation shared in Germany, FdI for 70.7% in Italy, the Conservative Party for 57.3% in"
+denom_class,A23,W4293124965,ALL_MEDIA,POLITICAL_NEWS,5,[Table 2] Web traffic 2017-2021: US 3.36%
+denom_class,A24,2-s2.0-85160248068,CURATED_SAMPLE,SINGLE_SOURCE,4,"overall engagement (3.03% in 2018, 1.86% in 2020)"
+denom_class,A26,W4293124965,ALL_MEDIA,POLITICAL_NEWS,5,[Table 2] Facebook engagement 2017-2021: US 18.52%
+denom_class,A27,2-s2.0-85072114698,TOPICAL,POPULATION,5,Almost all of them reported having received some information to use salt water for protection against Ebola during the p
+denom_class,A28,2-s2.0-85096102360,TOPICAL,POPULATION,5,exposure to at least one COVID-19 misinformation item in the preceding three months was reported by 67.78% (n=711) of th
+denom_class,A29,2-s2.0-85051037754,TOPICAL,SINGLE_SOURCE,5,We collected 1800 posts from the SMsocialnetwork public wall ... 72 posts included fake news
+breadth,A01,2-s2.0-85093940530,MISLEADING,FALSE,5,The content coding identified 137 posts with verifiably true information and 161 posts with verifiable misinformation ab
+breadth,A10,W4309243406,FALSE,MISLEADING,5,About 20% - a fifth - of Africa's GMO media content in our database is rated as misinformation
+breadth,A16,2-s2.0-105037111223,FALSE,MISLEADING,4,Inaccurate or partially accurate posts made up 42% of educational posts
+breadth,A18,OA-W7125772788,MISLEADING,FALSE,3,"In the case of HIV, 54% of respondents suspected misinformation in their digital feeds, often related to 'permanent cure"
+breadth,A20,2-s2.0-85177420309,MISLEADING,FALSE,5,"It is lowest in Australia, Brazil, Germany and Switzerland ... with shares below 10%"
+breadth,A22,2-s2.0-105027856675,UNRELIABLE_SOURCE,,5,"AfD accounted for 95.5% of misinformation shared in Germany, FdI for 70.7% in Italy, the Conservative Party for 57.3% in"
+breadth,A25,2-s2.0-85037352356,FABRICATED,UNRELIABLE_SOURCE,5,"visits to fake news websites were relatively rare—on an average day during the election campaign period, only 0.34% of u"
+breadth,A29,2-s2.0-85051037754,MISLEADING,FALSE,5,We collected 1800 posts from the SMsocialnetwork public wall ... 72 posts included fake news

@@ -1,0 +1,19 @@
+scope,dimension,n,raw,kappa,ac1,weight_pct
+POOLED (this sample; over-samples hard cases),construct,138,0.819,0.769,0.796,
+stratum: baseline_random,construct,19,0.789,0.545,0.751,5.1
+stratum: boundary_audience_constructs,construct,41,0.707,0.596,0.645,20.8
+stratum: boundary_content_quality,construct,53,0.925,0.576,0.921,61.0
+stratum: boundary_denominator,construct,25,0.8,0.613,0.76,13.1
+** POPULATION-REWEIGHTED (corpus-level estimate) **,construct,138,0.856,,,100.0
+POOLED (this sample; over-samples hard cases),denom_class,138,0.507,0.401,0.453,
+stratum: baseline_random,denom_class,19,0.053,0.012,-0.049,5.1
+stratum: boundary_audience_constructs,denom_class,41,0.561,0.44,0.484,20.8
+stratum: boundary_content_quality,denom_class,53,0.491,0.22,0.426,61.0
+stratum: boundary_denominator,denom_class,25,0.8,0.0,0.78,13.1
+** POPULATION-REWEIGHTED (corpus-level estimate) **,denom_class,138,0.524,,,100.0
+POOLED (this sample; over-samples hard cases),breadth,138,0.775,0.676,0.746,
+stratum: baseline_random,breadth,19,0.895,0.8,0.879,5.1
+stratum: boundary_audience_constructs,breadth,41,0.805,0.448,0.78,20.8
+stratum: boundary_content_quality,breadth,53,0.792,0.688,0.751,61.0
+stratum: boundary_denominator,breadth,25,0.6,0.413,0.485,13.1
+** POPULATION-REWEIGHTED (corpus-level estimate) **,breadth,138,0.775,,,100.0

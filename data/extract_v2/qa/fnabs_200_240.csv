@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-85075175063,CORRECT_EXCLUDE,perception/detection survey of students not prevalence
+2-s2.0-85107462353,CORRECT_EXCLUDE,rhetorical case study no quantitative prevalence
+2-s2.0-85125766871,CORRECT_EXCLUDE,discourse analysis of forum arguments not prevalence
+2-s2.0-85180239525,FALSE_NEGATIVE,quantifies misinformation/conspiracy in tweet datasets
+2-s2.0-85078824055,CORRECT_EXCLUDE,tool/method description not prevalence measure
+2-s2.0-85205825483,CORRECT_EXCLUDE,modeling content spread dynamics not prevalence
+2-s2.0-85213052991,FALSE_NEGATIVE,quantifies share of fake reviews/content prevalence
+2-s2.0-85104396160,CORRECT_EXCLUDE,health ministry dissemination content not misinfo prevalence
+2-s2.0-85103756333,CORRECT_EXCLUDE,traces single erroneous citation not prevalence
+2-s2.0-105031628513,FALSE_NEGATIVE,diary study of real-life misinformation encounters
+2-s2.0-85217533876,CORRECT_EXCLUDE,linguistic features for recognition detection
+2-s2.0-85168375044,CORRECT_EXCLUDE,humanities rumor study no quantitative prevalence
+2-s2.0-85071114573,CORRECT_EXCLUDE,off-topic flip-flop electronics paper
+2-s2.0-85127212326,CORRECT_EXCLUDE,product availability/ingredients not misinfo prevalence
+2-s2.0-85197571714,FALSE_NEGATIVE,quantifies contraceptive tweet content including misinfo share
+2-s2.0-85142229013,CORRECT_EXCLUDE,literacy/perception not prevalence measure
+2-s2.0-85192977628,CORRECT_EXCLUDE,bibliometric review not prevalence
+2-s2.0-85115618076,CORRECT_EXCLUDE,filter bubble audit/intervention not prevalence
+2-s2.0-85081368965,CORRECT_EXCLUDE,interviews on awareness/behavior not prevalence
+2-s2.0-85133302916,CORRECT_EXCLUDE,role/critique discussion not quantitative prevalence
+2-s2.0-85087654024,CORRECT_EXCLUDE,qualitative meme study not prevalence
+2-s2.0-85121395177,CORRECT_EXCLUDE,predictors of belief/dissemination not prevalence
+2-s2.0-84953587308,CORRECT_EXCLUDE,anecdotal email mix-up note off-topic
+2-s2.0-84886882138,CORRECT_EXCLUDE,focus groups/discourse analysis not prevalence
+2-s2.0-85104035111,CORRECT_EXCLUDE,review of infodemic determinants not prevalence
+2-s2.0-85088964005,CORRECT_EXCLUDE,commentary on government response not prevalence
+2-s2.0-85151855879,FALSE_NEGATIVE,quantifies anti-vaccine tweet content prevalence
+2-s2.0-85215064740,CORRECT_EXCLUDE,influencer campaign scope not misinfo prevalence
+2-s2.0-85219405950,CORRECT_EXCLUDE,fact-check intervention on discernment
+2-s2.0-85166268998,CORRECT_EXCLUDE,information consumption/perception not misinfo prevalence
+2-s2.0-85150507519,CORRECT_EXCLUDE,discourse analysis of videos not prevalence
+2-s2.0-85082790811,CORRECT_EXCLUDE,commentary on infodemic emerging issues
+2-s2.0-85195140882,CORRECT_EXCLUDE,publisher trustworthiness framework/method
+2-s2.0-105028369208,CORRECT_EXCLUDE,Google Trends search interest not content prevalence
+2-s2.0-105012593177,FALSE_NEGATIVE,quantifies quality/misinfo in online websites
+2-s2.0-105034196596,CORRECT_EXCLUDE,thematic analysis/detection of narratives
+2-s2.0-105026622818,CORRECT_EXCLUDE,supplement ingredients/info reliability not prevalence
+2-s2.0-85138499327,CORRECT_EXCLUDE,ethnographic trust study not prevalence
+2-s2.0-105032164604,CORRECT_EXCLUDE,survey on exposure effects/beliefs not prevalence
+2-s2.0-85100851602,CORRECT_EXCLUDE,demographic vulnerability to misinfo not prevalence

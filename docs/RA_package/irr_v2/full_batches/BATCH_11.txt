@@ -1,0 +1,62 @@
+==============================================================================
+BATCH 11 of 11  --  paste everything below this line into Perplexity, in a FRESH thread
+==============================================================================
+
+You are helping code data for a systematic review of how much misinformation people are exposed to. For each numbered item you are given a verbatim quote from a research paper and how that paper defined misinformation.
+
+Classify each item on three dimensions. The governing rule: THE CONSTRUCT IS SET BY THE DENOMINATOR -- by what the percentage is a share OF -- not by the topic and not by what is being counted on top. Ask yourself: if this percentage were 100%, what would that mean? The answer names the denominator.
+
+CONSTRUCT (choose exactly one):
+- CONTENT = share of items that exist in some corpus (posts, videos, articles, search results)
+- EXPOSURE = share of what people actually consumed (views, visits, clicks, time, news diet)
+- REACH = share of PEOPLE who encountered it at least once
+- SHARING = share of what was shared, retweeted, liked or engaged with
+- RECALL = share of people who SAID in a survey they had seen it
+- CONCENTRATION = activity attributable to a top slice of users or sources
+- QUALITY = a quality/usefulness rating rather than truth or falsity
+- OTHER = none of the above
+
+DENOMINATOR CLASS (choose exactly one):
+population | all_media | political_news | topical | curated_sample | single_source
+
+BREADTH -- how wide a net the paper cast in deciding what counts as misinformation:
+fabricated | false | misleading | unreliable_source | low_quality
+
+RULES THAT DECIDE THE HARD CASES:
+
+1. "Most-shared" as a SAMPLING METHOD is still CONTENT. If a paper collected the 500 most-shared posts and then coded how many are false, the denominator is those 500 POSTS. Code CONTENT. Sharing was only how the sample was drawn. Contrast: "3% of all links shared by our panel were fake-news links" -- there the denominator really is the shared links, so SHARING.
+
+2. Quality is not falsity. If the measure is about usefulness, completeness, reliability or guideline-adherence rather than truth, code QUALITY. Test: could the item be ACCURATE BUT UNHELPFUL? If a low score is compatible with the content being true, it is QUALITY. Note that a single paper often reports BOTH a quality score and a separate falsity measure -- judge the quote in front of you, not the paper as a whole.
+
+3. Visiting untrustworthy websites is EXPOSURE. Identifying misinformation by DOMAIN rather than by checking each article does not change the denominator; the denominator is still the person's browsing. Record that in breadth as unreliable_source.
+
+4. SURVEYS: the denominator is the PEOPLE ASKED, not the topic. "38% of respondents said they had seen false claims about COVID" is denominator_class = population. It is NOT topical just because the question named a topic. If it were 100%, it would mean every person surveyed said yes -- so the denominator is people. The same applies to "% of people who visited at least one unreliable site" (REACH): the denominator is the people observed, however narrow the thing being counted is.
+
+5. TWO KINDS OF "EVERYTHING" DENOMINATOR. Distinguish a person's WHOLE MEDIA diet from their NEWS diet -- they differ roughly twentyfold on the same phenomenon. "0.15% of total daily media consumption across TV, desktop and mobile" is all_media. "3.4% of all news web traffic" is a news-wide denominator: use all_media ONLY if the denominator includes non-news media too; if it is all news but NOT restricted to politics, choose the closest fit and say which in a trailing note. Use political_news only when the denominator is restricted to POLITICAL or ELECTION news.
+
+6. Denominators that are already misinformation. "Of the false claims we collected, 30% were about vaccines" is not a prevalence at all -- the denominator is the false items themselves. Code OTHER.
+
+Answer with ONE CSV line per item and NOTHING else -- no preamble, no commentary, no sources.
+Format: item_id,construct,denominator_class,breadth,confidence_1to5
+Use confidence 1-5 honestly; a 2 is genuinely useful information. If you cannot judge an item, output the item_id followed by UNSURE and nothing else for that row -- do not guess silently.
+
+
+ITEM F671
+Quote from paper: "Narrative N6 that states that COVID-19 pandemic was artificially caused by the West is the highest reaching narrative"
+How that paper defined misinformation: Disinformation = deliberately falsified information intended to cause harm (Wardle & Derakhshan 2017). Seven specific debunked narratives identified from three Serbian fact-checking portals (Istinomer
+
+ITEM F672
+Quote from paper: "Narrative N6 that states that COVID-19 pandemic was artificially caused by the West is the highest reaching narrative"
+How that paper defined misinformation: Disinformation = deliberately falsified information intended to cause harm (Wardle & Derakhshan 2017). Seven specific debunked narratives identified from three Serbian fact-checking portals (Istinomer
+
+ITEM F674
+Quote from paper: "Among our 806 subjects, 18.36% (n = 148) liked at least one Facebook page for a fake news source"
+How that paper defined misinformation: Fake-news page = Facebook page whose website matched the Grinberg et al. (2019) fake-news source list (compiled from BuzzFeed, PolitiFact, FactCheck.org, Snopes + academic lists, Allcott & Gentzkow, G
+
+ITEM F678
+Quote from paper: "98/1000 (9.8%) of top-retweeted tobacco-and-COVID tweets explicitly endorsed the false nicotine-prevents-COVID claim"
+How that paper defined misinformation: Silver et al. 2021: content contradicting established science on nicotine/COVID (researcher-coded)
+
+ITEM F679
+Quote from paper: "57/253 (22.5%) of top shared URLs endorsed the claim"
+How that paper defined misinformation: Silver et al. 2021: content contradicting established science on nicotine/COVID (researcher-coded)

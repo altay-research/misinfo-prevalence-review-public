@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-85205590790,CORRECT_EXCLUDE,exploratory qualitative case study scam tactics
+2-s2.0-85205730261,CORRECT_EXCLUDE,semiotic analysis of screenshots no prevalence
+2-s2.0-85216115628,FALSE_NEGATIVE,quantifies bot vs human hashtag dissemination COVID
+2-s2.0-105003905034,CORRECT_EXCLUDE,detection/tracking system development
+2-s2.0-105008921175,FALSE_NEGATIVE,87962 messages analyzed sharing in chat groups
+2-s2.0-85140415171,FALSE_NEGATIVE,measures health misinfo spread search data
+2-s2.0-85138405691,CORRECT_EXCLUDE,single politician case study commentary
+2-s2.0-85188306267,CORRECT_EXCLUDE,instrument validation hate-speech exposure
+2-s2.0-85141695457,FALSE_NEGATIVE,analyzes Facebook posts info environment salience
+2-s2.0-85145721931,FALSE_NEGATIVE,measures opinion-leader spread of deceiving content
+2-s2.0-85201773193,CORRECT_EXCLUDE,comprehensive analysis review of misinformation dynamics
+2-s2.0-105010168622,CORRECT_EXCLUDE,content analysis of news articles framing
+2-s2.0-105021753831,FALSE_NEGATIVE,cross-platform analysis engagement mainstreaming fringe
+2-s2.0-105027705503,CORRECT_EXCLUDE,LLM reference accuracy evaluation
+2-s2.0-85154558018,FALSE_NEGATIVE,online news circulation geographic concentration
+2-s2.0-85032277497,CORRECT_EXCLUDE,case study public health surveillance practices
+2-s2.0-85086428988,FALSE_NEGATIVE,45957 datapoints monitoring social media rumors
+2-s2.0-85193735217,CORRECT_EXCLUDE,qualitative content analysis influencer storytelling
+2-s2.0-85119915102,CORRECT_EXCLUDE,socio-semiotic theory right-wing media
+2-s2.0-85138046776,CORRECT_EXCLUDE,information flow estimation method news
+2-s2.0-105035145080,CORRECT_EXCLUDE,computational fact-checking method development
+2-s2.0-105016158232,CORRECT_EXCLUDE,LLM detection feasibility proof of concept
+2-s2.0-105028234235,CORRECT_EXCLUDE,theory typology climate delay chapter
+2-s2.0-85151450693,CORRECT_EXCLUDE,systematic review agri-food underexplored
+2-s2.0-85105186978,CORRECT_EXCLUDE,chapter summary digital rights violations
+2-s2.0-105019821539,FALSE_NEGATIVE,polling reports public health misinformation prevalence
+2-s2.0-85196203875,CORRECT_EXCLUDE,ethnographic study creator tactics qualitative
+2-s2.0-84937423440,CORRECT_EXCLUDE,commentary election monitoring vs disinformation
+2-s2.0-85088994135,FALSE_NEGATIVE,quantifies 5G conspiracy dissemination Facebook
+2-s2.0-85143419749,CORRECT_EXCLUDE,survey how citizens informed not exposure measure
+2-s2.0-85133840630,CORRECT_EXCLUDE,exploratory features comparison case study
+2-s2.0-85188521597,FALSE_NEGATIVE,measures disinformation flows mass mobilization
+2-s2.0-85104675513,CORRECT_EXCLUDE,survey media consumption and belief mobilization
+2-s2.0-84863599686,FALSE_NEGATIVE,content analysis prevalence misinfo in movies
+2-s2.0-85102452800,CORRECT_EXCLUDE,quality evaluation online info not prevalence
+2-s2.0-105029761542,CORRECT_EXCLUDE,case study emotional resonance qualitative
+2-s2.0-105000395016,CORRECT_EXCLUDE,review sexual health online sources
+2-s2.0-105011954954,FALSE_NEGATIVE,analyzes AI disinformation diffusion interaction data
+2-s2.0-105005385893,FALSE_NEGATIVE,prevalence of treatments and engagement YouTube Shorts
+2-s2.0-85115915957,CORRECT_EXCLUDE,news notification receptivity 5 users

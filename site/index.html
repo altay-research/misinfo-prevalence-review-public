@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How much misinformation do people actually see?</title>
+<meta name="description" content="A systematic review of 1,048 estimates from 443 studies of misinformation prevalence, exposure and concentration.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
+<main class="wrap">
+
+  <p class="eyebrow">Systematic review · 443 studies · 1,048 estimates</p>
+  <h1>How much misinformation do people actually see?</h1>
+  <p class="lede">Published estimates run from a fraction of one percent to strong majorities.
+     This review collects them, codes what each one measures, and quantifies why they disagree.</p>
+
+  <div class="tiles">
+    <div class="tile t-beh"><b>1.3%</b><p>of what people consume online is misinformation</p><span class="k">18 studies · behavioural</span></div>
+    <div class="tile t-beh"><b>12.0%</b><p>of people encounter it at least once</p><span class="k">27 studies · behavioural</span></div>
+    <div class="tile t-beh"><b>13.0%</b><p>of sharing acts carry misinformation</p><span class="k">45 studies · behavioural</span></div>
+    <div class="tile t-self"><b>19.8%</b><p>say they have shared it</p><span class="k">36 studies · surveys</span></div>
+    <div class="tile t-content"><b>23.0%</b><p>of items in a sampled corpus are misinformation</p><span class="k">274 studies · coded content</span></div>
+    <div class="tile t-self"><b>57.7%</b><p>say they have seen it</p><span class="k">71 studies · surveys</span></div>
+    <div class="tile t-conc"><b>70%</b><p>of misinformation activity comes from the top 1% of users</p><span class="k">5 studies · behavioural</span><span class="k2">62.4% across the 10 studies reporting the top 1% or less</span></div>
+  </div>
+
+  <figure><img src="figures/figure_4.svg" alt="Study-level median prevalence by measurement type, sampling frame, ground-truth source, construct and identification level"></figure>
+  <figure class="wide"><img src="figures/figure_5.svg" alt="Concentration of misinformation activity versus news in general, by share of users"></figure>
+
+  <div class="callout">
+    <p style="margin-top:0"><strong>Try it yourself.</strong> Pick the methodological choices and
+      watch the estimate move, or open any of the 1,048 estimates and read the sentence in the
+      original paper that it came from.</p>
+    <p style="margin-bottom:0">
+      <a class="btn primary" style="display:inline-block;text-decoration:none;padding:9px 15px" href="explore/">Explore the estimates</a>
+      &nbsp;<a class="btn" style="display:inline-block;text-decoration:none;padding:9px 15px;color:inherit" href="estimates/">Inspect them one by one</a></p>
+  </div>
+
+</main>
+<script type="module">
+  import { mountChrome, mountFooter, meta, mountContributeCTA } from './assets/site.js';
+  mountChrome('');
+  meta().then(m => { mountContributeCTA(m); mountFooter(m); });
+</script>
+</body></html>

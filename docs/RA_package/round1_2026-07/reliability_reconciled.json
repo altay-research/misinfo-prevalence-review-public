@@ -1,0 +1,41 @@
+{
+ "n": 100,
+ "keep_drop_raw_kappa_ac1": [
+  0.68,
+  0.328,
+  0.426
+ ],
+ "construct_raw_kappa_ac1": [
+  0.765,
+  0.65,
+  0.728
+ ],
+ "construct_raw_multitolerant": 0.824,
+ "construct_n": 51,
+ "value_match": 41,
+ "value_differ": 10,
+ "value_nocompare": 0,
+ "value_pct_agreement": 0.804,
+ "vs_reconciled_gold": {
+  "LLM": {
+   "TP": 69,
+   "FP": 11,
+   "FN": 1,
+   "TN": 19,
+   "precision": 0.863,
+   "recall": 0.986,
+   "acc": 0.88
+  },
+  "Laura": {
+   "TP": 52,
+   "FP": 2,
+   "FN": 18,
+   "TN": 28,
+   "precision": 0.963,
+   "recall": 0.743,
+   "acc": 0.8
+  }
+ },
+ "gold_keeps": 70,
+ "gold_drops": 30
+}

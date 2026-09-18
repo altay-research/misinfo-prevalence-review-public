@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 790" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+<rect x="0.0" y="0.0" width="780.0" height="790.0" rx="0" fill="#fff"/>
+<line x1="250.0" y1="40.0" x2="250.0" y2="774.0" stroke="#eee" stroke-width="1"/>
+<text x="250.0" y="786.0" font-size="12" text-anchor="middle" fill="#999" font-weight="normal">0%</text>
+<line x1="358.5" y1="40.0" x2="358.5" y2="774.0" stroke="#eee" stroke-width="1"/>
+<text x="358.5" y="786.0" font-size="12" text-anchor="middle" fill="#999" font-weight="normal">15%</text>
+<line x1="466.9" y1="40.0" x2="466.9" y2="774.0" stroke="#eee" stroke-width="1"/>
+<text x="466.9" y="786.0" font-size="12" text-anchor="middle" fill="#999" font-weight="normal">30%</text>
+<line x1="575.4" y1="40.0" x2="575.4" y2="774.0" stroke="#eee" stroke-width="1"/>
+<text x="575.4" y="786.0" font-size="12" text-anchor="middle" fill="#999" font-weight="normal">45%</text>
+<line x1="683.8" y1="40.0" x2="683.8" y2="774.0" stroke="#eee" stroke-width="1"/>
+<text x="683.8" y="786.0" font-size="12" text-anchor="middle" fill="#999" font-weight="normal">60%</text>
+<text x="20.0" y="65.0" font-size="13" text-anchor="start" fill="#888" font-weight="bold">By measurement</text>
+<text x="130.2" y="65.0" font-size="11" text-anchor="start" fill="#aaa" font-weight="normal">446 studies</text>
+<text x="240.0" y="91.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Behavioural trace</text>
+<rect x="250.0" y="81.0" width="90.4" height="12.0" rx="2" fill="#0072B2"/>
+<text x="346.4" y="91.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">12.5%</text>
+<text x="772.0" y="91.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 81</text>
+<text x="240.0" y="121.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Content coding</text>
+<rect x="250.0" y="111.0" width="166.3" height="12.0" rx="2" fill="#0072B2"/>
+<text x="422.3" y="121.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">23.0%</text>
+<text x="772.0" y="121.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 274</text>
+<text x="240.0" y="151.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Self-report</text>
+<rect x="250.0" y="141.0" width="310.9" height="12.0" rx="2" fill="#0072B2"/>
+<text x="566.9" y="151.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">43.0%</text>
+<text x="772.0" y="151.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 91</text>
+<text x="20.0" y="181.0" font-size="13" text-anchor="start" fill="#888" font-weight="bold">By sampling frame</text>
+<text x="152.1" y="181.0" font-size="11" text-anchor="start" fill="#aaa" font-weight="normal">351 studies</text>
+<text x="240.0" y="207.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Full census</text>
+<rect x="250.0" y="197.0" width="62.5" height="12.0" rx="2" fill="#0072B2"/>
+<text x="318.5" y="207.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">8.6%</text>
+<text x="772.0" y="207.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 30</text>
+<text x="240.0" y="237.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Behavioural panel</text>
+<rect x="250.0" y="227.0" width="63.6" height="12.0" rx="2" fill="#0072B2"/>
+<text x="319.6" y="237.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">8.8%</text>
+<text x="772.0" y="237.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 31</text>
+<text x="240.0" y="267.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Keyword-topical</text>
+<rect x="250.0" y="257.0" width="167.0" height="12.0" rx="2" fill="#0072B2"/>
+<text x="423.0" y="267.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">23.1%</text>
+<text x="772.0" y="267.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 244</text>
+<text x="240.0" y="297.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Survey self-report</text>
+<rect x="250.0" y="287.0" width="269.3" height="12.0" rx="2" fill="#0072B2"/>
+<text x="525.3" y="297.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">37.2%</text>
+<text x="772.0" y="297.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 46</text>
+<text x="20.0" y="327.0" font-size="13" text-anchor="start" fill="#888" font-weight="bold">By ground-truth source</text>
+<text x="188.6" y="327.0" font-size="11" text-anchor="start" fill="#aaa" font-weight="normal">417 studies</text>
+<text x="240.0" y="353.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Fact-checker</text>
+<rect x="250.0" y="343.0" width="53.4" height="12.0" rx="2" fill="#0072B2"/>
+<text x="309.4" y="353.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">7.4%</text>
+<text x="772.0" y="353.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 18</text>
+<text x="240.0" y="383.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Domain list</text>
+<rect x="250.0" y="373.0" width="54.4" height="12.0" rx="2" fill="#0072B2"/>
+<text x="310.4" y="383.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">7.5%</text>
+<text x="772.0" y="383.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 66</text>
+<text x="240.0" y="413.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Researcher coding</text>
+<rect x="250.0" y="403.0" width="177.2" height="12.0" rx="2" fill="#0072B2"/>
+<text x="433.2" y="413.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">24.5%</text>
+<text x="772.0" y="413.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 243</text>
+<text x="240.0" y="443.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Self-report</text>
+<rect x="250.0" y="433.0" width="314.2" height="12.0" rx="2" fill="#0072B2"/>
+<text x="570.2" y="443.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">43.5%</text>
+<text x="772.0" y="443.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 90</text>
+<text x="20.0" y="473.0" font-size="13" text-anchor="start" fill="#888" font-weight="bold">By construct</text>
+<text x="115.6" y="473.0" font-size="11" text-anchor="start" fill="#aaa" font-weight="normal">471 studies</text>
+<text x="240.0" y="499.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Exposure</text>
+<rect x="250.0" y="489.0" width="9.5" height="12.0" rx="2" fill="#0072B2"/>
+<text x="265.5" y="499.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">1.3%</text>
+<text x="772.0" y="499.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 18</text>
+<text x="240.0" y="529.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Reach</text>
+<rect x="250.0" y="519.0" width="86.8" height="12.0" rx="2" fill="#0072B2"/>
+<text x="342.8" y="529.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">12.0%</text>
+<text x="772.0" y="529.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 27</text>
+<text x="240.0" y="559.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Sharing</text>
+<rect x="250.0" y="549.0" width="94.0" height="12.0" rx="2" fill="#0072B2"/>
+<text x="350.0" y="559.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">13.0%</text>
+<text x="772.0" y="559.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 45</text>
+<text x="240.0" y="589.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Recall (shared)</text>
+<rect x="250.0" y="579.0" width="143.4" height="12.0" rx="2" fill="#0072B2"/>
+<text x="399.4" y="589.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">19.8%</text>
+<text x="772.0" y="589.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 36</text>
+<text x="240.0" y="619.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Content</text>
+<rect x="250.0" y="609.0" width="166.3" height="12.0" rx="2" fill="#0072B2"/>
+<text x="422.3" y="619.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">23.0%</text>
+<text x="772.0" y="619.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 274</text>
+<text x="240.0" y="649.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Recall (seen)</text>
+<rect x="250.0" y="639.0" width="417.2" height="12.0" rx="2" fill="#0072B2"/>
+<text x="673.2" y="649.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">57.7%</text>
+<text x="772.0" y="649.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 71</text>
+<text x="20.0" y="679.0" font-size="13" text-anchor="start" fill="#888" font-weight="bold">By identification level</text>
+<text x="195.9" y="679.0" font-size="11" text-anchor="start" fill="#aaa" font-weight="normal">426 studies</text>
+<text x="240.0" y="705.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Source level</text>
+<rect x="250.0" y="695.0" width="70.9" height="12.0" rx="2" fill="#0072B2"/>
+<text x="326.9" y="705.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">9.8%</text>
+<text x="772.0" y="705.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 76</text>
+<text x="240.0" y="735.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Claim level</text>
+<rect x="250.0" y="725.0" width="198.8" height="12.0" rx="2" fill="#0072B2"/>
+<text x="454.8" y="735.0" font-size="13" text-anchor="start" fill="#0072B2" font-weight="bold">27.5%</text>
+<text x="772.0" y="735.0" font-size="11" text-anchor="end" fill="#777" font-weight="normal">n = 350</text>
+</svg>

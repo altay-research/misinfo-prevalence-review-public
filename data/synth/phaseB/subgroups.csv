@@ -1,0 +1,105 @@
+id,construct,demographic_dimension,demographic_group,value_pct,measure_type
+2-s2.0-85164694763,SHARING,community,community=no-vax communities (Twitter),26,low-credibility share of domains shared by no-vax communities
+2-s2.0-85096862559,SHARING,political,"party=La France Insoumise (LFI, radical left)",3.34,"% unreliable among sources shared - LFI, Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,"party=La France Insoumise (LFI, radical left)",2.8,"% unreliable among sources shared - LFI, Non-Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,"party=Parti Socialiste (PS, moderate left)",0.71,"% unreliable among sources shared - PS, Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,"party=Parti Socialiste (PS, moderate left)",0.54,"% unreliable among sources shared - PS, Non-Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,"party=La Republique En Marche (REM, centrist)",0.88,"% unreliable among sources shared - REM, Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,"party=La Republique En Marche (REM, centrist)",0.36,"% unreliable among sources shared - REM, Non-Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,"party=Les Republicains (LR, right-wing)",14.28,"% unreliable among sources shared - LR, Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,"party=Les Republicains (LR, right-wing)",11.19,"% unreliable among sources shared - LR, Non-Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,"party=Front National (FN, far right)",47.48,"% unreliable among sources shared - FN, Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,"party=Front National (FN, far right)",37.52,"% unreliable among sources shared - FN, Non-Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,overall,18.12,"% unreliable among all shared sources - overall, Mobile OS (SHARING)"
+2-s2.0-85096862559,SHARING,political,overall,13.57,"% unreliable among all shared sources - overall, Non-Mobile OS (SHARING)"
+W4281770633,OTHER,political,political=Trump supporters (top-100 repeat spreaders),98,% of the top-100 repeat-spreader accounts supporting Trump
+2-s2.0-85066941307,OTHER,political,political=registered Republican,69.7,content_disinfo_tweets (hand-coded subsample; n=content)
+2-s2.0-85066941307,OTHER,political,political=not registered Republican,3.4,content_disinfo_tweets (hand-coded subsample; n=content)
+2-s2.0-85188806397,OTHER,political,political=Republican (Rep) community,91,"% of NewsGuard-classified news URLs that are untrustworthy, swing-state tweets (URL-N)"
+2-s2.0-105039619015,REACH,political,political=Biden supporters,4.4,share of adults who visited >=1 misinformation website in a period (# participants)
+2-s2.0-105039619015,REACH,political,political=Trump supporters,2.1,share of adults who visited >=1 misinformation website in a period (# participants)
+2-s2.0-85209547248,REACH,political,political=very conservative,11.1,% of very conservative participants exposed to >=1 QAnon website
+2-s2.0-85209547248,REACH,political,political=very liberal,3.0,% of very liberal participants exposed to >=1 QAnon website
+2-s2.0-85162702221,REACH,political,political=Independents,23.6,% of Independents who liked >=1 fake-news page (reach)
+2-s2.0-85162702221,REACH,political,political=Republicans,20.4,% of Republicans who liked >=1 fake-news page (reach)
+2-s2.0-85162702221,REACH,political,political=Democrats,15.4,% of Democrats who liked >=1 fake-news page (reach)
+2-s2.0-85060025053,REACH,political,political=Republicans,18.1,% of people who shared >=1 fake news article
+2-s2.0-85060025053,REACH,political,political=Democrats,3.5,% of people who shared >=1 fake news article
+2-s2.0-85060549676,REACH,political,political=Extreme right (R*),21,% of political-content sharers who ever shared any fake news — extreme right
+2-s2.0-85060549676,REACH,political,political=Right (R),11,% of political-content sharers who ever shared any fake news — right
+W4205602257,SHARING,political,political=Republican (age 65+),5.3,"share of shared COVID-19 URLs from fake-news domains, black+red (content-N = 7,062,989 tweets-with-URL; 1.6M-voter panel, 527,958 COVID-tweeters)"
+W4205602257,SHARING,political,political=Independent (age 65+),3.7,"share of shared COVID-19 URLs from fake-news domains, black+red (content-N = 7,062,989 tweets-with-URL; 1.6M-voter panel, 527,958 COVID-tweeters)"
+W4205602257,SHARING,political,political=Democrat (age 65+),0.4,"share of shared COVID-19 URLs from fake-news domains, black+red (content-N = 7,062,989 tweets-with-URL; 1.6M-voter panel, 527,958 COVID-tweeters)"
+W4205602257,SHARING,age,age=65+ (political independents),3.7,"share of shared COVID-19 URLs from fake-news domains, black+red (content-N = 7,062,989 tweets-with-URL; 1.6M-voter panel, 527,958 COVID-tweeters)"
+W4205602257,SHARING,age,age=50-64 (political independents),1.7,"share of shared COVID-19 URLs from fake-news domains, black+red (content-N = 7,062,989 tweets-with-URL; 1.6M-voter panel, 527,958 COVID-tweeters)"
+W4205602257,SHARING,age,age=30-49 (political independents),0.7,"share of shared COVID-19 URLs from fake-news domains, black+red (content-N = 7,062,989 tweets-with-URL; 1.6M-voter panel, 527,958 COVID-tweeters)"
+W4205602257,SHARING,age,age=18-29 (political independents),0.2,"share of shared COVID-19 URLs from fake-news domains, black+red (content-N = 7,062,989 tweets-with-URL; 1.6M-voter panel, 527,958 COVID-tweeters)"
+W3033912864,OTHER,political,political=conservative (fake-news URL sharers),82.45,% of EN source users who posted >=1 fake-news URL (# users)
+2-s2.0-85096102360,RECALL,age,age=20-29 years,75.6,"recall-exposure: % self-report exposed to >=1 WHO misinfo item in preceding 3 months (survey, n participants)"
+2-s2.0-85096102360,RECALL,age,age=60-69 years,53.2,"recall-exposure: % self-report exposed to >=1 WHO misinfo item in preceding 3 months (survey, n participants)"
+2-s2.0-105027856675,SHARING,political,political=Republican (US legislators),4.6,share of politician news-link tweets that are misinfo (content-N tweets)
+2-s2.0-105027856675,SHARING,political,political=Democrat (US legislators),1.0,share of politician news-link tweets that are misinfo (content-N tweets)
+2-s2.0-105027856675,SHARING,political,"political=Fratelli d'Italia (FdI, far-right, Italy)",41.7,share of politician news-link tweets that are misinfo (content-N tweets)
+2-s2.0-105027856675,SHARING,political,"political=AfD (far-right, Germany)",8.2,share of politician news-link tweets that are misinfo (content-N tweets)
+2-s2.0-105027959122,REACH,gender,gender=Male,7.70,"share_of_users_spreading_misinfo (# participants, observed/coded from public posts)"
+2-s2.0-105027959122,REACH,gender,gender=Female,6.40,"share_of_users_spreading_misinfo (# participants, observed/coded from public posts)"
+2-s2.0-85194023903,OTHER,political,political=conservative,91,% of the 54 political superspreader accounts classified conservative
+2-s2.0-85217829893,CONTENT,political,political=Conservative groups,19.4,CONTENT: share of UNIQUE viral political messages coded as disinformation (content-N=342 unique deduplicated messages)
+2-s2.0-85217829893,CONTENT,political,political=Progressive groups,8.7,CONTENT: share of UNIQUE viral political messages coded as disinformation (content-N=342 unique deduplicated messages)
+2-s2.0-85168520853,CONTENT,gender,gender=men,28.9,% of content items (statements) containing misinformation (# statements)
+2-s2.0-85168520853,CONTENT,gender,gender=women,25,% of content items (statements) containing misinformation (# statements)
+2-s2.0-85085573221,RECALL,education,education=medical students,72.7,recall-exposure: recall_received_misinfo (# participants)
+2-s2.0-85085573221,RECALL,education,education=nonspecialist,65.7,recall-exposure: recall_received_misinfo (# participants)
+2-s2.0-85085573221,RECALL,education,education=specialist,66.1,recall-exposure: recall_received_misinfo (# participants)
+2-s2.0-85152674280,REACH,political,political=Trump supporters (2020),36.2,share of adults who visited >=1 untrustworthy website in a period (# participants)
+2-s2.0-85152674280,REACH,political,political=Biden supporters (2020),17.8,share of adults who visited >=1 untrustworthy website in a period (# participants)
+2-s2.0-85152674280,REACH,age,age=65 years and older (2020),37.4,share of adults who visited >=1 untrustworthy website in a period (# participants)
+2-s2.0-105029413645,REACH,age,"age=18-29 (website low-cred health, any exposure)",4.8,% exposed to >=1 low-cred health website - age 18-29 (REACH)
+2-s2.0-105029413645,REACH,age,"age=30-44 (website low-cred health, any exposure)",9.8,% exposed to >=1 low-cred health website - age 30-44 (REACH)
+2-s2.0-105029413645,REACH,age,"age=45-59 (website low-cred health, any exposure)",13.2,% exposed to >=1 low-cred health website - age 45-59 (REACH)
+2-s2.0-105029413645,REACH,age,"age=60+ (website low-cred health, any exposure)",20.9,% exposed to >=1 low-cred health website - age 60+ (REACH)
+2-s2.0-105029413645,REACH,age,"age=18-29 (YouTube low-cred health, any exposure)",15.4,% exposed to >=1 low-cred health YouTube video - age 18-29 (REACH)
+2-s2.0-105029413645,REACH,age,"age=30-44 (YouTube low-cred health, any exposure)",9.5,% exposed to >=1 low-cred health YouTube video - age 30-44 (REACH)
+2-s2.0-105029413645,REACH,age,"age=45-59 (YouTube low-cred health, any exposure)",11.9,% exposed to >=1 low-cred health YouTube video - age 45-59 (REACH)
+2-s2.0-105029413645,REACH,age,"age=60+ (YouTube low-cred health, any exposure)",10.3,% exposed to >=1 low-cred health YouTube video - age 60+ (REACH)
+2-s2.0-85194733750,OTHER,gender,gender=Women (among supersharers of fake news),59,"% of the 2,107 supersharers who are women"
+2-s2.0-85194733750,OTHER,political,political=Republicans (among supersharers of fake news),64,"% of the 2,107 supersharers who are Republicans"
+2-s2.0-85081743293,REACH,political,"political=Trump supporters (untrustworthy conservative sites, any visit)",56.7,% of people who visited >=1 (reach)
+2-s2.0-85081743293,REACH,political,"political=Clinton supporters (untrustworthy conservative sites, any visit)",27.7,% of people who visited >=1 (reach)
+2-s2.0-85081743293,REACH,political,"political=Clinton supporters (untrustworthy liberal sites, any visit)",23.0,% of people who visited >=1 (reach)
+2-s2.0-85081743293,REACH,political,"political=Trump supporters (untrustworthy liberal sites, any visit)",10.7,% of people who visited >=1 (reach)
+2-s2.0-85081743293,EXPOSURE,political,political=Trump supporters (untrustworthy conservative diet share),11.0,untrustworthy share of news diet
+2-s2.0-85081743293,EXPOSURE,political,political=Clinton supporters (untrustworthy conservative diet share),0.8,untrustworthy share of news diet
+2-s2.0-85081743293,EXPOSURE,political,political=Clinton supporters (untrustworthy liberal diet share),1.1,untrustworthy share of news diet
+2-s2.0-85081743293,EXPOSURE,political,political=Trump supporters (untrustworthy liberal diet share),0.4,untrustworthy share of news diet
+2-s2.0-85060549676,REACH,political,political=left,5,"% of political-content sharers who ever shared any fake news — left or center (paper: 'fewer than 5%', upper bound)"
+2-s2.0-85194733750,OTHER,gender,gender=Men (among supersharers of fake news),41,"% of the 2,107 supersharers who are men (derived complement of 59%)"
+2-s2.0-85194733750,OTHER,political,political=Democrats/Independents (among supersharers of fake news),36,"% of the 2,107 supersharers who are not Republicans (derived complement of 64%)"
+2-s2.0-85194023903,OTHER,political,political=non-conservative,9,% of the 54 political superspreader accounts classified liberal (complement)
+2-s2.0-105027856675,SHARING,political,political=Die Linke,0.2,party misinfo-sharing rate (Die Linke)
+2-s2.0-105027856675,SHARING,political,political=CDU/CSU,0.1,party misinfo-sharing rate (CDU/CSU)
+2-s2.0-105027856675,SHARING,political,"political=Gruppo Misto (mixed, IT)",9.7,"party misinfo-sharing rate (Gruppo Misto (mixed, IT))"
+2-s2.0-105027856675,SHARING,political,political=Lega,9.2,party misinfo-sharing rate (Lega)
+2-s2.0-105027856675,SHARING,political,political=Conservative Party,0.5,party misinfo-sharing rate (Conservative Party)
+2-s2.0-105027856675,SHARING,political,political=Labour Party,0.1,party misinfo-sharing rate (Labour Party)
+2-s2.0-105027856675,SHARING,office_level,office=Regional Executive (USA),11.1,"misinfo-sharing rate, regional-executive politicians (USA)"
+2-s2.0-105027856675,SHARING,office_level,office=Regional Executive (UK),6.8,"misinfo-sharing rate, regional-executive politicians (UK)"
+2-s2.0-85162702221,REACH,political,political=other partisans,11.5,% of other-partisans who liked >=1 fake-news page
+2-s2.0-105004472114,RECALL,gender,gender=men,9.0,SUBGROUP (gender): share reporting sharing at least one disinformation narrative
+2-s2.0-105004472114,RECALL,gender,gender=women,10.1,SUBGROUP (gender): share reporting sharing at least one disinformation narrative
+scholar_04,REACH,age,aged 65 or older,24.8,REACH: % of Americans who visited at least one untrustworthy website during the election period (aged 65+)
+scholar_04,REACH,age,aged 18-29,13.8,REACH: % of Americans who visited at least one untrustworthy website during the election period (aged 18-29)
+scholar_04,REACH,political,political=Republicans,27.2,SUBGROUP (political): visited at least one untrustworthy website
+scholar_04,REACH,political,political=Democrats,8.3,SUBGROUP (political): visited at least one untrustworthy website
+scholar_04,REACH,political,political=Trump supporters,29.0,SUBGROUP (political): visited at least one untrustworthy website
+scholar_04,REACH,political,political=Harris supporters,8.9,SUBGROUP (political): visited at least one untrustworthy website
+scholar_04,REACH,political,political=very conservative,33.1,SUBGROUP (political): were exposed to untrustworthy websites
+scholar_04,REACH,political,political=conservative,29.0,SUBGROUP (political): were exposed to untrustworthy websites
+scholar_04,REACH,age,age=65+,5.8,SUBGROUP (age): were exposed to AI-generated untrustworthy websites
+scholar_04,REACH,age,age=18-29,10.0,SUBGROUP (age): were exposed to AI-generated untrustworthy websites
+scholar_04,REACH,political,political=Republicans,7.4,SUBGROUP (political): were exposed to AI-generated untrustworthy websites
+scholar_04,REACH,political,political=Democrats,5.0,SUBGROUP (political): were exposed to AI-generated untrustworthy websites
+2-s2.0-85081743293,REACH,political,"political=most conservative media-diet decile (untrustworthy conservative sites, any visit)",84.0,"% of people who visited >=1 untrustworthy conservative website (reach), most conservative media-diet decile"
+2-s2.0-85081743293,REACH,political,"political=second most conservative media-diet decile (untrustworthy conservative sites, any visit)",59.6,"% of people who visited >=1 untrustworthy conservative website (reach), second most conservative media-diet decile"
+2-s2.0-85209547248,REACH,political,"political=most extreme ideologies (QAnon sites, any visit)",7.2,% of participants with the most extreme ideologies exposed to >=1 QAnon website
+2-s2.0-85209547248,REACH,political,"political=not extreme ideologies (QAnon sites, any visit)",2.6,% of participants without extreme ideologies exposed to >=1 QAnon website

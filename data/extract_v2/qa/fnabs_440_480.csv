@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-85179178415,CORRECT_EXCLUDE,Dataset/classification of misinformation claims
+2-s2.0-85098417585,CORRECT_EXCLUDE,Qualitative ethnography of meme factories
+2-s2.0-85046934766,FALSE_NEGATIVE,Observed engagement/spread of false rumors on Twitter
+2-s2.0-85177203020,FALSE_NEGATIVE,Quantifies spread of disaster misinformation on Twitter
+2-s2.0-85106706729,CORRECT_EXCLUDE,Susceptibility/demographic risk experimental test
+2-s2.0-85137182177,CORRECT_EXCLUDE,General social media consumption survey, not misinfo
+2-s2.0-85193709161,CORRECT_EXCLUDE,Theory/commentary on disinformation warfare
+2-s2.0-85160208598,CORRECT_EXCLUDE,Content moderation effectiveness study
+2-s2.0-85211117352,CORRECT_EXCLUDE,Media bias quantification, not misinfo prevalence
+2-s2.0-84968862688,FALSE_NEGATIVE,Quantitative spread measures of four Twitter rumors
+2-s2.0-85083197046,CORRECT_EXCLUDE,Proposal for dashboard/platform, no measure
+2-s2.0-105039958131,CORRECT_EXCLUDE,Video quality/reliability assessment, not prevalence
+2-s2.0-105003246657,CORRECT_EXCLUDE,Search interest infodemiology, not misinfo exposure
+2-s2.0-85181442459,CORRECT_EXCLUDE,Case study of fake news impact, qualitative
+2-s2.0-85094940761,CORRECT_EXCLUDE,Observations/commentary on fake news phenomenon
+2-s2.0-105008350827,CORRECT_EXCLUDE,Video reliability assessment, not prevalence
+2-s2.0-85203876935,CORRECT_EXCLUDE,Bot engagement effects on attention, experimental
+2-s2.0-105009911740,CORRECT_EXCLUDE,Argument about memetic communication tactics
+2-s2.0-85211853241,CORRECT_EXCLUDE,Review/overview of health misinformation venues
+2-s2.0-105040829740,CORRECT_EXCLUDE,Narrative classification of fringe channels
+2-s2.0-105035463968,FALSE_NEGATIVE,Quantifies misinformation prevalence in 233 videos
+2-s2.0-105017693822,CORRECT_EXCLUDE,Spread mechanism/emotional contagion analysis
+2-s2.0-85182978205,CORRECT_EXCLUDE,Experimental celebrity endorsement effects
+2-s2.0-85020191750,CORRECT_EXCLUDE,Credibility assessment methods, detection
+2-s2.0-85200250976,CORRECT_EXCLUDE,Theory/critique of Facebook Rohingya case
+2-s2.0-85141702826,CORRECT_EXCLUDE,Attitude survey toward fake news messaging
+2-s2.0-85152330196,CORRECT_EXCLUDE,Theory on news quality and metrics
+2-s2.0-85113210923,CORRECT_EXCLUDE,Single fake news verification case study
+2-s2.0-105026630069,CORRECT_EXCLUDE,Video quality/accuracy content analysis
+2-s2.0-85181846675,FALSE_NEGATIVE,Prevalence of COVID misinformation endorsement, rep sample
+2-s2.0-85134340260,CORRECT_EXCLUDE,Content themes and virality predictors
+2-s2.0-105026114407,CORRECT_EXCLUDE,Encyclopedia entry/theory on health misinformation
+2-s2.0-85142212638,CORRECT_EXCLUDE,Framing/production analysis of news, not misinfo prevalence
+2-s2.0-85089000453,CORRECT_EXCLUDE,Image distribution network analysis, not prevalence
+2-s2.0-85166773158,CORRECT_EXCLUDE,Predicting future fake news volume, AI feasibility
+2-s2.0-85120682442,CORRECT_EXCLUDE,Video quality/reliability assessment
+2-s2.0-85195191260,CORRECT_EXCLUDE,Fact-checker news content analysis, not prevalence
+2-s2.0-85028692827,CORRECT_EXCLUDE,Dynamics of pseudoknowledge production, qualitative
+2-s2.0-85091428919,CORRECT_EXCLUDE,Narrative analysis of fake news, qualitative
+2-s2.0-105029129971,CORRECT_EXCLUDE,Video quality/reliability assessment

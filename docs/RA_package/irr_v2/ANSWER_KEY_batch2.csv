@@ -1,0 +1,13 @@
+part,item_id,study_id,key_value_pct,key_construct,key_denom_class,key_breadth,key_quote
+2b,E01,2-s2.0-105030827603,71.4,QUALITY,curated_sample,low_quality,71.4% of videos demonstrated low reliability (scores ≤ 2/5)
+2b,E02,W4414446446,4.85,CONTENT,population,misleading,"It finds 77 matches in 67 episodes, amounting to 4.85% of the 1382 episodes during the sampling period between June 2023 and June 2024."
+2b,E03,2-s2.0-85159486270,70,CONTENT,curated_sample,false,"Of the 100 videos, 70 contained nonfactual information regarding food safety techniques for washing fruits and vegetables or storing produce at room temperature."
+2b,E04,2-s2.0-85159598935,23.47,CONTENT,topical,unreliable_source,"Considering links pointing to non-trustworthy news sites (N), the concentration for swing states - 23.47% - is higher than that for safe ones - 18.33%."
+2b,E05,W7165134935,6.0,CONTENT,topical,false,"In total, (n = 58, 6.0%) TikToks included either broad or specific concerns around sunscreen health risks."
+2b,E06,2-s2.0-85168270535,19.5,CONTENT,topical,false,"Misinformation 698 19.5 [% Tweets] ... Not-misinformation 1328 37.1 ... Irrelevant 1558 43.4 [Table 1, manually labeled subset]"
+2b,E07,2-s2.0-85181200454,53.9,RECALL,population,misleading,Affirmative answers were summed to create binary measures that measured PME to information related to the COVID (Yes = 53.9%; Norway = 29.8% to Columbia = 72.3%)
+2b,E08,2-s2.0-85213223975,8.5,CONTENT,topical,false,"videos were categorized as Inaccurate or uninformative for 42.9 % and 36.4 % in TikTok and Instagram respectively, compared to the 8.5 % reported for YouTube"
+2b,E09,2-s2.0-85184824168,36.1,CONTENT,topical,false,"Brazil ... # of Tweets Relevant to COVID-19 Vaccine Misinformation 1,304,827 ... (36.1)"
+2b,E10,2-s2.0-85129632573,37.7,CONTENT,topical,low_quality,"A higher percentage of fake news (193,188/512,435, 37.7%; 95% CI 37.6%-37.8%) was found during the public vaccination stage, than during the nonpublic vaccination stage (99,791/278,748, 35.8%; 95% CI 35.6%-36.0%)"
+2b,E11,2-s2.0-85187117251,3.77,CONTENT,topical,unreliable_source,low-credibility domains present in 3.77% of tweets on COVID-19 and 1.69% of tweets on climate change
+2b,E12,OA-W7125772788,54,RECALL,population,false,"In the case of HIV, 54% of respondents suspected misinformation in their digital feeds, often related to 'permanent cure' narratives"
