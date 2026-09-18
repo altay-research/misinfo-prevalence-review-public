@@ -273,6 +273,9 @@ QA_FILES = [
     # question wording; this one covers all 71 seen-recall studies and quotes each survey item
     # verbatim, which is what §2.4 and Note B4 describe and what check_manuscript_stats.py reads.
     "data/extract_v2/qa/recall_windows_2026-09-14.csv",
+    # The reach-observation-window coding (Note A4's second half), read beside the recall one.
+    # Missing from the package until a clean-clone run died on it (2026-09-18).
+    "data/extract_v2/qa/reach_windows_2026-09-15.csv",
     # Whether each headline abstract discloses how its content sample was selected (Note B).
     "data/extract_v2/qa/curated_abstract_disclosure_2026-09-11.csv",
     "data/extract_v2/qa/curated_abstract_disclosure_2026-09-11_notcurated.txt",
@@ -330,6 +333,10 @@ ALLOW = [
     ("tree", "docs/gpt_check_2026-09", ["*.csv", "*.md"]),
     ("tree", "docs/gpt_check_2026-09_wave2", ["*.csv", "*.md"]),
     ("tree", "docs/gpt_check_2026-09_wave3", ["*.json", "*.md"]),
+    # wave 4 (the two studies that entered after the sweep): the returned codes, which
+    # check_manuscript_stats.py derives the completion counts from; its prompt files paste the
+    # papers' text and stay behind like wave 3's batches.
+    ("tree", "docs/gpt_check_2026-09_wave4", ["*.json", "README.md"]),
     ("glob", "data/extract_v2/qa/gpt_check_2026-09*"),   # the scored KEY, disputes and rulings
 
     # ---- scripts -------------------------------------------------------------------------

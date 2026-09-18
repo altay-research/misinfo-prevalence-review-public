@@ -146,7 +146,10 @@ def fig2():
         # the bands are read side by side and the bases range from 270 to 471 studies.
         tot=sum(s['n'] for _,s in items if s)
         P.append(txt(20,y+13,band,13,"start","#888","bold"))
-        P.append(txt(20+len(band)*7.3+8,y+13,f"{tot} studies",11,"start","#aaa")); y+=26
+        # Right-aligned on the same edge as the row labels below it. Placing these after the band
+        # label, at 20 + len(band) * 7.3, put every band's count at a different x — four ragged
+        # numbers down the left of the figure, since the labels differ in length by half a word.
+        P.append(txt(L-10,y+13,f"{tot} studies",11,"end","#aaa")); y+=26
         for label,s in items:
             if not s:
                 P.append(txt(L-10,y+13,label,13,"end","#333")); P.append(txt(L+4,y+13,"(no data)",11,"start","#bbb")); y+=30; continue

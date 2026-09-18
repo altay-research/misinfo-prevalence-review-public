@@ -1,0 +1,58 @@
+{
+  "paper_id": "2-s2.0-105026630069",
+  "eligible": true,
+  "eligibility_reason": "This paper reports original quantitative content-level estimates from a defined sample of 100 most-liked English-language TikTok videos about sunscreen. It explicitly classifies 6% of the videos as inaccurate according to American Academy of Dermatology sunscreen guidelines.",
+  "estimates": [
+    {
+      "construct": "CONTENT",
+      "value": "6",
+      "value_kind": "proportion",
+      "denominator": "the 100 most-liked TikTok videos about sunscreen in the sample",
+      "measure": "share of sampled videos classified as inaccurate",
+      "misinfo_definition": "Inaccurate content classified according to concordance with the American Academy of Dermatology sunscreen guidelines",
+      "country": "Not reported",
+      "platform": "TikTok",
+      "period": "Search conducted August 14, 2024",
+      "source_quote": "Out of the 100 videos, 35 (35%) were classified as accurate, 6 (6%) as inaccurate, 2 (2%) as mixed, and 57 (57%) were opinion-based or not applicable for factual accuracy evaluation.",
+      "notes": ""
+    }
+  ],
+  "considered_but_excluded": [
+    {
+      "figure": "74%",
+      "why": "Positive attitude toward sunscreen, not misinformation prevalence."
+    },
+    {
+      "figure": "35%",
+      "why": "Videos classified as accurate; this is not prevalence of misinformation."
+    },
+    {
+      "figure": "2%",
+      "why": "Videos classified as mixed accuracy; the paper does not define this category as misinformation or quantify its misinformation share separately."
+    },
+    {
+      "figure": "57%",
+      "why": "Opinion-based or not applicable for factual accuracy evaluation; not equivalent to misinformation prevalence."
+    },
+    {
+      "figure": "40%, 31%, 2%",
+      "why": "Global Quality Score categories, measuring content quality rather than misinformation prevalence."
+    },
+    {
+      "figure": "27%",
+      "why": "Promotional content, an adjacent construct rather than misinformation prevalence."
+    },
+    {
+      "figure": "18%",
+      "why": "Creators identifying as health care professionals, a creator characteristic rather than misinformation prevalence."
+    },
+    {
+      "figure": "85%",
+      "why": "Videos containing sunscreen product recommendations, not misinformation prevalence."
+    },
+    {
+      "figure": "71%",
+      "why": "Videos receiving poor or below-average quality scores, measuring quality rather than misinformation prevalence."
+    }
+  ]
+}

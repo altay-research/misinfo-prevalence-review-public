@@ -159,7 +159,8 @@ def parity_js():
     drv = ROOT / ".check_site_driver.mjs"
     try:
         tmp.write_text(json.dumps(CASES))
-        drv.write_text(NODE_DRIVER)
+        # the driver's imports name ./site/; in the public package the site is under companion/
+        drv.write_text(NODE_DRIVER.replace("./site/", f"./{SITE.relative_to(ROOT).as_posix()}/"))
         r = subprocess.run(["node", str(drv), str(tmp)], cwd=ROOT,
                            capture_output=True, text=True)
         if r.returncode != 0:
