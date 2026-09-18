@@ -1,8 +1,8 @@
 # Prevalence and concentration of misinformation exposure — replication package
 
-Everything needed to reproduce the numbers, figures and tables of the systematic review, from one
-frozen dataset. Built from the working repository on 2026-09-18, freeze **v1.7.23**
-(1048 estimates from 443 studies), MD5 `08f050baf45086f45b5b3bec2390a115`.
+Everything needed to reproduce the numbers, figures and tables of the systematic review
+*Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration* (Altay, 2026), from one frozen dataset. Built from the working repository
+on 2026-09-18, freeze **v1.7.23** (1048 estimates from 443 studies), MD5 `08f050baf45086f45b5b3bec2390a115`.
 
 The root holds six things: **`data/`** the dataset and everything derived from it, **`scripts/`**
 the code, **`docs/`** the methods and the audit trail, **`searches/`** the queries behind the
@@ -25,7 +25,7 @@ reproduce the paper, and `companion/` is not needed at all.
 | `docs/RA_package/` | the human coding sheets, instructions and answer keys |
 | `data/identifiers/included_studies.csv` | identifier and DOI of every included study |
 | `searches/` | the query strings and run dates behind the searches |
-| `companion/` | the interactive website at altay-research.github.io, its source and the submission worker. Nothing here is needed to reproduce anything. |
+| `companion/` | the interactive website at https://altay-research.github.io/misinfo-prevalence-review-public/, its source and the submission worker. Nothing here is needed to reproduce anything. |
 
 ## Reproducing the results
 
@@ -93,8 +93,10 @@ Full text in `LICENSE`.
 
 ## Citation
 
-Altay, S. (2026). *Prevalence and concentration of misinformation exposure: a systematic
-review.* Replication package, freeze v1.7.23.
+The paper: Altay, S. (2026). *Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration.* Preprint to follow; this line is updated when it is posted.
+
+This package: Altay, S. (2026). Replication package and interactive companion for *Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration*,
+freeze v1.7.23. https://github.com/altay-research/misinfo-prevalence-review-public
 
 ## Contents
 

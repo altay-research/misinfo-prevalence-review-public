@@ -11375,3 +11375,48 @@ of content studies with an extractable sample size. A list calibrated on one doc
 transfer to another without reading the hits.
 
 Not checked, and said so: the rendered layout. Nothing here can see a figure broken across a page.
+
+## 2026-09-18 (cont.) — pre-release stress test: the arXiv PDF, the public repository, the companion site
+
+He is about to post `Altay_Systematic_Review_Misinfo.pdf` on arXiv and asked for everything public to be
+checked. What was checked, what was found, and what changed.
+
+**The PDF.** 44 pages, letter, Title and Author metadata set, every font embedded, no placeholder, no
+tracked-change residue. Text against the two authoritative .docx files: main 0.998, supplement 1.000
+(the residue is line-break hyphenation in the extraction, not divergence). Every percentage, k and n in
+the markdown master is in the PDF and vice versa, except the Figure 5 caption's two ranges
+(37–80%, 30–43%), which he added in Word and which the master does not carry. The master also lags the
+.docx by a handful of Word-side wording edits ("unreliable domains" for "unreliable sources", "has never
+been fact-checked" for "is never fact-checked"); no number differs. All 44 pages were rendered and
+looked at: no figure breaks across a page, figures embedded at 266–300 ppi, Table 2 and Supplementary
+Table 1 run across page breaks without a repeated header row (left as is — the main .docx is
+hand-formatted). Every "Supplementary Note/Fig./Table" pointer in the main text resolves to a heading in
+the merged supplement. Both URLs on page 1 are live link annotations; the DOIs in the reference list are
+plain text.
+
+**One change to the PDF: page numbers.** Neither .docx has a footer, so the 44-page file had none.
+Stamped 1–44 at the foot of each page (`scripts/stamp_pdf_page_numbers.py`), with Times New Roman as an
+EMBEDDED TrueType subset — the first attempt used reportlab's base-14 Times-Roman, which is not embedded,
+and arXiv rejects PDFs with unembedded fonts; `pdffonts` now reports 65 fonts, all embedded. Word count
+rose by exactly 44; Title/Author kept; the two links kept. The unnumbered file is in `docs/.backups/`,
+the numbered one is his Desktop file, unchanged in name, and a copy is in `docs/preprint/`.
+
+**The public repository.** Clean tree, nothing unpushed, 640 files, no iCloud duplicate, no secret, no
+absolute path, frozen CSV MD5 matches the freeze. Three fixes: the README and LICENSE cited the package
+under a title that is not the paper's ("Prevalence and concentration of misinformation exposure"); the
+generator now reads the title from the master's H1, and the README names the paper, the full companion
+URL, and — when `build_site.PREPRINT_URL` is set — the preprint link, read from the built site's
+`meta.json` so the two can never disagree. Repository topics and the homepage URL were empty; set.
+
+**The companion site.** `check_site.py` 1108/1108, `stress_site.mjs` 608/608, `worker/test.mjs` 23/23.
+Live: every route, download and figure returns 200, the deployed files are byte-identical to the local
+build, no console error on any of the six pages, and the headline tiles carry the PDF's numbers. In the
+browser: a deep permalink (`#34596fe`, row 1,048) opens its record scrolled into view; "flag a coding
+error" opens the form with the identifier filled; "copy link" yields the canonical `/estimates/#<eid>`.
+**One bug, fixed:** on a phone-width screen the header kept its fixed 52 px height while the nav
+wrapped, so the wrapped links sat on top of the page's first lines. A 640 px media query lets the header
+grow and puts the nav on its own row. The explorer's tables still overflow at phone width, by decision
+(desktop-only).
+
+**Still open, his side:** the arXiv identifier. When it exists, `PREPRINT_URL` in `build_site.py` is the
+one line to set; the site gains its "Read the paper" button and the README its link on the next build.

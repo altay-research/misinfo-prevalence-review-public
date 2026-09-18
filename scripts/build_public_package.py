@@ -120,6 +120,11 @@ ALLOWED_EMAILS = {
     "sachayesilaltay@gmail.com",      # author, polite-pool contact in the retrieval scripts
     "sacha.altay@gmail.com",          # author, corresponding-author line of the manuscript
     "journee-etudes@arcom.fr",        # Arcom's public submission mailbox (research_log.md)
+    # Two strings the research log QUOTES while recording how the correspondence line was fixed
+    # (2026-09-18): an address that never existed and a transposition of the author's own. Neither
+    # is a third party's, and the log is append-only, so they are allowed rather than edited out.
+    "sacha.altay@uzh.ch",
+    "sahca.altay@gmail.com",
 }
 
 TEXT_SUFFIXES = {".md", ".txt", ".csv", ".tsv", ".json", ".jsonl", ".py", ".R", ".r", ".sh",
@@ -543,8 +548,8 @@ you give appropriate credit, link to the licence, and indicate if changes were m
 Licence text: https://creativecommons.org/licenses/by/4.0/legalcode
 Summary:      https://creativecommons.org/licenses/by/4.0/
 
-Attribution: Altay, S. ({year}). Prevalence and concentration of misinformation exposure: a
-systematic review. Replication package, freeze {freeze}.
+Attribution: Altay, S. ({year}). {title}.
+Replication package, freeze {freeze}.
 
 --------------------------------------------------------------------------------------------
 3. THIRD-PARTY MATERIAL NOT COVERED BY EITHER LICENCE
@@ -559,19 +564,39 @@ included in this package. See the "Redistribution boundary" section of README.md
 """
 
 
+def paper_title():
+    """The paper's title, read from the master's H1 so the citation cannot drift from it."""
+    with open(os.path.join(ROOT, "docs", "manuscript_draft.md"), encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("# "):
+                return line[2:].strip()
+    raise SystemExit("docs/manuscript_draft.md has no H1 title")
+
+
+def preprint_url():
+    """The preprint link the site was built with (build_site.PREPRINT_URL), read from the built
+    site's meta.json so the README and the website can never name different links."""
+    p = os.path.join(ROOT, "site", "data", "meta.json")
+    if not os.path.exists(p):
+        return None
+    with open(p, encoding="utf-8") as f:
+        return json.load(f).get("preprint")
+
+
 def write_license(out, freeze):
     p = os.path.join(out, "LICENSE")
     open(p, "w", encoding="utf-8").write(
-        LICENSE_TEXT.format(year=date.today().year, freeze=os.path.basename(freeze)))
+        LICENSE_TEXT.format(year=date.today().year, freeze=os.path.basename(freeze),
+                            title=paper_title()))
     return p
 
 
 README_TEXT = """\
 # Prevalence and concentration of misinformation exposure — replication package
 
-Everything needed to reproduce the numbers, figures and tables of the systematic review, from one
-frozen dataset. Built from the working repository on {built}, freeze **{version}**
-({rows} estimates from {studies} studies), MD5 `{md5}`.
+Everything needed to reproduce the numbers, figures and tables of the systematic review
+*{title}* (Altay, {year}){paper_ref}, from one frozen dataset. Built from the working repository
+on {built}, freeze **{version}** ({rows} estimates from {studies} studies), MD5 `{md5}`.
 
 The root holds six things: **`data/`** the dataset and everything derived from it, **`scripts/`**
 the code, **`docs/`** the methods and the audit trail, **`searches/`** the queries behind the
@@ -594,7 +619,7 @@ reproduce the paper, and `companion/` is not needed at all.
 | `docs/RA_package/` | the human coding sheets, instructions and answer keys |
 | `data/identifiers/included_studies.csv` | identifier and DOI of every included study |
 | `searches/` | the query strings and run dates behind the searches |
-| `companion/` | the interactive website at altay-research.github.io, its source and the submission worker. Nothing here is needed to reproduce anything. |
+| `companion/` | the interactive website at https://altay-research.github.io/misinfo-prevalence-review-public/, its source and the submission worker. Nothing here is needed to reproduce anything. |
 
 ## Reproducing the results
 
@@ -662,8 +687,10 @@ Full text in `LICENSE`.
 
 ## Citation
 
-Altay, S. ({year}). *Prevalence and concentration of misinformation exposure: a systematic
-review.* Replication package, freeze {version}.
+The paper: Altay, S. ({year}). *{title}.*{paper_cite}
+
+This package: Altay, S. ({year}). Replication package and interactive companion for *{title}*,
+freeze {version}. https://github.com/altay-research/misinfo-prevalence-review-public
 
 ## Contents
 
@@ -972,9 +999,13 @@ def main():
     assert n_studies == len({r["id"] for r in _recs}), \
         "package study count disagrees with the freeze it ships"
     version = re.search(r"estimates_(v[\d.]+)_frozen", freeze).group(1)
+    pre = preprint_url()
     write_readme(out, dict(built=date.today().isoformat(), version=version, rows=rows,
                            studies=n_studies, md5=md5, freeze_name=os.path.basename(freeze),
-                           year=date.today().year))
+                           year=date.today().year, title=paper_title(),
+                           paper_ref=f", preprint at {pre}" if pre else "",
+                           paper_cite=f" Preprint: {pre}" if pre else
+                                      " Preprint to follow; this line is updated when it is posted."))
 
     # ---- final scan --------------------------------------------------------------------------
     print("\n--- final scan ---")
