@@ -416,6 +416,25 @@ def site_figure_4(svg):
                        f'fill="#666">Prevalence of misinformation</text></svg>')
 
 
+def site_figure_5(svg):
+    """Drop the two panel subtitles from the site's copy of the concentration figure.
+
+    "5 studies reporting the top 1%" and "4 panels, 6 estimates" are the kind of caption detail the
+    article carries under its figure anyway; on the page they read as clutter under two short
+    headings. The article's copy keeps them, since it is in the posted preprint.
+    """
+    out, dropped = svg, 0
+    for label in ("5 studies reporting the top 1%", "4 panels, 6 estimates"):
+        m = re.search(r"<text[^>]*>" + re.escape(label) + r"</text>", out)
+        if not m:
+            raise SystemExit(f"figure 5: subtitle not found, has the figure changed? {label!r}")
+        out = out[:m.start()] + out[m.end():]
+        dropped += 1
+    if dropped != 2:
+        raise SystemExit("figure 5: expected to drop exactly two subtitles")
+    return out
+
+
 def figures_from_manuscript():
     """The site's figures ARE the manuscript's, read out of scripts/make_nhb_docx.py rather than
     listed again here. A second list would drift: the first version of this script hard-coded
@@ -484,8 +503,9 @@ def main():
         if f["where"] == "omitted":
             continue
         src = ROOT / f["src"]
-        if f["file"] == "figure_4.svg":
-            (OUT / "figures" / f["file"]).write_text(site_figure_4(src.read_text()))
+        transform = {"figure_4.svg": site_figure_4, "figure_5.svg": site_figure_5}.get(f["file"])
+        if transform:
+            (OUT / "figures" / f["file"]).write_text(transform(src.read_text()))
             continue
         if not src.exists():
             raise SystemExit(f"figure missing: {f['src']} (named by make_nhb_docx.py as {f['label']})")
