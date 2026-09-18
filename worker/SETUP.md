@@ -27,6 +27,8 @@ receive them. It cannot touch the review's own repository.
 
 ## 2. Turnstile, so the endpoint is not a spam faucet  (~2 minutes)
 
+Same Cloudflare account the baby shower site runs on (`camille-sacha-bebe` on Pages).
+
 dash.cloudflare.com → **Turnstile** → Add site.
 
 - **Domain**: `altay-research.github.io` (add your own domain too when it exists)

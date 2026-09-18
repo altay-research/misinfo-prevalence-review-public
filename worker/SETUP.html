@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turning on the submission form</title>
+<style>
+:root{--bg:#fbf8f1;--fg:#2c2a26;--muted:#6b6760;--accent:#8a3324;--rule:#e6e0d4;
+ --callout:#f1ece1;--code-bg:#efe9dd;--maxw:720px}
+*{box-sizing:border-box} html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:"Charter","Iowan Old Style",Palatino,Georgia,serif;font-size:20px;line-height:1.7}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:56px 28px 120px}
+h1{font-size:2em;line-height:1.2;margin:.2em 0 .15em;letter-spacing:-.01em}
+h2{color:var(--accent);font-size:1.3em;margin:2em 0 .3em;border-bottom:2px solid var(--accent);padding-bottom:.15em}
+h3{font-size:1.05em;margin:1.5em 0 .2em}
+.sub{font-weight:600;margin:.2em 0}.meta{color:var(--muted);margin:.3em 0 0}
+hr{border:0;border-top:1px solid var(--rule);margin:2em 0}
+p{margin:1em 0} a{color:var(--accent)}
+ul,ol{padding-left:1.2em} li{margin:.5em 0}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.82em;background:var(--code-bg);padding:.1em .35em;border-radius:4px}
+pre{background:#2c2a26;color:#f4efe4;padding:16px 18px;border-radius:8px;overflow:auto;line-height:1.55;font-size:.72em}
+pre code{background:none;padding:0;color:inherit}
+.callout{background:var(--callout);border-left:4px solid var(--accent);padding:14px 18px;margin:1.4em 0;color:var(--muted)}
+.step{border:1px solid var(--rule);border-radius:10px;padding:4px 22px 18px;margin:1.6em 0;background:#fffdf8}
+.step h2{margin-top:.8em}
+.you{display:inline-block;background:var(--accent);color:#fff;font-family:"JetBrains Mono",monospace;
+ font-size:.6em;padding:3px 9px;border-radius:5px;vertical-align:.25em;margin-left:8px;letter-spacing:.04em}
+.me{background:#4a6b4a}
+.mins{color:var(--muted);font-size:.75em;font-family:"JetBrains Mono",monospace}
+table{border-collapse:collapse;width:100%;margin:1.2em 0;font-size:.9em}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+</style></head><body><main class="wrap">
+
+<h1>Turning on the submission form</h1>
+<div class="sub">So people without a GitHub account can send you a missed study</div>
+<div class="meta">About eight minutes. Two things are yours, plus four commands; the rest is mine.</div>
+
+<div class="callout">
+<p style="margin:0"><strong>What it does when it is on.</strong> A reader types into a form on the
+site. It reaches a small program on Cloudflare, which files it as an issue in a
+<strong>private</strong> repository only you can see. Nothing is published, nothing enters the
+dataset, and nobody needs an account.</p>
+</div>
+
+<p>Until you do this, the site keeps the GitHub links it has now. They work, but they ask for an
+account, which is the problem you wanted solved.</p>
+
+<div class="step">
+<h2>1. Cloudflare account <span class="you me">DONE</span></h2>
+<p class="mins">nothing to do</p>
+<p>You already have one: the baby shower site runs on it (Cloudflare Pages, project
+<code>camille-sacha-bebe</code>, at <code>camille-sacha-bebe.pages.dev</code>). The same account
+covers Workers and Turnstile, both on the free tier. Step 4 signs in to it.</p>
+</div>
+
+<div class="step">
+<h2>2. A GitHub token <span class="you">YOU</span></h2>
+<p class="mins">3 minutes · gives me the FIRST string</p>
+<p>Go to <a href="https://github.com/settings/personal-access-tokens/new">github.com/settings/personal-access-tokens/new</a>
+and set exactly these:</p>
+<table>
+<tr><th>Token name</th><td><code>misinfo submissions</code></td></tr>
+<tr><th>Resource owner</th><td><code>altay-research</code></td></tr>
+<tr><th>Expiration</th><td>1 year</td></tr>
+<tr><th>Repository access</th><td>Only select repositories &rarr; <code>misinfo-prevalence-submissions</code></td></tr>
+<tr><th>Permissions</th><td>Repository permissions &rarr; <strong>Issues</strong> &rarr; <strong>Read and write</strong>. Nothing else.</td></tr>
+</table>
+<p>Generate, then copy the token. GitHub shows it once.</p>
+<p>Scoped this way, the worst it can do if it ever leaks is file issues in a private repo that
+exists to receive them. It cannot touch the review's own repository.</p>
+</div>
+
+<div class="step">
+<h2>3. A Turnstile widget <span class="you">YOU</span></h2>
+<p class="mins">2 minutes · gives me the SECOND string</p>
+<p>In the Cloudflare dashboard &mdash; the same one the baby shower site is in &mdash; go to
+<strong>Turnstile</strong> &rarr; <strong>Add widget</strong>:</p>
+<table>
+<tr><th>Widget name</th><td><code>misinfo prevalence site</code></td></tr>
+<tr><th>Hostname</th><td><code>altay-research.github.io</code></td></tr>
+<tr><th>Widget mode</th><td>Managed</td></tr>
+</table>
+<p>You get two keys. The <strong>site key</strong> is public and goes in the page; the
+<strong>secret key</strong> stays on Cloudflare. Keep both to hand.</p>
+<p>This is the invisible check that stops the form becoming a spam faucet. Most people never see
+anything.</p>
+</div>
+
+<div class="step">
+<h2>4. Deploy, and set the two secrets <span class="you">YOU</span></h2>
+<p class="mins">3 minutes · in the terminal</p>
+<p>Paste these one at a time. The first opens a browser to connect your Cloudflare account.</p>
+<pre><code>cd ~/Desktop/Claude/Random/Misinfo_Prevalence_Review/worker
+npx wrangler login
+npx wrangler deploy</code></pre>
+<p>The last line prints an address ending in <code>.workers.dev</code>. <strong>That is the third
+thing to send me.</strong> Then:</p>
+<pre><code>npx wrangler secret put GITHUB_TOKEN
+npx wrangler secret put TURNSTILE_SECRET</code></pre>
+<p>Each asks you to paste a value: the token from step 2, then the <em>secret</em> key from step 3.
+Neither is ever written to a file.</p>
+</div>
+
+<div class="step">
+<h2>5. Send me three strings <span class="you">YOU</span></h2>
+<p class="mins">10 seconds</p>
+<ul>
+<li>the <code>.workers.dev</code> address from step 4</li>
+<li>the Turnstile <strong>site</strong> key from step 3 (the public one, starts <code>0x4AAA</code>)</li>
+<li>nothing else &mdash; do not send me the token or the secret key, I do not need them and they
+should not be in a chat log</li>
+</ul>
+</div>
+
+<div class="step">
+<h2>6. The rest <span class="you me">ME</span></h2>
+<p class="mins">2 minutes</p>
+<p>I put the two public values into <code>build_site.py</code>, rebuild the site, run the checks,
+rebuild the package and push. The form replaces the GitHub button everywhere, and the GitHub route
+stays underneath it for people who prefer it. Then I will ask you to try it once from a private
+browser window so we both see a real submission arrive.</p>
+</div>
+
+<hr>
+
+<h2>Afterwards</h2>
+
+<h3>Where submissions arrive</h3>
+<p><a href="https://github.com/altay-research/misinfo-prevalence-submissions/issues">github.com/altay-research/misinfo-prevalence-submissions/issues</a>,
+or <code>gh issue list -R altay-research/misinfo-prevalence-submissions</code>. Each one is
+labelled <code>unverified</code> plus <code>missing-study</code> or <code>coding</code>, carries
+exactly what was typed, and the sender's email if they gave one. You can have GitHub email you on
+every new issue by watching that repo.</p>
+
+<h3>What a submission is</h3>
+<p>A lead, nothing more. It goes through the same eligibility criteria as everything else or it
+does not. If one does change the corpus, that is a re-freeze with its own entry in the ledger, like
+any other change.</p>
+
+<h3>If it stops working</h3>
+<p>Almost always the token expiring, a year out. Re-issue it and run
+<code>npx wrangler secret put GITHUB_TOKEN</code> again &mdash; no redeploy. To switch the form off
+entirely at any point, tell me and I set one constant back to <code>None</code>; the site returns to
+GitHub links.</p>
+
+<h3>Cost</h3>
+<p>Nothing. Cloudflare's free tier is 100,000 requests a day.</p>
+
+</main></body></html>

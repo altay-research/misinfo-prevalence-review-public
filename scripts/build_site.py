@@ -38,8 +38,8 @@ PREPRINT_URL = None        # e.g. "https://osf.io/preprints/psyarxiv/XXXXX"
 # Worker (worker/) which files the submission as an issue in a PRIVATE triage repository. Until
 # both of these are set the site falls back to the GitHub issue links, which need an account.
 # SETUP.md in worker/ has the two steps.
-SUBMIT_ENDPOINT = None     # e.g. "https://misinfo-prevalence-submit.<subdomain>.workers.dev"
-TURNSTILE_SITEKEY = None   # Cloudflare Turnstile site key (public half)
+SUBMIT_ENDPOINT = "https://misinfo-prevalence-submit.sacha-altay.workers.dev"
+TURNSTILE_SITEKEY = "0x4AAAAAAE76FRJFyjbY2FJl"   # public half; the secret lives in the Worker
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC  = ROOT / "site_src"
