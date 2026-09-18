@@ -45,12 +45,17 @@ earlier stage wrote, and a skipped stage does not fail on a populated tree, it s
 against the previous file. The bootstrap (`phaseB_metareg_robustness.R`) is run by hand;
 its published intervals are at B = 200.
 
-Three stages cannot run offline from this package alone, by design rather than by omission:
+A few stages read inputs this package does not redistribute. The runner skips those by name,
+printing the reason, and the outputs they would write are included:
 
-- `validate_prisma.py` reconciles the PRISMA flow against the raw Scopus, OpenAlex and PubMed
-  record dumps, which are not redistributable. Its output, `data/synth/prisma_counts.json`, is
-  included, so `make_prisma.py` and `make_counts_crosswalk.py` still run.
-- `venue_sensitivity.py` reads fetched OpenAlex abstracts. Its output,
+- `validate_prisma.py`, `make_prisma.py` and `make_si_lists.py` attribute each record to its
+  search stream from the raw Scopus, OpenAlex and PubMed record dumps, which are not
+  redistributable. Their outputs are included: `data/synth/prisma_counts.json`,
+  `docs/prisma_flow.svg`, and the two Supplementary Data lists under `data/synth/phaseB/`.
+- `sync_doc_freeze_headers.py` maintains freeze headers in working-repository documents that are
+  not part of this package.
+- `venue_sensitivity.py` runs; where it would re-derive a venue type from fetched OpenAlex
+  records it keeps the shipped `data/synth/venue_types.csv` instead. Its output,
   `data/synth/phaseB/venue_sensitivity.csv`, is included.
 - `check_manuscript_stats.py` runs, and every statistic it asserts is re-checked here, with one
   check skipped: it verifies that an archived abstract exists on disk for each abstract-only
@@ -58,6 +63,9 @@ Three stages cannot run offline from this package alone, by design rather than b
   The script says so and carries on rather than failing. The abstract-only studies themselves are
   listed with their DOIs in `data/extract_v2/qa/abstract_only_list.json`, so the same check can be
   made against the publishers' own pages.
+
+This was verified on a fresh clone of the repository (2026-09-18): the three commands above run to
+completion, and every file under `data/synth/` regenerates byte-identical to the committed copy.
 
 ## The independent-model adjudication trail
 

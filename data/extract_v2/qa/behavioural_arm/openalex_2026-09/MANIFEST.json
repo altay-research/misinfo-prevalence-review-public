@@ -1,0 +1,8 @@
+{
+ "source": "searches/behavioural_arm_20260907.jsonl",
+ "n_total": 6972,
+ "n_new": 5382,
+ "per_batch": 120,
+ "n_batches": 45,
+ "n_with_abstract": 5132
+}

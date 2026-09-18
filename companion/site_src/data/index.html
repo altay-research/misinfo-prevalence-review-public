@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en" data-v="{{DATA_V}}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Data and code</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -37,12 +37,6 @@
      published. If it is a study, a DOI and the quantity as the paper words it is enough, and it is
      screened against the same eligibility criteria as everything else.</p>
 
-  <h2>Found a coding error?</h2>
-  <p>Every estimate record carries a <strong>flag a coding error</strong> link, which opens the same
-     form with that estimate's identifier already filled in. It reaches the same private queue.
-     The point of the quotes being on the site is that a coding decision can be checked against the
-     sentence it came from, and disputed with a pointer to it.</p>
-
   <h2>How to cite</h2>
   <div class="callout" id="cite"></div>
 </main>
@@ -65,7 +59,7 @@ document.getElementById('paper').innerHTML = `
     ${m.preprint ? `<a class="go-btn" href="${esc(m.preprint)}" target="_blank" rel="noopener">Read it on PsyArXiv
       <span class="arw">&rarr;</span></a>` : ''}
   </div>
-  <p class="small muted">PDF, ${Math.round((m.downloads || {})[PAPER] / 1024 * 10) / 10} MB.</p>`;
+  <p class="small muted">PDF, {{PAPER_MB}} MB.</p>`;
 
 document.getElementById('downloads').innerHTML =
   `<table class="grid"><tbody>${Object.entries(m.downloads || {}).filter(([f]) => f !== PAPER).map(([f, kb]) =>

@@ -1,0 +1,15 @@
+{
+ "id": "2-s2.0-105019225029",
+ "title": "Misinformation in spinal cord rehabilitation on YouTube: Enhancing standards for patient safety",
+ "text_status": "abstract_only",
+ "screen": "EXCLUDE",
+ "screen_reason": "QUALITY-ONLY study. Despite 'misinformation' in the title, the 74 videos were assessed only with DISCERN, JAMA and the Global Quality Score, which rate reliability, completeness, authorship disclosure and usefulness. No item is judged true or false against an external ground truth, and the only share reported, 'only 24% rated as high quality', has high-quality videos in its numerator, not misinformation. Section 3 of the protocol routes DISCERN/JAMA/GQS scores to QUALITY and section 1 excludes quality-only studies, so no prevalence row is recorded. A wholly accurate video can score low on these instruments for failing to cite sources or state a date, which is exactly the case the protocol says must not be counted as misinformation.",
+ "constructs_found": ["QUALITY"],
+ "estimates": [],
+ "missed_or_uncertain": "Recorded here rather than as rows, in case an adjudicator overrules the quality-only exclusion. (1) 'Most videos were of low to moderate quality, with only 24% rated as high quality' would be the candidate row: 24% of 74 YouTube spinal-cord-rehabilitation videos rated high quality on DISCERN/JAMA/GQS, two independent reviewers, keyword search, no date or country stated; its complement (76% low to moderate quality) is not a misinformation share and computing it would also breach R8. (2) Uploader shares (28.4% physicians, 52.7% physiotherapists, 18.9% others) are source attributions, not veracity. (3) The inverse correlation between engagement and quality metrics is reported without a coefficient. (4) No misinformation-specific coding, no fact-check or expert-verification ground truth, and no false/misleading item count appears anywhere in the available text; the conclusion infers misinformation risk from low quality scores rather than measuring it. (5) Abstract only: no data-collection date, no country, no reliability statistic for the two reviewers.",
+ "rob": {
+  "design": "Cannot be fully appraised: abstract only. Systematic YouTube keyword search on spinal cord injury rehabilitation yielding 74 videos meeting inclusion criteria, each assessed independently by two reviewers with DISCERN, JAMA and Global Quality Score, plus engagement metrics (views, likes, comments). No search date, country, inclusion criteria detail, ranking or truncation rule, or intercoder reliability statistic is reported in the available text.",
+  "item6_quote": "These were assessed independently by two reviewers for quality indicators using DISCERN, JAMA, and Global Quality Score criteria.",
+  "item10_quote": "Most videos were of low to moderate quality, with only 24% rated as high quality."
+ }
+}

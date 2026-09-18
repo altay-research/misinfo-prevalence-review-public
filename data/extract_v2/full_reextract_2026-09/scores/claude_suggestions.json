@@ -1,0 +1,2058 @@
+{
+ "SCREEN|2-s2.0-84929523850": {
+  "r": "EXCLUDE_STUDY",
+  "why": "The Scopus id is a 2013 book chapter; the text we coded is the KCL/Ipsos MORI polling report (N=2,244, Nov 2020). Exclude this id from the corpus and move the KCL report to the grey-literature track under its own identity, where polling reports belong."
+ },
+ "SCREEN|2-s2.0-85165815218": {
+  "r": "EXCLUDE_STUDY",
+  "why": "We hold no main-pool row from it (its numbers describe WHO consumes untrustworthy domains, not what share is untrustworthy), and the blind pass found no share with a denominator in the text. Excluding changes no headline and removes a study a referee could not verify from the main text."
+ },
+ "OMISSION|2-s2.0-105004460836|CONTENT|36.3": {
+  "r": "NOT_CODEABLE",
+  "why": "You already ruled to exclude this study on its other row."
+ },
+ "OMISSION|2-s2.0-85107390682|CONTENT|35": {
+  "r": "NOT_CODEABLE",
+  "why": "Group-level (35% of 39 groups/pages had one harmful post) is a different unit from the post-level 5% we hold; one level only, and the post level is the prevalence."
+ },
+ "OMISSION|2-s2.0-85153931706|CONTENT|6.1": {
+  "r": "SAME_AS_OURS",
+  "why": "2,417 misinformation images over 39,367 informative images; ours is 7.1 for the same quantity. Same row; I will check which denominator the paper prints and keep the verbatim one."
+ },
+ "OMISSION|NEW-bergeronboutin-sciadv2026|CONCENTRATION|74": {
+  "r": "ADD_ROW",
+  "why": "Source-level concentration (top 0.5% of Pages / domains / groups). Already queued as an addition in the pending freeze script; ruling ADD_ROW confirms it."
+ },
+ "OMISSION|NEW-bergeronboutin-sciadv2026|CONCENTRATION|70": {
+  "r": "ADD_ROW",
+  "why": "Source-level concentration (top 0.5% of Pages / domains / groups). Already queued as an addition in the pending freeze script; ruling ADD_ROW confirms it."
+ },
+ "OMISSION|NEW-bergeronboutin-sciadv2026|CONCENTRATION|46": {
+  "r": "ADD_ROW",
+  "why": "Source-level concentration (top 0.5% of Pages / domains / groups). Already queued as an addition in the pending freeze script; ruling ADD_ROW confirms it."
+ },
+ "OMISSION|2-s2.0-105002620495|CONTENT|29.6": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant, borderline: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-105016716843|CONTENT|22": {
+  "r": "NOT_CODEABLE",
+  "why": "Rhetorical-strategy codes (satire, reuse, manipulation) that a true video can carry; not falsity. Note that our own 61/52 exaggeration and 25/17 satire rows have the same problem and deserve a look."
+ },
+ "OMISSION|2-s2.0-105016716843|CONTENT|17": {
+  "r": "NOT_CODEABLE",
+  "why": "Rhetorical-strategy codes (satire, reuse, manipulation) that a true video can carry; not falsity. Note that our own 61/52 exaggeration and 25/17 satire rows have the same problem and deserve a look."
+ },
+ "OMISSION|2-s2.0-105016716843|CONTENT|8": {
+  "r": "NOT_CODEABLE",
+  "why": "Rhetorical-strategy codes (satire, reuse, manipulation) that a true video can carry; not falsity. Note that our own 61/52 exaggeration and 25/17 satire rows have the same problem and deserve a look."
+ },
+ "OMISSION|2-s2.0-105016716843|CONTENT|10": {
+  "r": "NOT_CODEABLE",
+  "why": "Rhetorical-strategy codes (satire, reuse, manipulation) that a true video can carry; not falsity. Note that our own 61/52 exaggeration and 25/17 satire rows have the same problem and deserve a look."
+ },
+ "OMISSION|2-s2.0-105026138407|CONTENT|21": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-105026138407|CONTENT|1": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-105029413645|CONTENT|6.8": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as borderline: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-105035056055|SHARING|8.12": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as borderline: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-105039619015|EXPOSURE|0.34": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as borderline: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-42649109723|CONTENT|42": {
+  "r": "NOT_CODEABLE",
+  "why": "Share ACCURATELY reported; inverse of ours."
+ },
+ "OMISSION|2-s2.0-85060549676|CONCENTRATION|74": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85074596916|SHARING|24.1": {
+  "r": "SAME_AS_OURS",
+  "why": "This is the 2016 subtotal including Russian state outlets and WikiLeaks; your ledger ruling already replaces our 17.4 with it. Not a new row."
+ },
+ "OMISSION|2-s2.0-85074596916|CONCENTRATION|27.8": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as borderline: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85084031148|CONTENT|34": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85086037795|CONCENTRATION|43.4": {
+  "r": "NOT_CODEABLE",
+  "why": "Concentration by an attitudinal group (extreme conservatism), not by activity rank: your rule from Sunday sends this to political subgroups, not to the concentration pool."
+ },
+ "OMISSION|2-s2.0-85086037795|CONCENTRATION|48.4": {
+  "r": "NOT_CODEABLE",
+  "why": "Concentration by an attitudinal group (extreme conservatism), not by activity rank: your rule from Sunday sends this to political subgroups, not to the concentration pool."
+ },
+ "OMISSION|2-s2.0-85092013677|CONTENT|21": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85092483799|CONTENT|51.1": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85095594211|CONTENT|0": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85105511315|CONTENT|11": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as borderline: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85109464429|CONTENT|22.0": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85121464977|CONTENT|15.3": {
+  "r": "ADD_ROW",
+  "why": "22/144 videos with FALSE or unsupported claims. The 62.5% we hold counts 'incomplete presentation' (90% of its numerator), which is quality, not falsity. Add 15.3 as the Content row and drop 62.5, or recode 62.5 to QUALITY."
+ },
+ "OMISSION|2-s2.0-85124823821|RECALL|12.3": {
+  "r": "ADD_ROW",
+  "why": "12.3% (130/1,061) who SHARED the speculative cure information is a recall-sharing row, a different subtype from the 93.1% who received it. Flagged only for its base."
+ },
+ "OMISSION|2-s2.0-85127622287|CONTENT|6.4": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant, borderline, low confidence: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85129109345|CONTENT|74": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85136545530|RECALL|33.8": {
+  "r": "NOT_CODEABLE",
+  "why": "33.8 is conditional on being a sharer (drop by rule); 7.6 is the 'knowingly' strict variant. Your ledger item on this study replaces 9.9 with the Table 1 values instead."
+ },
+ "OMISSION|2-s2.0-85136545530|RECALL|7.6": {
+  "r": "NOT_CODEABLE",
+  "why": "33.8 is conditional on being a sharer (drop by rule); 7.6 is the 'knowingly' strict variant. Your ledger item on this study replaces 9.9 with the Table 1 values instead."
+ },
+ "OMISSION|2-s2.0-85142886759|SHARING|2": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85145956359|REACH|63": {
+  "r": "NOT_CODEABLE",
+  "why": "Russian-troll-only variant of the 70% reach we hold."
+ },
+ "OMISSION|2-s2.0-85153931706|CONTENT|1.65": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85159153364|SHARING|0.95": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as borderline: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85159871316|CONTENT|7": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85163154882|SHARING|22": {
+  "r": "ADD_ROW",
+  "why": "22% of 4chan-shared sites are propaganda (truth-based). Our 33/20 'junk' rows include 'sensationalism' (factual sites with clickbait framing), which is the QUALITY case. Add 22 and consider dropping 33/20."
+ },
+ "OMISSION|2-s2.0-85163186108|SHARING|11.1": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85163186108|SHARING|9.3": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85164339474|CONTENT|3.6": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85164694763|SHARING|14": {
+  "r": "ADD_ROW",
+  "why": "14% of US-retweeted vaccine-debate URLs from low-credibility domains is the general sharing share; you doubted the 26% (within no-vax communities). If 26 goes, this is the row that replaces it."
+ },
+ "OMISSION|2-s2.0-85168520853|CONTENT|78.5": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as borderline: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85174641364|CONTENT|29": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant, borderline: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85181752010|CONTENT|14.1": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85182846541|SHARING|1.9": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85182846541|SHARING|2.9": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85189042631|RECALL|42.11": {
+  "r": "NOT_CODEABLE",
+  "why": "Per-country rows at a stricter threshold ('a lot') than the 'any' row we hold; different definition, not a split of ours."
+ },
+ "OMISSION|2-s2.0-85189042631|RECALL|69.39": {
+  "r": "NOT_CODEABLE",
+  "why": "Per-country rows at a stricter threshold ('a lot') than the 'any' row we hold; different definition, not a split of ours."
+ },
+ "OMISSION|2-s2.0-85189042631|RECALL|6": {
+  "r": "NOT_CODEABLE",
+  "why": "Per-country rows at a stricter threshold ('a lot') than the 'any' row we hold; different definition, not a split of ours."
+ },
+ "OMISSION|2-s2.0-85190817518|CONTENT|54": {
+  "r": "NOT_CODEABLE",
+  "why": "54% excludes opinion comments (variant of our 36%); 9% is 11 posts."
+ },
+ "OMISSION|2-s2.0-85190817518|CONTENT|9": {
+  "r": "NOT_CODEABLE",
+  "why": "54% excludes opinion comments (variant of our 36%); 9% is 11 posts."
+ },
+ "OMISSION|2-s2.0-85191807094|CONTENT|61": {
+  "r": "NOT_CODEABLE",
+  "why": "Inverse polarity (little-to-no misinformation); the complement of ours."
+ },
+ "OMISSION|2-s2.0-85208681084|CONTENT|51.7": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant, borderline, low confidence: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85217197547|CONTENT|83.1": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2-s2.0-85217829893|SHARING|17": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as low confidence: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|2603.11058|CONTENT|10.9": {
+  "r": "NOT_CODEABLE",
+  "why": "P_total variants of the country/platform rows we already hold under one definition; one definition per study."
+ },
+ "OMISSION|2603.11058|CONTENT|3.5": {
+  "r": "NOT_CODEABLE",
+  "why": "P_total variants of the country/platform rows we already hold under one definition; one definition per study."
+ },
+ "OMISSION|2603.11058|CONTENT|2.4": {
+  "r": "NOT_CODEABLE",
+  "why": "P_total variants of the country/platform rows we already hold under one definition; one definition per study."
+ },
+ "OMISSION|2603.11058|CONTENT|4.4": {
+  "r": "NOT_CODEABLE",
+  "why": "P_total variants of the country/platform rows we already hold under one definition; one definition per study."
+ },
+ "OMISSION|2603.11058|CONTENT|0.7": {
+  "r": "NOT_CODEABLE",
+  "why": "P_total variants of the country/platform rows we already hold under one definition; one definition per study."
+ },
+ "OMISSION|2603.11058|CONTENT|11.2": {
+  "r": "NOT_CODEABLE",
+  "why": "P_total variants of the country/platform rows we already hold under one definition; one definition per study."
+ },
+ "OMISSION|2603.11058|CONTENT|3.8": {
+  "r": "NOT_CODEABLE",
+  "why": "P_total variants of the country/platform rows we already hold under one definition; one definition per study."
+ },
+ "OMISSION|NEW-bergeronboutin-sciadv2026|CONCENTRATION|75.9": {
+  "r": "ADD_ROW",
+  "why": "Top-20% user concentration on Facebook; already queued as an addition in the pending freeze script."
+ },
+ "OMISSION|NEW-bergeronboutin-sciadv2026|CONCENTRATION|90.1": {
+  "r": "ADD_ROW",
+  "why": "Top-20% user concentration on Instagram; already queued."
+ },
+ "OMISSION|NEW-jadara-2022|RECALL|22": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|OA-W3091627927|CONTENT|0.001": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|W2901308345|CONTENT|1.51": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as borderline, low confidence: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|W4306964957|SHARING|50.582": {
+  "r": "ADD_ROW",
+  "why": "Your ledger note: the paper has three politician reach figures (text 15%, domain 50%, Facebook-URL 1.48%). Add as elite REACH-sharing rows, definition variants of each other."
+ },
+ "OMISSION|W4306964957|SHARING|1.4815": {
+  "r": "ADD_ROW",
+  "why": "Same as above: the Facebook-URL approach figure."
+ },
+ "OMISSION|W4407878374|CONTENT|7.4": {
+  "r": "NOT_CODEABLE",
+  "why": "Hand-labelled sample variant of the classifier figure you asked to add."
+ },
+ "OMISSION|W7165134935|CONTENT|2.4": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "OMISSION|W7165134935|CONTENT|1.6": {
+  "r": "NOT_CODEABLE",
+  "why": "Flagged by the extractor as variant: a stricter or broader definition, a sub-denominator, or a conditional share of a row we already hold. Keep one definition per study."
+ },
+ "MOD|2-s2.0-105002620495|11.1|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Complete extraction of one forum or group is a census of that source (with single_source selection), not a convenience sample."
+ },
+ "MOD|2-s2.0-105005857219|80.2|classification_level": {
+  "r": "OURS",
+  "why": "Default to the dominant level; 'mixed' is used only when a study reports both."
+ },
+ "MOD|2-s2.0-105005857219|80.2|sampling_frame": {
+  "r": "OURS",
+  "why": "A hashtag or search corpus is keyword_topical even when every hit was coded."
+ },
+ "MOD|2-s2.0-105008525623|29|ground_truth": {
+  "r": "OURS",
+  "why": "Instrument artefact: the blind validator forces self_report on every RECALL row. Our convention codes WHO judged the claim false; for narratives taken from fact-checkers that is fact_checker."
+ },
+ "MOD|2-s2.0-105008525623|29|topic": {
+  "r": "THEIRS",
+  "why": "Per-narrative topic (health, crime); general_news was the study default."
+ },
+ "MOD|2-s2.0-105008525623|71|ground_truth": {
+  "r": "OURS",
+  "why": "Instrument artefact: the blind validator forces self_report on every RECALL row. Our convention codes WHO judged the claim false; for narratives taken from fact-checkers that is fact_checker."
+ },
+ "MOD|2-s2.0-105008525623|71|topic": {
+  "r": "THEIRS",
+  "why": "Per-narrative rows take the narrative's topic (NATO, Ukraine); general_news was a study-level default."
+ },
+ "MOD|2-s2.0-105008525623|64|ground_truth": {
+  "r": "OURS",
+  "why": "Instrument artefact: the blind validator forces self_report on every RECALL row. Our convention codes WHO judged the claim false; for narratives taken from fact-checkers that is fact_checker."
+ },
+ "MOD|2-s2.0-105008525623|64|topic": {
+  "r": "THEIRS",
+  "why": "Per-narrative topic (health, crime); general_news was the study default."
+ },
+ "MOD|2-s2.0-105008525623|60.9|ground_truth": {
+  "r": "OURS",
+  "why": "Instrument artefact: the blind validator forces self_report on every RECALL row. Our convention codes WHO judged the claim false; for narratives taken from fact-checkers that is fact_checker."
+ },
+ "MOD|2-s2.0-105008525623|60.9|topic": {
+  "r": "THEIRS",
+  "why": "The vaccine narrative row takes the vaccines topic."
+ },
+ "MOD|2-s2.0-105008525623|73.7|ground_truth": {
+  "r": "OURS",
+  "why": "Instrument artefact: the blind validator forces self_report on every RECALL row. Our convention codes WHO judged the claim false; for narratives taken from fact-checkers that is fact_checker."
+ },
+ "MOD|2-s2.0-105008525623|73.7|topic": {
+  "r": "THEIRS",
+  "why": "Election-period studies (deplatforming, 2016 fake-news browsing) are politics_elections."
+ },
+ "MOD|2-s2.0-105010728491|65|sampling_frame": {
+  "r": "OURS",
+  "why": "109 contents chosen by selection criteria is a curated seed."
+ },
+ "MOD|2-s2.0-105014886450|21.4|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Non-probability online panels (WJX, snowball) are convenience samples."
+ },
+ "MOD|2-s2.0-105027959122|7.4|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Participants recruited from the authors' friend lists because they had posted COVID content: purposive."
+ },
+ "MOD|2-s2.0-105029413645|13|ground_truth": {
+  "r": "THEIRS",
+  "why": "Bradshaw's junk-news typology and the hand-coded low-credibility health domains are the authors' own source ratings, not a third-party list."
+ },
+ "MOD|2-s2.0-105029413645|3|ground_truth": {
+  "r": "THEIRS",
+  "why": "Bradshaw's junk-news typology and the hand-coded low-credibility health domains are the authors' own source ratings, not a third-party list."
+ },
+ "MOD|2-s2.0-105029413645|37|ground_truth": {
+  "r": "THEIRS",
+  "why": "Bradshaw's junk-news typology and the hand-coded low-credibility health domains are the authors' own source ratings, not a third-party list."
+ },
+ "MOD|2-s2.0-105029413645|77|ground_truth": {
+  "r": "THEIRS",
+  "why": "Bradshaw's junk-news typology and the hand-coded low-credibility health domains are the authors' own source ratings, not a third-party list."
+ },
+ "MOD|2-s2.0-105029521599|0.68|denom_scope": {
+  "r": "THEIRS",
+  "why": "All posts by legislators, on any subject, is all_media."
+ },
+ "MOD|2-s2.0-85037352356|0.34|topic": {
+  "r": "THEIRS",
+  "why": "Election-period studies (deplatforming, 2016 fake-news browsing) are politics_elections."
+ },
+ "MOD|2-s2.0-85047794238|58|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Media articles retrieved by search about one study: keyword_topical."
+ },
+ "MOD|2-s2.0-85054363956|16.2|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Complete extraction of one forum or group is a census of that source (with single_source selection), not a convenience sample."
+ },
+ "MOD|2-s2.0-85054363956|6.3|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Complete extraction of one forum or group is a census of that source (with single_source selection), not a convenience sample."
+ },
+ "MOD|2-s2.0-85059494932|10.0|denom_scope": {
+  "r": "OURS",
+  "why": "political_news is the review's own denominator category for political URL corpora (Grinberg, Bovet); the blind coder had no such prior."
+ },
+ "MOD|2-s2.0-85060025053|8.5|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Facebook data donation from a survey panel is panel_trace (observed sharing)."
+ },
+ "MOD|2-s2.0-85074596916|17.4|ground_truth": {
+  "r": "THEIRS",
+  "why": "Bradshaw's junk-news typology and the hand-coded low-credibility health domains are the authors' own source ratings, not a third-party list."
+ },
+ "MOD|2-s2.0-85074596916|18.1|ground_truth": {
+  "r": "THEIRS",
+  "why": "Bradshaw's junk-news typology and the hand-coded low-credibility health domains are the authors' own source ratings, not a third-party list."
+ },
+ "MOD|2-s2.0-85083060520|36|topic": {
+  "r": "THEIRS",
+  "why": "The question asked about false news in general, not about politics."
+ },
+ "MOD|2-s2.0-85083060520|29|topic": {
+  "r": "THEIRS",
+  "why": "The question asked about false news in general, not about politics."
+ },
+ "MOD|2-s2.0-85083060520|19|topic": {
+  "r": "THEIRS",
+  "why": "The question asked about false news in general, not about politics."
+ },
+ "MOD|2-s2.0-85089119559|17.5|sampling_frame": {
+  "r": "OURS",
+  "why": "A fixed question set put to smart assistants is a curated seed, not a keyword search."
+ },
+ "MOD|2-s2.0-85089119559|0|sampling_frame": {
+  "r": "OURS",
+  "why": "A fixed question set put to smart assistants is a curated seed, not a keyword search."
+ },
+ "MOD|2-s2.0-85089119559|5.6|sampling_frame": {
+  "r": "OURS",
+  "why": "A fixed question set put to smart assistants is a curated seed, not a keyword search."
+ },
+ "MOD|2-s2.0-85089119559|26.2|sampling_frame": {
+  "r": "OURS",
+  "why": "A fixed question set put to smart assistants is a curated seed, not a keyword search."
+ },
+ "MOD|2-s2.0-85090181268|13.5|ground_truth": {
+  "r": "THEIRS",
+  "why": "The authors or an expert panel rated the items themselves."
+ },
+ "MOD|2-s2.0-85092033301|38.0|topic": {
+  "r": "THEIRS",
+  "why": "These corpora are COVID-19 posts; the source-reliability measure does not change the topic of the corpus."
+ },
+ "MOD|2-s2.0-85092033301|10.0|topic": {
+  "r": "THEIRS",
+  "why": "These corpora are COVID-19 posts; the source-reliability measure does not change the topic of the corpus."
+ },
+ "MOD|2-s2.0-85092033301|6.4|topic": {
+  "r": "THEIRS",
+  "why": "These corpora are COVID-19 posts; the source-reliability measure does not change the topic of the corpus."
+ },
+ "MOD|2-s2.0-85092033301|5.0|topic": {
+  "r": "THEIRS",
+  "why": "These corpora are COVID-19 posts; the source-reliability measure does not change the topic of the corpus."
+ },
+ "MOD|2-s2.0-85092033301|4.5|topic": {
+  "r": "THEIRS",
+  "why": "These corpora are COVID-19 posts; the source-reliability measure does not change the topic of the corpus."
+ },
+ "MOD|2-s2.0-85095575703|13.94|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Far-right pages chosen by the authors: purposive."
+ },
+ "MOD|2-s2.0-85105511315|32|topic": {
+  "r": "THEIRS",
+  "why": "These corpora are COVID-19 posts; the source-reliability measure does not change the topic of the corpus."
+ },
+ "MOD|2-s2.0-85105511315|32|denom_scope": {
+  "r": "OURS",
+  "why": "n/a is reserved for CONCENTRATION and OTHER; SHARING rows carry a scope."
+ },
+ "MOD|2-s2.0-85105511315|21|topic": {
+  "r": "THEIRS",
+  "why": "These corpora are COVID-19 posts; the source-reliability measure does not change the topic of the corpus."
+ },
+ "MOD|2-s2.0-85105511315|21|denom_scope": {
+  "r": "OURS",
+  "why": "n/a is reserved for CONCENTRATION and OTHER; SHARING rows carry a scope."
+ },
+ "MOD|2-s2.0-85108273495|41|sampling_frame": {
+  "r": "OURS",
+  "why": "A hashtag or search corpus is keyword_topical even when every hit was coded."
+ },
+ "MOD|2-s2.0-85117399204|73|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85124307830|60.7|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85124307830|55.7|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85124823821|93.10|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Non-probability online panels (WJX, snowball) are convenience samples."
+ },
+ "MOD|2-s2.0-85126609259|10|construct": {
+  "r": "OURS",
+  "why": "Pierri's rows are all tweets in a keyword corpus, so CONTENT (THEIRS); Reddit link submissions are sharing acts, so OURS."
+ },
+ "MOD|2-s2.0-85127039075|10.7|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85127039075|11.0|construct": {
+  "r": "OURS",
+  "why": "View-weighted share of non-factual content: the freeze already treats view-weighted prevalence as CONTENT (your Sunday ruling on the YouTube 24.1%)."
+ },
+ "MOD|2-s2.0-85127039075|11.0|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85127044816|6.4|sampling_frame": {
+  "r": "OURS",
+  "why": "221 most prolific answerers is purposive, not a keyword search."
+ },
+ "MOD|2-s2.0-85131270595|3.2|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85131270595|0.1|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85134426953|32.5|ground_truth": {
+  "r": "THEIRS",
+  "why": "The authors or an expert panel rated the items themselves."
+ },
+ "MOD|2-s2.0-85135381095|0|sampling_frame": {
+  "r": "THEIRS",
+  "why": "random_platform requires a random draw from the platform; a keyword or search-term collection is keyword_topical however broad."
+ },
+ "MOD|2-s2.0-85136023139|7.6|ground_truth": {
+  "r": "THEIRS",
+  "why": "The numerator was labelled by a model or a keyword dictionary, not by human coders; classifier is the honest code and it feeds the ground-truth moderator."
+ },
+ "MOD|2-s2.0-85142886759|2.7|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85145425628|0.47|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Only sentences containing 'obese' were analysed: keyword_topical."
+ },
+ "MOD|2-s2.0-85145956359|70|topic": {
+  "r": "THEIRS",
+  "why": "IRA exposure in the 2016 election is politics_elections."
+ },
+ "MOD|2-s2.0-85145956359|98|topic": {
+  "r": "THEIRS",
+  "why": "IRA exposure in the 2016 election is politics_elections."
+ },
+ "MOD|2-s2.0-85148963619|1.31|construct": {
+  "r": "THEIRS",
+  "why": "Pierri's rows are all tweets in a keyword corpus, so CONTENT (THEIRS); Reddit link submissions are sharing acts, so OURS."
+ },
+ "MOD|2-s2.0-85148963619|1.31|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85148963619|35|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85159598935|23.47|construct": {
+  "r": "THEIRS",
+  "why": "Denominator sets the construct: shared URLs / shared images are SHARING (content_share)."
+ },
+ "MOD|2-s2.0-85159598935|18.33|construct": {
+  "r": "THEIRS",
+  "why": "Denominator sets the construct: shared URLs / shared images are SHARING (content_share)."
+ },
+ "MOD|2-s2.0-85160248068|2.05|denom_scope": {
+  "r": "THEIRS",
+  "why": "The rows we hold are the unreliable share of NEWS URLs (2.05 / 0.72), so news_diet; the all-URL variants are separate rows."
+ },
+ "MOD|2-s2.0-85160248068|3.03|denom_scope": {
+  "r": "THEIRS",
+  "why": "The rows we hold are the unreliable share of NEWS URLs (2.05 / 0.72), so news_diet; the all-URL variants are separate rows."
+ },
+ "MOD|2-s2.0-85160248068|1.86|denom_scope": {
+  "r": "THEIRS",
+  "why": "The rows we hold are the unreliable share of NEWS URLs (2.05 / 0.72), so news_diet; the all-URL variants are separate rows."
+ },
+ "MOD|2-s2.0-85163154882|20.0|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Hostnames above a mention threshold and hand-picked Telegram channels are curated seeds."
+ },
+ "MOD|2-s2.0-85163186108|13|construct": {
+  "r": "THEIRS",
+  "why": "Denominator sets the construct: shared URLs / shared images are SHARING (content_share)."
+ },
+ "MOD|2-s2.0-85163186108|13|sampling_frame": {
+  "r": "THEIRS",
+  "why": "WhatsApp groups found by keyword search: curated_seed."
+ },
+ "MOD|2-s2.0-85163186108|13|denom_scope": {
+  "r": "OURS",
+  "why": "political_news is the review's own denominator category for political URL corpora (Grinberg, Bovet); the blind coder had no such prior."
+ },
+ "MOD|2-s2.0-85164339474|11.4|ground_truth": {
+  "r": "THEIRS",
+  "why": "Where the false-claim list came from fact-checkers and coders only matched claims, the ground truth is fact_checker. I will verify the broadcast-transcript study's claim list before applying."
+ },
+ "MOD|2-s2.0-85164339474|11.4|sampling_frame": {
+  "r": "THEIRS",
+  "why": "random_platform requires a random draw from the platform; a keyword or search-term collection is keyword_topical however broad."
+ },
+ "MOD|2-s2.0-85164339474|10.8|ground_truth": {
+  "r": "THEIRS",
+  "why": "Where the false-claim list came from fact-checkers and coders only matched claims, the ground truth is fact_checker. I will verify the broadcast-transcript study's claim list before applying."
+ },
+ "MOD|2-s2.0-85164339474|10.8|sampling_frame": {
+  "r": "THEIRS",
+  "why": "random_platform requires a random draw from the platform; a keyword or search-term collection is keyword_topical however broad."
+ },
+ "MOD|2-s2.0-85164339474|14.8|ground_truth": {
+  "r": "THEIRS",
+  "why": "Where the false-claim list came from fact-checkers and coders only matched claims, the ground truth is fact_checker. I will verify the broadcast-transcript study's claim list before applying."
+ },
+ "MOD|2-s2.0-85164339474|14.8|sampling_frame": {
+  "r": "THEIRS",
+  "why": "random_platform requires a random draw from the platform; a keyword or search-term collection is keyword_topical however broad."
+ },
+ "MOD|2-s2.0-85164339474|1.66|ground_truth": {
+  "r": "THEIRS",
+  "why": "Where the false-claim list came from fact-checkers and coders only matched claims, the ground truth is fact_checker. I will verify the broadcast-transcript study's claim list before applying."
+ },
+ "MOD|2-s2.0-85164339474|1.66|sampling_frame": {
+  "r": "THEIRS",
+  "why": "random_platform requires a random draw from the platform; a keyword or search-term collection is keyword_topical however broad."
+ },
+ "MOD|2-s2.0-85164339474|2.29|ground_truth": {
+  "r": "THEIRS",
+  "why": "Where the false-claim list came from fact-checkers and coders only matched claims, the ground truth is fact_checker. I will verify the broadcast-transcript study's claim list before applying."
+ },
+ "MOD|2-s2.0-85164339474|2.29|sampling_frame": {
+  "r": "THEIRS",
+  "why": "random_platform requires a random draw from the platform; a keyword or search-term collection is keyword_topical however broad."
+ },
+ "MOD|2-s2.0-85164339474|1.75|ground_truth": {
+  "r": "THEIRS",
+  "why": "Where the false-claim list came from fact-checkers and coders only matched claims, the ground truth is fact_checker. I will verify the broadcast-transcript study's claim list before applying."
+ },
+ "MOD|2-s2.0-85164339474|1.75|sampling_frame": {
+  "r": "THEIRS",
+  "why": "random_platform requires a random draw from the platform; a keyword or search-term collection is keyword_topical however broad."
+ },
+ "MOD|2-s2.0-85168520853|26.1|sampling_frame": {
+  "r": "OURS",
+  "why": "Two hand-selected Italian communities: not a random platform draw."
+ },
+ "MOD|2-s2.0-85169998829|57|ground_truth": {
+  "r": "THEIRS",
+  "why": "The numerator was labelled by a model or a keyword dictionary, not by human coders; classifier is the honest code and it feeds the ground-truth moderator."
+ },
+ "MOD|2-s2.0-85169998829|57|classification_level": {
+  "r": "THEIRS",
+  "why": "Domain-list numerators are source-level by construction."
+ },
+ "MOD|2-s2.0-85169998829|55|ground_truth": {
+  "r": "THEIRS",
+  "why": "The numerator was labelled by a model or a keyword dictionary, not by human coders; classifier is the honest code and it feeds the ground-truth moderator."
+ },
+ "MOD|2-s2.0-85169998829|55|classification_level": {
+  "r": "THEIRS",
+  "why": "Domain-list numerators are source-level by construction."
+ },
+ "MOD|2-s2.0-85172813494|29|ground_truth": {
+  "r": "OURS",
+  "why": "Instrument artefact: the blind validator forces self_report on every RECALL row. Our convention codes WHO judged the claim false; for narratives taken from fact-checkers that is fact_checker."
+ },
+ "MOD|2-s2.0-85172813494|29|topic": {
+  "r": "THEIRS",
+  "why": "These corpora are COVID-19 posts; the source-reliability measure does not change the topic of the corpus."
+ },
+ "MOD|2-s2.0-85172813494|60|ground_truth": {
+  "r": "OURS",
+  "why": "Instrument artefact: the blind validator forces self_report on every RECALL row. Our convention codes WHO judged the claim false; for narratives taken from fact-checkers that is fact_checker."
+ },
+ "MOD|2-s2.0-85172813494|60|topic": {
+  "r": "THEIRS",
+  "why": "The vaccine narrative row takes the vaccines topic."
+ },
+ "MOD|2-s2.0-85172813494|73|ground_truth": {
+  "r": "OURS",
+  "why": "Instrument artefact: the blind validator forces self_report on every RECALL row. Our convention codes WHO judged the claim false; for narratives taken from fact-checkers that is fact_checker."
+ },
+ "MOD|2-s2.0-85172813494|73|topic": {
+  "r": "THEIRS",
+  "why": "Per-narrative rows take the narrative's topic (NATO, Ukraine); general_news was a study-level default."
+ },
+ "MOD|2-s2.0-85175105353|3.2|topic": {
+  "r": "THEIRS",
+  "why": "Per-narrative rows take the narrative's topic (NATO, Ukraine); general_news was a study-level default."
+ },
+ "MOD|2-s2.0-85175105353|3.2|denom_scope": {
+  "r": "OURS",
+  "why": "An actor share (% of users) has a population scope."
+ },
+ "MOD|2-s2.0-85179481261|3.3|ground_truth": {
+  "r": "THEIRS",
+  "why": "The numerator was labelled by a model or a keyword dictionary, not by human coders; classifier is the honest code and it feeds the ground-truth moderator."
+ },
+ "MOD|2-s2.0-85179481261|3.3|topic": {
+  "r": "THEIRS",
+  "why": "Anti-Muslim COVID rumours: covid19."
+ },
+ "MOD|2-s2.0-85179481261|3.3|denom_scope": {
+  "r": "THEIRS",
+  "why": "All georeferenced Indian tweets is all_media (THEIRS); the AGCOM outlets' keyword-filtered output is topical (OURS)."
+ },
+ "MOD|2-s2.0-85182846541|0.72|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85187117251|1.69|topic": {
+  "r": "THEIRS",
+  "why": "The climate-change row is science_other; only the COVID row is covid19."
+ },
+ "MOD|2-s2.0-85188303314|54.7|sampling_frame": {
+  "r": "THEIRS",
+  "why": "A fixed list of sources (Snopes's checked claims, the 411 AGCOM outlets) is a curated seed."
+ },
+ "MOD|2-s2.0-85188303314|32.0|sampling_frame": {
+  "r": "THEIRS",
+  "why": "A fixed list of sources (Snopes's checked claims, the 411 AGCOM outlets) is a curated seed."
+ },
+ "MOD|2-s2.0-85188806397|26.06|denom_scope": {
+  "r": "OURS",
+  "why": "political_news is the review's own denominator category for political URL corpora (Grinberg, Bovet); the blind coder had no such prior."
+ },
+ "MOD|2-s2.0-85188806397|22.25|denom_scope": {
+  "r": "OURS",
+  "why": "political_news is the review's own denominator category for political URL corpora (Grinberg, Bovet); the blind coder had no such prior."
+ },
+ "MOD|2-s2.0-85193588807|10.0|topic": {
+  "r": "THEIRS",
+  "why": "Moot: you excluded this study."
+ },
+ "MOD|2-s2.0-85195353413|24.13|topic": {
+  "r": "THEIRS",
+  "why": "Election-period studies (deplatforming, 2016 fake-news browsing) are politics_elections."
+ },
+ "MOD|2-s2.0-85195353413|7.46|topic": {
+  "r": "THEIRS",
+  "why": "Election-period studies (deplatforming, 2016 fake-news browsing) are politics_elections."
+ },
+ "MOD|2-s2.0-85197949220|29.9|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|2-s2.0-85199110625|7.37|ground_truth": {
+  "r": "THEIRS",
+  "why": "NewsGuard/AGCOM ratings are a domain list."
+ },
+ "MOD|2-s2.0-85199110625|7.37|sampling_frame": {
+  "r": "THEIRS",
+  "why": "A fixed list of sources (Snopes's checked claims, the 411 AGCOM outlets) is a curated seed."
+ },
+ "MOD|2-s2.0-85199110625|7.37|denom_scope": {
+  "r": "OURS",
+  "why": "All georeferenced Indian tweets is all_media (THEIRS); the AGCOM outlets' keyword-filtered output is topical (OURS)."
+ },
+ "MOD|2-s2.0-85199110625|7.71|ground_truth": {
+  "r": "THEIRS",
+  "why": "NewsGuard/AGCOM ratings are a domain list."
+ },
+ "MOD|2-s2.0-85199110625|7.71|sampling_frame": {
+  "r": "THEIRS",
+  "why": "A fixed list of sources (Snopes's checked claims, the 411 AGCOM outlets) is a curated seed."
+ },
+ "MOD|2-s2.0-85199110625|7.71|denom_scope": {
+  "r": "OURS",
+  "why": "All georeferenced Indian tweets is all_media (THEIRS); the AGCOM outlets' keyword-filtered output is topical (OURS)."
+ },
+ "MOD|2-s2.0-85210156482|12.1|construct": {
+  "r": "THEIRS",
+  "why": "'Could not be corroborated' admits true videos: QUALITY."
+ },
+ "MOD|2-s2.0-85212060458|66.5|sampling_frame": {
+  "r": "THEIRS",
+  "why": "One anti-vaccine group chosen on purpose: purposive (single_source)."
+ },
+ "MOD|2-s2.0-85213958624|0.94|topic": {
+  "r": "OURS",
+  "why": "Untrustworthy sources in general are general_news; 'other' loses information."
+ },
+ "MOD|2-s2.0-85214504236|85|classification_level": {
+  "r": "OURS",
+  "why": "Default to the dominant level; 'mixed' is used only when a study reports both."
+ },
+ "MOD|2-s2.0-85217829893|23|denom_scope": {
+  "r": "OURS",
+  "why": "political_news is the review's own denominator category for political URL corpora (Grinberg, Bovet); the blind coder had no such prior."
+ },
+ "MOD|2603.11058|11.9|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|2603.11058|6.7|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|2603.11058|1.3|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|2603.11058|20.1|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|2603.11058|8.7|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|2603.11058|6.8|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|2603.11058|17.5|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|2603.11058|7.6|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|2603.11058|6.0|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|2603.11058|5.0|denom_scope": {
+  "r": "THEIRS",
+  "why": "SIMODS sampled keyword-built post corpora, not people's news diets; a keyword corpus is topical (with denom_selection curated for the view-weighting)."
+ },
+ "MOD|NEW-bergeronboutin-sciadv2026|1.1|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Meta's internal platform data is a census of US users, not a panel."
+ },
+ "MOD|NEW-bergeronboutin-sciadv2026|1.1|topic": {
+  "r": "OURS",
+  "why": "Untrustworthy sources in general are general_news; 'other' loses information."
+ },
+ "MOD|NEW-bergeronboutin-sciadv2026|0.1|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Meta's internal platform data is a census of US users, not a panel."
+ },
+ "MOD|NEW-bergeronboutin-sciadv2026|0.1|topic": {
+  "r": "OURS",
+  "why": "Untrustworthy sources in general are general_news; 'other' loses information."
+ },
+ "MOD|NEW-bergeronboutin-sciadv2026|80|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Meta's internal platform data is a census of US users, not a panel."
+ },
+ "MOD|NEW-bergeronboutin-sciadv2026|80|topic": {
+  "r": "OURS",
+  "why": "Untrustworthy sources in general are general_news; 'other' loses information."
+ },
+ "MOD|NEW-jadara-2022|81.6|classification_level": {
+  "r": "OURS",
+  "why": "self_perceived is the freeze's own category for general recall questions."
+ },
+ "MOD|NEW-jadara-2022|81.6|sampling_frame": {
+  "r": "OURS",
+  "why": "convenience_snowball is the more specific of the two."
+ },
+ "MOD|OA-W3091627927|1.44|ground_truth": {
+  "r": "THEIRS",
+  "why": "Where the false-claim list came from fact-checkers and coders only matched claims, the ground truth is fact_checker. I will verify the broadcast-transcript study's claim list before applying."
+ },
+ "MOD|OA-W4360608277|6.9|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|W3189543626|1.7|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "MOD|W4385567160|8.24|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Hostnames above a mention threshold and hand-picked Telegram channels are curated seeds."
+ },
+ "MOD|W4393231882|27.3|topic": {
+  "r": "OURS",
+  "why": "The freeze's 'vaccines' topic is NON-COVID vaccines by design (§2.1 says so); COVID-vaccine studies are covid19."
+ },
+ "SCREEN|2-s2.0-105007993526": {
+  "r": "EXCLUDE_STUDY",
+  "why": "QUALITY-only instrument (DISCERN / GQS / JAMA / accuracy-index means). No item is judged true or false, so there is no prevalence row to hold; same call as the 8 quality-only studies you excluded on 2026-09-08."
+ },
+ "SCREEN|2-s2.0-105009085931": {
+  "r": "EXCLUDE_STUDY",
+  "why": "QUALITY-only instrument (DISCERN / GQS / JAMA / accuracy-index means). No item is judged true or false, so there is no prevalence row to hold; same call as the 8 quality-only studies you excluded on 2026-09-08."
+ },
+ "SCREEN|2-s2.0-105030827603": {
+  "r": "EXCLUDE_STUDY",
+  "why": "QUALITY-only instrument (DISCERN / GQS / JAMA / accuracy-index means). No item is judged true or false, so there is no prevalence row to hold; same call as the 8 quality-only studies you excluded on 2026-09-08."
+ },
+ "SCREEN|2-s2.0-105035036279": {
+  "r": "EXCLUDE_STUDY",
+  "why": "QUALITY-only instrument (DISCERN / GQS / JAMA / accuracy-index means). No item is judged true or false, so there is no prevalence row to hold; same call as the 8 quality-only studies you excluded on 2026-09-08."
+ },
+ "SCREEN|2-s2.0-105037482660": {
+  "r": "EXCLUDE_STUDY",
+  "why": "QUALITY-only instrument (DISCERN / GQS / JAMA / accuracy-index means). No item is judged true or false, so there is no prevalence row to hold; same call as the 8 quality-only studies you excluded on 2026-09-08."
+ },
+ "SCREEN|2-s2.0-105038215392": {
+  "r": "EXCLUDE_STUDY",
+  "why": "QUALITY-only instrument (DISCERN / GQS / JAMA / accuracy-index means). No item is judged true or false, so there is no prevalence row to hold; same call as the 8 quality-only studies you excluded on 2026-09-08."
+ },
+ "SCREEN|2-s2.0-105040026420": {
+  "r": "EXCLUDE_STUDY",
+  "why": "QUALITY-only instrument (DISCERN / GQS / JAMA / accuracy-index means). No item is judged true or false, so there is no prevalence row to hold; same call as the 8 quality-only studies you excluded on 2026-09-08."
+ },
+ "SCREEN|2-s2.0-85139497631": {
+  "r": "EXCLUDE_STUDY",
+  "why": "QUALITY-only instrument (DISCERN / GQS / JAMA / accuracy-index means). No item is judged true or false, so there is no prevalence row to hold; same call as the 8 quality-only studies you excluded on 2026-09-08."
+ },
+ "SCREEN|2-s2.0-85142238598": {
+  "r": "EXCLUDE_STUDY",
+  "why": "QUALITY-only instrument (DISCERN / GQS / JAMA / accuracy-index means). No item is judged true or false, so there is no prevalence row to hold; same call as the 8 quality-only studies you excluded on 2026-09-08."
+ },
+ "SCREEN|2-s2.0-105018851946": {
+  "r": "EXCLUDE_STUDY",
+  "why": "The 34% is exposure to a pro-government influencer network's videos, not to content judged false; the content analysis is qualitative with no veracity share. Same logic as the stance-based exposure item you excluded."
+ },
+ "SCREEN|2-s2.0-85065550941": {
+  "r": "EXCLUDE_STUDY",
+  "why": "The 37.3% is a TOPIC tag ('conspiracy theory' mentioned), coded beside 'dangers of fluoride' and 'benefits'; posts were never judged accurate or inaccurate and the CDC sheet only built the topic list. A wholly true post can carry the tag. Judgement call: keep if you read 'conspiracy theory content' as a falsity label."
+ },
+ "SCREEN|2-s2.0-85142229013": {
+  "r": "EXCLUDE_STUDY",
+  "why": "The 40.7% is agreement with 'there is misleading information on social media', a perception item, not recalled exposure; the paper's 'fake news consumption' items measure preference for social-media news. No exposure row exists."
+ },
+ "SCREEN|2-s2.0-85147303661": {
+  "r": "EXCLUDE_STUDY",
+  "why": "Wrong-paper identity: the archived text AND the frozen row (8,105 removed videos, <1% of coronavirus videos) are the Oxford COMPROP memo 'COVID-related misinformation on YouTube' (Knuutila et al. 2020), not the Scopus paper on anti-vaccine videos. Exclude this id; the memo re-enters under its own grey-literature identity (pre-merge brief)."
+ },
+ "OMISSION|2-s2.0-105002155467|REACH|1": {
+  "r": "NOT_CODEABLE",
+  "why": "Heavy-exposure threshold (>=100 pages) beside the >=1 reach row we hold; a threshold variant."
+ },
+ "OMISSION|2-s2.0-105009619554|CONTENT|55": {
+  "r": "ADD_ROW",
+  "why": "Claim-level share (225 of 411 attributed characteristics not in DSM-5-TR) is a distinct unit from the video-level 52/27 rows; verbatim. Note: our 52/27 rows carry this claim-level measure_type/denominator by mistake (brief, manual fix)."
+ },
+ "OMISSION|2-s2.0-105009619554|CONTENT|40": {
+  "r": "NOT_CODEABLE",
+  "why": "Secondary corpus of 40 behaviours named in comments; n=40, borderline by the extractor's own flag."
+ },
+ "OMISSION|2-s2.0-105012522879|RECALL|60": {
+  "r": "NOT_CODEABLE",
+  "why": "Perception that traditional media generate disinformation, not recalled exposure. (Our 79.2 row on social media is the same kind of item; flagged in the brief.)"
+ },
+ "OMISSION|2-s2.0-105017757935|CONTENT|16.3": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study."
+ },
+ "OMISSION|2-s2.0-105019357120|CONTENT|0.19": {
+  "r": "NOT_CODEABLE",
+  "why": "The 327M-submission denominator is the extractor's own reconstruction (low confidence flag); the paper's stated share uses news-link submissions, which we hold."
+ },
+ "OMISSION|2-s2.0-105021733739|SHARING|4": {
+  "r": "ADD_ROW",
+  "why": "Verbatim second-period Reddit figure (17% -> 4%, Mar-Dec 2020) with its own corpus; the freeze holds period rows elsewhere and we hold only the first period here."
+ },
+ "OMISSION|2-s2.0-105022108218|CONTENT|16.2": {
+  "r": "NOT_CODEABLE",
+  "why": "By-source subgroup figure, flagged borderline/low confidence; we hold the whole-sample 12.8 (high or severe)."
+ },
+ "OMISSION|2-s2.0-105028851691|CONTENT|31.6": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study."
+ },
+ "OMISSION|2-s2.0-105034745484|CONTENT|16.1": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (advice-giving comments only)"
+ },
+ "OMISSION|2-s2.0-105034745484|CONTENT|14.7": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (advice-giving comments only)"
+ },
+ "OMISSION|2-s2.0-105038091134|CONTENT|29.5": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. (5,431 vs 5,818 threads)"
+ },
+ "OMISSION|2-s2.0-85055756722|RECALL|67.7": {
+  "r": "ADD_ROW",
+  "why": "The study's headline recall-sharing figure: 67.7% shared news that was made up or exaggerated in the past month (any of the four items). We hold three of the four parts; the ledger notes the fourth (31.3) is missing. Decide in the brief whether the parts stay beside the total."
+ },
+ "OMISSION|2-s2.0-85067547811|RECALL|75": {
+  "r": "NOT_CODEABLE",
+  "why": "'More than 75%' aware of >=4 of 10 claims: a threshold count and not a verbatim share."
+ },
+ "OMISSION|2-s2.0-85073061780|CONTENT|12": {
+  "r": "NOT_CODEABLE",
+  "why": "Subgroup (34 tweets from trusted accounts)."
+ },
+ "OMISSION|2-s2.0-85074511992|SHARING|6.7": {
+  "r": "NOT_CODEABLE",
+  "why": "Broader 'divisive and conspiracy' subtotal = junk news + Russian state sources; we hold the junk-news rows."
+ },
+ "OMISSION|2-s2.0-85074511992|SHARING|11": {
+  "r": "NOT_CODEABLE",
+  "why": "Broader 'divisive and conspiracy' subtotal = junk news + Russian state sources; we hold the junk-news rows."
+ },
+ "OMISSION|2-s2.0-85083041268|CONTENT|5.7": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. (extreme misinformation only)"
+ },
+ "OMISSION|2-s2.0-85083965254|CONTENT|21": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. (potentially harmful subset)"
+ },
+ "OMISSION|2-s2.0-85083965254|SHARING|14.3": {
+  "r": "ADD_ROW",
+  "why": "Engagement-weighted share: 14.3% of the page's 6.5M interactions went to health-misinformation posts. Verbatim, own denominator (interactions), the same kind of row the freeze holds as SHARING content_share for Facebook engagement elsewhere."
+ },
+ "OMISSION|2-s2.0-85083965254|SHARING|10.7": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. (potentially harmful subset)"
+ },
+ "OMISSION|2-s2.0-85086160482|CONTENT|4": {
+  "r": "ADD_ROW",
+  "why": "The truth-based row (2 of 50 websites with an INACCURATE claim). Our 28% counts exaggerated/unsupported claims too, which a true item can carry; pair with ruling the 28 row QUALITY."
+ },
+ "OMISSION|2-s2.0-85086160482|CONTENT|6": {
+  "r": "ADD_ROW",
+  "why": "The truth-based row (2 of 31 videos with an INACCURATE claim). Our 55% counts exaggerated/unsupported claims too; pair with ruling the 55 row QUALITY."
+ },
+ "OMISSION|2-s2.0-85089622030|CONTENT|31.9": {
+  "r": "ADD_ROW",
+  "why": "Real miss and ALREADY QUEUED in apply_v1717 (CONTENT 31.9 from scan_conc_01). Rule ADD so the record is complete; the merge applies it once."
+ },
+ "OMISSION|2-s2.0-85096102360|RECALL|23.44": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. (>=3 items beside the >=1 row)"
+ },
+ "OMISSION|2-s2.0-85099149423|CONTENT|4.1": {
+  "r": "NOT_CODEABLE",
+  "why": "Composition within misinformation (a type share of the misinformation we already count), not a prevalence row."
+ },
+ "OMISSION|2-s2.0-85100218180|SHARING|0.3": {
+  "r": "ADD_ROW",
+  "why": "Verbatim table figure: 0.3% of ALL 67.6M COVID posts carried a low-quality-source URL, against 2.7% of URL-bearing posts we hold. Two denominators for one corpus, the review's own argument. Enters as CONTENT (share of posts in a keyword corpus, like 85137779722), not SHARING: manual retype in the brief."
+ },
+ "OMISSION|2-s2.0-85100218180|SHARING|0.83": {
+  "r": "NOT_CODEABLE",
+  "why": "Tweet-type split (original tweets only) of the row above."
+ },
+ "OMISSION|2-s2.0-85102849802|CONTENT|1.20": {
+  "r": "NOT_CODEABLE",
+  "why": "Unit variant (unique creatives) of the all-ads 1.99 row."
+ },
+ "OMISSION|2-s2.0-85116003554|RECALL|30.9": {
+  "r": "NOT_CODEABLE",
+  "why": "The 'sometimes' band alone. The right fix is to our 5.7 row: often + sometimes = 36.6 ('more than one-third'), an exact sum of stated parts (brief)."
+ },
+ "OMISSION|2-s2.0-85121019757|EXPOSURE|10": {
+  "r": "NOT_CODEABLE",
+  "why": "Period split of the pooled row we hold; the freeze keeps the paper's pooled figure. (Dec 2018 month beside the 2017-2018 monthly average)"
+ },
+ "OMISSION|2-s2.0-85121019757|EXPOSURE|7": {
+  "r": "NOT_CODEABLE",
+  "why": "Matched-subset re-computation (URLs above the share threshold), a methods comparison, not a prevalence row."
+ },
+ "OMISSION|2-s2.0-85121019757|CONTENT|0.00023": {
+  "r": "NOT_CODEABLE",
+  "why": "Second-hand: a figure 'the Facebook team found' in the dataset documentation, reported by this note, not measured by it."
+ },
+ "OMISSION|2-s2.0-85121019757|SHARING|0.091": {
+  "r": "NOT_CODEABLE",
+  "why": "Second-hand figure from the Facebook URLs dataset documentation, not this note's measurement."
+ },
+ "OMISSION|2-s2.0-85129781787|CONTENT|66.7": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (chloroquine articles)"
+ },
+ "OMISSION|2-s2.0-85129781787|CONTENT|67.2": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (plasma-therapy articles)"
+ },
+ "OMISSION|2-s2.0-85131964464|CONTENT|31.7": {
+  "r": "NOT_CODEABLE",
+  "why": "Pandemic-only subset (13 of 41) of the 100-tweet corpus we hold; 'more than 30%' in the text."
+ },
+ "OMISSION|2-s2.0-85138494787|SHARING|10.7": {
+  "r": "NOT_CODEABLE",
+  "why": "'Addressed' the protective-nicotine claim (10.7%) vs 'endorsed' it (9.8%, held); a definition variant."
+ },
+ "OMISSION|2-s2.0-85138494787|SHARING|3.8": {
+  "r": "ADD_ROW",
+  "why": "Engagement-weighted share: posts endorsing the false claim drew 3.8% of the 578,763 retweets of the top-1000 posts. Verbatim, own denominator; the same engagement-share type the freeze holds elsewhere. Rule NOT CODEABLE instead if you prefer engagement shares out."
+ },
+ "OMISSION|2-s2.0-85138494787|SHARING|55.8": {
+  "r": "NOT_CODEABLE",
+  "why": "Subgroup of 163 top users (those with >=200 posts)."
+ },
+ "OMISSION|2-s2.0-85138494787|CONCENTRATION|10.93": {
+  "r": "NOT_CODEABLE",
+  "why": "Concentration of ALL tobacco x COVID content in the top 0.12% of users, not of misinformation."
+ },
+ "OMISSION|2-s2.0-85138526885|SHARING|23": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (partisan outlets, fabricated)"
+ },
+ "OMISSION|2-s2.0-85138526885|SHARING|11": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (partisan outlets, hoax)"
+ },
+ "OMISSION|2-s2.0-85138526885|SHARING|10": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (independent outlets)"
+ },
+ "OMISSION|2-s2.0-85141702826|RECALL|39.6": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. ('very large extent' band)"
+ },
+ "OMISSION|2-s2.0-85142396682|SHARING|6.4": {
+  "r": "NOT_CODEABLE",
+  "why": "AfD figure for 2020-2022 only (8.3% -> 6.4% across periods); the six party rows we hold are 2016-2022 pooled and no pooled AfD figure is printed."
+ },
+ "OMISSION|2-s2.0-85145881152|CONTENT|63.2": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. (invalid only, beside invalid-or-inaccurate 86)"
+ },
+ "OMISSION|2-s2.0-85149209612|CONTENT|13.5": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. (more significant misinformation)"
+ },
+ "OMISSION|2-s2.0-85154558018|CONCENTRATION|20": {
+  "r": "NOT_CODEABLE",
+  "why": "'Approximately one-fifth' for one domain (breitbart.com): not a verbatim share and a single-source figure."
+ },
+ "OMISSION|2-s2.0-85159326203|RECALL|27.0": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. ('might be wrong' beside 'shared misinformation' 19.5)"
+ },
+ "OMISSION|2-s2.0-85160008311|CONTENT|62.1": {
+  "r": "ADD_ROW",
+  "why": "We hold only the alt-measures group (97.1%, n=68); the pro-measures group (62.1%, n=517) is a parallel partition of the same corpus, verbatim from the same table row. Holding one partition but not the others is the inconsistency. The anti-measures column (94.8%, 904/954) is missing from both passes (brief)."
+ },
+ "OMISSION|2-s2.0-85173877860|CONTENT|83.6": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (Malay-language tweets)"
+ },
+ "OMISSION|2-s2.0-85173877860|CONTENT|27.8": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (English-language tweets)"
+ },
+ "OMISSION|2-s2.0-85173877860|CONTENT|29.9": {
+  "r": "NOT_CODEABLE",
+  "why": "Composition within misinformation (a type share of the misinformation we already count), not a prevalence row. The quote (233, 51.1%) does not even match 29.9."
+ },
+ "OMISSION|2-s2.0-85174615177|SHARING|4.8": {
+  "r": "ADD_ROW",
+  "why": "Engagement-weighted share (4.8% of all likes on the 723 videos went to misinformation videos); verbatim, own denominator, same type as the Facebook-engagement rows the freeze holds. Rule NOT CODEABLE instead if you prefer engagement shares out."
+ },
+ "OMISSION|2-s2.0-85175983241|CONTENT|44": {
+  "r": "NOT_CODEABLE",
+  "why": "Share of respondent-volunteered claims that were misinformation: the corpus is what panellists chose to report, not a media sample; we hold the person-level 52.3."
+ },
+ "OMISSION|2-s2.0-85177420309|CONTENT|14.9": {
+  "r": "NOT_CODEABLE",
+  "why": "Pooled total of the 12 country rows we hold."
+ },
+ "OMISSION|2-s2.0-85186874194|CONTENT|36.0": {
+  "r": "ADD_ROW",
+  "why": "The paper's own misinformation definition: educational-but-nonfactual videos, 49 of 136 educational videos (Table). Our 44.5% is 'Factual: No' over all 220, which counts 49 neutral comedy/lifestyle videos as non-factual. Pair with ruling the 44.55 row QUALITY (its moderator card)."
+ },
+ "OMISSION|2-s2.0-85188358632|SHARING|33.3": {
+  "r": "NOT_CODEABLE",
+  "why": "Median daily share of engagements with ONE account (THL); single-source, not a corpus share."
+ },
+ "OMISSION|2-s2.0-85188358632|SHARING|3": {
+  "r": "NOT_CODEABLE",
+  "why": "Share of human retweets whose author was a malicious bot: a bot measure, not a misinformation share."
+ },
+ "OMISSION|2-s2.0-85188358632|CONCENTRATION|82": {
+  "r": "ADD_ROW",
+  "why": "Clean concentration row: the most vocal 10% of users produced over 82% of the misinformation/negative-vaccine content (conc_unit=user, top 10%). 'Over 82%' matches how the freeze holds 'over 95%' for 85078014559. CONCENTRATION rows are scarce (k=17)."
+ },
+ "OMISSION|2-s2.0-85194075145|EXPOSURE|13": {
+  "r": "NOT_CODEABLE",
+  "why": "'Under-the-radar' sources = unvetted, not misinformation; we hold the misinformation-source 5.1."
+ },
+ "OMISSION|2-s2.0-85194733750|EXPOSURE|1.66": {
+  "r": "ADD_ROW",
+  "why": "High-quality behavioural EXPOSURE row: 1.66% of the political news available to the average panelist from the accounts they follow linked to fake-news sources (verbatim, 664k registered voters). EXPOSURE has k=15; this is a real miss."
+ },
+ "OMISSION|2-s2.0-85194733750|REACH|5.2": {
+  "r": "NOT_CODEABLE",
+  "why": "Following at least one supersharer is not encountering misinformation."
+ },
+ "OMISSION|2-s2.0-85194880315|RECALL|15": {
+  "r": "NOT_CODEABLE",
+  "why": "Variant of a row we hold (stricter threshold, severity band or sub-definition); the freeze keeps one definition per study. ('practically every day' band beside the 51 row)"
+ },
+ "OMISSION|2-s2.0-85194880315|RECALL|58": {
+  "r": "NOT_CODEABLE",
+  "why": "Channel breakdown (where fake news was met), multiple response; not prevalence."
+ },
+ "OMISSION|2-s2.0-85194880315|RECALL|33": {
+  "r": "NOT_CODEABLE",
+  "why": "Channel breakdown (internet publications), multiple response; not prevalence."
+ },
+ "OMISSION|2-s2.0-85194880315|RECALL|27": {
+  "r": "NOT_CODEABLE",
+  "why": "Channel breakdown (television), multiple response; not prevalence."
+ },
+ "OMISSION|2-s2.0-85194880315|RECALL|21": {
+  "r": "NOT_CODEABLE",
+  "why": "Channel breakdown (Telegram), multiple response; not prevalence."
+ },
+ "OMISSION|2-s2.0-85194880315|RECALL|10": {
+  "r": "NOT_CODEABLE",
+  "why": "Channel breakdown (friends/relatives), multiple response; not prevalence."
+ },
+ "OMISSION|2-s2.0-85203845655|CONTENT|26": {
+  "r": "NOT_CODEABLE",
+  "why": "Umbrella 'information disorder' includes mal-information (true but harmful); not a falsity share. We hold the disinformation row."
+ },
+ "OMISSION|2-s2.0-85205688160|CONTENT|39": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (right-leaning posts; a content partition, not a people subgroup)"
+ },
+ "OMISSION|2-s2.0-85205688160|CONTENT|5": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (left-leaning posts)"
+ },
+ "OMISSION|2-s2.0-85215303159|SHARING|11.4": {
+  "r": "ADD_ROW",
+  "why": "Engagement-weighted share, verbatim from the table: 11.4% of 95M user interactions with Italian vaccine news went to questionable sources, beside the content shares we hold. Same type as the Facebook-engagement rows. Rule NOT CODEABLE instead if you prefer engagement shares out."
+ },
+ "OMISSION|2-s2.0-86000670842|CONTENT|24": {
+  "r": "NOT_CODEABLE",
+  "why": "Same numerator (47 completely inaccurate posts) over assessable posts (197) instead of all 250; the paper's text reports 19%, which we hold."
+ },
+ "OMISSION|2-s2.0-86000670842|CONTENT|23": {
+  "r": "NOT_CODEABLE",
+  "why": "Composition within misinformation (a type share of the misinformation we already count), not a prevalence row. (mostly inaccurate band)"
+ },
+ "OMISSION|OA-W4281924559|CONTENT|47.5": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (alternative-treatment articles of the pooled 26.3)"
+ },
+ "OMISSION|OA-W4281924559|CONTENT|20.0": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (transmission articles)"
+ },
+ "OMISSION|OA-W4281924559|CONTENT|8.8": {
+  "r": "NOT_CODEABLE",
+  "why": "Sub-denominator / partition of the row we hold; partitions do not enter beside their whole. (vaccine articles)"
+ },
+ "OMISSION|OA-W4281924559|SHARING|69.1": {
+  "r": "NOT_CODEABLE",
+  "why": "Topic partition of engagement with no pooled engagement figure to anchor it; the paper's pooled row is the 26.3 we hold."
+ },
+ "OMISSION|OA-W4281924559|SHARING|20.4": {
+  "r": "NOT_CODEABLE",
+  "why": "Topic partition of engagement; see the 69.1 card."
+ },
+ "OMISSION|OA-W4281924559|SHARING|4.8": {
+  "r": "NOT_CODEABLE",
+  "why": "Topic partition of engagement; see the 69.1 card."
+ },
+ "OMISSION|OA-W4407797130|RECALL|85.13": {
+  "r": "ADD_ROW",
+  "why": "N6 (COVID caused by the West), the highest-reaching narrative, 85.1% heard. The ledger report (item 43) adds the same row while relabelling our four mislabelled narrative rows; the merge must apply it ONCE (brief)."
+ },
+ "OMISSION|OA-W4407797130|RECALL|44.75": {
+  "r": "ADD_ROW",
+  "why": "N1 (Russian economic assistance larger than the EU's), 44.75% heard. The ledger's PDF reading of Figure 1 gives N1 = 44.8 and adds it too (item 43, with N3 48.1); the two passes agree. The merge applies it ONCE, at the figure's two-decimal value (brief)."
+ },
+ "OMISSION|PMID-33304681|CONTENT|32.2": {
+  "r": "SAME_AS_OURS",
+  "why": "Same row as our 22.3: the paper's printed 22.3% uses a phantom denominator of 654; 146 of 454 posts = 32.2%. The merge CORRECTS the frozen value and value_raw to 32.2 (manual item), it does not add a row."
+ },
+ "OMISSION|SEED-allcott2017|RECALL|14": {
+  "r": "NOT_CODEABLE",
+  "why": "Placebo-headline recall, the false-recall benchmark, not exposure."
+ },
+ "OMISSION|SEED-cordonnier2021|REACH|9.4": {
+  "r": "ADD_ROW",
+  "why": "Truth-based reach: 9.4% of all 2,372 panellists visited a generic (political/social) DISINFORMATION source in 30 days. Our 39% 'unreliable' row includes click-bait (30.4%) which is not misinformation; keep 39 flagged as the broad definition and add the strict one."
+ },
+ "OMISSION|SEED-cordonnier2021|REACH|18.5": {
+  "r": "ADD_ROW",
+  "why": "Truth-based reach for HEALTH disinformation sources (18.5% of the 1,614 panellists who completed the end survey); verbatim, own denominator."
+ },
+ "OMISSION|SEED-cordonnier2021|REACH|30.4": {
+  "r": "NOT_CODEABLE",
+  "why": "Click-bait sources are not misinformation."
+ },
+ "OMISSION|W3033912864|REACH|3.79": {
+  "r": "NOT_CODEABLE",
+  "why": "US-located subgroup of the English retweeters we hold (2.50)."
+ },
+ "OMISSION|W3129222959|SHARING|9.1": {
+  "r": "SAME_AS_OURS",
+  "why": "1,055 junk links of 11,646 = the Germany 9.1 row already held under 2-s2.0-85074511992 (the three-election paper pools this memo's data). Cross-study duplication flagged in the brief."
+ },
+ "OMISSION|W3138656580|EXPOSURE|43.00": {
+  "r": "ADD_ROW",
+  "why": "View-weighted share: videos falsely claiming vaccine availability drew 43.0% of the 35.3M views of the 100 trending videos; verbatim. Enters as CONTENT view-weighted, the way 85085201199's 24.1% of viewership is held (manual retype, brief)."
+ },
+ "OMISSION|W3138656580|CONTENT|3": {
+  "r": "NOT_CODEABLE",
+  "why": "Composition within misinformation (a type share of the misinformation we already count), not a prevalence row. ('vaccine is a hoax' / 'COVID is a hoax' categories)"
+ },
+ "OMISSION|W4293124965|SHARING|20.31": {
+  "r": "NOT_CODEABLE",
+  "why": "Period split of the pooled row we hold; the freeze keeps the paper's pooled figure. (US 2020 beside US 2017-2021)"
+ },
+ "OMISSION|W4293124965|SHARING|5.77": {
+  "r": "NOT_CODEABLE",
+  "why": "Period split of the pooled row we hold; the freeze keeps the paper's pooled figure. (US 2020, strict list)"
+ },
+ "OMISSION|W4293124965|SHARING|24.75": {
+  "r": "NOT_CODEABLE",
+  "why": "Period split of the pooled row we hold; the freeze keeps the paper's pooled figure. (France 2020)"
+ },
+ "OMISSION|W4293124965|SHARING|11.99": {
+  "r": "NOT_CODEABLE",
+  "why": "Period split of the pooled row we hold; the freeze keeps the paper's pooled figure. (France 2020, strict list)"
+ },
+ "MOD|2-s2.0-105005004817|40|sampling_frame": {
+  "r": "OURS",
+  "why": "#mpox hashtag plus a Google query is a keyword frame."
+ },
+ "MOD|2-s2.0-105012981781|10.4|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Comments on researcher-selected videos: a hand-picked content set (purposive)."
+ },
+ "MOD|2-s2.0-105014632937|38.0|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Hand-picked single accounts or videos selected on criteria are purposive (as you ruled for 85095575703)."
+ },
+ "MOD|2-s2.0-105014632937|38.0|denom_scope": {
+  "r": "OURS",
+  "why": "200 YouTube NEWS videos: a news diet, not everything consumed."
+ },
+ "MOD|2-s2.0-105018276467|68.8|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-105018276467|7.1|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-105019603181|12.7|topic": {
+  "r": "THEIRS",
+  "why": "The paper classifies articles by topic; this row is 'U.S. Electoral Politics' (12.7%), not a topline. Our measure_type calls it the broadest row by mistake."
+ },
+ "MOD|2-s2.0-105019603181|10.9|topic": {
+  "r": "THEIRS",
+  "why": "The paper classifies articles by topic; this row is the social-issues category."
+ },
+ "MOD|2-s2.0-105019603181|6.7|topic": {
+  "r": "THEIRS",
+  "why": "The paper classifies articles by topic; this row is the COVID-19 category."
+ },
+ "MOD|2-s2.0-105019603181|4.3|topic": {
+  "r": "THEIRS",
+  "why": "The paper classifies articles by topic; this row is the health category."
+ },
+ "MOD|2-s2.0-105021733739|17|sampling_frame": {
+  "r": "OURS",
+  "why": "Subreddits were picked from a fixed list (curated_seed), as you ruled for this study before."
+ },
+ "MOD|2-s2.0-105027856675|1.49|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-105027856675|1.49|denom_scope": {
+  "r": "THEIRS",
+  "why": "Every NewsGuard-rated link, or mainstream+disinformation outlets together, is a news diet regardless of topic. The six sister rows of 85142396682 get the same cell (THIRD there, because the blind said all_media)."
+ },
+ "MOD|2-s2.0-105027856675|9.46|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-105027856675|9.46|denom_scope": {
+  "r": "THEIRS",
+  "why": "Every NewsGuard-rated link, or mainstream+disinformation outlets together, is a news diet regardless of topic. The six sister rows of 85142396682 get the same cell (THIRD there, because the blind said all_media)."
+ },
+ "MOD|2-s2.0-105027856675|0.33|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-105027856675|0.33|denom_scope": {
+  "r": "THEIRS",
+  "why": "Every NewsGuard-rated link, or mainstream+disinformation outlets together, is a news diet regardless of topic. The six sister rows of 85142396682 get the same cell (THIRD there, because the blind said all_media)."
+ },
+ "MOD|2-s2.0-105027856675|2.30|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-105027856675|2.30|denom_scope": {
+  "r": "THEIRS",
+  "why": "Every NewsGuard-rated link, or mainstream+disinformation outlets together, is a news diet regardless of topic. The six sister rows of 85142396682 get the same cell (THIRD there, because the blind said all_media)."
+ },
+ "MOD|2-s2.0-105030082417|9.4|construct": {
+  "r": "THEIRS",
+  "why": "The label can sit on a wholly true item (not evidence-based, ineffective, non-factual incl. neutral videos), so it is QUALITY; the truth-based replacement rows are on their omission cards."
+ },
+ "MOD|2-s2.0-105030082417|9.4|sampling_frame": {
+  "r": "OURS",
+  "why": "A keyword or hashtag query, however the paper names it, is keyword_topical (your 7 rulings)."
+ },
+ "MOD|2-s2.0-105030082417|4.7|sampling_frame": {
+  "r": "OURS",
+  "why": "A keyword or hashtag query, however the paper names it, is keyword_topical (your 7 rulings)."
+ },
+ "MOD|2-s2.0-105032159703|36|sampling_frame": {
+  "r": "OURS",
+  "why": "A keyword or hashtag query, however the paper names it, is keyword_topical (your 7 rulings)."
+ },
+ "MOD|2-s2.0-105033611630|94.35|topic": {
+  "r": "THEIRS",
+  "why": "Snake and spider misinformation is science/nature; science_other exists for exactly this."
+ },
+ "MOD|2-s2.0-105034745484|9.0|sampling_frame": {
+  "r": "OURS",
+  "why": "The Danish group row is a full census of the group's comments (the 48-post selection applies to the English group)."
+ },
+ "MOD|2-s2.0-105038091134|27.5|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85038621544|0.022|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85038621544|0.023|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85038621544|0.05|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85051037754|4.00|denom_scope": {
+  "r": "THEIRS",
+  "why": "All 1,800 posts on the platform wall, unrestricted by topic: all_media, as you ruled for 'all tweets' in 85179481261."
+ },
+ "MOD|2-s2.0-85055756722|8.9|topic": {
+  "r": "THEIRS",
+  "why": "Election-period corpora and political fake-news-site samples are politics_elections, as you ruled for the Guess-type domain-list studies on 2026-09-08."
+ },
+ "MOD|2-s2.0-85055756722|29.9|topic": {
+  "r": "THEIRS",
+  "why": "Election-period corpora and political fake-news-site samples are politics_elections, as you ruled for the Guess-type domain-list studies on 2026-09-08."
+ },
+ "MOD|2-s2.0-85060013655|1.7|ground_truth": {
+  "r": "THEIRS",
+  "why": "The authors coded falsity themselves (with a typology), no fact-checker verdicts were used; same as your 2 rulings."
+ },
+ "MOD|2-s2.0-85060013655|1.7|topic": {
+  "r": "THEIRS",
+  "why": "Election-period corpora and political fake-news-site samples are politics_elections, as you ruled for the Guess-type domain-list studies on 2026-09-08."
+ },
+ "MOD|2-s2.0-85060013655|1.7|denom_scope": {
+  "r": "OURS",
+  "why": "Stories sampled from 46 fake-news sites are a (fake) news diet, not a political-news link stream."
+ },
+ "MOD|2-s2.0-85069463611|0.18|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85069463611|0.18|sampling_frame": {
+  "r": "THIRD",
+  "why": "Neither: 364 public POLITICAL WhatsApp groups joined from invitation links is a curated set of groups (curated_seed), not a random platform draw and not a keyword query."
+ },
+ "MOD|2-s2.0-85069463611|0.96|sampling_frame": {
+  "r": "THIRD",
+  "why": "Neither: 364 public POLITICAL WhatsApp groups joined from invitation links is a curated set of groups (curated_seed), not a random platform draw and not a keyword query."
+ },
+ "MOD|2-s2.0-85074511992|4.2|ground_truth": {
+  "r": "THEIRS",
+  "why": "The Oxford team rates sources against its own five junk-news criteria; that is researcher_coding, as you ruled six times."
+ },
+ "MOD|2-s2.0-85074511992|4.2|topic": {
+  "r": "THEIRS",
+  "why": "Election-period corpora and political fake-news-site samples are politics_elections, as you ruled for the Guess-type domain-list studies on 2026-09-08."
+ },
+ "MOD|2-s2.0-85074511992|10.3|ground_truth": {
+  "r": "THEIRS",
+  "why": "The Oxford team rates sources against its own five junk-news criteria; that is researcher_coding, as you ruled six times."
+ },
+ "MOD|2-s2.0-85074511992|10.3|topic": {
+  "r": "THEIRS",
+  "why": "Election-period corpora and political fake-news-site samples are politics_elections, as you ruled for the Guess-type domain-list studies on 2026-09-08."
+ },
+ "MOD|2-s2.0-85074511992|9.1|ground_truth": {
+  "r": "THEIRS",
+  "why": "The Oxford team rates sources against its own five junk-news criteria; that is researcher_coding, as you ruled six times."
+ },
+ "MOD|2-s2.0-85074511992|9.1|topic": {
+  "r": "THEIRS",
+  "why": "Election-period corpora and political fake-news-site samples are politics_elections, as you ruled for the Guess-type domain-list studies on 2026-09-08."
+ },
+ "MOD|2-s2.0-85075076652|2.6|topic": {
+  "r": "OURS",
+  "why": "Fake reports of attacks at screenings are a crime/society hoax."
+ },
+ "MOD|2-s2.0-85076877757|60.0|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85076877757|60.0|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Ten family WhatsApp groups whose members donated content is a convenience sample, not a tracking panel."
+ },
+ "MOD|2-s2.0-85076877757|38.8|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85076877757|38.8|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Ten family WhatsApp groups whose members donated content is a convenience sample, not a tracking panel."
+ },
+ "MOD|2-s2.0-85078014559|90|topic": {
+  "r": "THEIRS",
+  "why": "Election-period corpora and political fake-news-site samples are politics_elections, as you ruled for the Guess-type domain-list studies on 2026-09-08."
+ },
+ "MOD|2-s2.0-85078014559|95|sampling_frame": {
+  "r": "THEIRS",
+  "why": "A fixed list of sources or accounts is curated_seed (your 4 rulings)."
+ },
+ "MOD|2-s2.0-85078014559|95|topic": {
+  "r": "THEIRS",
+  "why": "Election-period corpora and political fake-news-site samples are politics_elections, as you ruled for the Guess-type domain-list studies on 2026-09-08."
+ },
+ "MOD|2-s2.0-85085201199|24.1|construct": {
+  "r": "OURS",
+  "why": "View-weighted share of a topical sample is content prevalence weighted by views, held as CONTENT (your ruling on 85085201199's pattern)."
+ },
+ "MOD|2-s2.0-85085573221|68.2|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85086160482|28|construct": {
+  "r": "THEIRS",
+  "why": "The label can sit on a wholly true item (not evidence-based, ineffective, non-factual incl. neutral videos), so it is QUALITY; the truth-based replacement rows are on their omission cards."
+ },
+ "MOD|2-s2.0-85086160482|55|construct": {
+  "r": "THEIRS",
+  "why": "The label can sit on a wholly true item (not evidence-based, ineffective, non-factual incl. neutral videos), so it is QUALITY; the truth-based replacement rows are on their omission cards."
+ },
+ "MOD|2-s2.0-85091698994|14.39|sampling_frame": {
+  "r": "THEIRS",
+  "why": "A fixed list of sources or accounts is curated_seed (your 4 rulings)."
+ },
+ "MOD|2-s2.0-85091698994|10.42|sampling_frame": {
+  "r": "THEIRS",
+  "why": "A fixed list of sources or accounts is curated_seed (your 4 rulings)."
+ },
+ "MOD|2-s2.0-85091698994|10.42|denom_scope": {
+  "r": "THEIRS",
+  "why": "Every NewsGuard-rated link, or mainstream+disinformation outlets together, is a news diet regardless of topic. The six sister rows of 85142396682 get the same cell (THIRD there, because the blind said all_media)."
+ },
+ "MOD|2-s2.0-85099149423|13.5|ground_truth": {
+  "r": "THEIRS",
+  "why": "The authors coded falsity themselves (with a typology), no fact-checker verdicts were used; same as your 2 rulings."
+ },
+ "MOD|2-s2.0-85105454127|11|construct": {
+  "r": "OURS",
+  "why": "Share of PEOPLE/ACCOUNTS who shared at least once is REACH with reach_subtype=sharing (your 4 rulings)."
+ },
+ "MOD|2-s2.0-85111017779|2.2|topic": {
+  "r": "THEIRS",
+  "why": "The fake-news items are generic (definition-based, since January 2020); COVID is the period, not the subject."
+ },
+ "MOD|2-s2.0-85112249462|24.3|sampling_frame": {
+  "r": "OURS",
+  "why": "Self-selected newsletter readers answering a call is a convenience sample; purposive is for hand-picked content sets."
+ },
+ "MOD|2-s2.0-85112249462|24.3|topic": {
+  "r": "OURS",
+  "why": "CoronaCheck subscribers asked about misinformation during the pandemic: the study is COVID-framed; keep covid19."
+ },
+ "MOD|2-s2.0-85112249462|31.4|sampling_frame": {
+  "r": "OURS",
+  "why": "Self-selected newsletter readers answering a call is a convenience sample; purposive is for hand-picked content sets."
+ },
+ "MOD|2-s2.0-85112249462|31.4|topic": {
+  "r": "OURS",
+  "why": "CoronaCheck subscribers asked about misinformation during the pandemic: the study is COVID-framed; keep covid19."
+ },
+ "MOD|2-s2.0-85121019757|2.5|sampling_frame": {
+  "r": "THEIRS",
+  "why": "The Nielsen desktop panel is a tracking panel (panel_trace); the random draw is of URLs within it."
+ },
+ "MOD|2-s2.0-85121019757|12|sampling_frame": {
+  "r": "OURS",
+  "why": "The Facebook URLs dataset is a platform-wide census of shared URLs, not a panel."
+ },
+ "MOD|2-s2.0-85121019757|12|denom_scope": {
+  "r": "OURS",
+  "why": "All US clicks in the Facebook URLs dataset, 52% of them to non-news sites: all_media."
+ },
+ "MOD|2-s2.0-85122546153|75|construct": {
+  "r": "OURS",
+  "why": "Stating alcohol protects the heart is a specific false claim judged against evidence: CONTENT."
+ },
+ "MOD|2-s2.0-85122546153|75|classification_level": {
+  "r": "THEIRS",
+  "why": "The unit is the organisation (12 of 18 industry sources), judged across its pages: source_level."
+ },
+ "MOD|2-s2.0-85129092713|56.00|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85131073869|37.5|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85131073869|37.5|denom_scope": {
+  "r": "OURS",
+  "why": "Fake-news-site stories, curated news-link posts and public-broadcast news/talk shows are news diets, not political-news streams."
+ },
+ "MOD|2-s2.0-85131964464|19.0|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Hand-picked single accounts or videos selected on criteria are purposive (as you ruled for 85095575703)."
+ },
+ "MOD|2-s2.0-85131964464|19.0|topic": {
+  "r": "THEIRS",
+  "why": "The 100-tweet corpus and the DNR item are political (the DNR 43.1 is the POLITICS-topic item; 53.9 is the COVID one)."
+ },
+ "MOD|2-s2.0-85136139565|47|topic": {
+  "r": "THEIRS",
+  "why": "Snake and spider misinformation is science/nature; science_other exists for exactly this."
+ },
+ "MOD|2-s2.0-85137779722|0.88|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85138494787|22.5|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85138494787|22.5|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Our field is blank; the corpus is keyword-collected tobacco x COVID-19 posts."
+ },
+ "MOD|2-s2.0-85140592237|18.3|topic": {
+  "r": "OURS",
+  "why": "As you ruled for the Polish COVID study: a nutrition/health framing stays health_other. covid19 is defensible; keep whichever you prefer, consistently."
+ },
+ "MOD|2-s2.0-85142396682|3.86|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-85142396682|3.86|denom_scope": {
+  "r": "THIRD",
+  "why": "Neither: the denominator is all NewsGuard-RATED links posted by legislators, i.e. a news diet (not all posts, so not all_media). Set news_diet, the same cell as the identical design 105027856675."
+ },
+ "MOD|2-s2.0-85142396682|0.43|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-85142396682|0.43|denom_scope": {
+  "r": "THIRD",
+  "why": "Neither: the denominator is all NewsGuard-RATED links posted by legislators, i.e. a news diet (not all posts, so not all_media). Set news_diet, the same cell as the identical design 105027856675."
+ },
+ "MOD|2-s2.0-85142396682|0.18|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-85142396682|0.18|denom_scope": {
+  "r": "THIRD",
+  "why": "Neither: the denominator is all NewsGuard-RATED links posted by legislators, i.e. a news diet (not all posts, so not all_media). Set news_diet, the same cell as the identical design 105027856675."
+ },
+ "MOD|2-s2.0-85142396682|0.03|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-85142396682|0.03|denom_scope": {
+  "r": "THIRD",
+  "why": "Neither: the denominator is all NewsGuard-RATED links posted by legislators, i.e. a news diet (not all posts, so not all_media). Set news_diet, the same cell as the identical design 105027856675."
+ },
+ "MOD|2-s2.0-85142396682|0.25|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-85142396682|0.25|denom_scope": {
+  "r": "THIRD",
+  "why": "Neither: the denominator is all NewsGuard-RATED links posted by legislators, i.e. a news diet (not all posts, so not all_media). Set news_diet, the same cell as the identical design 105027856675."
+ },
+ "MOD|2-s2.0-85142396682|0.05|topic": {
+  "r": "OURS",
+  "why": "Politicians' own link sharing, and exposure measured during the 2020 election, are politics_elections; the blind is applying the domain-list rule where the corpus is political by construction."
+ },
+ "MOD|2-s2.0-85142396682|0.05|denom_scope": {
+  "r": "THIRD",
+  "why": "Neither: the denominator is all NewsGuard-RATED links posted by legislators, i.e. a news diet (not all posts, so not all_media). Set news_diet, the same cell as the identical design 105027856675."
+ },
+ "MOD|2-s2.0-85143274147|91.2|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85143274147|36.3|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85145390598|7.5|sampling_frame": {
+  "r": "THEIRS",
+  "why": "A fixed list of sources or accounts is curated_seed (your 4 rulings)."
+ },
+ "MOD|2-s2.0-85145404443|1.8|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85145881152|86|ground_truth": {
+  "r": "THEIRS",
+  "why": "The authors coded falsity themselves (with a typology), no fact-checker verdicts were used; same as your 2 rulings."
+ },
+ "MOD|2-s2.0-85152674280|26.2|topic": {
+  "r": "THEIRS",
+  "why": "Election-period corpora and political fake-news-site samples are politics_elections, as you ruled for the Guess-type domain-list studies on 2026-09-08."
+ },
+ "MOD|2-s2.0-85154558018|1.7|denom_scope": {
+  "r": "OURS",
+  "why": "A share of USERS (posted >=1 fake-news comment) has a population denominator. (The row itself should be REACH reach_subtype=sharing rather than SHARING actor_share; brief.)"
+ },
+ "MOD|2-s2.0-85154558018|1.4|denom_scope": {
+  "r": "OURS",
+  "why": "Comments containing news links is a news-diet denominator."
+ },
+ "MOD|2-s2.0-85162702221|18.4|topic": {
+  "r": "THEIRS",
+  "why": "The Grinberg et al. fake-news source list is the 2016-election political list; politics_elections, as you ruled for the other Guess/Grinberg-list studies."
+ },
+ "MOD|2-s2.0-85172171076|50|sampling_frame": {
+  "r": "OURS",
+  "why": "Venues came from a prior study's list (curated_seed)."
+ },
+ "MOD|2-s2.0-85172171076|0.2|sampling_frame": {
+  "r": "OURS",
+  "why": "Venues came from a prior study's list (curated_seed)."
+ },
+ "MOD|2-s2.0-85173224200|77|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Hand-picked single accounts or videos selected on criteria are purposive (as you ruled for 85095575703)."
+ },
+ "MOD|2-s2.0-85173224200|45|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Hand-picked single accounts or videos selected on criteria are purposive (as you ruled for 85095575703)."
+ },
+ "MOD|2-s2.0-85177420309|5|topic": {
+  "r": "OURS",
+  "why": "general_news is the review's multi-topic bin (11 conspiracy theories, 12 countries); 'other' is for a single subject that fits no code. Same as your 4 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85177420309|7|topic": {
+  "r": "OURS",
+  "why": "general_news is the review's multi-topic bin (11 conspiracy theories, 12 countries); 'other' is for a single subject that fits no code. Same as your 4 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85177420309|17|topic": {
+  "r": "OURS",
+  "why": "general_news is the review's multi-topic bin (11 conspiracy theories, 12 countries); 'other' is for a single subject that fits no code. Same as your 4 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85177420309|8|topic": {
+  "r": "OURS",
+  "why": "general_news is the review's multi-topic bin (11 conspiracy theories, 12 countries); 'other' is for a single subject that fits no code. Same as your 4 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85177420309|12|topic": {
+  "r": "OURS",
+  "why": "general_news is the review's multi-topic bin (11 conspiracy theories, 12 countries); 'other' is for a single subject that fits no code. Same as your 4 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85177420309|19|topic": {
+  "r": "OURS",
+  "why": "general_news is the review's multi-topic bin (11 conspiracy theories, 12 countries); 'other' is for a single subject that fits no code. Same as your 4 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85177420309|26|topic": {
+  "r": "OURS",
+  "why": "general_news is the review's multi-topic bin (11 conspiracy theories, 12 countries); 'other' is for a single subject that fits no code. Same as your 4 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85177420309|30|topic": {
+  "r": "OURS",
+  "why": "general_news is the review's multi-topic bin (11 conspiracy theories, 12 countries); 'other' is for a single subject that fits no code. Same as your 4 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85181200454|43.1|topic": {
+  "r": "THEIRS",
+  "why": "The 100-tweet corpus and the DNR item are political (the DNR 43.1 is the POLITICS-topic item; 53.9 is the COVID one)."
+ },
+ "MOD|2-s2.0-85184824168|36.1|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85184824168|19.4|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85184824168|26.1|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85186874194|44.55|construct": {
+  "r": "THEIRS",
+  "why": "'Factual: No' over all 220 videos counts 49 neutral comedy/lifestyle videos; the paper's misinformation is 'educational but nonfactual' (36.0% of educational videos, ADD on its omission card). Retire this row as QUALITY."
+ },
+ "MOD|2-s2.0-85188173755|14.1|classification_level": {
+  "r": "OURS",
+  "why": "As you ruled twice on this pattern."
+ },
+ "MOD|2-s2.0-85188173755|14.1|topic": {
+  "r": "THEIRS",
+  "why": "Misinformation in general, no subject restriction: general_news, the review's whole-diet bin."
+ },
+ "MOD|2-s2.0-85195375481|41|construct": {
+  "r": "OURS",
+  "why": "The unit is posts/messages/articles in a corpus (a share of ITEMS), which is CONTENT; SHARING is for shares of link-share instances. Same as your 15 OURS rulings."
+ },
+ "MOD|2-s2.0-85199446608|80.35|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85199446608|80.35|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85199446608|58.90|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85199446608|58.90|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85199446608|47.01|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85199446608|47.01|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85199446608|53.33|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85199446608|53.33|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85199446608|29.95|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|2-s2.0-85199446608|29.95|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|2-s2.0-85205688160|22.6|denom_scope": {
+  "r": "OURS",
+  "why": "Image posts ABOUT US politics from pages and groups are content on one issue (topical + curated), not a political-news link stream; political_news is used for news-URL diets."
+ },
+ "MOD|2-s2.0-85205688160|19.6|denom_scope": {
+  "r": "OURS",
+  "why": "Image posts ABOUT US politics from pages and groups are content on one issue (topical + curated), not a political-news link stream; political_news is used for news-URL diets."
+ },
+ "MOD|2-s2.0-85205688160|30|sampling_frame": {
+  "r": "OURS",
+  "why": "Top-300 most-reposted images ranked out of a 13.7M-image corpus: a rank-truncated sample (denom_selection=curated), not a hand-picked set. Low stakes either way."
+ },
+ "MOD|2-s2.0-85205688160|30|denom_scope": {
+  "r": "OURS",
+  "why": "Image posts ABOUT US politics from pages and groups are content on one issue (topical + curated), not a political-news link stream; political_news is used for news-URL diets."
+ },
+ "MOD|2-s2.0-85205688160|26|sampling_frame": {
+  "r": "OURS",
+  "why": "Top-300 most-reposted images ranked out of a 13.7M-image corpus: a rank-truncated sample (denom_selection=curated), not a hand-picked set. Low stakes either way."
+ },
+ "MOD|2-s2.0-85205688160|26|denom_scope": {
+  "r": "OURS",
+  "why": "Image posts ABOUT US politics from pages and groups are content on one issue (topical + curated), not a political-news link stream; political_news is used for news-URL diets."
+ },
+ "MOD|2-s2.0-85209547248|39.1|topic": {
+  "r": "OURS",
+  "why": "'During the 2020 U.S. Presidential election' is the observation window: politics_elections, as you ruled for 85037352356."
+ },
+ "MOD|2-s2.0-85214082693|27|topic": {
+  "r": "THEIRS",
+  "why": "Misinformation in general, no subject restriction: general_news, the review's whole-diet bin."
+ },
+ "MOD|2-s2.0-85214082693|36.5|topic": {
+  "r": "THEIRS",
+  "why": "Misinformation in general, no subject restriction: general_news, the review's whole-diet bin."
+ },
+ "MOD|2-s2.0-85214082693|25.9|topic": {
+  "r": "THEIRS",
+  "why": "Misinformation in general, no subject restriction: general_news, the review's whole-diet bin."
+ },
+ "MOD|2-s2.0-85215303159|12.6|sampling_frame": {
+  "r": "OURS",
+  "why": "As you ruled twice for this study: the quasi-census is still keyword-defined (vaccine content)."
+ },
+ "MOD|NEW-berriche-fakerisland2026|0.05|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Every tweet linking one of 420 listed outlets is a curated-seed corpus, not a platform census (your 2 rulings)."
+ },
+ "MOD|NEW-berriche-fakerisland2026|0.9|construct": {
+  "r": "OURS",
+  "why": "Share of PEOPLE/ACCOUNTS who shared at least once is REACH with reach_subtype=sharing (your 4 rulings)."
+ },
+ "MOD|NEW-berriche-fakerisland2026|0.9|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Every tweet linking one of 420 listed outlets is a curated-seed corpus, not a platform census (your 2 rulings)."
+ },
+ "MOD|NEW-jung-icwsm|31.55|sampling_frame": {
+  "r": "OURS",
+  "why": "A YouTube SEARCH audit over 48 queries is keyword_topical; that the queries came from a fact-checker list does not make it a source seed."
+ },
+ "MOD|NEW-moreno-jmirderma|1.5|classification_level": {
+  "r": "OURS",
+  "why": "Posts were the unit coded for misinformation topics; post_level is the closer code."
+ },
+ "MOD|NEW-moreno-jmirderma|1.5|sampling_frame": {
+  "r": "THEIRS",
+  "why": "'curated_business_pages' is not a codebook value; the paper says 'purposeful sampling' of 3 tanning businesses per state."
+ },
+ "MOD|NEW-moreno-jmirderma|0.6|classification_level": {
+  "r": "OURS",
+  "why": "Posts were the unit coded for misinformation topics; post_level is the closer code."
+ },
+ "MOD|NEW-moreno-jmirderma|0.6|sampling_frame": {
+  "r": "THEIRS",
+  "why": "'curated_business_pages' is not a codebook value; the paper says 'purposeful sampling' of 3 tanning businesses per state."
+ },
+ "MOD|NEW-moreno-jmirderma|0.5|classification_level": {
+  "r": "OURS",
+  "why": "Posts were the unit coded for misinformation topics; post_level is the closer code."
+ },
+ "MOD|NEW-moreno-jmirderma|0.5|sampling_frame": {
+  "r": "THEIRS",
+  "why": "'curated_business_pages' is not a codebook value; the paper says 'purposeful sampling' of 3 tanning businesses per state."
+ },
+ "MOD|NEW-moreno-jmirderma|43|classification_level": {
+  "r": "OURS",
+  "why": "Respondents recalled posts ABOUT vitamin-D tanning, not a specific claim: topic_level."
+ },
+ "MOD|OA-W3206858890|89.4|sampling_frame": {
+  "r": "THEIRS",
+  "why": "Snowball, student, online-form or community-panel recruitment is convenience; survey_sample is for probability or quota samples. Same as your 2 rulings on this pattern."
+ },
+ "MOD|OA-W4291473423|45.1|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|OA-W4407797130|77.4|ground_truth": {
+  "r": "OURS",
+  "why": "The narratives were selected from three fact-checking portals; the blind validator's self_report is the artefact you already ruled OURS eight times."
+ },
+ "MOD|OA-W4407797130|77.4|topic": {
+  "r": "THIRD",
+  "why": "Neither covid19 nor war_geopolitics: Figure 1 (ledger item 43) makes 77.4 narrative N4, George Soros controlling global politics, so politics_elections. Apply after the ledger's relabelling; and decide the per-narrative topic rule in the brief."
+ },
+ "MOD|OA-W4407797130|37.1|ground_truth": {
+  "r": "OURS",
+  "why": "The narratives were selected from three fact-checking portals; the blind validator's self_report is the artefact you already ruled OURS eight times."
+ },
+ "MOD|OA-W4407797130|37.1|topic": {
+  "r": "THEIRS",
+  "why": "Only N6 is the COVID narrative; this row is a Russia/Ukraine narrative. Apply AFTER the ledger's relabelling of the four narrative rows (ledger conflict 4)."
+ },
+ "MOD|OA-W4407797130|63.4|ground_truth": {
+  "r": "OURS",
+  "why": "The narratives were selected from three fact-checking portals; the blind validator's self_report is the artefact you already ruled OURS eight times."
+ },
+ "MOD|OA-W4407797130|63.4|topic": {
+  "r": "THEIRS",
+  "why": "The Sanskrit-origin-of-'Serb' narrative is not COVID; apply after the ledger's relabelling."
+ },
+ "MOD|OA-W4407797130|50.1|ground_truth": {
+  "r": "OURS",
+  "why": "The narratives were selected from three fact-checking portals; the blind validator's self_report is the artefact you already ruled OURS eight times."
+ },
+ "MOD|OA-W4407797130|50.1|topic": {
+  "r": "THEIRS",
+  "why": "The UN/paedophilia narrative is not COVID; apply after the ledger's relabelling."
+ },
+ "MOD|OA-W7155615941|25|sampling_frame": {
+  "r": "OURS",
+  "why": "A keyword or hashtag query, however the paper names it, is keyword_topical (your 7 rulings)."
+ },
+ "MOD|W3129222959|11.5|construct": {
+  "r": "THEIRS",
+  "why": "Junk-news share of 9,182 LINKS SHARED is a share of share-instances: SHARING (sharing_subtype=content_share), as you ruled for 85159598935 and as the sister three-election paper 85074511992 is already coded."
+ },
+ "MOD|W3129222959|11.5|ground_truth": {
+  "r": "OURS",
+  "why": "The Oxford team rates sources itself (researcher_coding), as you ruled six times for the sister study."
+ },
+ "MOD|W3138656580|31|topic": {
+  "r": "OURS",
+  "why": "COVID-vaccine studies are covid19: the freeze's vaccines topic is non-COVID by design (your 15 rulings on 2026-09-08)."
+ },
+ "MOD|W4293124965|0.88|sampling_frame": {
+  "r": "THEIRS",
+  "why": "CrowdTangle engagement on every rated outlet's page is a census of the outlets, not a user panel (your 3 rulings on this study)."
+ },
+ "MOD|W4293124965|8.05|sampling_frame": {
+  "r": "THEIRS",
+  "why": "CrowdTangle engagement on every rated outlet's page is a census of the outlets, not a user panel (your 3 rulings on this study)."
+ },
+ "MOD|W4309243406|5|construct": {
+  "r": "OURS",
+  "why": "The sentence reads 'a fifth of Africa's GMO media CONTENT ... is rated as misinformation; the corresponding proportion is 5% for North America': a content share, though the paragraph also discusses readership. CONTENT."
+ },
+ "MOD|W4414446446|4.85|topic": {
+  "r": "OURS",
+  "why": "Public-broadcast news and talk shows, all subjects: general_news."
+ },
+ "MOD|W4414446446|4.85|denom_scope": {
+  "r": "OURS",
+  "why": "Fake-news-site stories, curated news-link posts and public-broadcast news/talk shows are news diets, not political-news streams."
+ },
+ "MOD|W4414446446|11.62|topic": {
+  "r": "OURS",
+  "why": "Public-broadcast talk shows, all subjects: general_news."
+ },
+ "MOD|W4414446446|11.62|denom_scope": {
+  "r": "OURS",
+  "why": "Fake-news-site stories, curated news-link posts and public-broadcast news/talk shows are news diets, not political-news streams."
+ },
+ "MOD|W4414446446|2.28|topic": {
+  "r": "OURS",
+  "why": "Public-broadcast news programmes, all subjects: general_news."
+ },
+ "MOD|W4414446446|2.28|denom_scope": {
+  "r": "OURS",
+  "why": "Fake-news-site stories, curated news-link posts and public-broadcast news/talk shows are news diets, not political-news streams."
+ }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "2-s2.0-105007993526",
+  "title": "Scabies on YouTube: The Quality, Accuracy, and Reliability of the Videos",
+  "text_status": "ok",
+  "screen": "EXCLUDE",
+  "screen_reason": "QUALITY-ONLY study. 105 Turkish-language YouTube scabies videos were rated on the modified DISCERN, GQS and JAMA scales, all of which are quality/reliability instruments, not truth/falsity judgements against an external ground truth (a fully accurate video can still score low on DISCERN item 4 'Are additional sources of information listed?' or on JAMA 'Currency'). Every score is reported only as a mean/SD/median by source group (Tables 2 and 3); the paper never reports a share of videos classified as false, misleading, inaccurate or misinformation, and gives no numerator/denominator for any such share. Per INSTRUCTIONS §3 (DISCERN/GQS/JAMA -> QUALITY) and §1 (a Likert accuracy scale reported only as a mean is not a share, so no row), no extractable estimate exists.",
+  "constructs_found": [],
+  "estimates": [],
+  "missed_or_uncertain": "Nothing extractable. Candidate numbers considered and rejected: (a) mean modified DISCERN 3.32 (SD 1.091), mean GQS 3.27 (SD 1.043), mean JAMA 1.59 (SD 0.698) for the 105 videos — scale means, not shares of items, and QUALITY instruments in any case; (b) the by-source means in Table 3 (e.g. independent individuals mean DISCERN 1.87, GQS 2.00, JAMA 1.07) — same reason; (c) the five source-group counts implied by Table 3 (healthcare professionals, healthcare institutions, news channels, health websites, independent users) are never given as explicit n or % in the text, and a share of videos by uploader type is not a share of misinformation. The paper's own conclusion that independent content 'lacked medical accuracy' is a comparison of mean quality scores, not a prevalence estimate. No verbatim percentage of videos judged false or misleading appears anywhere in the text.",
+  "rob": {
+    "design": "Cross-sectional YouTube content analysis. Search on 21 June 2024 in Chrome incognito with history cleared, keywords 'scabies' and 'scabies treatment'; advertising, music videos, silent videos, non-Turkish videos and duplicates excluded; 105 videos retained. Each video independently rated by three dermatologists (N.G.G., Z.U., V.E.) using modified DISCERN, GQS and JAMA; the three raters' scores were averaged. No inter-rater reliability statistic (kappa, ICC) is reported, and the authors list the subjectivity of the instruments as a limitation. Analysis by Kruskal-Wallis with Dunn post-hoc, Spearman correlations, SPSS v28, alpha .05.",
+    "item6_quote": "Modified DISCERN, Global Quality Scale (GQS), and the Journal of the American Medical Association (JAMA) scales were utilized to assess the quality, accuracy, and reliability of the videos.",
+    "item10_quote": "A YouTube search was conducted in June 2024 using the keywords “scabies” and “scabies treatment.” A total of 105 videos were analyzed."
+  }
+}

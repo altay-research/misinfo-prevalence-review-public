@@ -1,0 +1,5 @@
+Closed 2026-09-16, the moment its findings were merged as v1.7.23. Scored against v1.7.22, the
+freeze as it stood BEFORE the four corrections this campaign produced: 26 of 28 eligibility
+agreements, 35 of 42 main-pool values reproduced (83.3%), 15 candidate omissions across 6 studies,
+construct kappa 1.00 on the matched pairs. Re-scoring against v1.7.23 compares the blind pass with
+its own corrections and inflates it (36 pairs, different kappas). Do not re-score. See lesson #57.

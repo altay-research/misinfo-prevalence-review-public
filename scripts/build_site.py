@@ -28,6 +28,7 @@ from lib_slices import sl, el, iqr, group_by_study
 
 # The public repo the "flag a coding error" links point at. Change here, nowhere else.
 REPO = "altay-research/misinfo-prevalence-review-public"
+PAPER_PDF = "docs/preprint/Altay_Systematic_Review_Misinfo.pdf"
 
 # The preprint. Set this the day it goes up and rebuild; every link to it across the site comes
 # from here. Until then the masthead link is absent and the citation says so rather than pointing
@@ -42,8 +43,10 @@ SUBMIT_ENDPOINT = "https://misinfo-prevalence-submit.sacha-altay.workers.dev"
 TURNSTILE_SITEKEY = "0x4AAAAAAE76FRJFyjbY2FJl"   # public half; the secret lives in the Worker
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC  = ROOT / "site_src"
-OUT  = ROOT / "site"
+# In the working repository the site lives at the root; the public package publishes it under
+# companion/ (build_public_package.py remaps it). Resolve whichever layout this checkout has.
+SRC  = ROOT / "site_src" if (ROOT / "site_src").is_dir() else ROOT / "companion" / "site_src"
+OUT  = ROOT / "site" if (ROOT / "site_src").is_dir() else ROOT / "companion" / "site"
 PHB  = ROOT / "data/synth/phaseB"
 
 # ---------------------------------------------------------------- freeze identity
@@ -367,7 +370,7 @@ def copy_downloads():
     dl.mkdir(parents=True, exist_ok=True)
     sources = {
         # the paper itself, so a reader can take it away without leaving for OSF
-        "Altay_Systematic_Review_Misinfo.pdf": ROOT / "docs/preprint/Altay_Systematic_Review_Misinfo.pdf",
+        "Altay_Systematic_Review_Misinfo.pdf": ROOT / PAPER_PDF,
         "misinfo_prevalence_estimates.csv": ROOT / FREEZE_FILE,
         "included_studies.csv":             PHB / "si_included_studies.csv",
         "study_characteristics.csv":        PHB / "si_study_characteristics.csv",
@@ -466,6 +469,13 @@ def main():
         "CONC_BAND_K": str(head["concentration"]["band_k"]),
         "CONTRAST": f"{head['contrast']}",
         "TILES": tiles_html(head),
+        # baked in rather than read from meta.json at runtime: the two files cache independently,
+        # and a page served with a stale meta rendered "PDF, NaN MB"
+        "PAPER_MB": f"{(ROOT / PAPER_PDF).stat().st_size / 1048576:.1f}",
+        # stamps every page and every data URL, so the two cannot be served from different builds
+        "DATA_V": hashlib.blake2s(
+            (FREEZE_MD5 + meta["built"] + str(PREPRINT_URL) + str(SUBMIT_ENDPOINT)).encode(),
+            digest_size=6).hexdigest(),
     }
     for k, v in meta["counts"].items():
         tokens["C_" + k.upper()] = v

@@ -3,18 +3,18 @@ built           : 2026-09-18
 freeze          : data/extract_v2/estimates_v1.7.23_frozen.csv
 freeze MD5      : 08f050baf45086f45b5b3bec2390a115
 estimates/studies: 1048 / 443
-files           : 935
-total size      : 43.5 MB
+files           : 1488
+total size      : 54.7 MB
 
 By directory
 ------------
-  (root)                     5 files     65.9 KB
-  .git                     293 files     10.5 MB
+  (root)                     5 files     66.4 KB
+  .git                     324 files     12.8 MB
   .github                    5 files      3.4 KB
   companion                 41 files      7.5 MB
-  data                     294 files     12.3 MB
-  docs                     225 files     12.4 MB
-  scripts                   66 files    751.2 KB
+  data                     815 files     21.1 MB
+  docs                     226 files     12.5 MB
+  scripts                   66 files    756.3 KB
   searches                   6 files     25.3 KB
 
 Excluded, and why
@@ -56,7 +56,7 @@ Refused at selection (22)
 
 Files
 -----
-         576  .git/COMMIT_EDITMSG
+         283  .git/COMMIT_EDITMSG
          126  .git/FETCH_HEAD
           21  .git/HEAD
           41  .git/ORIG_HEAD
@@ -75,17 +75,18 @@ Files
         1492  .git/hooks/prepare-commit-msg.sample
         2783  .git/hooks/push-to-checkout.sample
         3650  .git/hooks/update.sample
-       68610  .git/index
+       68883  .git/index
          240  .git/info/exclude
-        3772  .git/logs/HEAD
-        3772  .git/logs/refs/heads/main
-        2948  .git/logs/refs/remotes/origin/main
+        3994  .git/logs/HEAD
+        3994  .git/logs/refs/heads/main
+        3113  .git/logs/refs/remotes/origin/main
          181  .git/objects/00/4ad41131aa55f9e246a3aed91a9bd5a7332bc7
          251  .git/objects/02/9132e48fbbe533ea024838ba94548f29867828
          595  .git/objects/02/ee031f93a6f3f3a71785577fa135d8e96b6025
           55  .git/objects/04/60bb0624122571e23bfcf5042ad435d8955f71
           90  .git/objects/04/e8ff58dd3cbf091455049f4e892415b82758bb
          279  .git/objects/05/0ff195177aee153187f9bae3474f5d83a1a656
+       10492  .git/objects/05/9017411fc83b90785f0f5b71d741e92c8af0b6
         2273  .git/objects/05/a44137856e6f7df3bcc7566cf5fe699401efbe
          375  .git/objects/05/bd73111e279dd239f13b857bdb8d6524c629f2
          108  .git/objects/07/66f31b8b818e21d5e7dc678151776f3e3c2a4c
@@ -97,15 +98,18 @@ Files
         9045  .git/objects/0f/53ff2c96e08469edb7f2c56e8b2fffa88acd37
          126  .git/objects/11/01051848338bf7d42fe8812bd01c599aaafc6e
          153  .git/objects/11/80645a6bc0f79900bbc0d35abb7028d6300013
+       22344  .git/objects/11/96614697834537db0b715bbc214f9e07a9efb9
         2273  .git/objects/12/13597504fdf144faa4057ee4aed3c686ecd670
        16480  .git/objects/12/e4b28012e5d2b1f537faa2daefb729005aa483
          435  .git/objects/13/cea0a8b688f8fb9c2359c5a4321935181e5faf
          888  .git/objects/14/bbcf805c2f3eb5beb0e949828368727d83e3df
           55  .git/objects/15/59847098c5eba6c117bb94852f118a8ea2a51c
+        2964  .git/objects/15/7f7880dd2a416efd8fa9e71324e3cdc4a9ec18
         8656  .git/objects/19/3c0171b95bda6721b86edec9997a9c6fc56e85
         8940  .git/objects/1a/6482bf437ceb97ba784bb74bcf4fbea9a12267
        10696  .git/objects/1d/afc688d3bc8fda478c3b94ec1f2bdc3d3447f0
           55  .git/objects/1e/054dcbe9c618d0c191d235b3dbc2a3b0c8d42e
+       61411  .git/objects/1e/66a24e42733abb812100642fc9ac2f3f4f0a9a
         5437  .git/objects/1f/18035cf7f48a60622e2dd18604e46536f313ea
         1987  .git/objects/1f/72b557ca069bc3f886fa46337f2b973304007a
        52996  .git/objects/21/4a6f6ddca4cad1dd6caca535202608fd86e1d5
@@ -113,8 +117,10 @@ Files
         9166  .git/objects/22/e51f55f1ff70b3d703818b6779da734ddcd02e
          559  .git/objects/23/929b9cf802224cba14e2f7158e62753d81c713
          479  .git/objects/25/058b6d59a061828ff0eef1b1e3e2543e2638b3
+          80  .git/objects/25/9422735a7705abd7ba8f187679bad9fd766fb4
           55  .git/objects/27/043286dfc5f236936c3bd8f53c02845e61935c
           55  .git/objects/27/04fc7d15625744a11ea6a917b782082d0f06c5
+        1144  .git/objects/28/2b94edca332e9cda97c399402472f5410e5ae3
         2648  .git/objects/28/376829f6e749d4854ccdfe032b4f2a55abb0c8
          280  .git/objects/28/a6e1858303babf6c053b54dbdbe49cd24971b4
         2297  .git/objects/29/efc9dd588d89db5018864bfa7bced9cb5b04d3
@@ -127,6 +133,7 @@ Files
          105  .git/objects/31/f4fec3b44c89e9d05fc0568d364ec3436b2d6b
         1164  .git/objects/32/2838a883ddf41008d59f16ee239d478910e051
          440  .git/objects/32/9aee1494d7e55f0b73e4cbaa6fed5863fbda11
+         313  .git/objects/33/eda5821a2060edbbd9d5e1ce394093f8454fd3
          489  .git/objects/35/435580e71ba5f503ab22a41e1d7f1bec252b47
          280  .git/objects/35/8cc41fea2f1bed452db472ac160c1f1cb4a5bd
          511  .git/objects/35/9b482c494e9e8e97c5e1d94bb95b143dec3eed
@@ -154,8 +161,10 @@ Files
          342  .git/objects/43/b4a92489acd2d37c35de44f8aada8f7e8ec5ae
           55  .git/objects/44/80f08080107bf24f0c30d1feca4b7b7ee0844f
           54  .git/objects/45/0bcc71f534a986e9b96366731abb07f72fdcef
+        9779  .git/objects/45/54f3cae9467b02573e04fbdd654da8f9111213
          279  .git/objects/45/c7e5024fd36b3cdb3a659d4cdfce999896ed68
         7118  .git/objects/46/86fdda344e56a6c2deecbaf894597151974e52
+     2213181  .git/objects/46/8a8ed5b01d86a3dad3b64826a2e03728006d7e
         2765  .git/objects/47/cf56abcc4af8aa9bcda8ce0d1e089b8191f393
         3307  .git/objects/48/a32d0bb7b9c72244c4b6f4e814dd3d31f119ba
          181  .git/objects/49/00cdff4e403f2120f722d0f77a75b86ce6ad65
@@ -164,10 +173,12 @@ Files
         1350  .git/objects/4a/4bf478ba6fdb7517a969d2053992c99770c0b8
         8104  .git/objects/4a/6e08fcefb4998186ddecfaae7ec9eaa5b3c173
           55  .git/objects/4b/89345d01d8812d10d2f5af1966951a999b1d13
+        3394  .git/objects/4d/39386f7dbc884bacd097cbfaa5348c14488b16
         2270  .git/objects/4d/c749f09c93beb30f3d98c7e765590c03f5e8ff
       406193  .git/objects/4e/780f0a7a82df072568c936bb2eb78291a2da92
          341  .git/objects/50/4619149b129a828db531e3e80fdefb92a92dd3
         3800  .git/objects/50/51ec07bceddf366a50abba380180f7527c6ae8
+         256  .git/objects/51/455c22d890665f14fe8f51c1ff9e0ea16db924
          279  .git/objects/52/7cfaec18aa364d594f75cf4b5e23688bd62fd8
          181  .git/objects/52/9ec595330a2f6d4c35fcec227b85ab6855dd4a
          125  .git/objects/53/32c7cdee56a1d469d10ca168f6b7294f377ab4
@@ -178,6 +189,7 @@ Files
         2822  .git/objects/5c/bcfae12f0dd9068ded45e2c881d85e53a0b190
       409586  .git/objects/5e/cec60b645cef1a37ff8592324c7b8488a6d8bd
        15707  .git/objects/5f/7ab1e3de31abc7f1232f5e76e79528e1f0d177
+         343  .git/objects/60/882624d2e79bc6d4da0f14f773aad709bdcf1d
         7880  .git/objects/60/f90ce35d476adcbefd9b5f55676e886c24c720
        11679  .git/objects/62/8e8082f3a04037894389ca93405b3c9ef48170
         2646  .git/objects/62/ab458eacdd88bfd47fe608fedf7e53353e4050
@@ -186,6 +198,7 @@ Files
         7866  .git/objects/64/59c6a7dc7dd559268b28e1b3d63049971dc87a
        13311  .git/objects/64/b3d32b9a44f8163cd82b930de021510979e8f4
          280  .git/objects/66/0994c5ddf3545843b1078490ea96d5e8d0ae36
+       53002  .git/objects/69/5deaffa13c57281c4a40be7c026cbb8c70e92e
          109  .git/objects/69/bc571d26364844c7523028a6e6b16210f54530
         4852  .git/objects/6a/31c4265c4afa6ccfb88e472148e42d825bbb73
          365  .git/objects/6a/4cefaafcef09e47e028e07b13f87778e498e50
@@ -196,7 +209,9 @@ Files
       407091  .git/objects/6e/10075d3f23068f5a078324fb99d19692828e06
        15951  .git/objects/6e/54cd192a9ce136e4b3d1e4cacdb46863e38cd7
           55  .git/objects/6e/61101d7ff26721f319be6647f5780b987bfdb9
+         136  .git/objects/6f/8627d84f2b26bc12207ec7abc4ca5c600e165e
         3521  .git/objects/71/1885667f032968f29d6f783fe709dd4fd70508
+        2252  .git/objects/71/8ad9e3222873125225eeb502002a58717bd9ea
         3310  .git/objects/71/ef2add2e2656c94fad241fd4b5e0a31d4b425b
          294  .git/objects/72/248d1e16f8a85e412c4e1a5596f5a94e4058fe
          634  .git/objects/72/c9a3d168658e40989b9762fc18176d96897fc1
@@ -214,6 +229,7 @@ Files
          109  .git/objects/7e/6ea2c8481ebcbccd14a777bb878b860599a476
        20370  .git/objects/7f/6a0313128aeb7f6dc852aed9deae291a41590d
         2390  .git/objects/81/96194816f3b7479b0359b4b2e679cab58b97c2
+         105  .git/objects/82/2d423edb1830c4f13f38068e2bf587ce23da63
          109  .git/objects/82/eac2cdc1813104e38ddcc7f53f84d8da94b1db
         1999  .git/objects/84/b07f8231ff56c20182ba2f554441f9a3fca93f
           55  .git/objects/85/50b6c39381470651476049ef417d8cbd0c58bc
@@ -238,6 +254,7 @@ Files
          607  .git/objects/9a/ebd9b44746567b63045c63c8b76eab531fcdb0
          577  .git/objects/9c/0d3cb2e0f7ccf82cb82390d590b29b8d6eb014
         1118  .git/objects/9e/a8c9192143598cd58d18f2bbf9e1bbf45f5743
+       11247  .git/objects/9f/0d86c5593c55f6eae23a33affe8bc536061635
          342  .git/objects/a0/9ef14ffce37a5a35646d9acc47d4a85a6509cd
        20509  .git/objects/a1/4b360f29668d135899a7bd7cafa9cc0b3678b1
          479  .git/objects/a1/4cbf7c4d2fb6559a19ef74feb3b1515ee3e0d6
@@ -253,12 +270,15 @@ Files
         2272  .git/objects/ab/5b8364d4b089d77cc5d271a6b907d33260de3d
          397  .git/objects/ab/6e397b0a485a74d616a5f809777842c708d2e4
          292  .git/objects/ac/6546143991e7778bceb51d1a1f0dfd350cb8d7
+         463  .git/objects/ac/7368cbfee44a08771408463d6a7a70cf8e9df7
         1067  .git/objects/ae/2a9a3154641880c8824297200bf949869bc247
+       18710  .git/objects/ae/48bd2928665fb3ce5e913b347e16353c0fb29c
          182  .git/objects/af/611eaa7ff073f3eeffda66419abcdb113ba966
        43419  .git/objects/b0/e556a0ded27706eb856f4eac037b4c3eb7aee0
         9531  .git/objects/b1/27bf4f7debdcbda4b8b6be7a4d4c3438811c69
         2647  .git/objects/b1/bf6121e76520023a02322a8b8a4d1330c25ead
          104  .git/objects/b2/e2774ea47878f844ee5d5fa448a3867ecbbc1e
+        2673  .git/objects/b3/9c48cccc9326f170109e80d0cb006995542fac
          279  .git/objects/b3/d94cfd03b573cb0d8ca7950544594e1929e374
         2210  .git/objects/b4/ea4373c93800b32dcea00d62f61759583d6c13
         3280  .git/objects/b6/5e5a4cd40bf2fc3d6416867c4b01fe1d542919
@@ -284,6 +304,7 @@ Files
         7658  .git/objects/ca/1e61706d4dec71df0df843e8483dc92abdecbb
          279  .git/objects/ca/939257dfc80a09adab9d39785319019bd7e571
        17847  .git/objects/cd/60bb3403a6cc398a70b46785f95b00f4a00dce
+       10767  .git/objects/ce/08db3521895956c77b996556d126f4167fa13b
           55  .git/objects/cf/bcf92d2229f6892a48ed6a2922bcf6629edd3c
           55  .git/objects/cf/ea7e9e6e2fec48690cc18325bbeb98fb322984
         2273  .git/objects/d0/26ec796d47d4a4042fe71d1d67520924a9535c
@@ -297,6 +318,7 @@ Files
         2221  .git/objects/d4/80d013d5db3a68041f4d9803f7e9abc996d45e
        19702  .git/objects/d4/90d9b0b2ebba42873742014b4f62843e1b8482
         2271  .git/objects/d5/643801e4c01aace7f7c24ca04568eff0f317b1
+         181  .git/objects/d6/cf98f4c48a61d34d1da242ace07c3306de96f6
         2273  .git/objects/d7/e4fbfe83b6e59f7e6931e50d2038db1b547454
          480  .git/objects/d8/8d3813b95c79073b87c49a25ec1cd0b302874e
          153  .git/objects/d8/e2b020b95ac19c99a3e77db7666540500f6736
@@ -306,20 +328,26 @@ Files
         4634  .git/objects/dc/deb49e88b11837e6279f99270952dd45c0afc1
         3804  .git/objects/de/6f92e0bc697c927cd8ed9210a81b5c661c112c
         2312  .git/objects/de/7676cfb64bea2ac67e736f516d8198b7810306
+       11881  .git/objects/de/b02b4809665a0960743d2c008ddca69f9320f0
       405254  .git/objects/df/33d2f0eab80560ec7fc6e4ba01f3ec57c63dfd
          308  .git/objects/df/af5b87e06c26cfca7ca2cb68cecbe5d51f0815
          426  .git/objects/e0/0c63abbc9501a6c5979309220426c4dae60782
         2023  .git/objects/e0/670c392f9e4305dbd18160cd9dd9657642fb68
          341  .git/objects/e2/2778db13f7eb44c3ee022f7c151cd776984c99
          109  .git/objects/e3/a105d823edd74c97e7e6f48e1e4af97d74d817
+         376  .git/objects/e3/b3d4174c8fa857372bc9292a888ed7a9d6560d
         7614  .git/objects/e5/f9f1e0644e3ea40dd54088d558f33b1c5ae5d4
+        2272  .git/objects/e6/ba16532a1f9b1490cae6037202a4a9d9e9cb19
          183  .git/objects/e7/0645edf511ef31fe3059de24166e728e845d90
          341  .git/objects/e7/b9b9e90b3ac651e88a1d16f49fe5950c940503
          379  .git/objects/e9/7a109bd01f490a63bd0414daef8247522231d0
         2323  .git/objects/ea/13a9b0abd9d6e9c6a01d581e6dcd52e4f63745
+         520  .git/objects/ea/9eadd590be54ab114683f3e7c4b8b863a0b93e
          428  .git/objects/ea/a8670a284380631968a3357085df2c655d131c
         4148  .git/objects/eb/9789f70e1e19c867e5e5f551d701140a59d422
         5481  .git/objects/ec/cef33635492f6fcabd816cf2d39bd9df9493cb
+        7996  .git/objects/ed/da9cf6b67ad3ade0a428d397e9d391c5c23bb7
+         280  .git/objects/ef/28b1aa3ad2de03acf60363dcb90946281f6859
          428  .git/objects/ef/ab6bf2ebf36046d75bef56d2c05553bf6be00e
         3423  .git/objects/f0/1e5159f70e2a83be320109c983442d0fc65bfb
         2303  .git/objects/f1/226c547b82e07dd686cfa5380f74db9404cd2f
@@ -332,12 +360,15 @@ Files
          342  .git/objects/f4/25771f5cc0326b3d26ed920338ef3aeca69979
         2273  .git/objects/f4/871d1d865a94bcb086222c989a6a1ad0f5caf8
          494  .git/objects/f6/912858575ce87571e1b6275ba214b4ef0cc3a6
+         348  .git/objects/f8/0eeeb543018e1ad0802905918756ed997d61ce
        16340  .git/objects/f8/96a85dd88e7c40cc7562016314fe191f3245c4
        19522  .git/objects/f8/ade779a9d7443ead8070efaf9ea9f8b5fbb48b
         6128  .git/objects/f9/91ee7643a7733c356d8e98a7d35c53375cb09c
        12684  .git/objects/fa/54d25fc6ac3303e152d44be570b959ee042932
          104  .git/objects/fa/5b066f99d60318babde030e50bbc62f5027a44
+        2309  .git/objects/fc/23683f50f6424733a87d3ecf47097113d8dd35
          428  .git/objects/fd/457d02e52830f79450aca50d41e6fbcb89f685
+          54  .git/objects/fd/db1a0eaf1231076fc749ec4023202d5dc182b2
        17284  .git/objects/fe/0fdc40fcffaac44fa95339781145f61518f5fb
         3515  .git/objects/fe/5973d043666c11228d2db567c593c6b63f4b00
          426  .git/objects/fe/93778bc2a5d45484885c476eb6534b8328b4f5
@@ -356,17 +387,17 @@ Files
          970  .github/workflows/pages.yml
           29  .gitignore
         3066  LICENSE
-       56870  MANIFEST.txt
-        6395  README.md
+       56860  MANIFEST.txt
+        6973  README.md
         4598  companion/site/assets/agg.js
        16049  companion/site/assets/site.css
-       21748  companion/site/assets/site.js
+       22158  companion/site/assets/site.js
      2122410  companion/site/data/estimates.json
-        4848  companion/site/data/index.html
+        4417  companion/site/data/index.html
         8257  companion/site/data/meta.json
        25875  companion/site/data/slices.json
       162925  companion/site/data/studies.json
-        4416  companion/site/descriptives/index.html
+        4438  companion/site/descriptives/index.html
      3258996  companion/site/downloads/Altay_Systematic_Review_Misinfo.pdf
       206777  companion/site/downloads/fulltext_exclusions.csv
       101865  companion/site/downloads/included_studies.csv
@@ -382,18 +413,18 @@ Files
         3665  companion/site/figures/figure_5.svg
         8478  companion/site/figures/supplementary_figure_1.svg
        15008  companion/site/figures/supplementary_figure_2.svg
-        2732  companion/site/index.html
-        7850  companion/site/studies/index.html
+        2754  companion/site/index.html
+        7872  companion/site/studies/index.html
         4598  companion/site_src/assets/agg.js
        16049  companion/site_src/assets/site.css
-       21748  companion/site_src/assets/site.js
-        4848  companion/site_src/data/index.html
-        4430  companion/site_src/descriptives/index.html
+       22158  companion/site_src/assets/site.js
+        4424  companion/site_src/data/index.html
+        4450  companion/site_src/descriptives/index.html
        11403  companion/site_src/estimates/index.html
        19273  companion/site_src/explore/index.html
          327  companion/site_src/favicon.svg
-        1715  companion/site_src/index.html
-        7870  companion/site_src/studies/index.html
+        1735  companion/site_src/index.html
+        7890  companion/site_src/studies/index.html
         7915  companion/worker/SETUP.html
         4567  companion/worker/SETUP.md
         5225  companion/worker/index.js
@@ -404,7 +435,528 @@ Files
        84220  data/extract_v2/estimates_master_final.csv
       414144  data/extract_v2/estimates_reextracted.csv
      1574383  data/extract_v2/estimates_v1.7.23_frozen.csv
+       10271  data/extract_v2/full_reextract_2026-09/INSTRUCTIONS.md
+        5422  data/extract_v2/full_reextract_2026-09/PROVENANCE.md
+        2029  data/extract_v2/full_reextract_2026-09/README.md
+        7930  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-0032975127.json
+       13540  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105002025382.json
+       10685  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105002155467.json
+        6658  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105002578811.json
+       11893  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105002620495.json
+        9360  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105002670726.json
+       14136  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105002787411.json
+       13312  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105003865545.json
+       16377  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105004460836.json
+        7591  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105005004817.json
+        9855  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105005857219.json
+        6971  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105007027777.json
+       10988  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105007777349.json
+        2975  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105007993526.json
+        7867  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105008238753.json
+        8642  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105008442631.json
+       30646  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105008525623.json
+       16157  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105008560082.json
+        9103  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105008921175.json
+        4220  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105009085931.json
+        8142  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105009372730.json
+        4394  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105009525336.json
+       12871  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105009546063.json
+       16164  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105009619554.json
+       11146  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105010038175.json
+       12286  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105010728491.json
+       10267  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105011406180.json
+        8279  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105011756924.json
+       11102  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105012522879.json
+        5295  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105012550022.json
+        7513  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105012722892.json
+        7884  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105012981781.json
+       13488  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105013056526.json
+        8499  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105014185875.json
+       14654  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105014632937.json
+        9009  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105014807194.json
+        7549  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105014886450.json
+       42730  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105016716843.json
+        6773  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105017506015.json
+        9064  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105017599346.json
+       14448  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105017757935.json
+       10879  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105018276467.json
+        5668  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105018832745.json
+        7164  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105018851946.json
+        2837  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105019225029.json
+       11058  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105019357120.json
+       15748  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105019533649.json
+       16433  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105019603181.json
+        8827  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105019625689.json
+        6874  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105019627019.json
+       10989  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105020578144.json
+        8176  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105020894042.json
+       17025  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105021733739.json
+       10663  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105021775752.json
+       11213  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105022108218.json
+       10236  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105024994777.json
+       23343  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105026138407.json
+       11318  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105026630069.json
+       15152  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105026782770.json
+        9122  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105027376456.json
+       11261  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105027587881.json
+       12558  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105027856675.json
+       10229  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105027959122.json
+        6160  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105028205558.json
+       13395  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105028851691.json
+        7646  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105029346542.json
+       31878  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105029413645.json
+       14713  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105029521599.json
+       13354  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105030082417.json
+        5982  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105030444680.json
+        5134  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105030827603.json
+        8187  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105031067442.json
+       16515  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105031357857.json
+       18435  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105031731355.json
+        9023  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105031841007.json
+        7339  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105032107446.json
+        8549  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105032159703.json
+        6780  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105032253077.json
+       13375  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105032501759.json
+        8160  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105032691304.json
+       12660  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105033611630.json
+       18026  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105034745484.json
+        6456  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105035036279.json
+       14831  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105035056055.json
+        5045  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105035324985.json
+        9200  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105036232690.json
+        6420  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105037111223.json
+        3822  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105037482660.json
+       12347  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105038091134.json
+       13671  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105038138985.json
+        4708  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105038215392.json
+        9393  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105038809389.json
+       26306  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105039619015.json
+        4237  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105040026420.json
+       10974  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105040091272.json
+       11053  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105040346162.json
+        9558  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-105040997538.json
+        9604  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-33645965882.json
+        9354  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-42649109723.json
+        7154  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-78649725192.json
+       13810  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-84863599686.json
+        7433  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-84883291462.json
+       11560  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-84903975957.json
+       10230  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-84908440181.json
+        3869  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-84929523850.json
+       14052  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-84964787366.json
+        7180  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-84985993999.json
+        6751  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85021701404.json
+       12220  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85037352356.json
+       20745  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85038621544.json
+        8605  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85041175995.json
+       11495  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85043684270.json
+       10543  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85046831961.json
+        9966  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85046956316.json
+       14870  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85047794238.json
+       11602  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85051037754.json
+       10399  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85054205007.json
+       12059  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85054363956.json
+        7271  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85055079422.json
+       10488  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85055756722.json
+        9656  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85056331134.json
+       14594  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85059494932.json
+       14156  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85060013655.json
+       11712  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85060025053.json
+       37965  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85060549676.json
+       12542  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85065015834.json
+        3158  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85065550941.json
+        8651  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85065905229.json
+       16168  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85066887935.json
+       10312  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85066894147.json
+       14940  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85066941307.json
+        9281  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85067547811.json
+       11673  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85069463611.json
+       11268  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85072114698.json
+       12030  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85073061780.json
+       24487  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85074511992.json
+       23082  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85074596916.json
+        9253  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85075076652.json
+       14808  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85076877757.json
+       14574  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85078014559.json
+        7121  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85079874634.json
+       19370  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85081743293.json
+       12613  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85083041268.json
+       13787  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85083060520.json
+       14472  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85083323285.json
+       14348  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85083635352.json
+       14444  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85083965254.json
+       15420  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85084031148.json
+       11341  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85085201199.json
+       21866  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85085263461.json
+       10971  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85085573221.json
+       15389  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85086031086.json
+       16524  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85086037795.json
+       16116  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85086160482.json
+       10661  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85086906408.json
+       10792  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85087848582.json
+        8164  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85088839117.json
+       15402  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85088969117.json
+       18172  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85089119559.json
+        8279  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85089419252.json
+       10984  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85089426034.json
+       11371  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85089622030.json
+        7700  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85089627303.json
+       10001  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85090181268.json
+        8506  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85090430198.json
+       13505  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85091698994.json
+       15885  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85092013677.json
+       23492  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85092033301.json
+       10953  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85092483799.json
+        7649  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85093940530.json
+        8519  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85095575703.json
+       14893  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85095594211.json
+       15537  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85096102360.json
+       25216  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85096714006.json
+       10481  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85096862559.json
+        7285  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85097561204.json
+       10170  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85097940672.json
+        9003  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85098082326.json
+       13791  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85099149423.json
+        7040  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85099634781.json
+       11585  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85099807131.json
+       19127  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85100218180.json
+       10603  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85100334459.json
+       10746  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85100445322.json
+        9963  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85100947948.json
+        7846  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85101834091.json
+       13362  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85101873459.json
+       13619  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85102849802.json
+       10319  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85102898157.json
+        9467  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85103851008.json
+        9153  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85104228138.json
+       10014  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85104571399.json
+       16977  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85105454127.json
+       26128  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85105511315.json
+       13097  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85106448562.json
+       11630  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85106913853.json
+        6473  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85107205917.json
+       12714  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85107390682.json
+       14578  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85107396751.json
+        9723  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85108101418.json
+       10493  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85108273495.json
+       15213  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85108453146.json
+        7487  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85108512332.json
+       14906  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85108996494.json
+       17616  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85109464429.json
+        9037  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85111017779.json
+        8553  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85111545521.json
+       12218  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85112249462.json
+       17850  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85112780522.json
+       11365  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85114012653.json
+        8002  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85114336487.json
+       12036  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85115631663.json
+        6373  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85115858008.json
+       18502  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85116003554.json
+       13545  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85117084466.json
+       11609  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85117399204.json
+       13093  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85118260096.json
+       16316  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85118574992.json
+       25753  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85121019757.json
+       16080  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85121464977.json
+       17690  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85121971415.json
+        7645  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85122094954.json
+       10877  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85122105134.json
+       14192  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85122150740.json
+        7416  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85122546153.json
+       17967  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85122752247.json
+        7098  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85123475265.json
+        8812  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85123882276.json
+       44780  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85124307830.json
+        9970  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85124823821.json
+        8452  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85124891836.json
+        7018  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85125507154.json
+       12408  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85125589301.json
+        6892  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85126342062.json
+       18075  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85126609259.json
+       10883  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85127039075.json
+       10132  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85127044816.json
+       11024  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85127315618.json
+       13771  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85127622287.json
+        8949  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85127732083.json
+        8598  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85128118104.json
+       12234  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85128357498.json
+        6607  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85129092713.json
+       14553  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85129109345.json
+       12273  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85129125310.json
+        7518  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85129456715.json
+        5414  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85129632573.json
+       15782  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85129781787.json
+       10644  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85130071721.json
+        6467  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85130165220.json
+        7121  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85131073869.json
+        9442  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85131254702.json
+       26826  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85131270273.json
+       21099  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85131270595.json
+       12440  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85131964464.json
+       11302  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85133302916.json
+        7780  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85134325788.json
+        5072  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85134347861.json
+        7490  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85134426953.json
+        5664  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85134489939.json
+        6439  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85135254144.json
+       18111  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85135381095.json
+        9544  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85135857201.json
+        9669  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85136023139.json
+       11578  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85136139565.json
+       13306  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85136545530.json
+        7330  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85137779722.json
+       18467  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85138494787.json
+       16660  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85138526885.json
+        7182  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85139242483.json
+        4635  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85139497631.json
+       19749  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85139734157.json
+       15329  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85139957474.json
+       10432  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85140592237.json
+       13342  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85140623057.json
+       11346  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85141611104.json
+        9604  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85141666446.json
+        8545  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85141702826.json
+        5958  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85142132951.json
+        4753  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85142229013.json
+        5543  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85142238598.json
+       32793  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85142396682.json
+       12419  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85142798912.json
+       11207  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85142886759.json
+        8873  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85143274147.json
+        5991  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85143511628.json
+       26599  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85143601086.json
+       13370  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85145390598.json
+       10924  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85145404443.json
+       11878  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85145425628.json
+        6741  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85145738265.json
+       11007  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85145881152.json
+       25236  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85145956359.json
+       10426  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85146080522.json
+        9360  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85146384927.json
+       16469  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85147187174.json
+        5294  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85147303661.json
+       10435  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85147686336.json
+       10926  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85147755699.json
+       22549  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85148963619.json
+       12945  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85149209612.json
+       10530  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85150021066.json
+       16221  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85152674280.json
+        8818  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85153780137.json
+       13556  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85153931706.json
+       19002  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85154558018.json
+       16627  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85158874704.json
+       23486  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85159153364.json
+       14333  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85159326203.json
+        9824  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85159486270.json
+       13940  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85159598935.json
+       10476  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85159871316.json
+       15606  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85159889148.json
+       18277  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85160008311.json
+       61673  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85160248068.json
+        6791  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85161897232.json
+       22358  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85162702221.json
+       14757  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85163154882.json
+       16743  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85163186108.json
+        6602  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85163914263.json
+       30921  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85164339474.json
+       18884  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85164694763.json
+        7523  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85165815218.json
+        7111  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85167574647.json
+       10579  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85168270535.json
+       12076  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85168520853.json
+        9031  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85169326292.json
+       13969  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85169998829.json
+       17465  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85170646255.json
+       12235  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85172171076.json
+       26390  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85172813494.json
+       14499  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85173224200.json
+       11817  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85173521631.json
+       15898  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85173876735.json
+       17001  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85173877860.json
+        7786  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85173913530.json
+       15867  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85174615177.json
+       10069  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85174641364.json
+        9994  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85175105353.json
+       13884  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85175983241.json
+       69329  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85177420309.json
+        9655  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85179481261.json
+        7618  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85180239525.json
+       13697  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85181200454.json
+       12190  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85181752010.json
+       17769  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85182846541.json
+       15343  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85184824168.json
+        6898  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85186467273.json
+       10751  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85186874194.json
+        9280  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85187117251.json
+        7367  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85188173755.json
+       13394  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85188303314.json
+       18642  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85188358632.json
+       11680  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85188806397.json
+        6776  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85188840472.json
+       20835  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85189042631.json
+       14352  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85190817518.json
+       10256  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85191357340.json
+        8369  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85191403735.json
+        8280  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85191807094.json
+       14285  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85192081358.json
+        3832  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85192567032.json
+       12763  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85192635397.json
+       12903  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85193588807.json
+       12617  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85194023903.json
+       12102  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85194075145.json
+        5380  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85194112418.json
+       18580  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85194733750.json
+       28208  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85194880315.json
+       10877  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85194953420.json
+       11097  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85195353413.json
+        9207  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85195375481.json
+        6463  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85197220523.json
+       10952  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85197949220.json
+       11897  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85199110625.json
+       14329  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85199446608.json
+       12368  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85200952814.json
+       12233  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85201115057.json
+       10188  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85203845655.json
+       16344  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85205142420.json
+        6804  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85205336320.json
+       26918  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85205688160.json
+       11203  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85207525286.json
+        8888  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85208681084.json
+       13507  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85209206311.json
+       14080  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85209547248.json
+       11594  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85209813530.json
+       10507  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85210156482.json
+        6466  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85211132788.json
+        7593  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85212052138.json
+       11263  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85212060458.json
+       13363  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85213223975.json
+        8614  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85213958624.json
+       18061  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85214082693.json
+       12983  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85214504236.json
+       15108  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85215303159.json
+        7085  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85215601689.json
+        4498  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85215939792.json
+       11467  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85217197547.json
+       20875  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85217829893.json
+       13669  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85218245924.json
+        7628  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85218448454.json
+        9233  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85218959905.json
+       17826  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-85219054979.json
+       11948  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-86000309569.json
+       16154  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-86000670842.json
+        6278  data/extract_v2/full_reextract_2026-09/extractions/2-s2.0-86000736431.json
+      133203  data/extract_v2/full_reextract_2026-09/extractions/2603.11058.json
+       35216  data/extract_v2/full_reextract_2026-09/extractions/NEW-bergeronboutin-sciadv2026.json
+       11179  data/extract_v2/full_reextract_2026-09/extractions/NEW-berriche-fakerisland2026.json
+       11503  data/extract_v2/full_reextract_2026-09/extractions/NEW-jadara-2022.json
+        8020  data/extract_v2/full_reextract_2026-09/extractions/NEW-jung-icwsm.json
+       17950  data/extract_v2/full_reextract_2026-09/extractions/NEW-moreno-jmirderma.json
+       12212  data/extract_v2/full_reextract_2026-09/extractions/NEW-vanantwerpen-esm.json
+        9911  data/extract_v2/full_reextract_2026-09/extractions/OA-W2524060751.json
+        5325  data/extract_v2/full_reextract_2026-09/extractions/OA-W2914761925.json
+       10832  data/extract_v2/full_reextract_2026-09/extractions/OA-W2992531903.json
+       12544  data/extract_v2/full_reextract_2026-09/extractions/OA-W3091627927.json
+        8652  data/extract_v2/full_reextract_2026-09/extractions/OA-W3113799821.json
+        6171  data/extract_v2/full_reextract_2026-09/extractions/OA-W3206858890.json
+       25931  data/extract_v2/full_reextract_2026-09/extractions/OA-W4281924559.json
+        5175  data/extract_v2/full_reextract_2026-09/extractions/OA-W4291473423.json
+        9698  data/extract_v2/full_reextract_2026-09/extractions/OA-W4360608277.json
+        7470  data/extract_v2/full_reextract_2026-09/extractions/OA-W4377015071.json
+       24281  data/extract_v2/full_reextract_2026-09/extractions/OA-W4407797130.json
+        6808  data/extract_v2/full_reextract_2026-09/extractions/OA-W4410388894.json
+        7173  data/extract_v2/full_reextract_2026-09/extractions/OA-W4410566265.json
+        5366  data/extract_v2/full_reextract_2026-09/extractions/OA-W7155615941.json
+        9461  data/extract_v2/full_reextract_2026-09/extractions/OA-W7161796591.json
+        9813  data/extract_v2/full_reextract_2026-09/extractions/OA-W7165570035.json
+        8514  data/extract_v2/full_reextract_2026-09/extractions/PMID-33304681.json
+        5746  data/extract_v2/full_reextract_2026-09/extractions/PMID-40061772.json
+        9602  data/extract_v2/full_reextract_2026-09/extractions/PMID-41189872.json
+       17434  data/extract_v2/full_reextract_2026-09/extractions/PMID-42295743.json
+       21173  data/extract_v2/full_reextract_2026-09/extractions/SEED-allcott2017.json
+       25367  data/extract_v2/full_reextract_2026-09/extractions/SEED-cordonnier2021.json
+        8599  data/extract_v2/full_reextract_2026-09/extractions/W2901308345.json
+        5726  data/extract_v2/full_reextract_2026-09/extractions/W3011186656.json
+       19488  data/extract_v2/full_reextract_2026-09/extractions/W3033912864.json
+        9709  data/extract_v2/full_reextract_2026-09/extractions/W3035025978.json
+       11562  data/extract_v2/full_reextract_2026-09/extractions/W3129222959.json
+       14231  data/extract_v2/full_reextract_2026-09/extractions/W3138656580.json
+       13457  data/extract_v2/full_reextract_2026-09/extractions/W3189543626.json
+       16312  data/extract_v2/full_reextract_2026-09/extractions/W4205602257.json
+       12409  data/extract_v2/full_reextract_2026-09/extractions/W4281770633.json
+       67632  data/extract_v2/full_reextract_2026-09/extractions/W4293124965.json
+       33371  data/extract_v2/full_reextract_2026-09/extractions/W4306964957.json
+       13505  data/extract_v2/full_reextract_2026-09/extractions/W4309243406.json
+        8727  data/extract_v2/full_reextract_2026-09/extractions/W4385567160.json
+       12245  data/extract_v2/full_reextract_2026-09/extractions/W4393231882.json
+       14552  data/extract_v2/full_reextract_2026-09/extractions/W4407878374.json
+       12356  data/extract_v2/full_reextract_2026-09/extractions/W4414446446.json
+       11883  data/extract_v2/full_reextract_2026-09/extractions/W4416223891.json
+       17098  data/extract_v2/full_reextract_2026-09/extractions/W7146985142.json
+       16708  data/extract_v2/full_reextract_2026-09/extractions/W7163893383.json
+       18226  data/extract_v2/full_reextract_2026-09/extractions/W7165134935.json
+        4305  data/extract_v2/full_reextract_2026-09/merge_plan.md
+        5787  data/extract_v2/full_reextract_2026-09/premerge_rulings_sacha_2026-09-14a.csv
+        4395  data/extract_v2/full_reextract_2026-09/premerge_rulings_sacha_2026-09-14b.csv
+         803  data/extract_v2/full_reextract_2026-09/premerge_rulings_z_claude_delegated_2026-09-14.csv
+       17497  data/extract_v2/full_reextract_2026-09/rulings_claude_default_2026-09-08.csv
+       19017  data/extract_v2/full_reextract_2026-09/rulings_sacha_2026-09-08a.csv
+       19017  data/extract_v2/full_reextract_2026-09/rulings_sacha_2026-09-08b.csv
+       24493  data/extract_v2/full_reextract_2026-09/rulings_sacha_2026-09-08c.csv
+       61622  data/extract_v2/full_reextract_2026-09/rulings_sacha_2026-09-10a.csv
+         465  data/extract_v2/full_reextract_2026-09/scores/CLOSED
+         684  data/extract_v2/full_reextract_2026-09/scores/SUMMARY.md
+      108874  data/extract_v2/full_reextract_2026-09/scores/claude_suggestions.json
+         303  data/extract_v2/full_reextract_2026-09/scores/field_agreement.csv
+      136064  data/extract_v2/full_reextract_2026-09/scores/moderator_disputes.csv
+       88785  data/extract_v2/full_reextract_2026-09/scores/omission_queue.csv
+       19008  data/extract_v2/full_reextract_2026-09/scores/per_study.csv
+       11326  data/extract_v2/full_reextract_2026-09/scores/screen_disputes.csv
+       18114  data/extract_v2/late_reextract_2026-09/extractions/2-s2.0-105004472114.json
+        8791  data/extract_v2/late_reextract_2026-09/extractions/2-s2.0-105009525075.json
+       10828  data/extract_v2/late_reextract_2026-09/extractions/2-s2.0-85145196122.json
+        7398  data/extract_v2/late_reextract_2026-09/extractions/W3171657220.json
+       18732  data/extract_v2/late_reextract_2026-09/extractions/W4210350805.json
+       17507  data/extract_v2/late_reextract_2026-09/extractions/W4306960737.json
+        7828  data/extract_v2/late_reextract_2026-09/extractions/W4313324568.json
+       12689  data/extract_v2/late_reextract_2026-09/extractions/W4318617911.json
+        4983  data/extract_v2/late_reextract_2026-09/extractions/W4383851554.json
+        5996  data/extract_v2/late_reextract_2026-09/extractions/W4385325063.json
+        5409  data/extract_v2/late_reextract_2026-09/extractions/W4389633384.json
+        5527  data/extract_v2/late_reextract_2026-09/extractions/W4400887711.json
+        3201  data/extract_v2/late_reextract_2026-09/extractions/W4409319996.json
+        5562  data/extract_v2/late_reextract_2026-09/extractions/W4414259328.json
+        5813  data/extract_v2/late_reextract_2026-09/extractions/W4414351820.json
+        6022  data/extract_v2/late_reextract_2026-09/extractions/W4417119300.json
+        6001  data/extract_v2/late_reextract_2026-09/extractions/W7117302408.json
+        5466  data/extract_v2/late_reextract_2026-09/extractions/W7162938155.json
+        4997  data/extract_v2/late_reextract_2026-09/extractions/W7163821603.json
+        6680  data/extract_v2/late_reextract_2026-09/extractions/W7166447493.json
+       18307  data/extract_v2/late_reextract_2026-09/extractions/W7168027278.json
+       14220  data/extract_v2/late_reextract_2026-09/extractions/W7170181457.json
+        6472  data/extract_v2/late_reextract_2026-09/extractions/W7171843315.json
+       16697  data/extract_v2/late_reextract_2026-09/extractions/scholar_02.json
+       26127  data/extract_v2/late_reextract_2026-09/extractions/scholar_04.json
+        7296  data/extract_v2/late_reextract_2026-09/extractions/scholar_07.json
+        5249  data/extract_v2/late_reextract_2026-09/extractions/scholar_09.json
+       29528  data/extract_v2/late_reextract_2026-09/extractions/scholar_10.json
+         484  data/extract_v2/late_reextract_2026-09/scores/CLOSED
+         662  data/extract_v2/late_reextract_2026-09/scores/SUMMARY.md
+         290  data/extract_v2/late_reextract_2026-09/scores/field_agreement.csv
+        7373  data/extract_v2/late_reextract_2026-09/scores/moderator_disputes.csv
+        7463  data/extract_v2/late_reextract_2026-09/scores/omission_queue.csv
+        1060  data/extract_v2/late_reextract_2026-09/scores/per_study.csv
+         889  data/extract_v2/late_reextract_2026-09/scores/screen_disputes.csv
        18098  data/extract_v2/qa/abstract_only_list.json
+         153  data/extract_v2/qa/behavioural_arm/openalex_2026-09/MANIFEST.json
+       31535  data/extract_v2/qa/behavioural_arm/openalex_2026-09/adjudication/retrieval_final.csv
+      133151  data/extract_v2/qa/behavioural_arm/openalex_2026-09/adjudication/ruled_all.csv
+      112094  data/extract_v2/qa/behavioural_arm/openalex_2026-09/extraction/rows.csv
+      108466  data/extract_v2/qa/behavioural_arm/openalex_2026-09/fulltext/screen/screened_all.csv
+      118486  data/extract_v2/qa/behavioural_arm/openalex_2026-09/retrieval_list.csv
+     1007429  data/extract_v2/qa/behavioural_arm/openalex_2026-09/screen_all.csv
+      958518  data/extract_v2/qa/behavioural_arm/openalex_2026-09/screen_unique.csv
+       81645  data/extract_v2/qa/behavioural_arm_dispositions.csv
+         714  data/extract_v2/qa/behavioural_arm_funnel.json
         8502  data/extract_v2/qa/blind_reliability.csv
          313  data/extract_v2/qa/cordonnier_changelog.csv
        60558  data/extract_v2/qa/curated_abstract_disclosure_2026-09-11.csv
@@ -787,10 +1339,11 @@ Files
        99520  docs/RA_package/value_verification_2026-09/V_values_sacha_FILLED.csv
       170382  docs/RA_package/value_verification_2026-09/code_V_laura.html
       170382  docs/RA_package/value_verification_2026-09/code_V_sacha.html
+        5787  docs/SI_lists_README.md
         1606  docs/blind_reextraction_results.md
         2524  docs/box1_ccdh_meta.svg
         6146  docs/cleaning_methods.md
-     1406865  docs/companion_dashboard.html
+     1412604  docs/companion_dashboard.html
         6950  docs/construct_and_concentration_rules.md
        14615  docs/corpus_repair_2026-09/REPAIR_REPORT.md
         3198  docs/counts_crosswalk.md
@@ -824,7 +1377,7 @@ Files
        10224  docs/figP_sampling_frame_panels.svg
        13295  docs/figP_topic_panels.svg
         6061  docs/figQ_matched_concentration.svg
-        5662  docs/fig_funnel.svg
+        5654  docs/fig_funnel.svg
         5575  docs/gpt_check_2026-09/INSTRUCTIONS.md
          411  docs/gpt_check_2026-09/MANIFEST.md
         1643  docs/gpt_check_2026-09/PROVENANCE.md
@@ -894,12 +1447,12 @@ Files
         1926  docs/grey_lit_protocol.md
        15413  docs/human_review_provenance.md
        13836  docs/learned_review_rules.md
-       17439  docs/litreview_measurement.html
+       17433  docs/litreview_measurement.html
         8050  docs/llm_provenance.md
       126028  docs/manuscript_draft.md
        28171  docs/moderator_codebook.md
         8333  docs/package_promises_2026-09-14.md
-      102740  docs/phaseB_dashboard.html
+      102584  docs/phaseB_dashboard.html
        56150  docs/phaseB_descriptives.html
       550532  docs/phaseB_figure_gallery.html
        44983  docs/phaseB_figures.html
@@ -923,12 +1476,12 @@ Files
         5886  scripts/appendix_content_sharing.py
        16623  scripts/build_companion_dashboard.py
        16847  scripts/build_litreview_html.py
-       58428  scripts/build_public_package.py
-       26107  scripts/build_site.py
+       60609  scripts/build_public_package.py
+       26959  scripts/build_site.py
         4960  scripts/check_invariants.py
       111208  scripts/check_manuscript_stats.py
         2281  scripts/check_pipeline_docs.py
-       22937  scripts/check_site.py
+       24017  scripts/check_site.py
         2845  scripts/fetch_abstracts_crossref_pubmed.py
         3789  scripts/fetch_abstracts_openalex.py
         4244  scripts/fetch_abstracts_openalex_batch.py
@@ -971,13 +1524,13 @@ Files
        19849  scripts/phaseB_uncertainty.py
         2695  scripts/pubmed_search.py
         4057  scripts/rob_reliability.py
-        6740  scripts/run_phaseB.sh
+        7669  scripts/run_phaseB.sh
         4403  scripts/scopus_fetch_corpus.py
         6661  scripts/scopus_search.py
        10570  scripts/search_behavioural_arm.py
         3432  scripts/search_behavioural_pubmed.py
         2242  scripts/semantic_scholar_search.py
-         682  scripts/serve_site.sh
+         821  scripts/serve_site.sh
         5704  scripts/snowball_openalex.py
         7144  scripts/sync_doc_freeze_headers.py
         2424  scripts/sync_provenance_ledger.py

@@ -6,7 +6,8 @@
 set -euo pipefail
 PORT="${1:-8777}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-[ -d "$ROOT/site" ] || { echo "no site/ yet — run: python3 scripts/build_site.py"; exit 1; }
+[ -d "$ROOT/site" ] || [ -d "$ROOT/companion/site" ] || { echo "no site/ yet — run: python3 scripts/build_site.py"; exit 1; }
+[ -d "$ROOT/site" ] || ROOT="$ROOT/companion"    # the public package publishes the site under companion/
 echo "serving $ROOT/site at http://localhost:$PORT  (ctrl-C to stop)"
 command -v open >/dev/null && (sleep 1 && open "http://localhost:$PORT") &
 exec python3 -m http.server "$PORT" --directory "$ROOT/site"

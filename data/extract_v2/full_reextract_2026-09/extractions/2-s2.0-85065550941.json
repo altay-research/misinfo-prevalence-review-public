@@ -1,0 +1,15 @@
+{
+  "id": "2-s2.0-85065550941",
+  "title": "An assessment of fluoride related posts on instagram",
+  "text_status": "ok",
+  "screen": "EXCLUDE",
+  "screen_reason": "Content-description study with no truth/falsity ground truth. 300 #fluoride Instagram posts were coded for STANCE (pro- vs anti-fluoride) and for eleven non-exclusive TOPIC tags (conspiracy theory, dangers of fluoride to health/teeth, benefits, promotes a product, etc.). No item was judged accurate or inaccurate against fact-checks, guidelines or expert verification; the CDC fact sheet was used only to build topic categories. A wholly true post can carry both candidate labels: 'anti-fluoride' is a position, not a falsity verdict (fluorosis and over-fluoridation harms are real, and the paper itself says so in the Introduction), and the 'conspiracy theory' tag marks topical presence, which a debunking or reporting post could also receive. Under the QUALITY rule (a label a wholly true item could receive is QUALITY, not misinformation prevalence) every candidate share here is stance/quality coding, so the paper is QUALITY-only and screens out.",
+  "constructs_found": [],
+  "estimates": [],
+  "missed_or_uncertain": "Three shares a more permissive coder might have taken as CONTENT, all rejected above: (1) 'The most common topics were conspiracy theory, contained in 37.3% of posts' (112/300) - the closest thing to a misinformation share in the paper, and the one I would flag for adjudication if the review's rule were looser; (2) 'dangers of fluoride to health (30.3%)' - a topic tag that covers true statements about over-fluoridation, so not a falsity share; (3) '139/300 (63.0%) posts featured anti-fluoride content' - stance, not veracity. DATA INCONSISTENCY worth a human's eye: the abstract and Results text both say '139/300 (63.0%)' anti-fluoride, but Table 1 reports the anti-fluoride column as 'n = 189, 63.0%'. 63.0% of 300 is 189, and the month rows sum to 61+73+55 = 189, so 139 looks like a typo in the text; also 96 + 189 = 285, leaving 15 posts in neither stance category, which the paper never explains. Engagement figures (mean 645 views, 67.9 likes) are counts, not shares, so no row.",
+  "rob": {
+    "design": "Cross-sectional content analysis. 100 most recent English-language image posts under the hashtag #fluoride were coded on each of three dates two months apart in 2018 (19 April, 19 June, 19 August), N = 300; 56, 60 and 63 posts were excluded across the three rounds for irrelevance/no image/non-English. Coding sheet built from a CDC fact sheet and pilot tested on 15 images by two coders with 'perfect agreement'; the main coding was done by a single coder (CHB), so no inter-rater reliability statistic is reported for the analysed sample. No falsity ground truth. Analysis: chi-square and t tests, SPSS 25.",
+    "item6_quote": "Prior to data collection, content categories were established using a Centers for Disease Control fact sheet as a guide1 and adding categories as necessary.",
+    "item10_quote": "Of the posts reviewed, 96/300 (32.0%) contained pro-fluoride content while 139/300 (63.0%) posts featured anti-fluoride content."
+  }
+}

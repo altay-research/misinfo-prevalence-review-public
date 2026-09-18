@@ -1,0 +1,5 @@
+Closed 2026-09-16. Scored against the freeze as it stood BEFORE this campaign's disputes were
+adjudicated and merged, which is what the manuscript reports: 430/456 eligibility agreements,
+712 of 837 main-pool values reproduced (85.1%), 202 candidate omissions across 123 studies,
+construct kappa 0.89. Re-running the scorer now compares the blind pass against its own merged
+corrections and inflates all of it (732/857, kappa 0.90, 165 omissions). Do not re-score.

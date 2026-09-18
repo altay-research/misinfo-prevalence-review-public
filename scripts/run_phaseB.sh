@@ -31,7 +31,27 @@ case "$MODE" in
   *) echo "unknown argument: $MODE  (use --post-metareg, --all or nothing)" >&2; exit 2 ;;
 esac
 
-step() { printf '\n\033[1m>>> %s\033[0m\n' "$*"; "$PY" "scripts/$1"; }
+# Some stages read inputs the PUBLIC PACKAGE does not redistribute (the raw record dumps, the
+# working-repository docs). In the package they are skipped BY NAME, with the reason printed, and
+# their outputs ship with the package. Tested by cloning the public repository and running the
+# three commands in its README end to end (2026-09-18): a stage that fails on a missing input took
+# the whole runner down at stage 8 and nothing after it ran.
+needs() {
+  case "$1" in
+    validate_prisma.py|make_prisma.py|make_si_lists.py) echo data/openalex_adjudicate.jsonl ;;
+    sync_doc_freeze_headers.py)                         echo docs/reporting_summary_draft.md ;;
+    *) echo "" ;;
+  esac
+}
+step() {
+  printf '\n\033[1m>>> %s\033[0m\n' "$*"
+  local req; req="$(needs "$1")"
+  if [ -n "$req" ] && [ ! -e "$req" ]; then
+    printf '    SKIPPED: needs %s, which the public package does not redistribute; the outputs of this stage ship with the package.\n' "$req"
+    return 0
+  fi
+  "$PY" "scripts/$1"
+}
 
 freeze="$(sed -n 's/^- File:[[:space:]]*//p' docs/FROZEN.md | head -1)"
 printf '\033[1mfreeze:\033[0m %s\n' "$freeze"

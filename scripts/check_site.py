@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib_slices import sl, el, iqr, group_by_study
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE = ROOT / "site"
+SITE = ROOT / "site" if (ROOT / "site").is_dir() else ROOT / "companion" / "site"   # package layout
 PHB  = ROOT / "data/synth/phaseB"
 fails, checks = [], 0
 
@@ -396,6 +396,23 @@ data_text = " ".join((SITE / "data/index.html").read_text().lower().split())
 check("private queue" in data_text, "B/the data page says the queue is private")
 check("nothing you send is published" in data_text,
       "B/the data page says submissions are not published")
+
+
+# Pages read their numbers from JSON that caches independently of the HTML. A freshly-served page
+# handed yesterday's meta.json rendered "PDF, NaN MB" and a citation saying the preprint did not
+# exist. Every page stamps the build and every data URL carries it.
+site_js_text = (SITE / "assets/site.js").read_text()
+check("DATA_V" in site_js_text, "B/data URLs carry the build version")
+for page in sorted(SITE.rglob("*.html")):
+    check('data-v="' in page.read_text(), f"B/{page.relative_to(SITE)} stamps its build version")
+data_html = (SITE / "data/index.html").read_text()
+check("{{" not in data_html, "B/the data page has no unsubstituted token")
+if meta.get("preprint"):
+    check("will be linked here when they exist" not in " ".join(data_html.split())
+          or "m.preprint ?" in data_html,
+          "B/the citation's no-preprint fallback is behind a condition")
+    check(meta["preprint"] in data_html or "m.preprint" in data_html,
+          "B/the citation can render the preprint")
 
 
 # ---------------------------------------------------------------- C. links

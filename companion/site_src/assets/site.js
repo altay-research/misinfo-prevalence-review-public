@@ -9,7 +9,12 @@ const BASE = (() => {
   return u.href.replace(/assets\/site\.js.*$/, '');
 })();
 
-const j = async n => (await fetch(BASE + 'data/' + n)).json();
+// The JSON files cache independently of the page that reads them, so a freshly-served page could
+// be handed yesterday's meta.json — which rendered "PDF, NaN MB" and a citation claiming the
+// preprint did not exist yet. Every data URL carries the build's version, so a new page can only
+// ever fetch its own data.
+const DATA_V = document.documentElement.dataset.v || '';
+const j = async n => (await fetch(BASE + 'data/' + n + (DATA_V ? '?v=' + DATA_V : ''))).json();
 
 /* meta.json is 7 KB; estimates.json is 2 MB. The overview and the data page need only the first,
  * so the estimate payload is fetched on request rather than on every page load. */

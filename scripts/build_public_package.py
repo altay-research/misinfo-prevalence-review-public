@@ -346,6 +346,27 @@ ALLOW = [
     # the estimates the corpus repair added, as extracted, before the merge into the freeze
     ("opt", "data/extract_v2/repair_2026-09/repair_estimates_final.csv"),
     *[("opt", f) for f in QA_FILES],
+    # ---- the September behavioural arm: every decision file make_behavioural_arm_dispositions.py
+    # reads (identifiers, titles, decisions, reasons and short quotes; no record text) and the two
+    # files it writes, which validate_prisma.py and make_prisma.py read in turn. Found missing on
+    # 2026-09-18 by cloning the public repository and running its own runner: stage 8 died here.
+    *[("file", f"data/extract_v2/qa/behavioural_arm/openalex_2026-09/{f}") for f in (
+        "MANIFEST.json", "screen_all.csv", "screen_unique.csv", "retrieval_list.csv",
+        "adjudication/ruled_all.csv", "adjudication/retrieval_final.csv",
+        "fulltext/screen/screened_all.csv", "extraction/rows.csv")],
+    ("file", "data/extract_v2/qa/behavioural_arm_dispositions.csv"),
+    ("file", "data/extract_v2/qa/behavioural_arm_funnel.json"),
+    # ---- the two blind re-extraction campaigns: their scores (Note B1 quotes them and
+    # check_manuscript_stats.py asserts them), the per-study coding each fresh agent returned (the
+    # guard counts which studies the blind pass reached), and the author's rulings. The batch
+    # worklists and prompts stay behind.
+    ("glob", "data/extract_v2/full_reextract_2026-09/scores/*"),
+    ("glob", "data/extract_v2/full_reextract_2026-09/extractions/*.json"),
+    ("glob", "data/extract_v2/full_reextract_2026-09/*.csv"),
+    ("glob", "data/extract_v2/full_reextract_2026-09/*.md"),
+    ("glob", "data/extract_v2/late_reextract_2026-09/scores/*"),
+    ("glob", "data/extract_v2/late_reextract_2026-09/extractions/*.json"),
+    ("opt", "docs/SI_lists_README.md"),
     ("glob", "data/extract_v2/qa/excl*.csv"),
     ("glob", "data/extract_v2/qa/fn*.csv"),
     ("glob", "data/extract_v2/qa/triage_*.csv"),
@@ -654,12 +675,17 @@ earlier stage wrote, and a skipped stage does not fail on a populated tree, it s
 against the previous file. The bootstrap (`phaseB_metareg_robustness.R`) is run by hand;
 its published intervals are at B = 200.
 
-Three stages cannot run offline from this package alone, by design rather than by omission:
+A few stages read inputs this package does not redistribute. The runner skips those by name,
+printing the reason, and the outputs they would write are included:
 
-- `validate_prisma.py` reconciles the PRISMA flow against the raw Scopus, OpenAlex and PubMed
-  record dumps, which are not redistributable. Its output, `data/synth/prisma_counts.json`, is
-  included, so `make_prisma.py` and `make_counts_crosswalk.py` still run.
-- `venue_sensitivity.py` reads fetched OpenAlex abstracts. Its output,
+- `validate_prisma.py`, `make_prisma.py` and `make_si_lists.py` attribute each record to its
+  search stream from the raw Scopus, OpenAlex and PubMed record dumps, which are not
+  redistributable. Their outputs are included: `data/synth/prisma_counts.json`,
+  `docs/prisma_flow.svg`, and the two Supplementary Data lists under `data/synth/phaseB/`.
+- `sync_doc_freeze_headers.py` maintains freeze headers in working-repository documents that are
+  not part of this package.
+- `venue_sensitivity.py` runs; where it would re-derive a venue type from fetched OpenAlex
+  records it keeps the shipped `data/synth/venue_types.csv` instead. Its output,
   `data/synth/phaseB/venue_sensitivity.csv`, is included.
 - `check_manuscript_stats.py` runs, and every statistic it asserts is re-checked here, with one
   check skipped: it verifies that an archived abstract exists on disk for each abstract-only
@@ -667,6 +693,9 @@ Three stages cannot run offline from this package alone, by design rather than b
   The script says so and carries on rather than failing. The abstract-only studies themselves are
   listed with their DOIs in `data/extract_v2/qa/abstract_only_list.json`, so the same check can be
   made against the publishers' own pages.
+
+This was verified on a fresh clone of the repository ({built}): the three commands above run to
+completion, and every file under `data/synth/` regenerates byte-identical to the committed copy.
 
 ## The independent-model adjudication trail
 
