@@ -997,7 +997,12 @@ def main():
             rel_ = os.path.relpath(os.path.join(dirpath, fn), out)
             if rel_.split(os.sep)[0] in KEEP:
                 continue
-            if any(fnmatch.fnmatch(rel_, g) or fnmatch.fnmatch(fn, g) for g in DENY_GLOBS):
+            # match the file itself and every directory above it: iCloud duplicates whole FOLDERS
+            # too ("docs 2/", "site 2/"), and a file-only test shipped 60 of them on 2026-09-18
+            parts = rel_.split(os.sep)
+            if any(any(fnmatch.fnmatch(part, g) for g in DENY_GLOBS) for part in parts) \
+                    or any(fnmatch.fnmatch(rel_, g) for g in DENY_GLOBS) \
+                    or any(re.match(r"^.*[A-Za-z0-9] \d+$", part) for part in parts[:-1]):
                 stale.append(rel_)
     for rel_ in stale:
         os.remove(os.path.join(out, rel_))
