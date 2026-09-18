@@ -4,6 +4,11 @@ Everything needed to reproduce the numbers, figures and tables of the systematic
 frozen dataset. Built from the working repository on 2026-09-18, freeze **v1.7.23**
 (1048 estimates from 443 studies), MD5 `08f050baf45086f45b5b3bec2390a115`.
 
+The root holds six things: **`data/`** the dataset and everything derived from it, **`scripts/`**
+the code, **`docs/`** the methods and the audit trail, **`searches/`** the queries behind the
+corpus, **`companion/`** the interactive website, and this file. Nothing else is needed to
+reproduce the paper, and `companion/` is not needed at all.
+
 ## What is here
 
 | | |
@@ -20,6 +25,7 @@ frozen dataset. Built from the working repository on 2026-09-18, freeze **v1.7.2
 | `docs/RA_package/` | the human coding sheets, instructions and answer keys |
 | `data/identifiers/included_studies.csv` | identifier and DOI of every included study |
 | `searches/` | the query strings and run dates behind the searches |
+| `companion/` | the interactive website at altay-research.github.io, its source and the submission worker. Nothing here is needed to reproduce anything. |
 
 ## Reproducing the results
 
