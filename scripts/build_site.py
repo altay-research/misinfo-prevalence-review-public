@@ -33,7 +33,7 @@ PAPER_PDF = "docs/preprint/Altay_Systematic_Review_Misinfo.pdf"
 # The preprint. Set this the day it goes up and rebuild; every link to it across the site comes
 # from here. Until then the masthead link is absent and the citation says so rather than pointing
 # at nothing. check_site.py asserts that a set URL actually reaches the pages.
-PREPRINT_URL = "https://osf.io/preprints/psyarxiv/sgvr8_v1"
+PREPRINT_URL = "https://osf.io/preprints/psyarxiv/sgvr8"   # versionless: follows the latest version
 
 # The submission form. A static page cannot receive a POST, so the form posts to a Cloudflare
 # Worker (worker/) which files the submission as an issue in a PRIVATE triage repository. Until
