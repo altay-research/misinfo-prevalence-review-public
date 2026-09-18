@@ -3,19 +3,21 @@ built           : 2026-09-18
 freeze          : data/extract_v2/estimates_v1.7.23_frozen.csv
 freeze MD5      : 08f050baf45086f45b5b3bec2390a115
 estimates/studies: 1048 / 443
-files           : 802
-total size      : 34.3 MB
+files           : 884
+total size      : 40.5 MB
 
 By directory
 ------------
-  (root)                     4 files      9.3 KB
-  .git                     164 files      7.6 MB
+  (root)                     5 files     55.6 KB
+  .git                     185 files      8.2 MB
   .github                    4 files      2.6 KB
   data                     294 files     12.3 MB
   docs                     224 files      9.3 MB
-  scripts                   66 files    742.5 KB
+  docs 2                    47 files      3.6 MB
+  scripts                   66 files    744.5 KB
   searches                   6 files     25.3 KB
   site                      25 files      4.3 MB
+  site 2                    13 files      2.0 MB
   site_src                  10 files     83.7 KB
   worker                     5 files     22.9 KB
 
@@ -58,7 +60,7 @@ Refused at selection (22)
 
 Files
 -----
-         471  .git/COMMIT_EDITMSG
+         679  .git/COMMIT_EDITMSG
          126  .git/FETCH_HEAD
           21  .git/HEAD
          278  .git/config
@@ -76,11 +78,11 @@ Files
         1492  .git/hooks/prepare-commit-msg.sample
         2783  .git/hooks/push-to-checkout.sample
         3650  .git/hooks/update.sample
-         650  .git/index
+       74229  .git/index
          240  .git/info/exclude
-        1801  .git/logs/HEAD
-        1801  .git/logs/refs/heads/main
-        1463  .git/logs/refs/remotes/origin/main
+        1988  .git/logs/HEAD
+        1988  .git/logs/refs/heads/main
+        1628  .git/logs/refs/remotes/origin/main
           55  .git/objects/04/60bb0624122571e23bfcf5042ad435d8955f71
          279  .git/objects/05/0ff195177aee153187f9bae3474f5d83a1a656
          108  .git/objects/07/66f31b8b818e21d5e7dc678151776f3e3c2a4c
@@ -89,13 +91,17 @@ Files
         3267  .git/objects/09/eb3c03ac25b8e6bff88d4ad4864b7d61098bd9
          341  .git/objects/0b/ccc87ed94e5303a2e39ca30c308ddc2b8e03b9
          126  .git/objects/11/01051848338bf7d42fe8812bd01c599aaafc6e
+         153  .git/objects/11/80645a6bc0f79900bbc0d35abb7028d6300013
          435  .git/objects/13/cea0a8b688f8fb9c2359c5a4321935181e5faf
         8656  .git/objects/19/3c0171b95bda6721b86edec9997a9c6fc56e85
        10696  .git/objects/1d/afc688d3bc8fda478c3b94ec1f2bdc3d3447f0
           55  .git/objects/1e/054dcbe9c618d0c191d235b3dbc2a3b0c8d42e
         1987  .git/objects/1f/72b557ca069bc3f886fa46337f2b973304007a
+       52996  .git/objects/21/4a6f6ddca4cad1dd6caca535202608fd86e1d5
          108  .git/objects/22/7536a1c56d3aaca17b70affa8c97dab5370ba2
         9166  .git/objects/22/e51f55f1ff70b3d703818b6779da734ddcd02e
+         559  .git/objects/23/929b9cf802224cba14e2f7158e62753d81c713
+          55  .git/objects/27/043286dfc5f236936c3bd8f53c02845e61935c
           55  .git/objects/27/04fc7d15625744a11ea6a917b782082d0f06c5
         2297  .git/objects/29/efc9dd588d89db5018864bfa7bced9cb5b04d3
         2433  .git/objects/2a/b9293dbddb4b4ee0052730f7259cfe125ae48d
@@ -120,6 +126,7 @@ Files
           55  .git/objects/44/80f08080107bf24f0c30d1feca4b7b7ee0844f
          279  .git/objects/45/c7e5024fd36b3cdb3a659d4cdfce999896ed68
         7118  .git/objects/46/86fdda344e56a6c2deecbaf894597151974e52
+        2765  .git/objects/47/cf56abcc4af8aa9bcda8ce0d1e089b8191f393
         3307  .git/objects/48/a32d0bb7b9c72244c4b6f4e814dd3d31f119ba
          181  .git/objects/49/00cdff4e403f2120f722d0f77a75b86ce6ad65
         1350  .git/objects/4a/4bf478ba6fdb7517a969d2053992c99770c0b8
@@ -137,6 +144,7 @@ Files
          181  .git/objects/64/2deb835a9e4d4692da5142a987def068be8277
         7866  .git/objects/64/59c6a7dc7dd559268b28e1b3d63049971dc87a
        13311  .git/objects/64/b3d32b9a44f8163cd82b930de021510979e8f4
+         280  .git/objects/66/0994c5ddf3545843b1078490ea96d5e8d0ae36
         4852  .git/objects/6a/31c4265c4afa6ccfb88e472148e42d825bbb73
          365  .git/objects/6a/4cefaafcef09e47e028e07b13f87778e498e50
         5463  .git/objects/6c/a0f2d2c5e0a69d1babb04091ea912f25569f87
@@ -148,6 +156,7 @@ Files
       403984  .git/objects/78/6576f00b01b6f08ab83e94d2db6b3f1da31ab0
          196  .git/objects/79/dd9055e6b9a55293a7fe4124b99970773fe4dd
          427  .git/objects/7a/26ea0a457c15ced208eb78a6dea4e3bce9cc6b
+         262  .git/objects/7a/ca603380f2146764a22a78d46c72b34d97991d
           89  .git/objects/7b/ee66f88b03762e81d638955028cb06b0a1daa7
          109  .git/objects/7e/6ea2c8481ebcbccd14a777bb878b860599a476
         2390  .git/objects/81/96194816f3b7479b0359b4b2e679cab58b97c2
@@ -160,21 +169,30 @@ Files
          342  .git/objects/92/46f72da6c13e597e1c45ad25dd06947be587c0
         2335  .git/objects/94/c7643ff9c00904034794428c75018bbf966a97
           55  .git/objects/97/6b7c0dc4e61c549a50b1de229fc9aed196d795
+          55  .git/objects/99/54fae01809405fecc7a4fb09e8a9dc3ae8713c
           55  .git/objects/9a/3a88874fbe5d2f00dfb44c53f4716ba48c3956
+         577  .git/objects/9c/0d3cb2e0f7ccf82cb82390d590b29b8d6eb014
+        1118  .git/objects/9e/a8c9192143598cd58d18f2bbf9e1bbf45f5743
+         479  .git/objects/a1/4cbf7c4d2fb6559a19ef74feb3b1515ee3e0d6
         2291  .git/objects/a2/0aff112a47c76beea4a0b82b6bd0be707dbaee
          109  .git/objects/a5/b4c2491d525763e23e8a8fb6b19c6f699d1402
         2647  .git/objects/a5/f4054fb3b9f144294b0b5309d95adafb351b62
        19698  .git/objects/a6/6c1f27860c0837ebbc599c1112d697487f8388
           55  .git/objects/a9/b278e062904059bb1cc5d26b3c125086882390
         3283  .git/objects/aa/cc35f42782f9284683332bea8ef725a2664a70
+        2272  .git/objects/ab/5b8364d4b089d77cc5d271a6b907d33260de3d
          397  .git/objects/ab/6e397b0a485a74d616a5f809777842c708d2e4
          292  .git/objects/ac/6546143991e7778bceb51d1a1f0dfd350cb8d7
         1067  .git/objects/ae/2a9a3154641880c8824297200bf949869bc247
          182  .git/objects/af/611eaa7ff073f3eeffda66419abcdb113ba966
        43419  .git/objects/b0/e556a0ded27706eb856f4eac037b4c3eb7aee0
         9531  .git/objects/b1/27bf4f7debdcbda4b8b6be7a4d4c3438811c69
+        2647  .git/objects/b1/bf6121e76520023a02322a8b8a4d1330c25ead
         3280  .git/objects/b6/5e5a4cd40bf2fc3d6416867c4b01fe1d542919
         8326  .git/objects/b8/298e6f294e7290581f34461dc690c4983bb17b
+          55  .git/objects/b8/ab0f0efd8b870cf4fea4cd34b6fd425264a71b
+       14487  .git/objects/bb/4bd05f759ac354721a871a7c65a921bba2d2a7
+         339  .git/objects/c2/1e86c8119bcaf090d6fb6fbbca6061d78a6532
         2270  .git/objects/c4/238940baf1d76814f7a66e282981b2f672acd8
        52935  .git/objects/c4/a3a1ef89c3b1dfe56259d7b238140e30fcde07
           55  .git/objects/c5/671f06048cc85794dd288c5dc77c9f593bebf3
@@ -182,8 +200,10 @@ Files
           55  .git/objects/cf/ea7e9e6e2fec48690cc18325bbeb98fb322984
        19660  .git/objects/d0/39424b3638a543c460f2757f84d7ef25543bf3
          341  .git/objects/d1/5a74fd5b06fbdfb35701d90c1cce8e1df3e9fa
+        2753  .git/objects/d2/783cf6aec3732a459e1fb4fec2c0bad9187194
        11038  .git/objects/d3/cb63130ae8e795d3b87d0a1974e0c86561f176
         2221  .git/objects/d4/80d013d5db3a68041f4d9803f7e9abc996d45e
+       19702  .git/objects/d4/90d9b0b2ebba42873742014b4f62843e1b8482
         2271  .git/objects/d5/643801e4c01aace7f7c24ca04568eff0f317b1
          153  .git/objects/d8/e2b020b95ac19c99a3e77db7666540500f6736
         9536  .git/objects/db/6eb94d87703039a357d54d8e98a943e4a8718b
@@ -192,8 +212,10 @@ Files
         4634  .git/objects/dc/deb49e88b11837e6279f99270952dd45c0afc1
         3804  .git/objects/de/6f92e0bc697c927cd8ed9210a81b5c661c112c
         2312  .git/objects/de/7676cfb64bea2ac67e736f516d8198b7810306
+      405254  .git/objects/df/33d2f0eab80560ec7fc6e4ba01f3ec57c63dfd
         2023  .git/objects/e0/670c392f9e4305dbd18160cd9dd9657642fb68
          341  .git/objects/e2/2778db13f7eb44c3ee022f7c151cd776984c99
+        7614  .git/objects/e5/f9f1e0644e3ea40dd54088d558f33b1c5ae5d4
          183  .git/objects/e7/0645edf511ef31fe3059de24166e728e845d90
          341  .git/objects/e7/b9b9e90b3ac651e88a1d16f49fe5950c940503
          379  .git/objects/e9/7a109bd01f490a63bd0414daef8247522231d0
@@ -209,6 +231,7 @@ Files
        13818  .git/objects/f2/b01947aaeede1a950b7ef6b8368240fef850ea
           85  .git/objects/f2/ba4b2d70b511661c36f6f51e05e3a154fb5571
         2273  .git/objects/f4/871d1d865a94bcb086222c989a6a1ad0f5caf8
+         494  .git/objects/f6/912858575ce87571e1b6275ba214b4ef0cc3a6
        19522  .git/objects/f8/ade779a9d7443ead8070efaf9ea9f8b5fbb48b
         6128  .git/objects/f9/91ee7643a7733c356d8e98a7d35c53375cb09c
        12684  .git/objects/fa/54d25fc6ac3303e152d44be570b959ee042932
@@ -228,6 +251,7 @@ Files
          862  .github/workflows/pages.yml
           29  .gitignore
         3025  LICENSE
+       47481  MANIFEST.txt
         5308  README.md
         6483  data/README.md
        71874  data/extract/include635_tagged.csv
@@ -523,6 +547,53 @@ Files
         4673  data/verify/v_50_100.csv
         4802  data/verify/v_550_600.csv
         2866  data/verify/v_600_635.csv
+       28245  docs 2/CODEBOOK_estimates.md
+        6465  docs 2/METHODS_PROVENANCE.md
+       20583  docs 2/PIPELINE.md
+     1406865  docs 2/companion_dashboard.html
+        3198  docs 2/counts_crosswalk.md
+       10063  docs 2/data_quality_methods.md
+       28809  docs 2/dataset_provenance.md
+        9946  docs 2/fig2_method_drivers.svg
+       98188  docs 2/figB_by_id_method.svg
+        3665  docs 2/figK_concentration_flow.svg
+        8852  docs 2/figL_concentration_lorenz.svg
+       14731  docs 2/figN_platform_panels.svg
+        4626  docs 2/figP_breadth_panels.svg
+       10224  docs 2/figP_sampling_frame_panels.svg
+        6061  docs 2/figQ_matched_concentration.svg
+        5575  docs 2/gpt_check_2026-09/INSTRUCTIONS.md
+         411  docs 2/gpt_check_2026-09/MANIFEST.md
+        1643  docs 2/gpt_check_2026-09/PROVENANCE.md
+       20625  docs 2/gpt_check_2026-09/blind_01.csv
+       20485  docs 2/gpt_check_2026-09/blind_02.csv
+       19870  docs 2/gpt_check_2026-09/blind_03.csv
+       19884  docs 2/gpt_check_2026-09/blind_04.csv
+       20948  docs 2/gpt_check_2026-09/blind_05.csv
+       22033  docs 2/gpt_check_2026-09/blind_06.csv
+       20492  docs 2/gpt_check_2026-09/blind_07.csv
+       17406  docs 2/gpt_check_2026-09/blind_08.csv
+       22986  docs 2/gpt_check_2026-09/verify_01.csv
+       23677  docs 2/gpt_check_2026-09/verify_02.csv
+       22449  docs 2/gpt_check_2026-09/verify_03.csv
+       22207  docs 2/gpt_check_2026-09/verify_04.csv
+       23107  docs 2/gpt_check_2026-09/verify_05.csv
+       24140  docs 2/gpt_check_2026-09/verify_06.csv
+       22343  docs 2/gpt_check_2026-09/verify_07.csv
+       19702  docs 2/gpt_check_2026-09/verify_08.csv
+        4797  docs 2/grade_certainty_framework.md
+       15413  docs 2/human_review_provenance.md
+       17439  docs 2/litreview_measurement.html
+      102740  docs 2/phaseB_dashboard.html
+       56150  docs 2/phaseB_descriptives.html
+      546545  docs 2/phaseB_figure_gallery.html
+       44983  docs 2/phaseB_figures.html
+       29418  docs 2/phaseB_slices.html
+        5196  docs 2/prisma_checklist.md
+       10881  docs 2/protocol.md
+      876672  docs 2/research_log.md
+        2312  docs 2/screening_criteria_stage2.txt
+        2686  docs 2/screening_criteria_v2_2026-09.txt
        28245  docs/CODEBOOK_estimates.md
        18064  docs/DECISIONS_REGISTER.md
         4555  docs/ENVIRONMENT.md
@@ -739,7 +810,7 @@ Files
        14319  docs/prisma_flow.svg
        10881  docs/protocol.md
         5426  docs/replication_package.md
-      876672  docs/research_log.md
+      878854  docs/research_log.md
        11404  docs/rob_checklist_v3.md
         1730  docs/screening_criteria.txt
         2312  docs/screening_criteria_stage2.txt
@@ -752,7 +823,7 @@ Files
         5886  scripts/appendix_content_sharing.py
        16623  scripts/build_companion_dashboard.py
        16847  scripts/build_litreview_html.py
-       51519  scripts/build_public_package.py
+       53561  scripts/build_public_package.py
        25935  scripts/build_site.py
         4960  scripts/check_invariants.py
       111208  scripts/check_manuscript_stats.py
@@ -820,6 +891,19 @@ Files
         8027  searches/recall_check_20260620_073600.json
         3789  searches/scopus_query_log.tsv
         3319  searches/tune_search_20260620_075013.json
+      206777  site 2/downloads/fulltext_exclusions.csv
+      101865  site 2/downloads/included_studies.csv
+     1574383  site 2/downloads/misinfo_prevalence_estimates.csv
+      141137  site 2/downloads/study_characteristics.csv
+       14731  site 2/figures/figure_1.svg
+       13295  site 2/figures/figure_2.svg
+        6665  site 2/figures/figure_3.svg
+        9946  site 2/figures/figure_4.svg
+        3665  site 2/figures/figure_5.svg
+        8478  site 2/figures/supplementary_figure_1.svg
+       15008  site 2/figures/supplementary_figure_2.svg
+        3098  site 2/index.html
+        5197  site 2/studies/index.html
         4598  site/assets/agg.js
        14189  site/assets/site.css
        21161  site/assets/site.js

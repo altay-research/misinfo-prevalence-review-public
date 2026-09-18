@@ -11224,3 +11224,37 @@ has to go into both the authoritative .docx and the master. Not by rebuilding.
 
 `02_supplementary_information.docx` is still rebuilt — he has not formatted that one yet. The moment
 he does it joins the list.
+
+## 2026-09-18 (cont.) — the paper now says where the materials are, edited in place
+
+He asked whether the manuscript tells a reader where to find the data. It did not. §4.11 said the
+materials "are released in full as a replication package accompanying this preprint" and named no
+repository, no URL, nothing — a statement that promises a package and gives no way to reach it.
+
+Both targets are live and were checked before being printed in a paper:
+`https://github.com/altay-research/misinfo-prevalence-review-public` (public, 200) and the companion
+he added, `https://altay-research.github.io/misinfo-prevalence-review-public` (Pages, 200, serving).
+§4.11 now names both.
+
+**This was the first change made under the no-rebuild rule**, and it needed a tool.
+`scripts/edit_docx_text.py` changes one passage inside a .docx and nothing else: it searches the
+CONCATENATED text of each paragraph, because Word splits a sentence across runs at points that move
+whenever the document is edited, then writes the replacement into the first run the match touches
+and empties the rest, leaving every `rPr`, style and section property alone. It refuses unless the
+old text occurs exactly once, backs the file up first, and re-opens the result to verify.
+
+Proved rather than asserted, on a copy before the real file: of 21 zip entries only
+`word/document.xml` differs, and the structural counts are identical either side —
+303 paragraphs, 421 runs, 283 `rPr`, 39 `pPr`, 2 tables, 6 drawings, 1 `sectPr`. Text grew by the
+133 characters of the two URLs.
+
+### The package had fifteen iCloud duplicates in it
+
+Desktop and Documents are synced, so a file written while a sync is in flight comes back as
+"name 2.py". Fifteen were sitting in the built package: fourteen byte-identical to their originals
+and one a superseded September draft of an RA coding page. They would have shipped. Denied by
+pattern now, and the count went to zero.
+
+I also over-read the file count while chasing them — 695 to 801 looked like runaway duplication and
+was the other agent's commits growing `.git`. The package proper is 640 files; `.git` is not part of
+the deposit and should not be uploaded with it.
