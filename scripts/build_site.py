@@ -34,6 +34,13 @@ REPO = "altay-research/misinfo-prevalence-review-public"
 # at nothing. check_site.py asserts that a set URL actually reaches the pages.
 PREPRINT_URL = None        # e.g. "https://osf.io/preprints/psyarxiv/XXXXX"
 
+# The submission form. A static page cannot receive a POST, so the form posts to a Cloudflare
+# Worker (worker/) which files the submission as an issue in a PRIVATE triage repository. Until
+# both of these are set the site falls back to the GitHub issue links, which need an account.
+# SETUP.md in worker/ has the two steps.
+SUBMIT_ENDPOINT = None     # e.g. "https://misinfo-prevalence-submit.<subdomain>.workers.dev"
+TURNSTILE_SITEKEY = None   # Cloudflare Turnstile site key (public half)
+
 ROOT = Path(__file__).resolve().parents[1]
 SRC  = ROOT / "site_src"
 OUT  = ROOT / "site"
@@ -411,7 +418,8 @@ def main():
         "construct_names": CONSTRUCT_NAME, "construct_order": PREV,
         "field_value_labels": FIELD_VALUE_LABEL,
         "headline": head, "slice_notes": slice_notes, "repo": REPO,
-        "preprint": PREPRINT_URL,
+        "preprint": PREPRINT_URL, "submit_endpoint": SUBMIT_ENDPOINT,
+        "turnstile_sitekey": TURNSTILE_SITEKEY,
         "counts": crosswalk_counts(),
         "figures": figures,
     }

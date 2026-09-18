@@ -136,6 +136,10 @@ h2[id],[id]{scroll-margin-top:72px}
   background:var(--panel);border-top:1px solid var(--line)}
 .record .rfoot a,.record .rfoot button{font:12px/1 var(--mono)}
 .record .rfoot a.warn{color:var(--hot)}
+.record .rfoot button.linky{background:none;border:0;padding:0;color:var(--hot);cursor:pointer;
+  font:12px/1 var(--mono);text-decoration:underline;text-underline-offset:2px}
+.rec-form{padding:0 20px 20px;border-top:1px solid var(--line2)}
+.rec-form form.sf{margin-top:16px}
 .record .flags{padding:14px 20px 0;display:flex;gap:6px;flex-wrap:wrap}
 
 /* ---- plot ---- */
@@ -170,6 +174,27 @@ svg.plot{width:100%;background:#fff;border:1px solid var(--line);border-radius:1
 button.btn.primary,a.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
 button.btn.primary:hover,a.btn.primary:hover{background:#005c91}
 @media (max-width:640px){ .cta{padding:22px 20px} .cta-btn{width:100%;justify-content:center} }
+
+/* ---- submission form ---- */
+.cta{align-items:flex-start}
+.cta-form{flex-basis:100%;margin-top:18px}
+form.sf{display:grid;gap:14px;max-width:640px}
+.sf-row{display:grid;gap:5px}
+.sf-row>span{font:11.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.sf-row>span i{font-style:normal;text-transform:none;letter-spacing:0;color:#adb3bb}
+form.sf input[type=text],form.sf input[type=email],form.sf textarea{
+  font:14px/1.5 var(--sans);padding:10px 12px;border:1px solid var(--line);border-radius:7px;
+  background:#fff;color:var(--ink);width:100%;resize:vertical}
+form.sf input:focus,form.sf textarea:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+form.sf input::placeholder,form.sf textarea::placeholder{color:#b3b9c1}
+.sf-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.sf-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sf-foot button[disabled]{opacity:.55;cursor:default}
+.sf-msg{font-size:13.5px;color:var(--mut)}
+.sf-msg.bad{color:var(--hot)}
+.sf-note{margin:0;font-size:12.5px;color:var(--faint)}
+.sf-done{margin:0;font-size:16px;color:var(--green);font-weight:600}
+.sf-turnstile:empty{display:none}
 
 footer.site{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 60px;color:var(--faint);font-size:12.5px}
 footer.site code{color:var(--mut)}

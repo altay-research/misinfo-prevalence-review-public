@@ -352,6 +352,7 @@ ALLOW = [
     # deposit is the thing GitHub Pages serves AND the thing that rebuilds it.
     ("tree", "site_src", []),
     ("tree", "site", []),
+    ("tree", "worker", []),        # the submission proxy, its tests and its setup notes
 
     ("opt", "data/synth/prisma_counts.json"),
     ("opt", "data/synth/venue_types.csv"),

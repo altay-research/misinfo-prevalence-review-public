@@ -68,7 +68,7 @@ import { summarise, fmt } from '../assets/agg.js';
 
 mountChrome('explore/');
 const d = await data();
-setMeta(d.meta); addPaperLink(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta); wireCopy();
+setMeta(d.meta); addPaperLink(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta); wireCopy(document, d.meta);
 
 const WONG = ['#0072B2','#D55E00','#E69F00','#009E73','#56B4E9','#CC79A7','#F0E442',
               '#6a5acd','#8a6d3b','#475569','#0d9488','#9a3412'];
@@ -206,7 +206,7 @@ function strip(rows, svgId, openId) {
 function openRecord(eid, boxId) {
   const e = d.byEid.get(eid); if (!e) return;
   const box = document.getElementById(boxId);
-  box.innerHTML = recordHTML(e, d.studies, { siblings: (d.byStudy.get(e.id) || []).length, repo: d.meta.repo });
+  box.innerHTML = recordHTML(e, d.studies, { siblings: (d.byStudy.get(e.id) || []).length, repo: d.meta.repo, endpoint: d.meta.submit_endpoint });
   box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 

@@ -353,6 +353,22 @@ else:
           "B/data page says the preprint is still to come")
 
 
+# The submission form. When no endpoint is configured the site must fall back to the GitHub links,
+# which is the state it ships in; when one is configured the form must be reachable from the
+# contribute panel AND from every estimate record, or a reader can report a missed study but not a
+# miscoded one.
+ep = meta.get("submit_endpoint")
+check("submissionFormHTML" in site_js and "wireSubmissionForm" in site_js,
+      "B/the submission form is built")
+check("data-flag" in site_js, "B/records can open the coding form")
+if ep:
+    check(ep.startswith("https://"), "B/submission endpoint is https", ep)
+    check(meta.get("turnstile_sitekey"), "B/Turnstile is configured with the endpoint",
+          "an open endpoint without Turnstile is a spam faucet")
+else:
+    check("submitStudyURL" in site_js, "B/falls back to the GitHub issue links")
+
+
 # ---------------------------------------------------------------- C. links
 SCRIPT = re.compile(r"<script\b.*?</script>", re.S)
 for page in SITE.rglob("*.html"):

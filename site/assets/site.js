@@ -134,9 +134,130 @@ export function mountContributeCTA(meta, target) {
   host.insertAdjacentHTML('beforeend', `
     <section class="cta">
       <div class="t"><h2>Know a study we missed?</h2></div>
-      <a class="cta-btn" href="${submitStudyURL(meta.repo)}" target="_blank" rel="noopener">
-        Submit a study <span class="arw">&rarr;</span></a>
+      ${meta.submit_endpoint
+        ? `<button class="cta-btn" type="button" data-open-form>Submit a study <span class="arw">&rarr;</span></button>`
+        : `<a class="cta-btn" href="${submitStudyURL(meta.repo)}" target="_blank" rel="noopener">
+             Submit a study <span class="arw">&rarr;</span></a>`}
+      <div class="cta-form" hidden></div>
     </section>`);
+
+  const cta = host.querySelector('.cta:last-of-type');
+  const opener = cta && cta.querySelector('[data-open-form]');
+  if (opener) {
+    opener.addEventListener('click', () => {
+      const box = cta.querySelector('.cta-form');
+      box.hidden = false;
+      opener.hidden = true;
+      box.innerHTML = submissionFormHTML(meta, 'missing-study');
+      wireSubmissionForm(box, meta);
+      box.querySelector('input, textarea')?.focus();
+    });
+  }
+}
+
+
+/* ---------- the submission form ----------
+ * Only shown when meta.submit_endpoint is set. Without it the site falls back to the GitHub issue
+ * links, which work but need an account — which is the whole reason this exists. Submissions go to
+ * a private triage repository: they are recommendations for the author, not public claims.
+ */
+
+const FIELDS = {
+  'missing-study': [
+    ['reference', 'Reference', 'input', true, 'A DOI is enough — 10.1126/science.aau2706'],
+    ['quantity', 'What it reports', 'textarea', true, "The quantity in the paper's own words, and the number"],
+    ['denominator', 'Out of what', 'input', false, 'What that percentage is a share of'],
+    ['where', 'Where in the paper', 'input', false, 'Table 2, or p. 376'],
+    ['context', 'Anything else', 'textarea', false, 'Country, platform, when the data were collected'],
+  ],
+  coding: [
+    ['estimate', 'Estimate identifier', 'input', true, 'The seven characters at the top right of the record'],
+    ['issue', 'What looks wrong', 'textarea', true, 'Which field, and what the paper actually says'],
+  ],
+};
+
+let turnstileLoaded = false;
+function loadTurnstile(sitekey, host) {
+  if (!sitekey) return;
+  const render = () => window.turnstile && window.turnstile.render(host, { sitekey });
+  if (turnstileLoaded) return render();
+  turnstileLoaded = true;
+  const sc = document.createElement('script');
+  sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+  sc.async = true;
+  sc.onload = render;
+  document.head.appendChild(sc);
+}
+
+export function submissionFormHTML(meta, kind = 'missing-study', prefill = {}) {
+  const rows = FIELDS[kind].map(([name, label, tag, required, hint]) => {
+    const attrs = `id="sf-${name}" name="${name}" placeholder="${esc(hint)}"${required ? ' required' : ''}`;
+    const val = prefill[name] ? esc(prefill[name]) : '';
+    const control = tag === 'textarea'
+      ? `<textarea ${attrs} rows="3">${val}</textarea>`
+      : `<input type="text" ${attrs} value="${val}">`;
+    return `<label class="sf-row"><span>${esc(label)}${required ? ' <i>required</i>' : ''}</span>${control}</label>`;
+  }).join('');
+  return `<form class="sf" data-kind="${kind}" novalidate>
+    ${rows}
+    <label class="sf-row"><span>Your email <i>optional</i></span>
+      <input type="email" id="sf-contact" name="contact" placeholder="Only so I can ask a follow-up"></label>
+    <label class="sf-hp" aria-hidden="true"><span>Website</span><input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <div class="sf-turnstile"></div>
+    <div class="sf-foot">
+      <button type="submit" class="cta-btn">Send</button>
+      <span class="sf-msg" role="status"></span>
+    </div>
+    <p class="sf-note">Goes to a private queue the author reads. Nothing is published.
+      Prefer GitHub? <a href="${kind === 'coding' ? '#' : submitStudyURL(meta.repo)}" target="_blank" rel="noopener">Open an issue instead</a>.</p>
+  </form>`;
+}
+
+export function wireSubmissionForm(root, meta, onDone) {
+  const form = root.querySelector('form.sf');
+  if (!form) return;
+  loadTurnstile(meta.turnstile_sitekey, form.querySelector('.sf-turnstile'));
+  form.addEventListener('submit', async ev => {
+    ev.preventDefault();
+    const msg = form.querySelector('.sf-msg');
+    const btn = form.querySelector('button[type=submit]');
+    const data = { kind: form.dataset.kind };
+    for (const el of form.querySelectorAll('input, textarea')) {
+      if (el.name) data[el.name] = el.value;
+    }
+    const missing = [...form.querySelectorAll('[required]')].filter(el => !el.value.trim());
+    if (missing.length) {
+      msg.textContent = 'Please fill the required fields.';
+      msg.className = 'sf-msg bad';
+      missing[0].focus();
+      return;
+    }
+    const ts = form.querySelector('[name="cf-turnstile-response"]');
+    data.turnstile = ts ? ts.value : '';
+    btn.disabled = true;
+    msg.className = 'sf-msg';
+    msg.textContent = 'Sending…';
+    try {
+      const r = await fetch(meta.submit_endpoint, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const out = await r.json().catch(() => ({}));
+      if (r.ok && out.ok) {
+        form.innerHTML = '<p class="sf-done">Thank you — it has reached the author.</p>';
+        if (onDone) onDone();
+        return;
+      }
+      msg.textContent = out.error || 'Something went wrong. Please try again.';
+      msg.className = 'sf-msg bad';
+    } catch {
+      msg.textContent = 'Could not reach the server. Please try again, or use the GitHub link.';
+      msg.className = 'sf-msg bad';
+    }
+    btn.disabled = false;
+    if (window.turnstile) window.turnstile.reset();
+  });
 }
 
 /* ---------- the estimate record ---------- */
@@ -231,14 +352,31 @@ export function recordHTML(e, studies, opts = {}) {
     <div class="rfoot">
       <button class="btn" data-copy="${esc(e.eid)}">copy link to this estimate</button>
       ${others > 0 ? `<a href="${BASE}studies/#${esc(e.id)}">${others} other estimate${others > 1 ? 's' : ''} from this study</a>` : ''}
-      ${issue ? `<a href="${esc(issue)}" target="_blank" rel="noopener" class="warn">⚠︎ flag a coding error</a>` : ''}
+      ${opts.endpoint
+        ? `<button class="warn linky" type="button" data-flag="${esc(e.eid)}">⚠︎ flag a coding error</button>`
+        : (issue ? `<a href="${esc(issue)}" target="_blank" rel="noopener" class="warn">⚠︎ flag a coding error</a>` : '')}
     </div>
   </article>`;
 }
 
-/* Delegated handler for every "copy link" button on a page. */
-export function wireCopy(root = document) {
+/* Delegated handler for the record's own buttons: copy-link, and flag-a-coding-error when the
+ * submission endpoint exists (otherwise the flag is a plain link to GitHub). */
+export function wireCopy(root = document, meta) {
   root.addEventListener('click', ev => {
+    const flag = ev.target.closest('[data-flag]');
+    if (flag && meta && meta.submit_endpoint) {
+      const rec = flag.closest('.record');
+      let box = rec.querySelector('.rec-form');
+      if (!box) {
+        rec.insertAdjacentHTML('beforeend', '<div class="rec-form"></div>');
+        box = rec.querySelector('.rec-form');
+        box.innerHTML = submissionFormHTML(meta, 'coding', { estimate: flag.dataset.flag });
+        wireSubmissionForm(box, meta);
+      }
+      box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      box.querySelector('textarea')?.focus();
+      return;
+    }
     const b = ev.target.closest('[data-copy]');
     if (!b) return;
     const url = location.origin + location.pathname + '#' + b.dataset.copy;

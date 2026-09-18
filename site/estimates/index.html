@@ -44,7 +44,7 @@ const d = await data();
 setMeta(d.meta); addPaperLink(d.meta);
 mountContributeCTA(d.meta);
 mountFooter(d.meta);
-wireCopy();
+wireCopy(document, d.meta);
 
 const FIELDS = d.meta.controls;
 const state = { q: '', sort: 'construct', mainonly: true, on: {}, limit: 60 };
@@ -151,7 +151,7 @@ function open(eid) {
   const box = document.getElementById('open');
   if (!e) { box.innerHTML = ''; return; }
   box.innerHTML = recordHTML(e, d.studies,
-    { siblings: (d.byStudy.get(e.id) || []).length, repo: d.meta.repo });
+    { siblings: (d.byStudy.get(e.id) || []).length, repo: d.meta.repo, endpoint: d.meta.submit_endpoint });
   box.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
