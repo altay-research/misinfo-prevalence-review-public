@@ -1,0 +1,16 @@
+producer,year,claim_text,number_pct,denom_class,method,url
+NewsGuard,2024,"$2.6 billion in global ad spend goes to misinformation websites each year",,REACH_ABSOLUTE,trace,https://www.newsguardtech.com/special-reports/brands-send-billions-to-misinformation-websites-newsguard-comscore-report/
+NewsGuard,2022,"40.21% of 6,513 rated sites receive a red unreliable rating",40.21,CONTENT,content audit,https://www.newsguardtech.com/
+NewsGuard,2022,"6.69% of all news engagement on Facebook, Twitter, Pinterest from red-rated sites",6.69,EXPOSURE,engagement metric,https://www.newsguardtech.com/
+NewsGuard,2024,"3,006 AI content farm sites identified spreading misinformation",,REACH_ABSOLUTE,content audit,https://www.newsguardtech.com/special-reports/ai-tracking-center/
+Avaaz,2020,"Health misinformation networks generated estimated 3.8 billion views on Facebook in one year",,REACH_ABSOLUTE,engagement metric,https://secure.avaaz.org/campaign/en/facebook_threat_health/
+Avaaz,2020,"Only 16% of health misinformation had a Facebook warning label applied",16,CONTENT,content audit,https://secure.avaaz.org/campaign/en/facebook_threat_health/
+Avaaz,2019,"Yellow Vests disinformation reached more than 100 million views on Facebook in France",,REACH_ABSOLUTE,engagement metric,https://avaazimages.avaaz.org/Report%20Yellow%20Vests%20FINAL.pdf
+Avaaz,2019,"Far-right EU election disinformation networks seen over half a billion times",,REACH_ABSOLUTE,engagement metric,https://techcrunch.com/2019/05/22/facebook-found-hosting-masses-of-far-right-eu-disinformation-networks/
+CCDH,2021,"A dozen anti-vaccine accounts responsible for 65% of anti-vaccine disinformation shared online",65,CONCENTRATION,content audit,https://counterhate.com/research/the-disinformation-dozen/
+CCDH,2021,"Toxic Ten publishers responsible for 69% of climate denial interactions on Facebook",69,CONCENTRATION,engagement metric,https://counterhate.com/research/the-toxic-ten/
+CCDH,2024,"200 climate disinformation videos on YouTube seen 73.8 million times",,REACH_ABSOLUTE,engagement metric,https://counterhate.com/research/google-climate-change-disinformation-youtube-videos/
+Global Disinformation Index,2019,"At least $235 million in ad revenue generated annually from disinformation sites",,REACH_ABSOLUTE,trace,https://www.disinformationindex.org/
+EDMO,2024,"EU-related disinformation reached 15% of all detected false stories in May 2024",15,CONTENT,content audit,https://meddmo.eu/may-2024-disinformation-about-the-eu-increased-a-month-before-the-european-elections/
+EDMO,2024,"Average EU-related disinformation rose from 4.4% to 7% of detected disinformation",7,CONTENT,content audit,https://edmo.eu/wp-content/uploads/2024/06/EDMO-36-Horizontal.pdf
+EU DisinfoLab,2020,"Indian Chronicles network spanned 750 fake media outlets across 119 countries",,REACH_ABSOLUTE,trace,https://www.disinfo.eu/publications/indian-chronicles-deep-dive-into-a-15-year-operation-targeting-the-eu-and-un-to-serve-indian-interests/

@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-105021121543,CORRECT_EXCLUDE,experimental susceptibility/sharing intentions only
+2-s2.0-85128244203,CORRECT_EXCLUDE,survey on emotions and belief
+2-s2.0-85159031166,CORRECT_EXCLUDE,native advertising effects/theory chapter
+2-s2.0-85174626695,CORRECT_EXCLUDE,user behavior in online communities general
+2-s2.0-84947750648,CORRECT_EXCLUDE,emotional dynamics/echo chamber theory
+2-s2.0-105000412883,CORRECT_EXCLUDE,single influencer case study qualitative
+2-s2.0-85060065800,CORRECT_EXCLUDE,ad tech incentives normative commentary
+2-s2.0-85091110828,CORRECT_EXCLUDE,sentiment analysis methods off-topic
+2-s2.0-105014638926,CORRECT_EXCLUDE,network analysis of countermovement structure
+2-s2.0-85196318168,CORRECT_EXCLUDE,review of cancer misinformation
+2-s2.0-79956254916,CORRECT_EXCLUDE,critique of single report off-topic
+2-s2.0-85180596007,CORRECT_EXCLUDE,content quality scoring not prevalence
+2-s2.0-85144558944,FALSE_NEGATIVE,quantifies 29% bots in discussion
+2-s2.0-85158171970,CORRECT_EXCLUDE,scoping review of YouTube studies
+2-s2.0-85195795775,CORRECT_EXCLUDE,experiments on viewing/sharing intentions
+2-s2.0-85147783097,CORRECT_EXCLUDE,content quality scoring not prevalence
+2-s2.0-85168664680,CORRECT_EXCLUDE,qualitative case study of campaign
+2-s2.0-85106242797,CORRECT_EXCLUDE,evacuation behavior misinformation role off-topic
+2-s2.0-85198967880,CORRECT_EXCLUDE,simulation model not real-world measure
+2-s2.0-84882239162,CORRECT_EXCLUDE,literature review pharmaceutical marketing
+2-s2.0-85083865591,CORRECT_EXCLUDE,topic analysis of tweets not misinfo prevalence
+2-s2.0-85089360152,CORRECT_EXCLUDE,big data media keyword analysis off-topic
+2-s2.0-85121581563,CORRECT_EXCLUDE,emotion/topic content analysis not prevalence
+2-s2.0-105005867936,CORRECT_EXCLUDE,theory of media events qualitative
+2-s2.0-85174309479,CORRECT_EXCLUDE,Telegram metadata method paper
+2-s2.0-85103228633,CORRECT_EXCLUDE,topic/risk discourse analysis not prevalence
+2-s2.0-85179759259,CORRECT_EXCLUDE,bot vs human self-presentation detection
+2-s2.0-105014886450,CORRECT_EXCLUDE,survey of sharing behavior/mechanism
+2-s2.0-85088291698,CORRECT_EXCLUDE,perceived exposure predicts cynicism effects
+2-s2.0-105026744032,CORRECT_EXCLUDE,book on extremist propaganda theory
+2-s2.0-105018851946,CORRECT_EXCLUDE,qualitative influencer network voter effects
+2-s2.0-85074373926,CORRECT_EXCLUDE,YouTube analysis tool description
+2-s2.0-33847038739,CORRECT_EXCLUDE,economics commentary off-topic
+2-s2.0-105029755562,CORRECT_EXCLUDE,commentary on methodological reach
+2-s2.0-105026886203,CORRECT_EXCLUDE,critical discourse analysis of videos
+2-s2.0-105038789649,CORRECT_EXCLUDE,perceptions/misinfo at school board meetings
+2-s2.0-105009551917,CORRECT_EXCLUDE,qualitative interviews on incidental exposure
+2-s2.0-85182281579,CORRECT_EXCLUDE,YouTube video quality/reliability scoring
+2-s2.0-85062800458,CORRECT_EXCLUDE,experiment on differentiating satire
+2-s2.0-105005532143,CORRECT_EXCLUDE,coordinated behavior influence analysis

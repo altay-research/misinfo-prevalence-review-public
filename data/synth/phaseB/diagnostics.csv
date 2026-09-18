@@ -1,0 +1,74 @@
+sev,kind,id,construct,detail
+med,construct_denom_mismatch,2-s2.0-85160248068,EXPOSURE,EXPOSURE coded with denom_class=single_source — verify
+med,construct_denom_mismatch,2-s2.0-85160248068,EXPOSURE,EXPOSURE coded with denom_class=single_source — verify
+med,construct_denom_mismatch,2-s2.0-85179481261,CONTENT,CONTENT coded with denom_class=all_media — verify
+med,construct_denom_mismatch,2-s2.0-85038621544,CONTENT,CONTENT coded with denom_class=all_media — verify
+med,construct_denom_mismatch,2-s2.0-85038621544,CONTENT,CONTENT coded with denom_class=all_media — verify
+med,construct_denom_mismatch,2-s2.0-85038621544,CONTENT,CONTENT coded with denom_class=all_media — verify
+med,construct_denom_mismatch,2-s2.0-105029413645,EXPOSURE,EXPOSURE coded with denom_class=topical — verify
+med,construct_denom_mismatch,2-s2.0-105029413645,EXPOSURE,EXPOSURE coded with denom_class=topical — verify
+med,field_completeness,,,misinfo_def: populated on 1016/1048 rows (97%) — 27 studies affected
+med,possible_duplicate,2-s2.0-85074596916,SHARING,"2 rows share value=18.2 denom=political_news (rows [60, 61]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-84964787366,CONTENT,"2 rows share value=2.0 denom=topical (rows [86, 87]) — verify not double-counted"
+med,possible_duplicate,W4293124965,EXPOSURE,"2 rows share value=0.97 denom=news_diet (rows [112, 476]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-105034745484,CONTENT,"2 rows share value=9.0 denom=single_source (rows [235, 236]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85159153364,CONTENT,"2 rows share value=0.4 denom=topical (rows [249, 251]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85160248068,CONCENTRATION,"2 rows share value=90.0 denom=n/a (rows [312, 313]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85177420309,CONTENT,"2 rows share value=5.0 denom=curated_sample (rows [394, 404]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85177420309,CONTENT,"2 rows share value=17.0 denom=curated_sample (rows [396, 399]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85177420309,CONTENT,"2 rows share value=12.0 denom=curated_sample (rows [398, 401]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85177420309,CONTENT,"2 rows share value=19.0 denom=curated_sample (rows [400, 405]) — verify not double-counted"
+med,possible_duplicate,W4205602257,SHARING,"2 rows share value=3.7 denom=topical (rows [523, 525]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-105027856675,SHARING,"2 rows share value=0.1 denom=political_news (rows [578, 582]) — verify not double-counted"
+med,possible_duplicate,NEW-bergeronboutin-sciadv2026,CONCENTRATION,"2 rows share value=80.0 denom=n/a (rows [606, 968]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-105009546063,RECALL,"2 rows share value=53.0 denom=population (rows [626, 627]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-84863599686,CONTENT,"2 rows share value=24.0 denom=topical (rows [680, 681]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85089419252,CONTENT,"2 rows share value=15.0 denom=curated_sample (rows [714, 715]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85126609259,SHARING,"2 rows share value=0.0 denom=topical (rows [779, 780]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85127732083,CONTENT,"2 rows share value=10.7 denom=curated_sample (rows [785, 786]) — verify not double-counted"
+med,possible_duplicate,2-s2.0-85143601086,RECALL,"2 rows share value=18.0 denom=population (rows [827, 828]) — verify not double-counted"
+med,possible_duplicate,scholar_02,CONTENT,"2 rows share value=1.2 denom=curated_sample (rows [902, 903]) — verify not double-counted"
+med,possible_duplicate,scholar_04,REACH,"2 rows share value=29.0 denom=population (rows [911, 914]) — verify not double-counted"
+med,possible_duplicate,scholar_10,OTHER,"2 rows share value=80.0 denom=n/a (rows [922, 923]) — verify not double-counted"
+info,within_construct_outlier,2-s2.0-85121019757,EXPOSURE,"12.0 vs EXPOSURE fence [-4.1,7.7] (denom=all_media)"
+info,within_construct_outlier,2-s2.0-105029413645,EXPOSURE,"10.0 vs EXPOSURE fence [-4.1,7.7] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85081743293,EXPOSURE,"11.0 vs EXPOSURE fence [-4.1,7.7] (denom=news_diet)"
+info,within_construct_outlier,2-s2.0-85145956359,REACH,"70.0 vs REACH fence [-24.1,47.9] (denom=population)"
+info,within_construct_outlier,2-s2.0-105019533649,REACH,"63.0 vs REACH fence [-24.1,47.9] (denom=population)"
+info,within_construct_outlier,2-s2.0-85081743293,REACH,"56.7 vs REACH fence [-24.1,47.9] (denom=population)"
+info,within_construct_outlier,2-s2.0-85081743293,REACH,"84.0 vs REACH fence [-24.1,47.9] (denom=population)"
+info,within_construct_outlier,2-s2.0-85081743293,REACH,"59.6 vs REACH fence [-24.1,47.9] (denom=population)"
+info,within_construct_outlier,W4306964957,REACH,"50.582 vs REACH fence [-24.1,47.9] (denom=population)"
+info,within_construct_outlier,2-s2.0-85088969117,SHARING,"52.31 vs SHARING fence [-23.8,43.4] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85096862559,SHARING,"47.48 vs SHARING fence [-23.8,43.4] (denom=political_news)"
+info,within_construct_outlier,2-s2.0-84908440181,SHARING,"58.9 vs SHARING fence [-23.8,43.4] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85169998829,SHARING,"57.0 vs SHARING fence [-23.8,43.4] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85169998829,SHARING,"55.0 vs SHARING fence [-23.8,43.4] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85172171076,SHARING,"50.0 vs SHARING fence [-23.8,43.4] (denom=curated_sample)"
+info,within_construct_outlier,W4306964957,SHARING,"50.582 vs SHARING fence [-23.8,43.4] (denom=?)"
+info,within_construct_outlier,2-s2.0-85159889148,CONTENT,"88.0 vs CONTENT fence [-39.2,80.3] (denom=curated_sample)"
+info,within_construct_outlier,2-s2.0-85159889148,CONTENT,"100.0 vs CONTENT fence [-39.2,80.3] (denom=curated_sample)"
+info,within_construct_outlier,2-s2.0-85083041268,CONTENT,"86.8 vs CONTENT fence [-39.2,80.3] (denom=curated_sample)"
+info,within_construct_outlier,2-s2.0-85129109345,CONTENT,"80.5 vs CONTENT fence [-39.2,80.3] (denom=curated_sample)"
+info,within_construct_outlier,2-s2.0-105028851691,CONTENT,"89.0 vs CONTENT fence [-39.2,80.3] (denom=curated_sample)"
+info,within_construct_outlier,2-s2.0-85217197547,CONTENT,"88.7 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,2-s2.0-105022108218,CONTENT,"87.2 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85099807131,CONTENT,"84.4 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,2-s2.0-105012722892,CONTENT,"86.8 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,2-s2.0-105033611630,CONTENT,"94.35 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85214504236,CONTENT,"85.0 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85145881152,CONTENT,"86.0 vs CONTENT fence [-39.2,80.3] (denom=curated_sample)"
+info,within_construct_outlier,2-s2.0-105002025382,CONTENT,"88.2 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,2-s2.0-84863599686,CONTENT,"100.0 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85085263461,CONTENT,"96.0 vs CONTENT fence [-39.2,80.3] (denom=curated_sample)"
+info,within_construct_outlier,2-s2.0-85133302916,CONTENT,"87.2 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,2-s2.0-85160008311,CONTENT,"97.1 vs CONTENT fence [-39.2,80.3] (denom=topical)"
+info,within_construct_outlier,W7166447493,CONTENT,"92.0 vs CONTENT fence [-39.2,80.3] (denom=curated_sample)"
+info,thin_cell,"2-s2.0-85194733750,W4385325063",EXPOSURE,EXPOSURE×?: only 2 estimate(s) from 2 study(ies) — median unstable
+info,thin_cell,2-s2.0-85060549676,EXPOSURE,EXPOSURE×political_news: only 2 estimate(s) from 1 study(ies) — median unstable
+info,thin_cell,2-s2.0-85160248068,EXPOSURE,EXPOSURE×single_source: only 2 estimate(s) from 1 study(ies) — median unstable
+info,thin_cell,2-s2.0-105029413645,EXPOSURE,EXPOSURE×topical: only 2 estimate(s) from 1 study(ies) — median unstable
+info,thin_cell,2-s2.0-105029521599,SHARING,SHARING×all_media: only 1 estimate(s) from 1 study(ies) — median unstable
+info,thin_cell,2-s2.0-85086037795,SHARING,SHARING×population: only 2 estimate(s) from 1 study(ies) — median unstable
+info,thin_cell,2-s2.0-85083965254,SHARING,SHARING×single_source: only 1 estimate(s) from 1 study(ies) — median unstable
+info,field_completeness,,,n: populated on 999/1048 rows (95%) — 15 studies affected

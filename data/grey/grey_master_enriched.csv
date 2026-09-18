@@ -1,0 +1,118 @@
+idx,producer,year,number_pct,construct,prevalence_relevant,alarming_headline,denom_issue
+0,Duke Reporters' Lab,2024,457,REACH_OR_OUTPUT,N,N,"Org count, not prevalence of misinfo in content or diets"
+1,Duke Reporters' Lab,2024,439,REACH_OR_OUTPUT,N,N,"Org count, not prevalence of misinfo in content or diets"
+2,Duke Reporters' Lab,2023,,REACH_OR_OUTPUT,N,N,"Org-closure count, no prevalence denominator"
+3,Poynter (IFCN),2024,137,REACH_OR_OUTPUT,N,N,"Survey of fact-checker orgs, not content prevalence"
+4,Snopes,2023,28.65,CONTENT,Y,Y,"% of fact-checked articles only; fact-checkers select suspicious claims, not representative sample of all content"
+5,PolitiFact (via HKS Misinfo Review),2023,10.95,CONTENT,Y,N,% of fact-checked articles only; same selection bias as Snopes
+6,Africa Check,2024,,REACH_OR_OUTPUT,N,N,"Count of fact-check reports produced, not content prevalence"
+7,AFP Factuel,2024,,REACH_OR_OUTPUT,N,N,"Geographic/language coverage descriptor, no prevalence rate"
+8,Maldita.es,2024,,REACH_OR_OUTPUT,N,N,"Count of tagged posts, denominator = Meta-tagged items not all content"
+9,Maldita.es,2023,7,CONCENTRATION,Y,N,% within fact-checked electoral posts only; selected sample
+10,Full Fact,2023,,REACH_OR_OUTPUT,N,N,"Count of fact checks published, not exposure rate"
+11,Reuters Institute,2018,3.5%,EXPOSURE,Y,N,Monthly reach of false-news sites as % of country internet users; site-traffic not diet share
+12,Reuters Institute,2018,5%,EXPOSURE,Y,N,Max monthly reach of any single false-news outlet; not share of total news diet
+13,Reuters Institute,2025,58%,RECALL-or-PERCEPTION,N,Y,"Self-reported worry about realness, not measured exposure; 'worried' ≠ 'encountered'"
+14,Oxford Internet Institute,2018,25%,CONTENT,Y,Y,% of political Twitter content classified as 'junk news' (broad definition); Twitter political content ≠ average news diet
+15,Oxford Internet Institute,2019,1.6,CONTENT,Y,N,"Ratio of shares/likes, not % of diet; platform-specific political subset"
+16,Knight Foundation,2018,1.14,RECALL-or-PERCEPTION,N,N,"Mean remembered stories; recall-based, small number reflects actual low exposure"
+17,Knight Foundation,2018,25%,EXPOSURE,Y,Y,% of users visiting any fake-news site; any visit in 5-week window inflates vs diet share
+18,Shorenstein Center,2020,60%,CONCENTRATION,Y,N,"% of fake-news site visits from top 10% conservative-diet users; shows skew, not prevalence"
+19,Pew Research,2016,23%,SHARING,N,Y,Self-reported past sharing; recall bias; 'shared' ≠ exposed
+20,Ofcom,2026,41,RECALL-or-PERCEPTION,N,Y,Self-reported encounter; no verification; any misperceived content counted
+21,Ofcom,2026,56,RECALL-or-PERCEPTION,N,Y,Self-reported among social media users only; selection and perception biases
+22,Ofcom,2026,65,RECALL-or-PERCEPTION,N,Y,Young-adult social media users only; self-report; definitional inflation
+23,ACMA,2025,72,RECALL-or-PERCEPTION,N,Y,Self-reported belief of encounter; definitional scope very broad
+24,ACMA,2025,64,RECALL-or-PERCEPTION,N,Y,Facebook-user subsample; self-report; perception ≠ verified exposure
+25,European Commission (Eurobarometer),2025,36,RECALL-or-PERCEPTION,N,Y,Self-reported frequency; 'disinformation' undefined for respondents; cross-EU average masks heterogeneity
+26,European Commission (Eurobarometer),2025,66,RECALL-or-PERCEPTION,N,Y,Includes 'sometimes'; subjective threshold; same survey artefact as row 25
+27,UNESCO,2023,68,OTHER,N,N,"Identifies social media as 'breeding ground', not a prevalence rate"
+28,OECD,2024,40,OTHER,N,N,"Misclassification error rate in a discrimination task, not prevalence of misinfo in diet"
+29,WHO,2022,28.8,CONTENT,Y,Y,"Upper bound of a range (0.2–28.8%) across heterogeneous studies; denom = COVID posts on platform, not all content"
+30,WHO,2022,51,CONTENT,Y,Y,% of vaccine-related posts only (highly selected topic); not representative content sample
+31,EDMO,2022,51.5,CONTENT,Y,N,% of fact-checker-detected disinformation that was COVID-related; denom = already-detected cases only
+32,Avaaz,2020,,REACH_OR_OUTPUT,N,Y,Estimated view count for identified misinfo networks; no denominator for share of all views
+33,Avaaz,2021,,REACH_OR_OUTPUT,N,Y,Absolute view count (162M); no denominator; curated top-100 list
+34,Avaaz,2020,16,CONTENT,Y,N,"% of top-100 YouTube search results for specific query; query-specific, not representative sample"
+35,CCDH,2021,65,CONCENTRATION,Y,Y,"% of anti-vaccine content attributed to 12 accounts; denom = anti-vaccine content only, not all vaccine or health content"
+36,Meta,2021,0.05,EXPOSURE,Y,N,% of all vaccine-content views; platform self-report; rebuttal to CCDH
+37,Meta,2025,97.8,EXPOSURE,Y,N,% of feed views without external link; inverse framing of own-content dominance
+38,YouTube,2021,0.18,EXPOSURE,Y,N,Violative view rate per platform's own policy; platform self-report; policy violations ≠ misinformation
+39,TikTok,2021,78.5,CONTENT,N,N,% of misinfo videos removed proactively; removal rate not prevalence in feed
+40,TikTok,2021,69.7,EXPOSURE,N,N,"% of removed videos with zero views; shows early removal, not prevalence"
+41,Global Disinformation Index,2019,,REACH_OR_OUTPUT,N,N,Ad revenue estimate for misinfo sites; financial metric not prevalence
+42,NewsGuard,2024,,REACH_OR_OUTPUT,N,N,Count of AI content farm sites; inventory not exposure rate
+43,ISD,2022,,REACH_OR_OUTPUT,N,N,Absolute interaction counts; no denominator for share of climate discourse
+44,Avaaz,2019,,REACH_OR_OUTPUT,N,Y,Absolute view estimate; no denominator; curated removed network
+45,Reuters Institute Digital News Report,2025,58,RECALL-or-PERCEPTION,N,Y,"Same as row 13; global self-reported worry, not measured exposure"
+46,Reuters Institute Digital News Report,2026,62,RECALL-or-PERCEPTION,N,Y,Self-reported concern about fake news; definitional ambiguity; higher than 2025 due to expanded scope
+47,Ofcom,2024,40,RECALL-or-PERCEPTION,N,Y,Self-reported encounter in 4-week window; broad definition includes deepfakes
+48,Ofcom,2024,71,RECALL-or-PERCEPTION,N,N,"% among those who already reported encountering it; conditional, not population prevalence"
+49,Pew Research Center,2019,38,RECALL-or-PERCEPTION,N,Y,Self-reported frequency of seeing made-up news; vague referent 'made-up'
+50,Pew Research Center,2016,32,RECALL-or-PERCEPTION,N,Y,Self-reported online encounter; political news context; recall inflated
+51,Pew Research Center,2019,23,SHARING,N,N,Self-reported past sharing; same bias as row 19
+52,Eurobarometer,2025,36,RECALL-or-PERCEPTION,N,Y,Near-duplicate of row 25; same survey artefact
+53,Eurobarometer,2025,66,RECALL-or-PERCEPTION,N,Y,Near-duplicate of row 26; 'at least sometimes' threshold inflates
+54,Eurobarometer,2018,37,RECALL-or-PERCEPTION,N,Y,Self-reported daily/every-other-day exposure; undefined 'fake news' referent
+55,Statistics Canada,2025,80,RECALL-or-PERCEPTION,N,Y,Monthly self-reported encounter; very broad definition; highest recall studies globally
+56,Statistics Canada,2023,47,RECALL-or-PERCEPTION,N,N,Self-reported difficulty distinguishing; perception of difficulty not exposure rate
+57,ACMA,2025,72,RECALL-or-PERCEPTION,N,Y,Duplicate of row 23; same survey
+58,NewsGuard,2024,,REACH_OR_OUTPUT,N,N,Annual ad revenue estimate; financial metric not prevalence
+59,NewsGuard,2022,40.21,CONTENT,Y,Y,"% of rated sites flagged unreliable; denom = NewsGuard's own rated-site sample, not all news sites"
+60,NewsGuard,2022,6.69,EXPOSURE,Y,Y,% of Facebook/Twitter/Pinterest engagement from red-rated sites; engagement not reach/diet share
+61,NewsGuard,2024,,REACH_OR_OUTPUT,N,N,Duplicate site count (row 42); no prevalence denominator
+62,Avaaz,2020,,REACH_OR_OUTPUT,N,Y,"Duplicate of row 32; absolute view estimate, no denominator"
+63,Avaaz,2020,16,CONTENT,Y,N,% of health misinfo without warning label; labeling rate not prevalence
+64,Avaaz,2019,,REACH_OR_OUTPUT,N,Y,Absolute view count in France; no denominator for share of French news consumption
+65,Avaaz,2019,,REACH_OR_OUTPUT,N,Y,Absolute view estimate (500M+); no denominator
+66,CCDH,2021,65,CONCENTRATION,Y,Y,"% of anti-vaccine content on social media; denom = anti-vaccine content only, activist framing"
+67,CCDH,2021,69,CONCENTRATION,Y,Y,"% of climate-denial interactions; denom = climate-denial interactions only, not all climate content"
+68,CCDH,2024,,REACH_OR_OUTPUT,N,N,Absolute view count for curated 200 videos; no denominator
+69,EDMO,2024,15,CONTENT,Y,N,% of detected disinformation that was EU-related; denom = already-detected cases only
+70,EDMO,2024,7,CONTENT,Y,N,Average % within fact-checker-detected corpus; same denominator problem as row 69
+71,EU DisinfoLab,2020,,REACH_OR_OUTPUT,N,N,Network infrastructure count; no prevalence denominator
+72,Meta (Facebook Widely Viewed Content Report),2025,2.2,EXPOSURE,Y,N,"% of feed views with external links; framing of own-content lock-in, not misinfo rate"
+73,Meta (rebuttal to CCDH Disinformation Dozen),2021,0.05,EXPOSURE,Y,N,Platform self-report; % of vaccine views; low but methodologically opaque
+74,Allen et al. (Microsoft/Science Advances),2020,0.15,EXPOSURE,Y,N,Peer-reviewed but included here; % of daily media diet from fake-news sites; most rigorous estimate
+75,Oxford Internet Institute / ComProp,2018,25,CONTENT,Y,Y,% of political Twitter content only; 'junk news' broad definition; political subset ≠ average diet
+76,Knight Foundation (with Graphika/GWU),2018,65,CONCENTRATION,Y,N,% of fake/conspiracy links to top-10 sites; denom = fake-news links only
+77,Knight Foundation (with Graphika/GWU),2018,89,CONCENTRATION,Y,Y,% of misinfo links to top-50 sites; same denom issue as row 76
+78,Center for Countering Digital Hate (Disinformation Dozen),2021,65,CONCENTRATION,Y,Y,Duplicate of rows 35/66; 12 accounts out of anti-vaccine content only
+79,"Grinberg et al. (Science, Lazer Lab)",2019,1,CONCENTRATION,Y,N,1% of users = 80% of fake-news exposures; concentration stat from peer-reviewed work
+80,"Grinberg et al. (Science, Lazer Lab)",2019,0.1,CONCENTRATION,Y,N,0.1% responsible for ~80% of fake-news shares; high-quality Twitter study
+81,"DeVerna et al. (Indiana Observatory on Social Media, PLOS ONE)",2024,0.25,CONCENTRATION,Y,N,0.25% of X users = 73-78% of low-credibility tweets; peer-reviewed
+82,"DeVerna et al. (Indiana Observatory on Social Media, PLOS ONE)",2024,10,CONCENTRATION,Y,N,Top 10 accounts = ~1/3 of low-credibility tweets; peer-reviewed
+83,Statistics Canada,2021,96,RECALL-or-PERCEPTION,N,Y,COVID-era; very broad scope ('mis/disinformation' across any social platform); self-report ceiling
+84,Kaiser Family Foundation,2021,80,RECALL-or-PERCEPTION,N,Y,COVID-era; self-reported encounter across any platform; broad definition inflates
+85,Arcom,2026,97,RECALL-or-PERCEPTION,Y,Y,"self-reported perception of exposure, not behavioural; very broad definition"
+86,Arcom,2026,70,RECALL-or-PERCEPTION,Y,Y,"self-reported perception of exposure, not behavioural; very broad definition"
+87,Arcom,2026,80,RECALL-or-PERCEPTION,Y,Y,"self-reported perception of exposure, not behavioural; very broad definition"
+88,Science Feedback (SIMODS),2025,20.2,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+89,Science Feedback (SIMODS),2025,13.4,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+90,Science Feedback (SIMODS),2025,10.6,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+91,Science Feedback (SIMODS),2025,8.0,CONTENT (exposure-weighted),Y,N,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+92,Science Feedback (SIMODS),2025,8.5,CONTENT (exposure-weighted),Y,N,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+93,Science Feedback (SIMODS),2025,2.3,CONTENT (exposure-weighted),Y,N,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+94,Science Feedback (SIMODS),2025,34.1,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+95,Science Feedback (SIMODS),2025,32.0,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+96,Science Feedback (SIMODS),2025,26.8,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+97,Science Feedback (SIMODS),2025,22.4,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+98,Science Feedback (SIMODS),2025,18.8,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+99,Science Feedback (SIMODS),2025,7.5,CONTENT (exposure-weighted),Y,N,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+100,Science Feedback (SIMODS),2025,43.4,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+101,Science Feedback (SIMODS),2025,25.0,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+102,Science Feedback (SIMODS),2025,14.9,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+103,Science Feedback (SIMODS),2025,12.3,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+104,Science Feedback (SIMODS),2025,10.6,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+105,Science Feedback (SIMODS),2025,7.7,CONTENT (exposure-weighted),Y,N,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+106,Science Feedback (SIMODS),2025,1.0,CONTENT (exposure-weighted),Y,N,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+107,Science Feedback (SIMODS),2025,43.2,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+108,Science Feedback (SIMODS),2025,33.6,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+109,Science Feedback (SIMODS),2025,31.8,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+110,Science Feedback (SIMODS),2025,27.0,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+111,Science Feedback (SIMODS),2025,16.2,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+112,Science Feedback (SIMODS),2025,4.1,CONTENT (exposure-weighted),Y,N,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+113,Science Feedback (SIMODS),2025,42.8,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+114,Science Feedback (SIMODS),2025,24.0,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+115,Science Feedback (SIMODS),2025,19.0,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"
+116,Science Feedback (SIMODS),2025,16.5,CONTENT (exposure-weighted),Y,Y,"share within keyword-built corpus on 5 high-risk topics, exposure-weighted - NOT whole diet; 1-2 orders above academic ~0.15%"

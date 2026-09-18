@@ -1,0 +1,19 @@
+{
+  "seed": 20260915,
+  "n_users": 20000,
+  "mean_items": 120,
+  "n_reps": 40,
+  "calibrated_sigma": 1.806,
+  "general_top1_share_pct": 31.1,
+  "null_ratio_min": 0.96,
+  "null_ratio_max": 0.99,
+  "observed_ratios": [
+    1.51,
+    2.3,
+    2.5,
+    2.62
+  ],
+  "observed_median": 2.4,
+  "observed_min": 1.51,
+  "verdict": "observed ratios lie above the null"
+}

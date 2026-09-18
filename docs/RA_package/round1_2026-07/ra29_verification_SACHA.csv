@@ -1,0 +1,49 @@
+order,item_id,author,our_call,our_verdict,confidence,rule,your_decision,your_note
+"4","2-s2.0-105009619554","de Vries W.","KEEP","LLM_RIGHT_KEEP","med","[PROVISIONAL - no local fulltext] neutral-prevalence (topical)","agree","seems pretty clear that they measure misinfo. The most relevant bit is probably ""Most videos (52 %) contained partial misinformation, while 27 % of them were entirely misleading""."
+"5","2-s2.0-105007777349","Rasheed I.B.","KEEP","LLM_RIGHT_KEEP","med","neutral-prevalence (topic/keyword content sample; not source-level)","agree",""
+"6","2-s2.0-105011696813","Bastos B.","DROP","LAURA_RIGHT_DROP","high","SELECTED-BY-MISINFO / CREATOR-CONCENTRATION","agree",""
+"7","2-s2.0-105014962937","Furukawa E.","DROP","LAURA_RIGHT_DROP","med","QUALITY/STANCE","agree","their mdiscern measure is based on: ""mDISCERN is a simplified version of DISCERN developed by Charnock et al. [38], which is an indicator dedicated to information reliability. In past social media studies, this indicator has been frequently
+used for the purpose of detecting and analyzing misinformation;
+DISCERN focuses on clarity, source reliability, and bias, but since these
+factors are often inconsistent across social media platforms and are
+particularly suited for evaluation by DISCERN [39,40]. mDISCERN was
+E. Furukawa et al. PEC Innovation 7 (2025) 100428
+2
+chosen for this study for three reasons: (1) It is widely used as an indicator to assess the quality of healthcare information. (2) It is helpful in
+content analysis in the context of non-English-speaking countries [41],
+and (3) It is frequently used in studies targeting social media [42,43]. All
+items are binary variables (Yes: 1 point; No: 0 point), with a total score
+range of 0–5. Higher mDISCERN scores indicate higher-quality information provision (Table 2)"" BUT I don't think it measures misinformation, e.g., 'the absence of
+source attribution and a lack of reference to uncertainty' are not enough imo to be considered misinformation, and most of the sample is classified as low score because they lack these two things... so I agree we drop. Note: it's really not a big lost, they analyze only 72 videos... that's extremely small"
+"11","2-s2.0-105031695645","Aldurdunji M.M.","DROP","LAURA_RIGHT_DROP","high","not-a-prevalence (perception survey)","agree",""
+"12","2-s2.0-105039619015","Dahlke R.","KEEP","LLM_RIGHT_KEEP","high","neutral-prevalence (site-list applied to real audience exposure)","agree",""
+"13","2-s2.0-105041276064","Ahner E.","KEEP","LLM_RIGHT_KEEP","high","neutral-prevalence","disagree","sure, but (i) i dont find a clear estimate, there is no such thing as '9.6% of widely-viewed IUD TikTok videos had a physician-adjudicated false claim'. And 400 videos is very small. I would drop"
+"14","2-s2.0-84869090226","Bryant A.G.","DROP","LAURA_RIGHT_DROP","high","SOURCE-LEVEL","agree",""
+"16","2-s2.0-85037352356","Fourney A.","KEEP","LLM_RIGHT_KEEP","high","neutral-prevalence","agree","confusing for Laura, because we said to exclude studies within fake/misinformation, but actually, for concentration it's ok... we should have been clearer about this"
+"18","2-s2.0-85056602344","Shao C.","DROP","LAURA_RIGHT_DROP","high","SELECTED-BY-MISINFO + CREATOR-CONCENTRATION","agree",""
+"19","2-s2.0-85060013655","Mourão R.R.","DROP","LAURA_RIGHT_DROP","high","SELECTED-BY-MISINFO (source-level pre-selection)","agree","I agree, however, I feel bad dropping estimates of misinformation (content) within misinformation samples (source). I think it would be cool to report it as a side note, or in Appendix. So we exclude from the main analyses, but we keep them somewhere in a folder for an extra analysis that we'll only report very briefly, perhaps just in appendix. and only when it's misinfo content within a misinformation sample identified by the fact that the source is misinformation or low quality, etc. "
+"24","2-s2.0-85066894147","Budak C.","KEEP","LLM_RIGHT_KEEP","high","neutral-prevalence","unsure","idk, i don't understand the denominator of the 20%. Laura may be right, we need to triple check this. I re-read the paper but i'm still confused "
+"25","2-s2.0-85078014559","Pierri F.","DROP","LAURA_RIGHT_DROP","high","COMPOSITION-WITHIN-MISINFO","disagree","it's fine to keep as concentration data no? '20% of the community (∼4k users) accounts for more than 90% of total tweets (∼330k)' re check"
+"28","2-s2.0-85085201199","Li H.O.Y.","KEEP","LLM_RIGHT_KEEP","high","neutral-prevalence","agree",""
+"29","2-s2.0-85085573221","Datta R.","KEEP","LLM_RIGHT_KEEP","med","neutral-prevalence (population exposure)","agree",""
+"39","2-s2.0-85108996494","Massarani L.","KEEP","LLM_RIGHT_KEEP","med","neutral-prevalence (keyword+engagement; veracity classification)","agree",""
+"40","2-s2.0-85111545521","Weeks B.E.","KEEP","LLM_RIGHT_KEEP","high","neutral-prevalence","agree","REACH=39.2 is good. but 'EXPOSURE=1.19', we usually measure exposure in % no? here they just do a mean number of site visited, not sure we do that? "
+"45","2-s2.0-85127039075","Li H.O.Y.","KEEP","LLM_RIGHT_KEEP","high","neutral-prevalence","agree",""
+"47","2-s2.0-85136023139","Green J.","KEEP","LLM_RIGHT_KEEP","med","neutral-prevalence (population sharing rate)","agree","This whole thing is good ""7,324 Georgia Twitter users in the panel who were active both before and after the 2020 election, 558 liked or retweeted fraud-related content by promoters of conspiracy theories (228 of 974 superusers), and 1,071 liked or retweeted fraud-related content of detractors (489 of 974 superusers)."""
+"48","2-s2.0-85142396682","Lasser J.","DROP","LAURA_RIGHT_DROP","high","CREATOR/SOURCE-CONCENTRATION","unsure","Idk, isn't this a sharing measure? It's just not the general population but political elites? Is this a big deal? are all our other measures general population? the thing is that sometimes we focus on specific content, not genreal contnet, but idk if we can focus on specific populations. maybe it doesn't make sense? I find it informative though... "
+"51","2-s2.0-85151055175","Haber J.R.","KEEP","LLM_RIGHT_KEEP","med","neutral-prevalence","unsure","idk I'm confused, it's 'misinfo topics', I'd lean on drop.."
+"54","2-s2.0-85175105353","Robinson J.Y.","KEEP","LLM_RIGHT_KEEP","high","neutral-prevalence (sharing over full keyword userbase)","agree","but careful, the 3.2% is not 'users share 3.2% of misinfo' but 3.2% of users have shared misinfo, important distinction, that we already make I think, right? "
+"55","2-s2.0-85188806397","Pratelli M.","KEEP","LLM_RIGHT_KEEP","high","neutral-prevalence (source-level share of actual sharing)","",""
+"56","2-s2.0-85209206311","Greene K.T.","KEEP","LLM_RIGHT_KEEP","high","PROTOCOL -> resolved: include + tag source_level","agree","I agree, but we should keep only one estimate. I guess let's keep the highest: 0.1461 (given that it's more reprenseative than news deserts). "
+"65","2-s2.0-105019603181","Dahlke R.","KEEP","LLM_RIGHT_KEEP","high","[PROVISIONAL - no local fulltext] neutral-prevalence (population reach)","agree","yeah I agree, I'm surprised Laura misunderstood this. They have other estimates that are useful no? 'We found that the
+most consumed type of misinformation articles was about U.S. Electoral Politics, with 12.7% (95%
+CI [10.9, 14.7]) of participants being exposed to at least one such article. The next topic with the
+highest level of exposure was misinformation about social issues with 10.9% (95% CI [9.3, 12.8]) of
+participants exposed. The least exposed types were COVID-19 (6.7% exposed, 95% CI [5.4, 8.3]) and
+Health (4.3% exposed, 95% CI [3.3, 5.6])."" i would add them as well no? They add some interesting topic differences "
+"81","OA-W4401812299","","DROP","LAURA_RIGHT_DROP","med","[PROVISIONAL - no local fulltext] STANCE / account-level","agree","but re-read the PDF, you wrote needs PDF, but you have the PDF so just read it or re-read it. This applies to all the articles where you wrote 'needs PDF' for most of these the PDF is available, so read it! "
+"94","W4281770633","","DROP","LAURA_RIGHT_DROP","high","SELECTED-BY-MISINFO + CREATOR-CONCENTRATION","disagree","for concentration it's fine if it's only misinfo content. it's 35 accounts that account for 28.6% of the misinfo, but we need to understand 35 out of how many? and what's the CONCENTRATION=50 that you report? ah it's 'However, even at its peak, a relatively small proportion of the tweets, quote tweets and retweets
+in the Sharpiegate story came from our top 150 repeat spreaders, who account for 50% of all
+retweets and quote tweets in ElectionMisinfo2020.' but again 150 out of how many? for concentration we always need to know the size of the group (e.g., 1% of users) and the % of concentration they represent (e.g., 1% of users shared 50% of content)"
+"95","W4293124965","","KEEP","LLM_RIGHT_KEEP","high","PROTOCOL -> resolved: include + tag source_level","disagree","for this paper I would get the country level estimates. one estimate per country. I think it's what you do already.  And yes the comscore data is exposure, while the facebook data is CONTENT not SHARING, no? Double check this and ask/report to me "
+"96","W4306964957","","DROP","LAURA_RIGHT_DROP","high","CREATOR/SOURCE-CONCENTRATION","disagree","I would keep. we probably need to specify a clear distinction between 'politicians estimates' and 'general population' estiamtes, but that's fine and doable no? "

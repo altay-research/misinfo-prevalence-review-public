@@ -1,0 +1,222 @@
+==============================================================================
+BATCH 1 of 11  --  paste everything below this line into Perplexity, in a FRESH thread
+==============================================================================
+
+You are helping code data for a systematic review of how much misinformation people are exposed to. For each numbered item you are given a verbatim quote from a research paper and how that paper defined misinformation.
+
+Classify each item on three dimensions. The governing rule: THE CONSTRUCT IS SET BY THE DENOMINATOR -- by what the percentage is a share OF -- not by the topic and not by what is being counted on top. Ask yourself: if this percentage were 100%, what would that mean? The answer names the denominator.
+
+CONSTRUCT (choose exactly one):
+- CONTENT = share of items that exist in some corpus (posts, videos, articles, search results)
+- EXPOSURE = share of what people actually consumed (views, visits, clicks, time, news diet)
+- REACH = share of PEOPLE who encountered it at least once
+- SHARING = share of what was shared, retweeted, liked or engaged with
+- RECALL = share of people who SAID in a survey they had seen it
+- CONCENTRATION = activity attributable to a top slice of users or sources
+- QUALITY = a quality/usefulness rating rather than truth or falsity
+- OTHER = none of the above
+
+DENOMINATOR CLASS (choose exactly one):
+population | all_media | political_news | topical | curated_sample | single_source
+
+BREADTH -- how wide a net the paper cast in deciding what counts as misinformation:
+fabricated | false | misleading | unreliable_source | low_quality
+
+RULES THAT DECIDE THE HARD CASES:
+
+1. "Most-shared" as a SAMPLING METHOD is still CONTENT. If a paper collected the 500 most-shared posts and then coded how many are false, the denominator is those 500 POSTS. Code CONTENT. Sharing was only how the sample was drawn. Contrast: "3% of all links shared by our panel were fake-news links" -- there the denominator really is the shared links, so SHARING.
+
+2. Quality is not falsity. If the measure is about usefulness, completeness, reliability or guideline-adherence rather than truth, code QUALITY. Test: could the item be ACCURATE BUT UNHELPFUL? If a low score is compatible with the content being true, it is QUALITY. Note that a single paper often reports BOTH a quality score and a separate falsity measure -- judge the quote in front of you, not the paper as a whole.
+
+3. Visiting untrustworthy websites is EXPOSURE. Identifying misinformation by DOMAIN rather than by checking each article does not change the denominator; the denominator is still the person's browsing. Record that in breadth as unreliable_source.
+
+4. SURVEYS: the denominator is the PEOPLE ASKED, not the topic. "38% of respondents said they had seen false claims about COVID" is denominator_class = population. It is NOT topical just because the question named a topic. If it were 100%, it would mean every person surveyed said yes -- so the denominator is people. The same applies to "% of people who visited at least one unreliable site" (REACH): the denominator is the people observed, however narrow the thing being counted is.
+
+5. TWO KINDS OF "EVERYTHING" DENOMINATOR. Distinguish a person's WHOLE MEDIA diet from their NEWS diet -- they differ roughly twentyfold on the same phenomenon. "0.15% of total daily media consumption across TV, desktop and mobile" is all_media. "3.4% of all news web traffic" is a news-wide denominator: use all_media ONLY if the denominator includes non-news media too; if it is all news but NOT restricted to politics, choose the closest fit and say which in a trailing note. Use political_news only when the denominator is restricted to POLITICAL or ELECTION news.
+
+6. Denominators that are already misinformation. "Of the false claims we collected, 30% were about vaccines" is not a prevalence at all -- the denominator is the false items themselves. Code OTHER.
+
+Answer with ONE CSV line per item and NOTHING else -- no preamble, no commentary, no sources.
+Format: item_id,construct,denominator_class,breadth,confidence_1to5
+Use confidence 1-5 honestly; a 2 is genuinely useful information. If you cannot judge an item, output the item_id followed by UNSURE and nothing else for that row -- do not guess silently.
+
+
+ITEM F001
+Quote from paper: "Brazil ... # of Tweets Relevant to COVID-19 Vaccine Misinformation 1,304,827 ... (36.1)"
+How that paper defined misinformation: COVID-19 vaccine misinformation: tweets annotated by trained coders (and an expert public-health panel for uncertain cases) as containing misinformation per a codebook based on Islam et al. 2021 globa
+
+ITEM F003
+Quote from paper: "Nigeria ... # of Tweets Relevant to COVID-19 Vaccine Misinformation 302,818 ... (26.1)"
+How that paper defined misinformation: COVID-19 vaccine misinformation: tweets annotated by trained coders (and an expert public-health panel for uncertain cases) as containing misinformation per a codebook based on Islam et al. 2021 globa
+
+ITEM F004
+Quote from paper: "Similar to guidelines 77 ... Dissimilar to guidelines 25 (Table 4); two-thirds (n=81) of private sites recommended timing for CFDV but approximately one-third (n=25) reported inconsistent guidelines"
+How that paper defined misinformation: Online advice on timing of child's first dental visit (CFDV) that is inconsistent with recognised international paediatric guidelines (first tooth eruption / by age 1) = misinformation. Coded against 
+
+ITEM F005
+Quote from paper: "Of the 7,324 Georgia Twitter users in the panel who were active both before and after the 2020 election, 558 liked or retweeted fraud-related content by promoters of conspiracy theories"
+How that paper defined misinformation: Liked/retweeted a tweet that was (1) about 2020 election fraud and (2) authored by a user in the community-detected cluster that promoted fraud conspiracy theories (Abilov et al. curated keyword/hasht
+
+ITEM F006
+Quote from paper: "Across the 151 videos, overall quality was moderate [median GQS: 3 (IQR, 2-4) and median mDISCERN: 2 (IQR, 1-2)]"
+How that paper defined misinformation: No falsity coding; content quality/reliability of aortic-dissection videos rated by 2 cardiologists via Global Quality Scale (GQS 1-5) and modified DISCERN (0-5); lower scores = less reliable/potentia
+
+ITEM F008
+Quote from paper: "the findings revealed that a majority of the posts contained misinformation (68.2%)"
+How that paper defined misinformation: Posts propagating content that was demonstrably false or misleading, lacking a basis in scientific evidence (author-coded by two calibrated raters, facticity = information vs misinformation; ICC verif
+
+ITEM F009
+Quote from paper: "Forty-seven (28%) videos contained misinformation, including 36 videos with a moderate level of misinformation and 11 videos with a high level of misinformation"
+How that paper defined misinformation: Misleading or false information that contradicts scientific consensus / public-health guidance, graded low/moderate/high by infectious-disease experts using a purpose-built codebook.
+
+ITEM F010
+Quote from paper: "Misleading information was determined in 34 videos (23.6%)"
+How that paper defined misinformation: YouTube video containing information not scientifically proven, or scientifically proven to be wrong, about varenicline/smoking cessation (usage, side-effects, efficacy, mechanism, etc.) = misleading/
+
+ITEM F013
+Quote from paper: "The average GQS scores for BiliBili, TikTok, and Kwai were 2.04, 1.81, and 1.70 ... low-quality videos were predominant across all platforms"
+How that paper defined misinformation: Low information quality/reliability (GQS and mDISCERN mean <3) used as a PROXY for misinformation risk; no per-video true/false falsity coding. 3 expert raters, blinded, Fleiss kappa>0.90
+
+ITEM F014
+Quote from paper: "The average GQS scores for BiliBili, TikTok, and Kwai were 2.04, 1.81, and 1.70"
+How that paper defined misinformation: Low information quality/reliability (GQS and mDISCERN mean <3) used as a PROXY for misinformation risk; no per-video true/false falsity coding. 3 expert raters, blinded, Fleiss kappa>0.90
+
+ITEM F015
+Quote from paper: "The average GQS scores for BiliBili, TikTok, and Kwai were 2.04, 1.81, and 1.70"
+How that paper defined misinformation: Low information quality/reliability (GQS and mDISCERN mean <3) used as a PROXY for misinformation risk; no per-video true/false falsity coding. 3 expert raters, blinded, Fleiss kappa>0.90
+
+ITEM F016
+Quote from paper: "Nearly a quarter (n = 931) of HPV related-content on Twitter ... contained concerns including misinformation ... whereas 76% (n = 2945) contained supportive information"
+How that paper defined misinformation: Tweets coded by trained annotators (Fleiss kappa 0.91) as containing disinformation OR misinformation about the HPV vaccine — incomplete/inaccurate info inconsistent with scientific consensus; raising
+
+ITEM F017
+Quote from paper: "the majority of videos scored well on domains of accuracy, though 26.7% of non-HCP content contradicted or could not be corroborated by published evidence ... Information supported by evidence? ... No 21 (12.1)"
+How that paper defined misinformation: Video content that contradicted or could not be corroborated by published evidence (CRAAP 'Accuracy' domain: 'Information supported by evidence? No'); 2 board-certified gynecologists, Cohen's kappa>0.
+
+ITEM F018
+Quote from paper: "A further 16.2% and 6.3% was refuted or was somewhat refuted by the evidence found in evidence-based resources"
+How that paper defined misinformation: Advice responses REFUTED or SOMEWHAT REFUTED by evidence-based point-of-care resources (DynaMed, UpToDate, RxTx, Natural Medicines); single librarian coder
+
+ITEM F019
+Quote from paper: "A further 16.2% and 6.3% was refuted or was somewhat refuted by the evidence found in evidence-based resources"
+How that paper defined misinformation: Advice responses REFUTED or SOMEWHAT REFUTED by evidence-based point-of-care resources (DynaMed, UpToDate, RxTx, Natural Medicines); single librarian coder
+
+ITEM F020
+Quote from paper: "'mis/disinformation' accounted for 13.5% of the analysed links, classified as false connection (5.2%), misleading content (4.1%) and fabricated content (4.1%)"
+How that paper defined misinformation: Wardle & Derakhshan (2017) mis/disinformation typology, applied via fact-checking against scientific papers, official sources and journalistic articles: false connection, misleading content, manipulat
+
+ITEM F021
+Quote from paper: "misinformation makes up a substantial portion (13%) of all image sharing in these political groups ... approximately 10% of image shares are obviously (to journalists) misinformation, with 3% more being misinformation that has been previously fact-checked"
+How that paper defined misinformation: Images annotated by 3 professional fact-checking journalists as 'obvious misinformation' or 'already fact-checked to be false' (combined); moderate inter-annotator agreement (Fleiss kappa 0.78 two-cla
+
+ITEM F022
+Quote from paper: "Only 12 videos contained misinformation (score of >1 out of 5)"
+How that paper defined misinformation: Misinformation scored on a 5-point Likert scale by 2 blinded raters; a video 'contained misinformation' if mean score >1 of 5. (Quality/reliability assessed separately via DISCERN, JAMA, PEMAT.)
+
+ITEM F023
+Quote from paper: "In total, 41% of the articles (n = 56) contained some type of misinformation (Table 2)."
+How that paper defined misinformation: Sentence-level coding of any false statement about the HPV vaccine (death, neurological effects, harmful chemicals, fertility effects, or other obviously-false claims); content analysis, Krippendorff 
+
+ITEM F025
+Quote from paper: "The prevalence of exposure to misinformation among patients with T2DM was highly variable, ranging from 19.6% to 94.4% (Figure 1)."
+How that paper defined misinformation: Inaccurate/false content communicated to patients (distinct from misconceptions = resulting false beliefs). 13 diabetes misinformation statements across 4 domains (medication side effects, alternative
+
+ITEM F026
+Quote from paper: "The majority of respondents 269/295 (91.2%) claimed to have come across misinformation during the pandemic."
+How that paper defined misinformation: Self-reported encounter with / transmission of COVID-19 'misinformation' during the pandemic; respondents gave their own examples (e.g. 'Covid-19 is a plot', 'vaccine tainted with man-made HIV'), auth
+
+ITEM F029
+Quote from paper: "3610 (0.47%) sentences were labeled as misinformation, 14,366 (1.88%) sentences were labeled as weight-related stigma ... (663,128/764,179, 86.78%) were labeled as other."
+How that paper defined misinformation: Sentence classified as obesity 'misinformation' vs factual content, distinguished per American Board of Obesity Medicine peer-reviewed guidelines / scientific literature; RA hand-labelled training set
+
+ITEM F030
+Quote from paper: "Of the sentences receiving a majority label, 64% were labeled as other, 12% were labeled as fact, 9% were labeled as stigma, 5% were labeled as positivity, and 4% were labeled as misinformation."
+How that paper defined misinformation: Sentence classified as obesity 'misinformation' vs factual content, distinguished per American Board of Obesity Medicine peer-reviewed guidelines / scientific literature; RA hand-labelled training set
+
+ITEM F033
+Quote from paper: "provides misinformation compared to the current body of evidence (86.8%) ... Only 21 videos (13.2%) were rated to contain no misinformation"
+How that paper defined misinformation: Video content rated as containing misinformation about surgical LUTS/BPH treatment when compared to the current body of evidence in the EAU (European Association of Urology) guidelines; rated on a 5-l
+
+ITEM F036
+Quote from paper: "In contrast, 36% (147/411) of the comments were inaccurate or misleading."
+How that paper defined misinformation: Reddit comments on ocular stem cell therapy graded by a board-certified retina surgeon as inaccurate or misleading (minor errors, omissions, citations from misleading articles, or entirely false) vs t
+
+ITEM F037
+Quote from paper: "Accidental Sharing on Facebook / Yes 25.94 %"
+How that paper defined misinformation: Self-reported sharing of 'a news story that seemed accurate at the time but you later found out was exaggerated or made up' (accidental) or 'a news story that you thought was made up or exaggerated wh
+
+ITEM F040
+Quote from paper: "Purposeful Sharing on WhatsApp / Yes 14.36%"
+How that paper defined misinformation: Self-reported sharing of 'a news story that seemed accurate at the time but you later found out was exaggerated or made up' (accidental) or 'a news story that you thought was made up or exaggerated wh
+
+ITEM F041
+Quote from paper: "Using the GQS, 86 posts (30.8%) were rated as having very low quality"
+How that paper defined misinformation: Mpox-related X posts rated for quality/reliability against WHO and CDC fact sheets using the Global Quality Scale (GQS, 1-5) and modified DISCERN; low GQS = poor/inaccurate consumer health information
+
+ITEM F043
+Quote from paper: "Of the full sample, most posts had accurate (79/103, 76.7%) versus inaccurate (24/103, 23.3%) information about HBV"
+How that paper defined misinformation: HBV-related Instagram posts coded accurate vs misinformation by hepatology clinicians against current standards of care, using an adapted validated Online Cancer Nutrition Misinformation (OnC-M) codeb
+
+ITEM F044
+Quote from paper: "19.2% (n = 34) were rated as correct, 33.3% (n = 59) as incorrect, 18.1% (n = 32) as overgeneralized and 29.4% (n = 52) as personal experience"
+How that paper defined misinformation: German-language TikTok mental-health videos rated by two clinical psychologists as correct / overgeneralized / incorrect / subjective-experience against DSM-5 diagnostic criteria; 'incorrect' = presen
+
+ITEM F046
+Quote from paper: "Drugs and Weather are the two most popular claims, with an average of 84.2% and 77.1% of participants encountering these rumors, respectively"
+How that paper defined misinformation: 11 COVID-19 false claims (e.g., 5G spreads virus, hot dryers/sun kill virus, drugs cure COVID, vaccine = tracking microchips/population control) compiled from a Chinese rumor list and corroborated as 
+
+ITEM F047
+Quote from paper: "Drugs and Weather are the two most popular claims, with an average of 84.2% and 77.1% of participants encountering these rumors"
+How that paper defined misinformation: 11 COVID-19 false claims (e.g., 5G spreads virus, hot dryers/sun kill virus, drugs cure COVID, vaccine = tracking microchips/population control) compiled from a Chinese rumor list and corroborated as 
+
+ITEM F048
+Quote from paper: "Vaccination-related claims show moderate-to-high exposure with Tracking being seen by 60.7%, Population by 57.6% and Pharma by 55.7% of the respondents"
+How that paper defined misinformation: 11 COVID-19 false claims (e.g., 5G spreads virus, hot dryers/sun kill virus, drugs cure COVID, vaccine = tracking microchips/population control) compiled from a Chinese rumor list and corroborated as 
+
+ITEM F052
+Quote from paper: "Out of 500 posts analyzed, 28% (140/500) fit in the category health misinformation"
+How that paper defined misinformation: Posts classified as health misinformation = health-related statements verified false by (a) web research, (b) presence on a fact-checking debunk, and (c) assessment of cited scientific source reliabil
+
+ITEM F053
+Quote from paper: "and 19% deemed completely inaccurate (Figures 3a and 4a)"
+How that paper defined misinformation: Nutrition content scored against evidence-based dietary guidelines (Australian Dietary Guidelines, Nutrient Reference Values, PEN) as completely/mostly inaccurate vs accurate (Denniss/Lindberg accurac
+
+ITEM F054
+Quote from paper: "around half of the applicable posts on TikTok also failed to meet the criteria for providing evidence-based information (55%)"
+How that paper defined misinformation: Nutrition content scored against evidence-based dietary guidelines (Australian Dietary Guidelines, Nutrient Reference Values, PEN) as completely/mostly inaccurate vs accurate (Denniss/Lindberg accurac
+
+ITEM F055
+Quote from paper: "most of the posts on TikTok (75%) failed to provide balanced accurate information or outline the risks and benefits"
+How that paper defined misinformation: Nutrition content scored against evidence-based dietary guidelines (Australian Dietary Guidelines, Nutrient Reference Values, PEN) as completely/mostly inaccurate vs accurate (Denniss/Lindberg accurac
+
+ITEM F056
+Quote from paper: "From the pertinent posts of timeframe 1, 8014 (70.1%) were deemed factual and 3422 (29.9%) were deemed misinformation."
+How that paper defined misinformation: Posts stating factually incorrect information about the COVID-19 vaccine and fertility (human-coded factual vs misinformation; posts debunking false claims coded factual).
+
+ITEM F057
+Quote from paper: "From the relevant posts from timeframe 2, 3283 (54.9%) were deemed factual and 2699 (45.1%) were deemed misinformation."
+How that paper defined misinformation: Posts stating factually incorrect information about the COVID-19 vaccine and fertility (human-coded factual vs misinformation; posts debunking false claims coded factual).
+
+ITEM F061
+Quote from paper: "40% of the most frequently shared links contained text we classified as fake news."
+How that paper defined misinformation: Fabricated, manipulated, or advertisement health news (categories 1-3 of a Tandoc-derived typology), veracity judged against the evidence-based Polish internal-medicine textbook 'Interna Szczeklika'. 
+
+ITEM F062
+Quote from paper: "Of the 1501 respondents, 282 (19.0%; 95% CI 16.8% to 21.4%) reported having seen claims that 'smoking/alcohol drinking can protect against COVID-19' from social networking sites."
+How that paper defined misinformation: Self-reported exposure to a specific unproven/false health claim ('smoking/alcohol drinking can protect against COVID-19'), framed as health misinformation contradicting WHO; second claim ('drinking t
+
+ITEM F064
+Quote from paper: "Among the 320 web pages included for content analysis, 193 (60.3%) web pages were found to have oral health-related misinformation published in their articles"
+How that paper defined misinformation: Web-page content that defies the scientific consensus or lacks current scientific evidence (criteria of Swire-Thompson & Lazer); validity checked against NIH/NLM/PubMed/American Academy/Google Scholar
+
+ITEM F065
+Quote from paper: "Finalmente, 4 notas ... fueron identificadas como desinformaciones, la categoria mas peligrosa de las tres medidas. Informacion falsa, deliberadamente creada con el fin de perjudicar"
+How that paper defined misinformation: Wardle & Derakhshan information-disorder typology, author-coded. Three sub-types: mis-information (false, no harm intent), mal-information (true but used to harm), dis-information (deliberately false 
+
+ITEM F066
+Quote from paper: "we found that only 100 out of the 300 transcriptions analyzed indeed carried the same content as the claim they were matched to ... These audios were marked as containing misinformation"
+How that paper defined misinformation: Audio matched (TF-IDF cosine + manual confirmation) to a claim previously rated false by >=1 of 6 Brazilian fact-checking agencies. Lower bound: only catches claims already fact-checked, and only ~71%
+
+ITEM F069
+Quote from paper: "Junk News and Information ... 21,071 ... 18.1 [Table 2, State of the Union]"
+How that paper defined misinformation: 'Junk news' = a source that deliberately publishes/aggregates misleading, deceptive, or incorrect information packaged as real news, operationalized as meeting >=3 of 5 source-level criteria: (1) prof

@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-105015063957,CORRECT_EXCLUDE,content quality evaluation not misinfo prevalence
+2-s2.0-105026805747,CORRECT_EXCLUDE,review of coordinated manipulation campaigns not prevalence measure
+2-s2.0-85192709060,CORRECT_EXCLUDE,reader-comment conspiracy content analysis qualitative
+2-s2.0-85153750983,CORRECT_EXCLUDE,normative juridical legal analysis off-topic
+2-s2.0-85071787925,CORRECT_EXCLUDE,website reliability quality assessment not misinfo prevalence
+2-s2.0-85089180114,CORRECT_EXCLUDE,public sphere network structure not misinfo prevalence
+2-s2.0-105024114316,CORRECT_EXCLUDE,video quality analysis not misinfo prevalence
+2-s2.0-85101962294,CORRECT_EXCLUDE,topic modeling coverage not misinfo prevalence
+2-s2.0-85107123516,CORRECT_EXCLUDE,qualitative focus groups news experiences not quantitative prevalence
+2-s2.0-85045704465,CORRECT_EXCLUDE,qualitative clicking practices not misinfo prevalence
+2-s2.0-85125145702,CORRECT_EXCLUDE,survey predictors of sharing not observed prevalence
+2-s2.0-105008547319,FALSE_NEGATIVE,quantifies disinformation sources/channels reported 260 cases
+2-s2.0-85071470997,CORRECT_EXCLUDE,editorial special issue alternative media commentary
+2-s2.0-85091477515,CORRECT_EXCLUDE,commentary single case mechanism not quantitative prevalence
+2-s2.0-85105199450,FALSE_NEGATIVE,quantifies vaccine misinfo themes in Parler posts
+2-s2.0-105020269825,CORRECT_EXCLUDE,content analysis quality not misinfo prevalence
+2-s2.0-105034340815,CORRECT_EXCLUDE,video quality/dissemination analysis not misinfo prevalence
+2-s2.0-85056606092,CORRECT_EXCLUDE,trust ratings experiment not prevalence
+2-s2.0-85196791142,CORRECT_EXCLUDE,content quality analysis not misinfo prevalence
+2-s2.0-85202658760,CORRECT_EXCLUDE,media source use survey not misinfo prevalence
+2-s2.0-85127324529,CORRECT_EXCLUDE,case study disinformation narrative not quantitative prevalence
+2-s2.0-105036542035,CORRECT_EXCLUDE,survey predictors of sharing not observed prevalence
+2-s2.0-85101027324,CORRECT_EXCLUDE,topic/sentiment of tweets not misinfo prevalence
+2-s2.0-85172021062,CORRECT_EXCLUDE,climate discussion topics not misinfo prevalence
+2-s2.0-85127355260,CORRECT_EXCLUDE,selective-exposure experiment sharing only
+2-s2.0-105017351681,CORRECT_EXCLUDE,qualitative mixed-method narrative not quantitative prevalence
+2-s2.0-105017383088,CORRECT_EXCLUDE,SSRI content analysis not misinfo prevalence quantification
+2-s2.0-85149035408,CORRECT_EXCLUDE,six purposive maps qualitative not prevalence
+2-s2.0-105004696689,CORRECT_EXCLUDE,bias in news reporting not misinfo prevalence
+2-s2.0-105029111188,CORRECT_EXCLUDE,network structure of campaigns not prevalence measure
+2-s2.0-86000681756,CORRECT_EXCLUDE,theoretical socio-ecological framework off-topic
+2-s2.0-85201723461,CORRECT_EXCLUDE,video quality/engagement analysis not misinfo prevalence
+2-s2.0-105001082790,CORRECT_EXCLUDE,infodemiology utilization not misinfo prevalence
+2-s2.0-85081663588,CORRECT_EXCLUDE,vaccine info crisis case study qualitative
+2-s2.0-85087810713,CORRECT_EXCLUDE,perceived literacy/sharing survey not observed prevalence
+2-s2.0-85153941712,CORRECT_EXCLUDE,interview study content policy impact off-topic
+2-s2.0-85103486879,CORRECT_EXCLUDE,qualitative youth media behavior survey not prevalence
+2-s2.0-105010476116,CORRECT_EXCLUDE,video quality evaluation not misinfo prevalence
+2-s2.0-85218753561,CORRECT_EXCLUDE,risk analysis dental practices not misinfo prevalence
+2-s2.0-105022104203,CORRECT_EXCLUDE,topic modeling of fake-news dataset not real-world prevalence

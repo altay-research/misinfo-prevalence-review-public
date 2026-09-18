@@ -1,0 +1,22 @@
+# Python dependencies — Misinfo Prevalence & Concentration review
+#
+# The analysis pipeline itself is STDLIB ONLY. No numpy, scipy, pandas or matplotlib: every
+# figure is hand-rolled SVG and every statistic (bootstrap, DerSimonian-Laird meta-analysis,
+# incomplete-beta t-tail) is written against the standard library. That is deliberate — it
+# keeps the numbers reproducible on any Python 3.11+ without a solver stack to pin.
+#
+# So `pip install -r requirements.txt` is only needed for the document builders and the
+# PDF-retrieval helpers. To reproduce every NUMBER in the manuscript you need nothing here.
+#
+# Versions are the ones installed on the machine that produced freeze v1.7.16 (Python 3.14.5).
+# See docs/ENVIRONMENT.md for the R side and the full interpreter versions.
+
+# .docx builders: make_manuscript_docx.py, make_nhb_docx.py, make_arcom_docx.py
+python-docx==1.2.0
+
+# tracked-changes .docx assembly (raw OOXML): make_tracked_docx.py
+lxml==6.1.1
+
+# PDF text extraction in the retrieval helpers: recover_pdfs.py
+# (falls back to PyPDF2 if pypdf is absent; either satisfies it)
+pypdf==6.14.2

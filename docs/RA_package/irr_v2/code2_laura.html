@@ -1,0 +1,314 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Coding — laura</title>
+<style>
+:root { --paper:#fbf8f1; --ink:#2c2a26; --faded:#6b655c; --line:#e0d7c4; --card:#fffdf8;
+        --ox:#8a3324; --ox-soft:#f3e4df; --done:#3d6b35; --shadow:0 1px 3px rgba(60,45,20,.10); }
+html { -webkit-text-size-adjust:100%; }
+body { background:var(--paper); color:var(--ink); margin:0;
+       font-family:Georgia,"Palatino Linotype",Palatino,serif; font-size:17px; line-height:1.55;
+       background-image:radial-gradient(rgba(138,51,36,.028) 1px, transparent 1px);
+       background-size:26px 26px; }
+.wrap { max-width:780px; margin:0 auto; padding:0 20px 90px; }
+header.top { position:sticky; top:0; z-index:9; background:var(--paper);
+             border-bottom:2px solid var(--ox); padding:10px 0 8px; margin-bottom:26px; }
+.top-row { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.top h1 { font-size:18px; margin:0; letter-spacing:.01em; }
+.top h1 .coder { color:var(--ox); text-transform:capitalize; }
+.count { font-size:14px; color:var(--faded); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.bar { height:4px; background:var(--line); border-radius:2px; margin-top:7px; overflow:hidden; }
+.bar i { display:block; height:100%; width:0%; background:var(--ox); border-radius:2px;
+         transition:width .35s ease; }
+h2.part { font-size:24px; margin:44px 0 4px; }
+p.partsub { color:var(--faded); font-style:italic; font-size:15px; margin:0 0 20px; }
+.rules { background:var(--ox-soft); border-left:3px solid var(--ox); border-radius:0 4px 4px 0;
+         padding:12px 16px; font-size:15px; margin:18px 0 6px; }
+.rules b { letter-spacing:.02em; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:6px;
+        box-shadow:var(--shadow); padding:20px 22px 18px; margin:0 0 22px; position:relative;
+        transition:border-color .25s; }
+.card.done { border-left:4px solid var(--done); padding-left:19px; }
+.card-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px;
+             border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:12px; }
+.iid { font-size:20px; font-weight:bold; color:var(--ox); letter-spacing:.03em; }
+.meta { font-size:13px; color:var(--faded); text-align:right; }
+.q { margin:0 0 4px; }
+.q b.lbl { display:block; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+           color:var(--faded); font-family:Georgia,serif; margin:14px 0 4px; }
+blockquote { margin:2px 0 6px; padding:8px 14px; border-left:3px solid var(--line);
+             font-size:15.5px; background:rgba(224,215,196,.18); border-radius:0 4px 4px 0; }
+blockquote.defn { font-style:italic; }
+.nodefn { color:var(--faded); font-size:14px; font-style:italic; }
+.chips { display:flex; flex-wrap:wrap; gap:7px; margin:4px 0 2px; }
+button.chip { font-family:inherit; font-size:14px; line-height:1.3; cursor:pointer;
+              background:var(--card); color:var(--ink); border:1px solid var(--line);
+              border-radius:15px; padding:5px 12px; transition:all .15s; text-align:left; }
+button.chip small { display:block; font-size:11.5px; color:var(--faded); }
+button.chip:hover { border-color:var(--ox); }
+button.chip.on { background:var(--ox); border-color:var(--ox); color:#fff; }
+button.chip.on small { color:rgba(255,255,255,.75); }
+.conf { display:flex; gap:6px; align-items:center; }
+button.seg { font-family:inherit; font-size:15px; width:38px; height:34px; cursor:pointer;
+             background:var(--card); border:1px solid var(--line); border-radius:5px;
+             transition:all .15s; color:var(--ink); }
+button.seg:hover { border-color:var(--ox); }
+button.seg.on { background:var(--ox); border-color:var(--ox); color:#fff; }
+.confcue { font-size:12.5px; color:var(--faded); margin-left:6px; }
+input[type=text], textarea { font-family:inherit; font-size:15px; color:var(--ink);
+    background:#fff; border:1px solid var(--line); border-radius:5px; padding:7px 10px;
+    width:100%; box-sizing:border-box; }
+input[type=text]:focus, textarea:focus { outline:none; border-color:var(--ox); }
+textarea { resize:vertical; min-height:34px; }
+.valrow { display:flex; gap:8px; align-items:center; }
+.valrow input { width:130px; }
+button.nf { font-family:inherit; font-size:13px; cursor:pointer; background:none;
+            border:1px dashed var(--line); border-radius:5px; padding:6px 10px; color:var(--faded); }
+button.nf:hover { border-color:var(--ox); color:var(--ox); }
+a.pdf { display:inline-block; background:var(--ox); color:#fff; text-decoration:none;
+        font-size:14px; padding:7px 14px; border-radius:5px; margin:2px 0 4px; }
+a.pdf:hover { background:#6f2a1e; }
+.exportbox { background:var(--card); border:1px solid var(--line); border-radius:6px;
+             box-shadow:var(--shadow); padding:22px; margin-top:40px; text-align:center; }
+button.export { font-family:inherit; font-size:17px; cursor:pointer; background:var(--ox);
+                color:#fff; border:none; border-radius:6px; padding:12px 26px; }
+button.export:hover { background:#6f2a1e; }
+.warn { color:var(--ox); font-size:14.5px; margin:10px 0 0; min-height:1.3em; }
+.savenote { font-size:13px; color:var(--faded); margin-top:8px; }
+@media(max-width:640px){ body{font-size:16px} .card{padding:16px 14px} .card.done{padding-left:11px}
+                         .meta{display:none} }
+</style>
+<header class="top"><div class="wrap" style="padding-bottom:0">
+  <div class="top-row">
+    <h1>Coding reliability check — <span class="coder">laura</span></h1>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="bar"><i id="barfill"></i></div>
+</div></header>
+<main class="wrap">
+<div class="rules"><b>Three rules.</b> Don't look at the project's dataset or any previous coding
+· don't discuss items with the other coder until both are finished · unsure? give your best answer
+and mark low confidence — a guess beats a blank. Everything turns on <b>what the % is a share
+OF</b>: ask <i>“if this number were 100%, what would that mean?”</i>
+&nbsp;<a href="CODING_INSTRUCTIONS.html" target="_blank" style="color:var(--ox)">Full instructions</a></div>
+
+<h2 class="part" style="display:none">Part 1</h2>
+<p class="partsub">0 items · from the snippets below only · ~35 min. Answers save
+automatically in this browser.</p>
+<div id="items1"></div>
+
+<h2 class="part">Part 2 — second batch (new papers, same task)</h2>
+<p class="partsub">12 items · open each PDF and code from the paper itself · ~55 min.
+The denominator usually hides in the methods, not the results sentence.</p>
+<div id="items2"></div>
+
+<div class="exportbox">
+  <button style="display:none" class="export" type="button" onclick="exportPart(1)">Download (no part 1 — this round is papers only)</button>
+  &nbsp;
+  <button class="export" type="button" onclick="exportPart(2)">Download part2b_laura.csv</button>
+  <p class="warn" id="exportwarn"></p>
+  <p class="savenote">Click each button (browsers allow one download per click) and send both
+  files back. You can export any time; re-opening this page keeps your answers.
+  Buttons not downloading? <a href="#" style="color:var(--ox)"
+  onclick="showFallback();return false">Show the CSV as text</a> — copy each box into a file.</p>
+  <div id="fallback" style="display:none;text-align:left">
+    <b class="lbl q" style="display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faded);margin:14px 0 4px">(no part 1 — this round is papers only)</b>
+    <textarea id="fb1" rows="6" readonly onclick="this.select()"></textarea>
+    <b class="lbl q" style="display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faded);margin:14px 0 4px">part2b_laura.csv</b>
+    <textarea id="fb2" rows="6" readonly onclick="this.select()"></textarea>
+  </div>
+</div>
+</main>
+<script>
+const CODER = "laura";
+const DATA = {"part1": [], "part2": [{"item_id": "E01", "study_id": "2-s2.0-105030827603", "pdf_file": "papers2/E01_2-s2.0-105030827603.pdf", "country": "Brazil", "platform": "YouTube", "what_to_find": "Find the % of items rated poor / low quality (a quality rating, not falsity). Report the SINGLE overall figure for Brazil / YouTube (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E02", "study_id": "W4414446446", "pdf_file": "papers2/E02_W4414446446.pdf", "country": "Germany", "platform": "Public broadcast TV (all news + talk shows)", "what_to_find": "Find the share of content (items) that is misinformation or false. Report the SINGLE overall figure for Germany / Public broadcast TV (all news + talk shows) (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E03", "study_id": "2-s2.0-85159486270", "pdf_file": "papers2/E03_2-s2.0-85159486270.pdf", "country": "English-language (US/Canada gov standard)", "platform": "YouTube", "what_to_find": "Find the share of content (items) that is misinformation or false. Report the SINGLE overall figure for English-language (US/Canada gov standard) / YouTube (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E04", "study_id": "2-s2.0-85159598935", "pdf_file": "papers2/E04_2-s2.0-85159598935.pdf", "country": "United States", "platform": "Twitter", "what_to_find": "Find the share of content (items) that is misinformation or false. Report the SINGLE overall figure for United States / Twitter (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E05", "study_id": "W7165134935", "pdf_file": "papers2/E05_W7165134935.pdf", "country": "United States", "platform": "TikTok", "what_to_find": "Find the share of content (items) that is misinformation or false. Report the SINGLE overall figure for United States / TikTok (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E06", "study_id": "2-s2.0-85168270535", "pdf_file": "papers2/E06_2-s2.0-85168270535.pdf", "country": "Global", "platform": "Twitter", "what_to_find": "Find the share of content (items) that is misinformation or false. Report the SINGLE overall figure for Global / Twitter (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E07", "study_id": "2-s2.0-85181200454", "pdf_file": "papers2/E07_2-s2.0-85181200454.pdf", "country": "Multiple", "platform": "Online", "what_to_find": "Find the % of survey respondents who said they had seen or heard misinformation. Report the SINGLE overall figure for Multiple / Online (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E08", "study_id": "2-s2.0-85213223975", "pdf_file": "papers2/E08_2-s2.0-85213223975.pdf", "country": "Global", "platform": "YouTube", "what_to_find": "Find the share of content (items) that is misinformation or false. Report the SINGLE overall figure for Global / YouTube (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E09", "study_id": "2-s2.0-85184824168", "pdf_file": "papers2/E09_2-s2.0-85184824168.pdf", "country": "Brazil", "platform": "Twitter", "what_to_find": "Find the share of content (items) that is misinformation or false. Report the SINGLE overall figure for Brazil / Twitter (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E10", "study_id": "2-s2.0-85129632573", "pdf_file": "papers2/E10_2-s2.0-85129632573.pdf", "country": "Taiwan", "platform": "digital news (26 online media sources)", "what_to_find": "Find the share of content (items) that is misinformation or false. Report the SINGLE overall figure for Taiwan / digital news (26 online media sources) (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E11", "study_id": "2-s2.0-85187117251", "pdf_file": "papers2/E11_2-s2.0-85187117251.pdf", "country": "Global", "platform": "Twitter", "what_to_find": "Find the share of content (items) that is misinformation or false. Report the SINGLE overall figure for Global / Twitter (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}, {"item_id": "E12", "study_id": "OA-W7125772788", "pdf_file": "papers2/E12_OA-W7125772788.pdf", "country": "Nigeria", "platform": "multi-platform (digital news + social media; self-report)", "what_to_find": "Find the % of survey respondents who said they had seen or heard misinformation. Report the SINGLE overall figure for Nigeria / multi-platform (digital news + social media; self-report) (not a subgroup, per-country or per-item breakdown).", "YOUR_value_pct": "", "YOUR_denominator_class": "", "YOUR_what_it_is_a_share_of": "", "YOUR_construct": "", "YOUR_confidence_1to5": "", "YOUR_notes": ""}], "p1cols": ["item_id", "study_id", "country", "platform", "reported_quantity", "how_the_paper_defined_misinformation", "YOUR_construct", "YOUR_breadth", "YOUR_confidence_1to5", "YOUR_notes"], "p2cols": ["item_id", "study_id", "pdf_file", "country", "platform", "what_to_find", "YOUR_value_pct", "YOUR_denominator_class", "YOUR_what_it_is_a_share_of", "YOUR_construct", "YOUR_confidence_1to5", "YOUR_notes"]};
+const OPT = {"constructs": [["CONTENT", "share of all the items in a corpus (posts, videos, articles, results)"], ["EXPOSURE", "share of what people actually consumed (views, visits, clicks, time)"], ["REACH", "share of people who encountered it at least once"], ["SHARING", "share of what was shared / retweeted / liked"], ["RECALL", "share of people who said in a survey they'd seen it"], ["CONCENTRATION", "activity from a top slice of users/sources (“top 1% → 70%”)"], ["QUALITY", "a quality/usefulness rating, not truth"], ["OTHER", "none of these"]], "breadths": [["fabricated", "invented out of whole cloth"], ["false", "verifiably untrue"], ["misleading", "deceptive even if not strictly false"], ["unreliable_source", "judged by the source, not per item"], ["low_quality", "poor quality; could still be true"]], "denoms": [["population", "people"], ["all_media", "whole media diet, incl. non-news"], ["news_diet", "all news, any topic"], ["political_news", "politics only"], ["topical", "one issue, keyword search"], ["curated_sample", "hand-picked or top-N"], ["single_source", "one account/outlet"], ["n/a", "doesn't apply — CONCENTRATION / OTHER (exports as blank)"]]};
+const TR = {"2-s2.0-105008525623": "most narratives show exposure percentages above 60% of respondents, with the sole exception of N1, which reaches only 29%"};
+
+const KEY = 'irr_v3b_' + CODER;
+let S = {};
+try { S = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) { S = {}; }
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const get = (id, f) => (S[id] || {})[f] || '';
+const set = (id, f, v) => { S[id] = S[id] || {}; S[id][f] = v; save(); refresh(); };
+
+const el = (tag, cls, html) => { const e = document.createElement(tag);
+  if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function chips(item, field, options) {
+  const box = el('div', 'chips');
+  for (const [val, hint] of options) {
+    const b = el('button', 'chip');
+    b.type = 'button';
+    b.innerHTML = esc(val) + (hint ? '<small>' + esc(hint) + '</small>' : '');
+    b.dataset.val = val;
+    b.onclick = () => set(item.item_id, field,
+                          get(item.item_id, field) === val ? '' : val);
+    box.appendChild(b);
+  }
+  box.dataset.bind = item.item_id + '|' + field;
+  return box;
+}
+function confRow(item) {
+  const box = el('div', 'conf');
+  for (let i = 1; i <= 5; i++) {
+    const b = el('button', 'seg', String(i));
+    b.type = 'button'; b.dataset.val = String(i);
+    b.onclick = () => set(item.item_id, 'YOUR_confidence_1to5',
+                          get(item.item_id, 'YOUR_confidence_1to5') === String(i) ? '' : String(i));
+    box.appendChild(b);
+  }
+  box.appendChild(el('span', 'confcue', '1 = guess &nbsp;·&nbsp; 5 = certain'));
+  box.dataset.bind = item.item_id + '|YOUR_confidence_1to5';
+  return box;
+}
+function textField(item, field, kind, placeholder) {
+  const t = document.createElement(kind === 'area' ? 'textarea' : 'input');
+  if (kind !== 'area') t.type = 'text';
+  t.placeholder = placeholder || '';
+  t.value = get(item.item_id, field);
+  t.oninput = () => { S[item.item_id] = S[item.item_id] || {};
+                      S[item.item_id][field] = t.value; save(); refresh(); };
+  return t;
+}
+
+function isDone(item, part) {
+  const g = f => get(item.item_id, f).trim();
+  if (part === 1) return g('YOUR_construct') && g('YOUR_breadth') && g('YOUR_confidence_1to5');
+  const denomOk = g('YOUR_denominator_class') ||
+                  ['CONCENTRATION','OTHER'].includes(g('YOUR_construct'));
+  return g('YOUR_value_pct') && g('YOUR_construct') && g('YOUR_confidence_1to5') &&
+         g('YOUR_what_it_is_a_share_of') && denomOk;
+}
+
+function card1(item) {
+  const c = el('div', 'card'); c.id = 'card_' + item.item_id;
+  const h = el('div', 'card-head');
+  h.appendChild(el('span', 'iid', item.item_id));
+  h.appendChild(el('span', 'meta', esc([item.country, item.platform].filter(Boolean).join(' · '))));
+  c.appendChild(h);
+  c.appendChild(el('b', 'lbl q', 'Reported quantity'));
+  c.appendChild(el('blockquote', '', esc(item.reported_quantity)));
+  if (TR[item.study_id])
+    c.appendChild(el('p', 'nodefn', '<b>English:</b> “' + esc(TR[item.study_id]) + '”'));
+  c.appendChild(el('b', 'lbl q', 'How the paper defined misinformation'));
+  const d = item.how_the_paper_defined_misinformation.trim();
+  c.appendChild(d ? el('blockquote', 'defn', esc(d))
+                  : el('p', 'nodefn', 'No definition stated — code breadth from the wording of the reported quantity itself.'));
+  c.appendChild(el('b', 'lbl q', 'Your construct — what is the % a share of?'));
+  c.appendChild(chips(item, 'YOUR_construct', OPT.constructs));
+  c.appendChild(el('b', 'lbl q', 'Your breadth — where the definition drew the line'));
+  c.appendChild(el('p', 'nodefn',
+    'One code only: if several apply, pick the WIDEST the definition includes ' +
+    '(fabricated → false → misleading). Source-list operationalisations are ' +
+    'unreliable_source regardless of wording; quality ratings are low_quality.'));
+  c.appendChild(chips(item, 'YOUR_breadth', OPT.breadths));
+  c.appendChild(el('b', 'lbl q', 'Confidence'));
+  c.appendChild(confRow(item));
+  c.appendChild(el('b', 'lbl q', 'Notes (optional)'));
+  c.appendChild(textField(item, 'YOUR_notes', 'area'));
+  return c;
+}
+function card2(item) {
+  const c = el('div', 'card'); c.id = 'card_' + item.item_id;
+  const h = el('div', 'card-head');
+  h.appendChild(el('span', 'iid', item.item_id));
+  h.appendChild(el('span', 'meta', esc([item.country, item.platform].filter(Boolean).join(' · '))));
+  c.appendChild(h);
+  const a = el('a', 'pdf', 'Open the paper ⇢');
+  a.href = item.pdf_file; a.target = '_blank';
+  c.appendChild(a);
+  c.appendChild(el('b', 'lbl q', 'What to find'));
+  c.appendChild(el('blockquote', '', esc(item.what_to_find)));
+  c.appendChild(el('b', 'lbl q', 'Value (plain number, e.g. 12.4 — not 12.4%)'));
+  const vr = el('div', 'valrow');
+  vr.appendChild(textField(item, 'YOUR_value_pct', 'input'));
+  const nf = el('button', 'nf', 'NOT FOUND after ~5 min');
+  nf.type = 'button';
+  nf.onclick = () => { set(item.item_id, 'YOUR_value_pct',
+      get(item.item_id, 'YOUR_value_pct') === 'NOT FOUND' ? '' : 'NOT FOUND'); render(); };
+  vr.appendChild(nf);
+  c.appendChild(vr);
+  c.appendChild(el('b', 'lbl q', 'What is it a share OF? (your own words — this is the crux)'));
+  c.appendChild(textField(item, 'YOUR_what_it_is_a_share_of', 'area',
+    'if this number were 100%, what would that mean?'));
+  c.appendChild(el('b', 'lbl q', 'Denominator class'));
+  c.appendChild(chips(item, 'YOUR_denominator_class', OPT.denoms));
+  c.appendChild(el('b', 'lbl q', 'Construct (re-confirm)'));
+  c.appendChild(chips(item, 'YOUR_construct', OPT.constructs));
+  c.appendChild(el('b', 'lbl q', 'Confidence'));
+  c.appendChild(confRow(item));
+  c.appendChild(el('b', 'lbl q', 'Notes (optional)'));
+  c.appendChild(textField(item, 'YOUR_notes', 'area'));
+  return c;
+}
+
+function refresh() {
+  document.querySelectorAll('[data-bind]').forEach(box => {
+    const [id, field] = box.dataset.bind.split('|');
+    const cur = get(id, field);
+    box.querySelectorAll('button').forEach(b =>
+      b.classList.toggle('on', cur !== '' && b.dataset.val === cur));
+  });
+  let done = 0;
+  for (const it of DATA.part1) {
+    const ok = isDone(it, 1);
+    document.getElementById('card_' + it.item_id).classList.toggle('done', !!ok);
+    if (ok) done++;
+  }
+  for (const it of DATA.part2) {
+    const ok = isDone(it, 2);
+    document.getElementById('card_' + it.item_id).classList.toggle('done', !!ok);
+    if (ok) done++;
+  }
+  const total = DATA.part1.length + DATA.part2.length;
+  document.getElementById('count').textContent = done + ' / ' + total + ' items coded';
+  document.getElementById('barfill').style.width = (100 * done / total) + '%';
+  document.getElementById('exportwarn').textContent = done < total
+    ? (total - done) + ' item(s) still incomplete — a low-confidence guess beats a blank.' : '';
+}
+
+function csvCell(v) {
+  v = String(v == null ? '' : v);
+  return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+}
+function buildCSV(part) {
+  const cols = part === 1 ? DATA.p1cols : DATA.p2cols;
+  const rows = part === 1 ? DATA.part1 : DATA.part2;
+  const out = [cols.map(csvCell).join(',')];
+  for (const it of rows)
+    out.push(cols.map(c => {
+      let v = c.startsWith('YOUR_') ? get(it.item_id, c) : it[c];
+      if (c === 'YOUR_denominator_class' && v === 'n/a') v = '';   // n/a exports as blank
+      return csvCell(v);
+    }).join(','));
+  return out.join('\r\n') + '\r\n';
+}
+function download(name, text) {
+  try {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], {type: 'text/csv;charset=utf-8'}));
+    a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+  } catch (e) { showFallback(); }
+}
+function exportPart(part) {
+  download('part' + part + 'b_' + CODER + '.csv', buildCSV(part));
+}
+function showFallback() {
+  document.getElementById('fallback').style.display = 'block';
+  document.getElementById('fb1').value = buildCSV(1);
+  document.getElementById('fb2').value = buildCSV(2);
+}
+window.__exportCSV = buildCSV;   // test hook: returns the CSV string without downloading
+
+function render() {
+  const m1 = document.getElementById('items1'); m1.innerHTML = '';
+  DATA.part1.forEach(it => m1.appendChild(card1(it)));
+  const m2 = document.getElementById('items2'); m2.innerHTML = '';
+  DATA.part2.forEach(it => m2.appendChild(card2(it)));
+  refresh();
+}
+render();
+
+</script>

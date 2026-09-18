@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-85212940895,CORRECT_EXCLUDE,Legal/theory analysis of hate speech disinformation
+2-s2.0-85211860791,CORRECT_EXCLUDE,Qualitative case study of antisemitism laundering
+2-s2.0-85101295011,CORRECT_EXCLUDE,Belief/susceptibility survey factors
+2-s2.0-85145411066,CORRECT_EXCLUDE,Library collection procurement criteria off-topic
+2-s2.0-85137860773,CORRECT_EXCLUDE,User responses to IRA accounts not prevalence
+2-s2.0-85126999816,CORRECT_EXCLUDE,Theory/commentary on digital propaganda
+2-s2.0-85182457327,CORRECT_EXCLUDE,Experimental meme retransmission studies
+2-s2.0-85199605402,CORRECT_EXCLUDE,Lit review plus political account activity analysis
+2-s2.0-85075158656,FALSE_NEGATIVE,Quantifies hyperpartisan/fake-news audience engagement share online
+2-s2.0-105017506015,CORRECT_EXCLUDE,Geolocation method and topic modeling
+2-s2.0-105024566749,CORRECT_EXCLUDE,YouTube video quality assessment not exposure
+2-s2.0-85086013022,FALSE_NEGATIVE,Quantifies hoax spread network actors on Twitter
+2-s2.0-85132454020,CORRECT_EXCLUDE,Qualitative narrative analysis of misinformation
+2-s2.0-85200504500,CORRECT_EXCLUDE,Methods for measuring social influence
+2-s2.0-85085551012,FALSE_NEGATIVE,Quantifies COVID misinformation content among anti-vax online
+2-s2.0-85200712084,CORRECT_EXCLUDE,Measurement instrument development/validation
+2-s2.0-85182831975,CORRECT_EXCLUDE,Vaccination attitudes survey not prevalence
+2-s2.0-105037570378,CORRECT_EXCLUDE,Qualitative discourse analysis of fake news values
+2-s2.0-105001920569,CORRECT_EXCLUDE,Detection method NLP/blockchain
+2-s2.0-85206626557,CORRECT_EXCLUDE,Politician information-sharing practices analysis
+2-s2.0-85207494268,CORRECT_EXCLUDE,Discourse/engagement on health dept Facebook page
+2-s2.0-105019650745,CORRECT_EXCLUDE,Influencer conflict framing engagement analysis
+2-s2.0-85078207693,CORRECT_EXCLUDE,Single fake-news case study analysis
+2-s2.0-85187881321,CORRECT_EXCLUDE,Qualitative analysis of cBHT messianism
+2-s2.0-85196079076,CORRECT_EXCLUDE,Misconception prevalence among students belief
+2-s2.0-85067547811,CORRECT_EXCLUDE,Panel survey self-reported sharing antecedents
+2-s2.0-85092337337,CORRECT_EXCLUDE,Google Trends search behavior attitudes
+2-s2.0-105016877141,FALSE_NEGATIVE,Quantifies fluoridation misinformation sentiment across 109k posts
+2-s2.0-105023703208,CORRECT_EXCLUDE,Symposium theory/commentary computational propaganda
+2-s2.0-85175170042,CORRECT_EXCLUDE,Qualitative analysis Hungarian disinformation discourse
+2-s2.0-85084751340,CORRECT_EXCLUDE,Search interest seasonality not misinformation
+2-s2.0-85107417720,CORRECT_EXCLUDE,Qualitative content analysis of 20 fake news
+2-s2.0-85121234437,CORRECT_EXCLUDE,Lexeme/topic discourse analysis RT propaganda
+2-s2.0-85115435359,CORRECT_EXCLUDE,Survey of electorate attitudes effects
+2-s2.0-85187108098,CORRECT_EXCLUDE,Systematic review on rumor influence effects
+2-s2.0-0034350107,CORRECT_EXCLUDE,Misinformed beliefs about welfare not content
+2-s2.0-105024333061,CORRECT_EXCLUDE,Youth consumption habits qualitative not misinfo measure
+2-s2.0-85179717154,CORRECT_EXCLUDE,Cross-platform meme sharing practices analysis
+2-s2.0-105022142351,CORRECT_EXCLUDE,Commentary/editorial on health misinformation
+2-s2.0-85204616342,CORRECT_EXCLUDE,Correlation disinformation diffusion with hate crimes effects

@@ -1,0 +1,31 @@
+order,claim_idx,producer,year,claim_text,your_category,your_note
+1,15,Oxford Internet Institute,2019,Junk news not prevalent on Twitter but more shared and liked on Facebook,CONTENT,it looks like content (twitter) + engagement (FB)
+2,4,Snopes,2023,Snopes ... 28.65% of its fact-checking articles falling under [real claims] category,NOT_MISINFO_SPECIFIC,fact-checking
+3,13,Reuters Institute,2025,58% worldwide worried about what is real and fake online concerning news,ATTITUDE,
+4,36,Meta,2021,Disinformation Dozen responsible for about 0.05% of all vaccine-content views on Facebook,CONCENTRATION,
+5,82,"DeVerna et al. (Indiana Observatory on Social Media, PLOS ONE)",2024,Roughly one third of low-credibility tweets posted by just 10 accounts,CONCENTRATION,
+6,8,Maldita.es,2024,"31 million posts were tagged with fact-checking articles ... as being false on Meta's platforms ... 189,000 fact-checking articles",COUNT,
+7,46,Reuters Institute Digital News Report,2026,62% concerned about fake news online,ATTITUDE,
+8,41,Global Disinformation Index,2019,At least $235 million in ad revenue generated annually by disinformation websites,OTHER,
+9,9,Maldita.es,2023,out of ... 489 Facebook posts containing electoral disinformation ... just 7% had more than 5 reshares,WITHIN_MISINFO,
+10,79,"Grinberg et al. (Science, Lazer Lab)",2019,1% of individuals accounted for 80% of fake news source exposures,ACADEMIC_RELAY,why is this here? It's a science thing
+11,95,Science Feedback (SIMODS),2025,"[R1 X/Twitter/problematic_content] both TikTok and X/Twitter appear as the platforms with the highest prevalence of Problematic content, with prevalence values of 34% [31.7%, 36.5%] and 32% [29.9%, 34.1%], respectively",CONTENT,
+12,76,Knight Foundation (with Graphika/GWU),2018,65% of fake and conspiracy news links went to just 10 largest sites,CONCENTRATION,
+13,28,OECD,2024,Respondents misidentified true and false content 40% of the time,ATTITUDE,
+14,30,WHO,2022,Misinformation in vaccine-related posts reached up to 51%,REACH,
+15,56,Statistics Canada,2023,47% find it harder to distinguish between true and false news than three years prior,ATTITUDE,
+16,59,NewsGuard,2022,"40.21% of 6,513 rated sites receive a red unreliable rating",OTHER,
+17,39,TikTok,2021,78.5% of misinformation videos removed before being reported to TikTok,MODERATION_METRIC,
+18,97,Science Feedback (SIMODS),2025,"[R1 YouTube/problematic_content] Facebook ranks third with 27% [24.3%, 29.1%], followed by YouTube at 22% [20.0%, 24.5%], and Instagram with 18% [16.8%, 20.9%].",CONTENT,
+19,34,Avaaz,2020,16% of top 100 YouTube videos for 'global warming' contained climate misinformation,TOPICAL,remember we said somethnig can be both content and topical
+20,62,Avaaz,2020,Health misinformation networks generated estimated 3.8 billion views on Facebook in one year,COUNT,
+21,67,CCDH,2021,Toxic Ten publishers responsible for 69% of climate denial interactions on Facebook,CONCENTRATION,
+22,94,Science Feedback (SIMODS),2025,"[R1 TikTok/problematic_content] both TikTok and X/Twitter appear as the platforms with the highest prevalence of Problematic content, with prevalence values of 34% [31.7%, 36.5%] and 32% [29.9%, 34.1%], respectively",CONTENT,
+23,35,CCDH,2021,Twelve individuals responsible for 65% of anti-vaccine content on social media,CONCENTRATION,
+24,11,Reuters Institute,2018,False news sites in France and Italy had average monthly reach of over 3.5%,REACH,
+25,12,Reuters Institute,2018,None of the false news outlets reached more than one in 20 readers monthly,REACH,
+26,48,Ofcom,2024,"Among those who encountered it, 71% say they have seen it online",RECALL,
+27,73,Meta (rebuttal to CCDH Disinformation Dozen),2021,12 accounts responsible for only 0.05% of all vaccine-related content views,CONCENTRATION,
+28,5,PolitiFact (via HKS Misinfo Review),2023,only 10.95% of PolitiFact's fact-checking articles were classified as real claims,CONTENT,"weird one, it's withing fact-chekcing articles "
+29,63,Avaaz,2020,Only 16% of health misinformation had a Facebook warning label applied,MODERATION_METRIC,
+30,40,TikTok,2021,69.7% of removed COVID-19 disinformation videos had zero views,COUNT,

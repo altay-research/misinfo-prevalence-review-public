@@ -1,0 +1,8 @@
+classification_level,EXPOSURE,REACH,SHARING,CONCENTRATION,CONTENT,RECALL
+Claim or item level,1,4,12,3,255,87
+Whole source,18,24,34,16,19,0
+Mixed,0,1,0,0,0,2
+Post level,0,0,0,0,1,0
+Respondent's own judgement,0,0,0,0,0,1
+Topic level,0,0,0,0,0,1
+TOTAL studies,18,27,45,19,274,91

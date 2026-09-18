@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-105030650890,CORRECT_EXCLUDE,Meme contagion modeling theory not real prevalence
+2-s2.0-85210230000,CORRECT_EXCLUDE,Conversational leadership of media brands not misinfo prevalence
+2-s2.0-85184803709,FALSE_NEGATIVE,Quantified dataset of 14053 state-backed disinfo articles
+2-s2.0-85201934055,FALSE_NEGATIVE,Quantitative analysis of Russian disinfo campaign tweets
+2-s2.0-85163606090,CORRECT_EXCLUDE,Textual features content analysis not prevalence measure
+2-s2.0-84909942721,CORRECT_EXCLUDE,Quality evaluation of supplement websites not prevalence
+2-s2.0-105029543628,CORRECT_EXCLUDE,Survey on weaponized info and polarization beliefs
+2-s2.0-105023057983,CORRECT_EXCLUDE,Methodological reanalysis of sharing studies not prevalence
+2-s2.0-105019801012,CORRECT_EXCLUDE,Qualitative content analysis single greenwashing report
+2-s2.0-85084449415,CORRECT_EXCLUDE,Belief in fake news and attitudes survey
+2-s2.0-85168757674,CORRECT_EXCLUDE,User behavior on tweet popularity detection focus
+2-s2.0-85034206987,CORRECT_EXCLUDE,Hashtag content/engagement on historical disinfo not prevalence
+2-s2.0-85145956726,CORRECT_EXCLUDE,Correction notice not a study
+2-s2.0-85101037485,CORRECT_EXCLUDE,Media consumption habits survey not misinfo prevalence
+2-s2.0-85178174450,CORRECT_EXCLUDE,Word frequency comparison of infodemic datasets
+2-s2.0-85154040351,CORRECT_EXCLUDE,Mathematical contact model of fake news spread
+2-s2.0-85137476213,CORRECT_EXCLUDE,Methodology comparing Twitter reaction trends not prevalence
+2-s2.0-48249141442,CORRECT_EXCLUDE,Review of media stigma studies commentary
+2-s2.0-105014418273,CORRECT_EXCLUDE,Agent-based model misinfo and markets theory
+2-s2.0-85150424701,CORRECT_EXCLUDE,Qualitative women social media experiences not prevalence
+2-s2.0-85096815775,CORRECT_EXCLUDE,Internet search patterns not misinfo prevalence
+2-s2.0-85211763379,CORRECT_EXCLUDE,Meta-indicator for greenwashing assessment method
+2-s2.0-105021338067,CORRECT_EXCLUDE,Website quality of PRP info not prevalence
+2-s2.0-84960932098,CORRECT_EXCLUDE,Clickbait detection methods not prevalence
+2-s2.0-85144644186,CORRECT_EXCLUDE,Topic analysis of public opinion not misinfo prevalence
+2-s2.0-85125847686,CORRECT_EXCLUDE,Fact-checking responses ethnography intervention focus
+2-s2.0-85113263498,CORRECT_EXCLUDE,Content analysis of intents behind disinfo
+2-s2.0-85105426107,FALSE_NEGATIVE,Reviews empirical literature on actual misinfo consumption
+2-s2.0-85081723807,FALSE_NEGATIVE,Quantified coordinated link sharing of news on Facebook
+2-s2.0-105029029456,CORRECT_EXCLUDE,Social media health info use survey not misinfo
+2-s2.0-85185958498,CORRECT_EXCLUDE,Topic/sentiment modeling of misinfo videos not prevalence
+2-s2.0-85043768736,CORRECT_EXCLUDE,Argumentation analysis of fake news case study
+2-s2.0-85134353402,CORRECT_EXCLUDE,Content analysis plus experiments on legitimization
+2-s2.0-85130832360,CORRECT_EXCLUDE,Quantitative meme content analysis not misinfo prevalence
+2-s2.0-85182929718,CORRECT_EXCLUDE,Information consumption credibility survey not misinfo prevalence
+2-s2.0-85119442133,CORRECT_EXCLUDE,Commentary column on Facebook size and misinfo
+2-s2.0-85086008636,CORRECT_EXCLUDE,Commentary on rumor impacts not quantitative prevalence
+2-s2.0-85208224311,CORRECT_EXCLUDE,Network propagation dynamics analysis not prevalence
+2-s2.0-105002030929,CORRECT_EXCLUDE,Semiotic analysis of AI-generated images
+2-s2.0-85079163669,CORRECT_EXCLUDE,Qualitative discourse analysis 50 letters not prevalence

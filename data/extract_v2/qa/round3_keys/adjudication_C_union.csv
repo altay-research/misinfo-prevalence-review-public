@@ -1,0 +1,21 @@
+n,id,order,title,journal,pipeline_group,sacha,laura,both_disagree
+1,2-s2.0-86000736431,35,Accomplice or Corrective? Google and YouTube’s Role in Spreading Conspiracy Theories about Chancellor Candidate Annalena Baerbock during the 2021 German Federal Election,Medien & Kommunikationswissenschaft,INCLUDED,EXCLUDE,EXCLUDE,True
+2,2-s2.0-85077296908,40,Online Direct-to-Consumer Advertising of Stem Cell Therapy for Musculoskeletal Injury and Disease: Misinformation and Violation of Ethical and Legal Advertising Parameters,Journal of Bone and Joint Surgery,DROPPED,INCLUDE,INCLUDE,True
+3,2-s2.0-85215939792,49,Descriptive analysis of TikTok content on vaccination in Arabic,AIMS Public Health,INCLUDED,EXCLUDE,EXCLUDE,True
+4,2-s2.0-85166442191,3,GMO discussion on Twitter,GM Crops & Food,DROPPED,INCLUDE,EXCLUDE,False
+5,W4281770633,6,Repeat Spreaders and Election Delegitimization: A Comprehensive Dataset of Misinformation Tweets from the 2020 U.S. Election,Journal of Quantitative Description: Digital Media,INCLUDED,INCLUDE,EXCLUDE,False
+6,2-s2.0-85097120668,11,Dimensions of misinformation about the HPV vaccine on instagram: Content and network analysis of social media characteristics,Journal of Medical Internet Research,DROPPED,EXCLUDE,INCLUDE,False
+7,2-s2.0-85046071518,14,Anatomy of an online misinformation network,PLOS ONE,DROPPED,EXCLUDE,INCLUDE,False
+8,2-s2.0-105000242013,18,"Lost in translation: using global fact-checks to measure multilingual misinformation prevalence, spread, and evolution",EPJ Data Science,DROPPED,EXCLUDE,INCLUDE,False
+9,2-s2.0-105039147215,20,Manipulation of information in times of crisis: evidence from Covid excess mortality,Journal of Economic Growth,DROPPED,EXCLUDE,INCLUDE,False
+10,2-s2.0-85164306347,21,Advertising Alternative Cancer Treatments and Approaches on Meta Social Media Platforms: Content Analysis,JMIR Infodemiology,DROPPED,EXCLUDE,INCLUDE,False
+11,2-s2.0-85151113840,23,Realfood and Cancer: Analysis of the Reliability and Quality of YouTube Content,International Journal of Environmental Research and Public Health,DROPPED,EXCLUDE,INCLUDE,False
+12,2-s2.0-86000286752,25,The most contemporary analysis on YouTube videos on premature ejaculation,Journal of Men's Health,DROPPED,INCLUDE,EXCLUDE,False
+13,2-s2.0-85167574647,27,Quality and reliability of YouTube videos in Arabic as a source of patient information on prostate cancer,ecancermedicalscience,INCLUDED,INCLUDE,EXCLUDE,False
+14,2-s2.0-85210161252,28,Disinformation on dietary supplements by German influencers on Instagram,Naunyn-Schmiedeberg's Archives of Pharmacology,DROPPED,EXCLUDE,INCLUDE,False
+15,2-s2.0-45549091998,30,Silver nasal sprays: Misleading Internet marketing,"Ear, Nose & Throat Journal",DROPPED,EXCLUDE,INCLUDE,False
+16,2-s2.0-85187889353,36,Unveiling misinformation on YouTube: examining the content of COVID-19 vaccination misinformation videos in Switzerland,Frontiers in Communication,DROPPED,INCLUDE,EXCLUDE,False
+17,2-s2.0-105038578898,39,Exposure to health misinformation on social media across key health domains: a systematic review and meta-analysis of survey-based studies,BMC Public Health,DROPPED,EXCLUDE,INCLUDE,False
+18,2-s2.0-85091698994,43,The Diffusion of Mainstream and Disinformation News on Twitter: The Case of Italy and France,Companion Proceedings of the Web Conference 2020,INCLUDED,INCLUDE,EXCLUDE,False
+19,2-s2.0-85184568825,47,Perceived experts are prevalent and influential within an antivaccine community on Twitter,PNAS Nexus,DROPPED,EXCLUDE,INCLUDE,False
+20,2-s2.0-85085201199,48,YouTube as a source of information on COVID-19: A pandemic of misinformation?,BMJ Global Health,INCLUDED,INCLUDE,EXCLUDE,False

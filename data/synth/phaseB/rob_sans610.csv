@@ -1,0 +1,6 @@
+construct,k_studies_rated,pct_high_sans610,median_all,k_excl_high,median_excl_high,ci_lo,ci_hi
+EXPOSURE,18,0.0,1.3,18,1.3,0.6,2.8
+REACH,27,3.7,12.0,26,12.2,8.5,21.2
+SHARING,45,6.7,13.0,42,12.7,7.2,16.9
+CONTENT,274,21.5,23.0,215,22.9,18.0,26.1
+RECALL,91,18.7,43.0,74,40.9,36.4,52.5

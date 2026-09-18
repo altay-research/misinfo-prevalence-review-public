@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 576" width="820" height="576" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+<rect width="820" height="576" fill="#fff"/>
+<text x="18" y="26" font-size="14" font-weight="bold" fill="#111">The (Mis)information Funnel, measured — median % at each choice (our data)</text>
+<text x="18" y="42" font-size="11" fill="#888">Same phenomenon; the estimate rises as each methodological choice loosens. After Nickl et al. (2025).</text>
+<line x1="250.0" y1="52" x2="250.0" y2="566" stroke="#f2f2f2"/><text x="250.0" y="574" font-size="9" text-anchor="middle" fill="#bbb">0%</text>
+<line x1="338.3333333333333" y1="52" x2="338.3333333333333" y2="566" stroke="#f2f2f2"/><text x="338.3333333333333" y="574" font-size="9" text-anchor="middle" fill="#bbb">10%</text>
+<line x1="426.66666666666663" y1="52" x2="426.66666666666663" y2="566" stroke="#f2f2f2"/><text x="426.66666666666663" y="574" font-size="9" text-anchor="middle" fill="#bbb">20%</text>
+<line x1="515.0" y1="52" x2="515.0" y2="566" stroke="#f2f2f2"/><text x="515.0" y="574" font-size="9" text-anchor="middle" fill="#bbb">30%</text>
+<line x1="603.3333333333333" y1="52" x2="603.3333333333333" y2="566" stroke="#f2f2f2"/><text x="603.3333333333333" y="574" font-size="9" text-anchor="middle" fill="#bbb">40%</text>
+<line x1="691.6666666666667" y1="52" x2="691.6666666666667" y2="566" stroke="#f2f2f2"/><text x="691.6666666666667" y="574" font-size="9" text-anchor="middle" fill="#bbb">50%</text>
+<line x1="780.0" y1="52" x2="780.0" y2="566" stroke="#f2f2f2"/><text x="780.0" y="574" font-size="9" text-anchor="middle" fill="#bbb">60%</text>
+<text x="18" y="70" font-size="10.5" font-weight="bold" fill="#666">CONCEPTUAL — what counts (definition breadth, within content analyses)</text>
+<text x="242" y="91.0" font-size="11" text-anchor="end" fill="#333">fabricated only</text>
+<rect x="250" y="82.0" width="30.9" height="12" fill="#178a3f"/>
+<text x="285.9166666666667" y="91.0" font-size="10.5" fill="#178a3f" font-weight="bold">3.5%</text>
+<text x="242" y="117.0" font-size="11" text-anchor="end" fill="#333">+ false</text>
+<rect x="250" y="108.0" width="164.3" height="12" fill="#e0902a"/>
+<text x="419.3" y="117.0" font-size="10.5" fill="#e0902a" font-weight="bold">18.6%</text>
+<text x="242" y="143.0" font-size="11" text-anchor="end" fill="#333">+ misleading</text>
+<rect x="250" y="134.0" width="199.2" height="12" fill="#e0902a"/>
+<text x="454.19166666666666" y="143.0" font-size="10.5" fill="#e0902a" font-weight="bold">22.6%</text>
+<text x="242" y="169.0" font-size="11" text-anchor="end" fill="#333">+ low-quality</text>
+<text x="254" y="169.0" font-size="10" fill="#bbb">(n/a)</text>
+<text x="18" y="210" font-size="10.5" font-weight="bold" fill="#666">METHODOLOGICAL — how identified</text>
+<text x="242" y="231.0" font-size="11" text-anchor="end" fill="#333">domain / source list</text>
+<rect x="250" y="222.0" width="60.5" height="12" fill="#178a3f"/>
+<text x="315.5083333333333" y="231.0" font-size="10.5" fill="#178a3f" font-weight="bold">6.8%</text>
+<text x="242" y="257.0" font-size="11" text-anchor="end" fill="#333">fact-check (claim/URL)</text>
+<rect x="250" y="248.0" width="98.1" height="12" fill="#e0902a"/>
+<text x="353.05" y="257.0" font-size="10.5" fill="#e0902a" font-weight="bold">11.1%</text>
+<text x="242" y="283.0" font-size="11" text-anchor="end" fill="#333">researcher content-coding</text>
+<rect x="250" y="274.0" width="205.4" height="12" fill="#e0902a"/>
+<text x="460.375" y="283.0" font-size="10.5" fill="#e0902a" font-weight="bold">23.2%</text>
+<text x="18" y="324" font-size="10.5" font-weight="bold" fill="#666">METHODOLOGICAL — measurement</text>
+<text x="242" y="345.0" font-size="11" text-anchor="end" fill="#333">behavioural trace</text>
+<rect x="250" y="336.0" width="61.8" height="12" fill="#178a3f"/>
+<text x="316.8333333333333" y="345.0" font-size="10.5" fill="#178a3f" font-weight="bold">7.0%</text>
+<text x="242" y="371.0" font-size="11" text-anchor="end" fill="#333">content coding</text>
+<rect x="250" y="362.0" width="176.7" height="12" fill="#e0902a"/>
+<text x="431.66666666666663" y="371.0" font-size="10.5" fill="#e0902a" font-weight="bold">20.0%</text>
+<text x="242" y="397.0" font-size="11" text-anchor="end" fill="#333">self-report</text>
+<rect x="250" y="388.0" width="450.5" height="12" fill="#cc3333"/>
+<text x="705.5" y="397.0" font-size="10.5" fill="#cc3333" font-weight="bold">51.0%</text>
+<text x="18" y="438" font-size="10.5" font-weight="bold" fill="#666">REFERENCE CLASS — denominator</text>
+<text x="242" y="459.0" font-size="11" text-anchor="end" fill="#333">whole diet (all media)</text>
+<rect x="250" y="450.0" width="1.3" height="12" fill="#178a3f"/>
+<text x="256.3073333333333" y="459.0" font-size="10.5" fill="#178a3f" font-weight="bold">0.1%</text>
+<text x="242" y="485.0" font-size="11" text-anchor="end" fill="#333">political-news diet</text>
+<rect x="250" y="476.0" width="89.2" height="12" fill="#e0902a"/>
+<text x="344.2166666666667" y="485.0" font-size="10.5" fill="#e0902a" font-weight="bold">10.1%</text>
+<text x="242" y="511.0" font-size="11" text-anchor="end" fill="#333">population (reached ≥1)</text>
+<rect x="250" y="502.0" width="274.6" height="12" fill="#cc3333"/>
+<text x="529.6283333333333" y="511.0" font-size="10.5" fill="#cc3333" font-weight="bold">31.1%</text>
+<text x="242" y="537.0" font-size="11" text-anchor="end" fill="#333">topical / curated sample</text>
+<rect x="250" y="528.0" width="173.1" height="12" fill="#e0902a"/>
+<text x="428.1333333333333" y="537.0" font-size="10.5" fill="#e0902a" font-weight="bold">19.6%</text>
+</svg>

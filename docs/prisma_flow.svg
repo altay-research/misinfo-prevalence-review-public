@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="1218" font-family="Helvetica,Arial,sans-serif">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#334155"/></marker></defs>
+<rect width="1300" height="1218" fill="white"/>
+<text x="36" y="32" font-size="17" font-weight="700" fill="#0f172a">PRISMA 2020 flow: prevalence, exposure and concentration of misinformation</text>
+<text x="36" y="52" font-size="11.5" fill="#64748b">Counts from the released dataset; primary searches run 20 to 24 June 2026, top-up searches September 2026</text>
+<rect x="70" y="74" width="440" height="64" rx="5" fill="#f1f5f9" stroke="#334155"/>
+<text x="82" y="94" font-size="12.5" font-weight="700" fill="#0f172a">Records identified from databases (n = 30,958)</text>
+<text x="82" y="110" font-size="12.5" fill="#0f172a">Scopus 20,344 · OpenAlex keyword 4,822 · PubMed 410 · OpenAlex</text>
+<text x="82" y="126" font-size="12.5" fill="#0f172a">   behavioural and preprint-venue query 5,382 (September 2026)</text>
+<rect x="910" y="74" width="360" height="96" rx="5" fill="#f1f5f9" stroke="#334155"/>
+<text x="922" y="94" font-size="11.5" font-weight="700" fill="#0f172a">Databases: OpenAlex keyword and PubMed, screened in</text>
+<text x="922" y="110" font-size="11.5" font-weight="700" fill="#0f172a">   their own stream (n = 5,232)</text>
+<text x="922" y="126" font-size="11.5" fill="#0f172a">5,005 excluded at screening, 227 adjudicated, 19 included; 22</text>
+<text x="922" y="142" font-size="11.5" fill="#0f172a">   further OpenAlex records staged for retrieval.</text>
+<text x="922" y="158" font-size="11.5" fill="#0f172a">41 advance to retrieval</text>
+<rect x="910" y="182" width="360" height="112" rx="5" fill="#f1f5f9" stroke="#334155"/>
+<text x="922" y="202" font-size="11.5" font-weight="700" fill="#0f172a">Databases: September behavioural and preprint-venue query,</text>
+<text x="922" y="218" font-size="11.5" font-weight="700" fill="#0f172a">   screened in its own stream (n = 5,382)</text>
+<text x="922" y="234" font-size="11.5" fill="#0f172a">499 duplicates removed, 4,883 unique; 4,321 excluded at title;</text>
+<text x="922" y="250" font-size="11.5" fill="#0f172a">   562 sought; 374 excluded at abstract adjudication.</text>
+<text x="922" y="266" font-size="11.5" fill="#0f172a">188 advance to retrieval (89 assessed at full text, 99 not</text>
+<text x="922" y="282" font-size="11.5" fill="#0f172a">   retrieved); 19 studies held</text>
+<rect x="910" y="306" width="360" height="96" rx="5" fill="#fff7ed" stroke="#334155"/>
+<text x="922" y="326" font-size="11.5" font-weight="700" fill="#0f172a">Other methods: OpenAlex citation snowballing (n = 1,822)</text>
+<text x="922" y="342" font-size="11.5" fill="#0f172a">backward and forward citations of 224 core studies; 1,818</text>
+<text x="922" y="358" font-size="11.5" fill="#0f172a">   candidates screened, 1,487 excluded.</text>
+<text x="922" y="374" font-size="11.5" fill="#0f172a">331 advance to full-text retrieval, of which 19 carry a terminal</text>
+<text x="922" y="390" font-size="11.5" fill="#0f172a">   state in the record ledger and 312 do not (see the note below)</text>
+<rect x="910" y="414" width="360" height="144" rx="5" fill="#fff7ed" stroke="#334155"/>
+<text x="922" y="434" font-size="11.5" font-weight="700" fill="#0f172a">Other methods: corpus repair (n = 18,703)</text>
+<text x="922" y="450" font-size="11.5" fill="#0f172a">this review’s own 17,583 title-stage and 1,120 abstract-stage</text>
+<text x="922" y="466" font-size="11.5" fill="#0f172a">   exclusions, re-screened under corrected criteria by two</text>
+<text x="922" y="482" font-size="11.5" fill="#0f172a">   independent model families; 335 papers retrieved and screened</text>
+<text x="922" y="498" font-size="11.5" fill="#0f172a">   at full text, 208 eligible, 127 excluded.</text>
+<text x="922" y="514" font-size="11.5" fill="#0f172a">147 of the 208 carried a main-pool estimate at the repair’s own</text>
+<text x="922" y="530" font-size="11.5" fill="#0f172a">   freeze; 131 survive in the current freeze and carry a terminal</text>
+<text x="922" y="546" font-size="11.5" fill="#0f172a">   state, 204 do not (see the note below)</text>
+<rect x="910" y="570" width="360" height="64" rx="5" fill="#fff7ed" stroke="#334155"/>
+<text x="922" y="590" font-size="11.5" font-weight="700" fill="#0f172a">Other methods: Google Scholar recall check</text>
+<text x="922" y="606" font-size="11.5" fill="#0f172a">a hand-run probe of the primary query’s recall rather than a</text>
+<text x="922" y="622" font-size="11.5" fill="#0f172a">   search arm; 5 studies held</text>
+<line x1="290" y1="138" x2="290" y2="172" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="70" y="172" width="440" height="48" rx="5" fill="#ffffff" stroke="#334155"/>
+<text x="82" y="192" font-size="12.5" font-weight="700" fill="#0f172a">Scopus records screened at title (n = 20,342)</text>
+<text x="82" y="208" font-size="12.5" fill="#0f172a">2 duplicate records removed before screening</text>
+<rect x="525" y="172" width="360" height="48" rx="5" fill="#fef2f2" stroke="#334155"/>
+<text x="537" y="192" font-size="11.5" font-weight="700" fill="#0f172a">Excluded at title screen (n = 17,583)</text>
+<text x="537" y="208" font-size="11.5" fill="#0f172a">not a study of misinformation prevalence or exposure</text>
+<line x1="510" y1="196.0" x2="525" y2="196.0" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<line x1="290" y1="220" x2="290" y2="254" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="70" y="254" width="440" height="80" rx="5" fill="#ffffff" stroke="#334155"/>
+<text x="82" y="274" font-size="12.5" font-weight="700" fill="#0f172a">Records advancing from the title screen (n = 2,759)</text>
+<text x="82" y="290" font-size="12.5" fill="#0f172a">2,016 screened at abstract and 227 more at the stage-5 full-text gate</text>
+<text x="82" y="306" font-size="12.5" fill="#0f172a">   (records with no retrievable abstract); 165 of the abstract-screened</text>
+<text x="82" y="322" font-size="12.5" fill="#0f172a">   records were re-read at that gate</text>
+<rect x="525" y="254" width="360" height="64" rx="5" fill="#fef2f2" stroke="#334155"/>
+<text x="537" y="274" font-size="11.5" font-weight="700" fill="#0f172a">Excluded at the abstract or stage-5 screen (n = 1,308)</text>
+<text x="537" y="290" font-size="11.5" fill="#0f172a">1,118 at the abstract screen, 190 at the stage-5 screen</text>
+<text x="537" y="306" font-size="11.5" fill="#0f172a">Rated "maybe" and not advanced (n = 189)</text>
+<line x1="510" y1="294.0" x2="525" y2="294.0" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="525" y="330" width="360" height="64" rx="5" fill="#fffbeb" stroke="#334155"/>
+<text x="537" y="350" font-size="11.5" font-weight="700" fill="#0f172a">No further decision recorded (n = 516)</text>
+<text x="537" y="366" font-size="11.5" fill="#0f172a">title-advanced records with no retrievable abstract that the</text>
+<text x="537" y="382" font-size="11.5" fill="#0f172a">   stage-5 gate did not reach</text>
+<line x1="510" y1="302.0" x2="525" y2="344" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<line x1="290" y1="334" x2="290" y2="368" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="70" y="368" width="440" height="80" rx="5" fill="#ffffff" stroke="#334155"/>
+<text x="82" y="388" font-size="12.5" font-weight="700" fill="#0f172a">Scopus records advancing to retrieval (n = 747)</text>
+<text x="82" y="404" font-size="12.5" fill="#0f172a">746 of the 2,759 title-advanced records (2,759 less 1,308 excluded, 189</text>
+<text x="82" y="420" font-size="12.5" fill="#0f172a">   left at "maybe" and 516 undecided), plus 1 record from the tagged</text>
+<text x="82" y="436" font-size="12.5" fill="#0f172a">   include list that predates the title screen</text>
+<line x1="290" y1="448" x2="290" y2="680" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<line x1="910" y1="122.0" x2="895" y2="122.0" stroke="#334155" stroke-width="1.3"/>
+<line x1="910" y1="238.0" x2="895" y2="238.0" stroke="#334155" stroke-width="1.3"/>
+<line x1="910" y1="354.0" x2="895" y2="354.0" stroke="#334155" stroke-width="1.3"/>
+<line x1="910" y1="486.0" x2="895" y2="486.0" stroke="#334155" stroke-width="1.3"/>
+<line x1="910" y1="602.0" x2="895" y2="602.0" stroke="#334155" stroke-width="1.3"/>
+<line x1="895" y1="122.0" x2="895" y2="656" stroke="#334155" stroke-width="1.3"/>
+<line x1="895" y1="656" x2="450" y2="656" stroke="#334155" stroke-width="1.3"/>
+<line x1="450" y1="656" x2="450" y2="678" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="70" y="680" width="440" height="80" rx="5" fill="#ffffff" stroke="#334155"/>
+<text x="82" y="700" font-size="12.5" font-weight="700" fill="#0f172a">Reports sought for retrieval (n = 1,145)</text>
+<text x="82" y="716" font-size="12.5" fill="#0f172a">Scopus 747 · OpenAlex keyword and PubMed 41 · September behavioural</text>
+<text x="82" y="732" font-size="12.5" fill="#0f172a">   query 188 · corpus repair 131 · citation snowballing 19 · Google Scholar</text>
+<text x="82" y="748" font-size="12.5" fill="#0f172a">   recall check 5 · seed and hand-added records 14 = 1,145</text>
+<rect x="525" y="680" width="360" height="64" rx="5" fill="#fffbeb" stroke="#334155"/>
+<text x="537" y="700" font-size="11.5" font-weight="700" fill="#0f172a">Not retrieved (n = 145)</text>
+<text x="537" y="716" font-size="11.5" fill="#0f172a">46 from the main streams, 99 from the September behavioural</text>
+<text x="537" y="732" font-size="11.5" fill="#0f172a">   query</text>
+<line x1="510" y1="720.0" x2="525" y2="720.0" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<line x1="290" y1="760" x2="290" y2="794" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="70" y="794" width="440" height="32" rx="5" fill="#ffffff" stroke="#334155"/>
+<text x="82" y="814" font-size="12.5" font-weight="700" fill="#0f172a">Reports assessed for eligibility (n = 1,000)</text>
+<rect x="525" y="794" width="745" height="208" rx="5" fill="#fef2f2" stroke="#334155"/>
+<text x="537" y="814" font-size="11.5" font-weight="700" fill="#0f172a">Reports excluded (n = 506)</text>
+<text x="537" y="830" font-size="11.5" fill="#0f172a">· No qualifying estimate at full text: no denominator, curated sample, wrong construct, or secondary source (n = 153)</text>
+<text x="537" y="846" font-size="11.5" fill="#0f172a">· Not eligible on full-text re-reading: wrong construct, no denominator, or not empirical (n = 118)</text>
+<text x="537" y="862" font-size="11.5" fill="#0f172a">· No qualifying estimate at the second full-text extraction, or a duplicate of a counted record (n = 74)</text>
+<text x="537" y="878" font-size="11.5" fill="#0f172a">· Not a prevalence or exposure estimate (n = 48)</text>
+<text x="537" y="894" font-size="11.5" fill="#0f172a">· Duplicate of an included record (n = 23)</text>
+<text x="537" y="910" font-size="11.5" fill="#0f172a">· Off-topic on the title, with no retrievable full text (n = 14)</text>
+<text x="537" y="926" font-size="11.5" fill="#0f172a">· Out of scope: producer-side, curated or secondary, not audience consumption (n = 6)</text>
+<text x="537" y="942" font-size="11.5" fill="#0f172a">· Not eligible on full-text reading: no qualifying estimate (n = 3)</text>
+<text x="537" y="958" font-size="11.5" fill="#0f172a">· Duplicate publication of an included record (n = 1)</text>
+<text x="537" y="974" font-size="11.5" fill="#0f172a">· Not eligible on full-text reading: no falsity coding, stance not falsity, or no numeric estimate (n = 61)</text>
+<text x="537" y="990" font-size="11.5" fill="#0f172a">· Extracted, then excluded: quality-only, value not printed by the study, or unreliable tables (n = 5)</text>
+<line x1="510" y1="808" x2="525" y2="808" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<line x1="290" y1="836" x2="290" y2="980" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="70" y="980" width="440" height="32" rx="5" fill="#fffbeb" stroke="#334155"/>
+<text x="82" y="1000" font-size="12.5" font-weight="700" fill="#0f172a">Included, but contributed no codeable estimate (n = 51)</text>
+<line x1="290" y1="1012" x2="290" y2="1046" stroke="#334155" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="70" y="1046" width="440" height="48" rx="5" fill="#ecfdf5" stroke="#047857"/>
+<text x="82" y="1066" font-size="12.5" font-weight="700" fill="#0f172a">Studies included in the review (n = 443)</text>
+<text x="82" y="1082" font-size="12.5" fill="#0f172a">contributing 1,048 estimates</text>
+<text x="26" y="164" font-size="11" font-weight="700" fill="#94a3b8" transform="rotate(-90 26 164)">Identification</text>
+<text x="26" y="560" font-size="11" font-weight="700" fill="#94a3b8" transform="rotate(-90 26 560)">Screening</text>
+<text x="26" y="1054" font-size="11" font-weight="700" fill="#94a3b8" transform="rotate(-90 26 1054)">Included</text>
+<text x="36" y="1124" font-size="10.5" fill="#64748b">Reports sought for retrieval = 443 included + 145 not retrieved + 51 without a codeable estimate + 506 excluded = 1,145.</text>
+<text x="36" y="1142" font-size="10.5" fill="#64748b">Note. The citation-snowballing and corpus-repair arms ran their own full-text screens, and their per-record outcomes are held in the arm ledgers rather than in the record ledger reconciled here; only their retained</text>
+<text x="36" y="1156" font-size="10.5" fill="#64748b">studies carry a terminal state. 312 snowballed records and 204 repaired records therefore sit outside every total below the retrieval box. The repair’s 208 eligible papers and the 51 reports without a codeable</text>
+<text x="36" y="1170" font-size="10.5" fill="#64748b">estimate are different quantities and do not subtract: the repair’s non-pooled papers yielded estimates that the author’s class-level rulings sent to the appendix pool.</text>
+<text x="36" y="1188" font-size="10.5" fill="#64748b">The abstract-stage screen file records 1,120 exclusions and the stage-5 file 190. 2 of the 1,120 are records the title screen did not advance, so the spine’s resolved exclusion count is 1,308 rather than 1,310.</text>
+</svg>

@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-0036187752,CORRECT_EXCLUDE,HIV stigma/knowledge prevalence; off-topic not misinfo
+2-s2.0-85033238001,CORRECT_EXCLUDE,debunking meta-analysis; correction efficacy
+2-s2.0-85125523540,CORRECT_EXCLUDE,bot detection system; detection tool
+2-s2.0-85148105162,CORRECT_EXCLUDE,review of fake news on social media
+2-s2.0-85025114428,CORRECT_EXCLUDE,economy of emotions; commentary/theory
+2-s2.0-85132975101,CORRECT_EXCLUDE,taxonomy of LM risks; theory
+2-s2.0-85061364771,CORRECT_EXCLUDE,crowdsourced fact-checking; intervention
+2-s2.0-85040238063,CORRECT_EXCLUDE,rumor detection method
+2-s2.0-85101068493,CORRECT_EXCLUDE,COVID social media scoping review
+2-s2.0-85161702968,CORRECT_EXCLUDE,engineering education ChatGPT; off-topic
+2-s2.0-85083865591,CORRECT_EXCLUDE,tweeter concerns surveillance; not misinfo prevalence
+2-s2.0-85086272864,CORRECT_EXCLUDE,health behaviour/conspiracy belief; belief
+2-s2.0-85082836234,CORRECT_EXCLUDE,inequality spreading COVID; off-topic
+2-s2.0-85089140549,CORRECT_EXCLUDE,predictors of fake news sharing; effects
+2-s2.0-85064526969,CORRECT_EXCLUDE,who falls for fake news; susceptibility
+2-s2.0-85086008636,FALSE_NEGATIVE,impact of rumors/misinfo COVID social media; possible prevalence
+2-s2.0-85100125091,CORRECT_EXCLUDE,SARS-CoV-2 transmission review; off-topic
+2-s2.0-85124988646,CORRECT_EXCLUDE,automated fact-checking survey; detection
+2-s2.0-80053080717,CORRECT_EXCLUDE,opinion dynamics theory
+2-s2.0-85067879147,CORRECT_EXCLUDE,inoculation game; intervention
+2-s2.0-85158863755,CORRECT_EXCLUDE,LLM review; commentary
+2-s2.0-85088152491,CORRECT_EXCLUDE,media literacy intervention; intervention
+2-s2.0-85094620337,CORRECT_EXCLUDE,COVID discourse tracking dataset; dataset
+2-s2.0-85031897495,CORRECT_EXCLUDE,misinformation identification method; detection
+2-s2.0-85074612761,CORRECT_EXCLUDE,fact-checking meta-analysis; correction
+2-s2.0-85071633534,CORRECT_EXCLUDE,media literacy identification; intervention
+2-s2.0-85099418949,CORRECT_EXCLUDE,vaccine hesitancy rates; not misinfo prevalence
+2-s2.0-84893135215,CORRECT_EXCLUDE,fake image identification Sandy; detection
+2-s2.0-85095723404,CORRECT_EXCLUDE,implied truth effect; intervention/effects
+2-s2.0-85115214234,CORRECT_EXCLUDE,media polarization review
+2-s2.0-85104254620,CORRECT_EXCLUDE,COVID taxonomy/genetics review; off-topic
+2-s2.0-85085263644,CORRECT_EXCLUDE,social media panic impact; effects
+2-s2.0-85028074687,CORRECT_EXCLUDE,filter bubbles/polarization; theory
+2-s2.0-85086662964,CORRECT_EXCLUDE,drivers of unverified sharing; effects/predictors
+2-s2.0-84947767372,CORRECT_EXCLUDE,belief echoes corrected misinfo; effects
+2-s2.0-85074489531,CORRECT_EXCLUDE,information pollution survey; review
+2-s2.0-85090001381,CORRECT_EXCLUDE,SARS/MERS/COVID comparison; off-topic
+2-s2.0-85064656517,CORRECT_EXCLUDE,combating fake news survey; detection
+2-s2.0-85108550907,CORRECT_EXCLUDE,trust/conspiracy predict; belief/predictors
+2-s2.0-85192930266,CORRECT_EXCLUDE,Global Burden of Disease; off-topic

@@ -1,0 +1,21 @@
+# studies the 2026-09-11 abstract-disclosure check judged NOT rank-truncated or hand-selected (censuses, random samples, actor-defined or submitter-defined corpora); excluded from the disclosure figures in the Discussion; denom_selection to be re-examined at the merge
+2-s2.0-105008921175
+2-s2.0-105017506015
+2-s2.0-85054205007
+2-s2.0-85074511992
+2-s2.0-85091698994
+2-s2.0-85099807131
+2-s2.0-85103851008
+2-s2.0-85105454127
+2-s2.0-85115858008
+2-s2.0-85142396682
+2-s2.0-85145881152
+2-s2.0-85172171076
+2-s2.0-85186467273
+2-s2.0-85188303314
+2-s2.0-85188840472
+2-s2.0-85199110625
+2-s2.0-86000670842
+2603.11058
+NEW-berriche-fakerisland2026
+W4414446446

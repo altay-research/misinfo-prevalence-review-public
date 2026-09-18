@@ -1,0 +1,36 @@
+eid,verdict,reason
+2-s2.0-105009372730,CONFIRM,38% misinfo prevalence across vaccine social-media content
+2-s2.0-105040091272,CONFIRM,84% non-factual posts; reliability/misinfo proportions reported
+2-s2.0-105021570046,REJECT,quality/DISCERN scores only; no misinfo prevalence estimate
+2-s2.0-105016413464,REJECT,retraction-notice clarity/citations; not content-prevalence of misinfo
+2-s2.0-85070770827,CONFIRM,contrarians 49% more media visibility; actor-level concentration
+2-s2.0-85108101418,CONFIRM,45% of videos misleading; quantitative prevalence
+2-s2.0-85123475265,CONFIRM,41.7% of ENDS tweets potential misinformation
+2-s2.0-85051037754,CONFIRM,72/380 posts fake news; quantified prevalence
+2-s2.0-85099263653,REJECT,network exposure likelihoods only; no prevalence estimate
+2-s2.0-85130786472,CONFIRM,14% of parliamentary tweets disinformation
+2-s2.0-105021240425,REJECT,"significant portion misleading"; no quantitative prevalence
+2-s2.0-85084369983,CONFIRM,34.8% tweets endorsed 5G-COVID claim; content prevalence
+2-s2.0-85048766317,CONFIRM,prevalence of false claims (health 86%, safety 90%)
+2-s2.0-105019625689,CONFIRM,quantifies voter-fraud video production by actor; engagement
+2-s2.0-85140381972,CONFIRM,393 disinformation posts analyzed by type/proportion
+2-s2.0-85159889148,CONFIRM,88% YT/100% TK moderate-high misinformation
+2-s2.0-85099807131,CONFIRM,84.4% of 1.2M tweets misinformation; exposure/likes
+2-s2.0-85147282388,REJECT,parties mostly neutral; no misinfo prevalence quantified
+2-s2.0-105009218353,REJECT,characterizes verified disinfo; no prevalence denominator
+2-s2.0-105030827603,CONFIRM,71.4% low-reliability tooth-bleaching videos; misinfo prevalence
+2-s2.0-85055079422,CONFIRM,~30% of cancer tweets misinformation
+2-s2.0-85095575703,CONFIRM,over-representation of unreliable sources in observed sharing
+2-s2.0-85129092713,CONFIRM,56% of sampled tweets misinformation
+2-s2.0-85133711848,CONFIRM,Disinfo Dozen 65% of misinfo; actor concentration
+2-s2.0-85136066795,REJECT,fake-news recall/mediation survey; no content-prevalence estimate
+2-s2.0-85170530355,CONFIRM,quantifies bot prevalence/manipulation in election tweets
+2-s2.0-105011406180,CONFIRM,misinformation present in 46% of comments
+2-s2.0-85218959905,CONFIRM,84% of aesthetic-dentistry posts non-factual
+2-s2.0-105018016020,CONFIRM,meta-analysis: 27.15% of posts misinformation pooled
+2-s2.0-85128963007,REJECT,hoax framing analysis; no prevalence/denominator
+2-s2.0-85106599690,REJECT,themes within pre-selected hesitant tweets; no prevalence
+2-s2.0-105005154685,CONFIRM,~25% of HPV tweets misinformation; engagement reported
+2-s2.0-85074511992,CONFIRM,junk-news sharing quantified across 4M election tweets
+2-s2.0-85111275467,CONFIRM,problematic-info volume/clusters tracked across 500k tweets
+2-s2.0-85167658691,REJECT,prevalence of political content, not misinformation

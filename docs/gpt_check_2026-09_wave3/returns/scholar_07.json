@@ -1,0 +1,50 @@
+{
+  "paper_id": "scholar_07",
+  "eligible": true,
+  "eligibility_reason": "The paper reports its own quantitative estimate of low-quality or 'fake news' URLs among URLs shared on Facebook. The estimate is bounded ('less than 0.01%') and refers to the October 2022–September 2023 dataset.",
+  "estimates": [
+    {
+      "construct": "SHARING",
+      "value": "0.01",
+      "value_kind": "bound",
+      "denominator": "all URLs shared in posts in the Facebook dataset",
+      "measure": "share of shared URLs that were low-quality or 'fake news' URLs",
+      "misinfo_definition": "low-quality or 'fake news' URLs identified using sources listed by Media Bias Fact Check (Weld, Glenski, and Althoff 2021)",
+      "country": "US",
+      "platform": "Facebook",
+      "period": "October 2022-September 2023",
+      "source_quote": "Additionally, we investigated the prevalence of low-quality or ‘fake news’ URLs using sources listed by Media Bias Fact Check (Weld, Glenski, and Althoff 2021), finding them to constitute less than 0.01% of the total urls shared.",
+      "notes": "The paper prints this as 'less than 0.01%', so the reported figure is a bound rather than an exact proportion."
+    }
+  ],
+  "considered_but_excluded": [
+    {
+      "figure": "17%",
+      "why": "political content consumption, not misinformation prevalence"
+    },
+    {
+      "figure": "14%",
+      "why": "political content consumption among Hispanic users, not misinformation prevalence"
+    },
+    {
+      "figure": "20%",
+      "why": "political content consumption among Asian and White users, not misinformation prevalence"
+    },
+    {
+      "figure": "12%",
+      "why": "political content consumption among users aged 18-24, not misinformation prevalence"
+    },
+    {
+      "figure": "24%",
+      "why": "political content consumption among users aged 65+, not misinformation prevalence"
+    },
+    {
+      "figure": "27%",
+      "why": "link content as a share of overall content, not misinformation prevalence"
+    },
+    {
+      "figure": "85%",
+      "why": "classifier coverage of posts across formats, not misinformation prevalence"
+    }
+  ]
+}

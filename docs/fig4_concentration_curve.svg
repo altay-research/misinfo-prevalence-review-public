@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+<rect x="0.0" y="0.0" width="720.0" height="430.0" rx="0" fill="#fff"/>
+<text x="20.0" y="26.0" font-size="13" text-anchor="start" fill="#111" font-weight="bold">Concentration — a tiny fraction of people drive most misinfo activity</text>
+<text x="20.0" y="42.0" font-size="10" text-anchor="start" fill="#888" font-weight="normal">x: top % of people (log)   y: % of all misinfo exposure/sharing they account for</text>
+<line x1="60.0" y1="50.0" x2="60.0" y2="370.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="60.0" y="386.0" font-size="10" text-anchor="middle" fill="#999" font-weight="normal">0.001%</text>
+<line x1="186.0" y1="50.0" x2="186.0" y2="370.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="186.0" y="386.0" font-size="10" text-anchor="middle" fill="#999" font-weight="normal">0.01%</text>
+<line x1="312.0" y1="50.0" x2="312.0" y2="370.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="312.0" y="386.0" font-size="10" text-anchor="middle" fill="#999" font-weight="normal">0.1%</text>
+<line x1="438.0" y1="50.0" x2="438.0" y2="370.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="438.0" y="386.0" font-size="10" text-anchor="middle" fill="#999" font-weight="normal">1%</text>
+<line x1="564.0" y1="50.0" x2="564.0" y2="370.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="564.0" y="386.0" font-size="10" text-anchor="middle" fill="#999" font-weight="normal">10%</text>
+<line x1="690.0" y1="50.0" x2="690.0" y2="370.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="690.0" y="386.0" font-size="10" text-anchor="middle" fill="#999" font-weight="normal">100%</text>
+<line x1="60.0" y1="370.0" x2="690.0" y2="370.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="52.0" y="374.0" font-size="10" text-anchor="end" fill="#999" font-weight="normal">0%</text>
+<line x1="60.0" y1="290.0" x2="690.0" y2="290.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="52.0" y="294.0" font-size="10" text-anchor="end" fill="#999" font-weight="normal">25%</text>
+<line x1="60.0" y1="210.0" x2="690.0" y2="210.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="52.0" y="214.0" font-size="10" text-anchor="end" fill="#999" font-weight="normal">50%</text>
+<line x1="60.0" y1="130.0" x2="690.0" y2="130.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="52.0" y="134.0" font-size="10" text-anchor="end" fill="#999" font-weight="normal">75%</text>
+<line x1="60.0" y1="50.0" x2="690.0" y2="50.0" stroke="#f0f0f0" stroke-width="1"/>
+<text x="52.0" y="54.0" font-size="10" text-anchor="end" fill="#999" font-weight="normal">100%</text>
+<circle cx="362.1" cy="110.8" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="120.1" cy="248.1" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="438.0" cy="146.0" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="614.1" cy="130.0" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="74.4" cy="278.5" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="152.3" cy="210.0" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="372.1" cy="114.0" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="601.9" cy="82.0" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="626.4" cy="82.0" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="614.4" cy="82.0" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="357.6" cy="292.8" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="438.0" cy="130.0" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="438.0" cy="161.0" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="438.0" cy="114.0" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="312.0" cy="114.6" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="601.9" cy="171.6" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="564.0" cy="56.4" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="438.0" cy="251.6" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="564.0" cy="123.6" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="609.6" cy="114.0" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="601.9" cy="127.1" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="601.9" cy="81.7" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="317.2" cy="292.9" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="564.0" cy="107.6" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="569.2" cy="114.0" r="5" fill="#0072B2cc" stroke="#fff"/>
+<circle cx="570.0" cy="54.0" r="5" fill="#0072B2" stroke="none"/>
+<text x="580.0" y="58.0" font-size="10" text-anchor="start" fill="#555" font-weight="normal">exposure</text>
+<circle cx="570.0" cy="72.0" r="5" fill="#D55E00" stroke="none"/>
+<text x="580.0" y="76.0" font-size="10" text-anchor="start" fill="#555" font-weight="normal">sharing</text>
+</svg>

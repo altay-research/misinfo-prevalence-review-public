@@ -1,0 +1,28 @@
+eid,verdict,reason
+2-s2.0-85194059431,EXCLUDE,Susceptibility/adoption-dynamics model on Twitter; no population prevalence/exposure estimate
+2-s2.0-85190235203,EXCLUDE,Descriptive typology of 76 fact-checked Elizabeth II hoaxes; no prevalence denominator
+2-s2.0-86000183980,INCLUDE,2M tweets 123 fact-checked stories; observed real-world reappearance/spread of false content
+2-s2.0-84883291462,INCLUDE,Content-level: misinfo present in ~half of 157 child-dental websites
+2-s2.0-84901294466,EXCLUDE,Shared-attention Twitter media events; misinformation only rhetorical, no measurement
+2-s2.0-85130610490,INCLUDE,Content-level: 319 gut-microbiome videos 62M views generally poor quality/reliability
+2-s2.0-85111318777,EXCLUDE,Typology of 161 fact-checked racist fake-news items; no prevalence denominator
+2-s2.0-85139663696,EXCLUDE,Characterising COVID hoaxes on Mexican fact-check platforms; no prevalence denominator
+2-s2.0-85109464429,INCLUDE,Content-level: one-third of 242 myocardial-infarction YouTube videos contain inaccuracies
+2-s2.0-85126722910,FULLTEXT,Actor-level misinfo extent of Italian RRPPs; number not in abstract
+2-s2.0-85105477849,INCLUDE,Content/consumption: 100 COVID-vaccine videos 55M cumulative views quantified by theme
+2-s2.0-85057183786,INCLUDE,Content-level: share of 116 Canadian flu-vaccine articles negative (14.66%)
+2-s2.0-85198980514,INCLUDE,Content-level: every one of 105 carpal-tunnel websites had misleading statement
+2-s2.0-105017416891,EXCLUDE,Quality-scoring of 68 frenectomy videos; no misinfo share/exposure estimate
+2-s2.0-85205344441,EXCLUDE,Framing/uncertainty content analysis of news; not misinformation prevalence
+2-s2.0-85207883625,EXCLUDE,Typology of 570 fact-checked migrant disinfo items; no prevalence denominator
+2-s2.0-85151076269,EXCLUDE,Actor/source analysis of 197 fact-checks; no prevalence denominator
+2-s2.0-105021570046,EXCLUDE,Quality-scoring of 98 TMD TikTok videos; no misinfo share/exposure estimate
+2-s2.0-105016413464,EXCLUDE,Post-retraction citation analysis; off-topic to audience misinfo exposure
+2-s2.0-85099263653,FULLTEXT,Network-exposure model of antivaccine YouTube videos; exposure number not in abstract
+2-s2.0-105021240425,FULLTEXT,Portion of 150 autism TikToks misleading plus reach; share not quantified
+2-s2.0-85147282388,FULLTEXT,Actor-level disinfo in 1050 far-right Instagram posts; share not quantified
+2-s2.0-105009218353,EXCLUDE,Typology of 278 fact-checked election false items; no prevalence denominator
+2-s2.0-85136066795,FULLTEXT,Survey fake-news recall (N=967); prevalence/exposure estimate unclear in abstract
+2-s2.0-85128963007,EXCLUDE,Framing typology of 708 fact-checked COVID hoaxes; no prevalence denominator
+2-s2.0-85106599690,EXCLUDE,Content analysis of 446 selected vaccine-hesitant tweets; no prevalence denominator
+2-s2.0-85167658691,INCLUDE,Browsing data 106M visits; news=3.4% of browsing, political-content exposure quantified

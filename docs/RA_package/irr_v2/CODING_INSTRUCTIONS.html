@@ -1,0 +1,58 @@
+<meta charset="utf-8">
+<title>Coding instructions — reliability check</title>
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { background:#fbf8f1; color:#2c2a26; font-family:Georgia,"Palatino Linotype",serif; font-size:19px; line-height:1.6; margin:0; }
+  .wrap { max-width:720px; margin:0 auto; padding:52px 24px 80px; }
+  h1 { font-size:30px; line-height:1.2; margin:0 0 6px; }
+  h2 { font-size:22px; margin:38px 0 10px; }
+  .sub { color:#6b655c; font-size:16px; font-style:italic; margin:0 0 32px; }
+  p { margin:0 0 14px; }
+  ul { margin:0 0 14px; padding-left:24px; } li { margin-bottom:6px; }
+  code { font-family:"SF Mono",Menlo,monospace; font-size:.82em; background:#efe9dc; padding:1px 5px; border-radius:3px; }
+  table { border-collapse:collapse; width:100%; margin:0 0 18px; font-size:16px; }
+  th,td { text-align:left; padding:7px 9px; border-bottom:1px solid #e0d7c4; vertical-align:top; }
+  th { border-bottom:2px solid #8a3324; }
+  .box { background:#f4eee2; border:1px solid #e0d7c4; border-radius:4px; padding:14px 18px; margin:0 0 20px; }
+  .box.rule { border-left:3px solid #8a3324; }
+  @media(max-width:600px){ body{font-size:17px} .wrap{padding:32px 16px} h1{font-size:25px} }
+</style>
+<main class="wrap">
+<h1>Coding reliability check</h1>
+<p class="sub">Two coders, same items, coded independently · about 90 minutes</p>
+<p>You and one other coder each code the same items <strong>without seeing our codes or each other's</strong>. What we most want is how often two humans agree with each other — that tells us how hard the task really is, and it's the only way to judge whether the automated coding is good enough. <strong>Disagreements are the data, not mistakes.</strong></p>
+<div class="box"><strong>Three rules.</strong>
+<ul><li>Don't look at the project's dataset or any previous coding.</li>
+<li>Don't discuss items with the other coder until both of you are finished.</li>
+<li>Unsure? Give your best answer and mark low confidence. A guess beats a blank.</li></ul></div>
+<p>There are two parts, and they're deliberately different. <strong>Part 1</strong> is quick classification from short text snippets. <strong>Part 2</strong> asks you to open the actual paper — because the two things it tests (the exact value, and the denominator) genuinely need the full paper, which is also what we used.</p>
+<h2>The idea that governs the whole thing</h2>
+<div class="box rule">Everything turns on <strong>what a percentage is a share OF</strong> — its denominator. Ask: <em>if this number were 100%, what would that mean?</em> The answer tells you both the construct (Part 1) and the denominator (Part 2).</div>
+<h2>Part 1 — classification (24 items, ~35 min)</h2>
+<p>Open <code>code_&lt;yourname&gt;.html</code> — it walks you through every item and saves as you go. Each row gives the paper's <strong>reported quantity</strong> (a sentence) and <strong>how that paper defined misinformation</strong>. From those two things, fill:</p>
+<p><strong>YOUR_construct</strong> — what is the % a share of?</p>
+<table>
+<tr><td>all the <em>items</em> in a corpus (posts, videos, articles, results)</td><td><code>CONTENT</code></td></tr>
+<tr><td>what people actually <em>consumed</em> (views, visits, clicks, time)</td><td><code>EXPOSURE</code></td></tr>
+<tr><td><em>people</em> who encountered it at least once</td><td><code>REACH</code></td></tr>
+<tr><td>what was <em>shared / retweeted / liked</em></td><td><code>SHARING</code></td></tr>
+<tr><td>people who <em>said in a survey</em> they'd seen it</td><td><code>RECALL</code></td></tr>
+<tr><td>activity from a top slice of users/sources ("top 1% &rarr; 70%")</td><td><code>CONCENTRATION</code></td></tr>
+<tr><td>a <em>quality/usefulness</em> rating, not truth</td><td><code>QUALITY</code></td></tr>
+<tr><td>none of these</td><td><code>OTHER</code></td></tr>
+</table>
+<p><strong>YOUR_breadth</strong> — how the paper's <em>definition</em> drew the line (narrowest &rarr; widest): <code>fabricated</code> · <code>false</code> · <code>misleading</code> · <code>unreliable_source</code> (judged by the source, not per item) · <code>low_quality</code>. Pick ONE — it's a narrow-to-wide scale, so when a definition spans several ("false or misleading"), code the <strong>widest</strong> it includes; source-list operationalisations are <code>unreliable_source</code> regardless of wording, and quality ratings are <code>low_quality</code>. If the definition cell is blank (a few papers never state one), code breadth from the wording of the reported quantity itself.</p>
+<p><strong>YOUR_confidence_1to5</strong> — 1 = guess, 5 = certain.</p>
+<p style="font-size:16px;color:#6b655c">Two things that catch people: (1) "most-shared posts, X% false" is <code>CONTENT</code> — sharing was just how the sample was drawn. (2) If a low score is compatible with the content being <em>true</em>, it's <code>QUALITY</code>, not falsity.</p>
+<h2>Part 2 — read the paper (12 items, ~55 min)</h2>
+<p>Part 2 continues on the same page. Each row names a paper whose PDF is in the <code>papers/</code> folder, and a <code>what_to_find</code> pointer. The value has been removed. Open the PDF and, from the paper itself, fill:</p>
+<ul>
+<li><strong>YOUR_value_pct</strong> — the number the pointer describes, as a plain number (<code>12.4</code>, not <code>12.4%</code>). Report the single overall figure, not a subgroup or per-country split.</li>
+<li><strong>YOUR_what_it_is_a_share_of</strong> — in your own words, the denominator. This is the crux.</li>
+<li><strong>YOUR_denominator_class</strong> — pick one: <code>population</code> (people) · <code>all_media</code> (whole media diet, incl. non-news) · <code>news_diet</code> (all news, any topic) · <code>political_news</code> (politics only) · <code>topical</code> (one issue, keyword search) · <code>curated_sample</code> (hand-picked or top-N) · <code>single_source</code> (one account/outlet). <em>Leave blank for <code>CONCENTRATION</code> and <code>OTHER</code> — it doesn't apply.</em></li>
+<li><strong>YOUR_construct</strong> (re-confirm) and <strong>YOUR_confidence_1to5</strong>.</li>
+</ul>
+<p style="font-size:16px;color:#6b655c">The denominator often isn't in the results sentence — you'll usually have to check the methods (how the sample was built). That's why Part 2 gives you the whole paper. Can't find the number in ~5 min? Write <code>NOT FOUND</code>; that's a finding about the paper, not a failure.</p>
+<h2>When done</h2>
+<p>At the bottom of the coding page, click <strong>Download part1_…csv</strong> and <strong>Download part2_…csv</strong> (one click each) and send both files back.</p>
+</main>

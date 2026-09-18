@@ -1,0 +1,18 @@
+platform,EXPOSURE,REACH,SHARING,CONCENTRATION,CONTENT,RECALL
+Twitter/X,3,10,29,13,70,12
+YouTube,1,2,2,0,67,4
+TikTok,0,0,1,0,50,5
+Facebook,6,6,12,2,33,25
+Instagram,2,2,2,1,18,10
+Reddit,0,1,4,0,15,1
+WhatsApp,0,1,3,0,6,18
+Telegram,0,0,1,0,3,0
+Weibo,0,0,1,0,6,2
+Google Search,1,0,0,1,13,2
+News outlets,0,0,0,0,13,4
+Forums,0,0,2,0,8,2
+Web browsing,8,14,0,4,0,0
+Websites,0,0,0,0,6,0
+No platform named,2,0,0,0,10,57
+Other,0,0,0,0,17,9
+TOTAL studies,18,27,45,19,274,91

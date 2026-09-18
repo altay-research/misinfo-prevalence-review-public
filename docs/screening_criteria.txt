@@ -1,0 +1,31 @@
+SCREENING CRITERIA — Stage 1 (title) — systematic review on the PREVALENCE and
+CONCENTRATION of misinformation exposure.
+
+"Misinformation" is broad: misinformation, disinformation, fake/false news,
+unreliable/untrustworthy websites or sources, junk/low-quality news.
+
+Assign one label per title, using your own judgment (do NOT keyword-match):
+
+INCLUDE — the title clearly indicates a quantitative estimate of one of:
+  - audience EXPOSURE to misinformation (share of diet, reach, impressions, views);
+  - CONSUMPTION of misinformation (visits, time, views);
+  - observed real-world SHARING / spread / dissemination of misinformation;
+  - CONCENTRATION of any of the above (share by top X%, supersharers, Gini);
+  - actor-level prevalence (misinformation as a share of politicians'/outlets'/
+    influencers' output);
+  - CONTENT prevalence (share of posts/items that are false/unreliable).
+
+MAYBE — plausibly one of the above but the title is ambiguous; OR you are unsure.
+  >>> When in doubt, choose MAYBE. Never EXCLUDE a possibly-relevant study. <<<
+
+EXCLUDE — only if the title is CLEARLY one of:
+  - computer-science DETECTION / classification / algorithm / model method;
+  - intervention / correction / fact-check-effect / inoculation / "nudge" study;
+  - belief / susceptibility / perception-only (who believes), no exposure estimate;
+  - HYPOTHETICAL or stated sharing INTENTIONS / lab "would you share" experiments;
+  - non-empirical: commentary, theory, book, editorial, proceedings volume,
+    dataset-resource paper;
+  - clearly off-topic (unrelated clinical / marketing / education / library / film /
+    engineering etc.).
+
+Output for each record: label (INCLUDE/MAYBE/EXCLUDE) + a reason of <= 12 words.

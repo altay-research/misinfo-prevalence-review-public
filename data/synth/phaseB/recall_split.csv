@@ -1,0 +1,5 @@
+group,k_studies,median,ci_lo,ci_hi,iqr_lo,iqr_hi
+RECALL_exposure,71,57.7,53.3,63.8,37.5,71.0
+RECALL_sharing,36,19.8,14.1,26.6,11.9,30.3
+RECALL_combined,91,43.0,37.0,53.1,27.5,63.8
+EXPOSURE,18,1.3,0.6,2.8,0.5,3.6

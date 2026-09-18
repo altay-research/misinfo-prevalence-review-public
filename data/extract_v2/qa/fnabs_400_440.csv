@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-85092681088,CORRECT_EXCLUDE,single conspiracy case study, drivers not prevalence
+2-s2.0-85086037795,CORRECT_EXCLUDE,predictors of sharing, individual-level survey
+2-s2.0-85103782309,CORRECT_EXCLUDE,ethnomethodological discourse analysis single case
+2-s2.0-85141502362,CORRECT_EXCLUDE,off-topic drug info utilization
+2-s2.0-85168709808,CORRECT_EXCLUDE,media dependence theory, not prevalence measure
+2-s2.0-85113748250,FALSE_NEGATIVE,quantifies inauthentic state-sponsored accounts and amplification
+2-s2.0-105019140298,CORRECT_EXCLUDE,perceptions and motivations survey, not content prevalence
+2-s2.0-85159726451,CORRECT_EXCLUDE,commentary on Twitter verification
+2-s2.0-85177869056,CORRECT_EXCLUDE,conceptual definition article
+2-s2.0-85214383937,CORRECT_EXCLUDE,qualitative influencer campaign analysis
+2-s2.0-85115868048,FALSE_NEGATIVE,quantifies content manipulation prevalence on Reddit
+2-s2.0-85104955955,CORRECT_EXCLUDE,media consumption correlated with beliefs, not exposure prevalence
+2-s2.0-105002146130,CORRECT_EXCLUDE,misinformation acceptance, belief outcome
+2-s2.0-85183473800,CORRECT_EXCLUDE,SEM predictors of sharing intent
+2-s2.0-85142574213,CORRECT_EXCLUDE,qualitative chapter on WeChat polarization
+2-s2.0-85119656139,FALSE_NEGATIVE,analyzes 800k tweets characterizing misinfo content prevalence
+2-s2.0-85088376119,FALSE_NEGATIVE,SNA tracks conspiracy spread/virality single hashtag
+2-s2.0-85131296393,CORRECT_EXCLUDE,perceptions of misinformation and trust
+2-s2.0-85208456802,CORRECT_EXCLUDE,commentary on marketing misinformation
+2-s2.0-85150396800,CORRECT_EXCLUDE,commentary/editorial on disinformation health
+2-s2.0-105024904352,CORRECT_EXCLUDE,YouTube comment sentiment, attitudes not prevalence
+2-s2.0-105001738552,CORRECT_EXCLUDE,political advertising flow, not misinformation prevalence
+2-s2.0-85182524798,CORRECT_EXCLUDE,expert communication behavior, not misinfo prevalence
+2-s2.0-85137124553,FALSE_NEGATIVE,compares news vs misinformation data volume early COVID
+2-s2.0-86000203821,CORRECT_EXCLUDE,qualitative chapter types/causes
+2-s2.0-85137309214,CORRECT_EXCLUDE,off-topic crypto sentiment analysis
+2-s2.0-85139389922,CORRECT_EXCLUDE,behavioral/legal essay on fake news
+2-s2.0-85151508608,CORRECT_EXCLUDE,perceived exposure and vaccine hesitancy beliefs
+2-s2.0-85110341147,FALSE_NEGATIVE,real-time rumor tracking system, observed prevalence
+2-s2.0-85139734070,CORRECT_EXCLUDE,website quality evaluation, not prevalence
+2-s2.0-105009241502,CORRECT_EXCLUDE,epidemiological model methods paper
+2-s2.0-85216833508,CORRECT_EXCLUDE,qualitative discourse analysis propaganda
+2-s2.0-85193900414,CORRECT_EXCLUDE,predicting user reactions, not prevalence
+2-s2.0-85092461265,CORRECT_EXCLUDE,off-topic press freedom West Papua
+2-s2.0-85203160463,CORRECT_EXCLUDE,effects of counter-marketing, fake reviews effects
+2-s2.0-105000246261,CORRECT_EXCLUDE,focus groups on experiences, qualitative
+2-s2.0-85097922709,CORRECT_EXCLUDE,social media usage patterns survey, not misinfo prevalence
+2-s2.0-105006949137,CORRECT_EXCLUDE,long hauler experience mixed methods, off-topic
+2-s2.0-85191873949,FALSE_NEGATIVE,evaluates accuracy/topics of Community Notes content
+2-s2.0-85208403016,CORRECT_EXCLUDE,review of climate misinformation literature

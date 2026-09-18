@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-85066900736,CORRECT_EXCLUDE,classification model detection of source
+2-s2.0-85178941884,CORRECT_EXCLUDE,polarization/disinformation discourse analysis not prevalence
+2-s2.0-105005069209,CORRECT_EXCLUDE,Russian troll case study not prevalence
+2-s2.0-33745374804,CORRECT_EXCLUDE,belief in false WMD claims
+2-s2.0-85084701683,FALSE_NEGATIVE,tracks real propagation of fake vs real news
+2-s2.0-85200918109,CORRECT_EXCLUDE,commentary on YouTube algorithm issues
+2-s2.0-85122375872,CORRECT_EXCLUDE,survey on news seeking and engagement
+2-s2.0-105007664234,CORRECT_EXCLUDE,NLP detection of antivaccine posts
+2-s2.0-85167906007,CORRECT_EXCLUDE,news consumption retreat not misinfo prevalence
+2-s2.0-85087217032,CORRECT_EXCLUDE,prevalence of beliefs/folk wisdom not content
+2-s2.0-85159326203,CORRECT_EXCLUDE,reasons for sharing survey not measured prevalence
+2-s2.0-85212679992,FALSE_NEGATIVE,measures who shares fake news real posts
+2-s2.0-85099501949,CORRECT_EXCLUDE,infodemic monikers analysis not prevalence
+2-s2.0-85210381658,CORRECT_EXCLUDE,conjoint experiment on voter behavior
+2-s2.0-85159151834,CORRECT_EXCLUDE,qualitative review of misinfo content
+2-s2.0-105040337096,CORRECT_EXCLUDE,disinformation industry labour analysis
+2-s2.0-85150213016,CORRECT_EXCLUDE,sociological perspective rumors not prevalence
+2-s2.0-85133015162,CORRECT_EXCLUDE,single case study news authenticity
+2-s2.0-105040190616,CORRECT_EXCLUDE,bot/misinfo dataset for detection
+2-s2.0-84907028253,CORRECT_EXCLUDE,credibility detection method
+2-s2.0-85138328300,CORRECT_EXCLUDE,bibliometric mapping of academic papers
+2-s2.0-85038349677,CORRECT_EXCLUDE,text mining headlines comparison not prevalence
+2-s2.0-105038427192,CORRECT_EXCLUDE,framing of terms in discourse
+2-s2.0-85071093322,CORRECT_EXCLUDE,how users respond survey/interviews
+2-s2.0-105018998016,CORRECT_EXCLUDE,smart city commentary off-topic
+2-s2.0-85130066738,FALSE_NEGATIVE,measures prevalence/spread of conspiracy theories
+2-s2.0-105009007044,CORRECT_EXCLUDE,predictors of sharing tendency survey
+2-s2.0-105009378793,FALSE_NEGATIVE,traces spread of info types Romania CrowdTangle
+2-s2.0-105021733739,FALSE_NEGATIVE,measures cross-platform spread of misinfo links
+2-s2.0-105006634611,FALSE_NEGATIVE,geospatial analysis spread of COVID discourse
+2-s2.0-85129795844,CORRECT_EXCLUDE,network structure of user types
+2-s2.0-85142138031,CORRECT_EXCLUDE,qualitative crowdfunding study
+2-s2.0-85214569954,CORRECT_EXCLUDE,language toxicity flow not prevalence
+2-s2.0-85194708787,CORRECT_EXCLUDE,systematic review identifying misconceptions
+2-s2.0-85201952265,CORRECT_EXCLUDE,experimental virality studies
+2-s2.0-105033770514,CORRECT_EXCLUDE,news consumption habits survey
+2-s2.0-105024059461,CORRECT_EXCLUDE,QAnon chapter commentary
+2-s2.0-85159607123,CORRECT_EXCLUDE,bot detection method
+2-s2.0-85070963166,CORRECT_EXCLUDE,content moderation law analysis
+2-s2.0-85213290533,FALSE_NEGATIVE,large-scale analysis misinfo spread evolution Twitter

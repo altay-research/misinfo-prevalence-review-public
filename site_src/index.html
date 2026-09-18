@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How much misinformation do people actually see?</title>
+<meta name="description" content="A systematic review of {{N_EST}} estimates from {{N_STUDIES}} studies of misinformation prevalence, exposure and concentration.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
+<main class="wrap">
+
+  <p class="eyebrow">Systematic review · {{N_STUDIES}} studies · {{N_EST}} estimates</p>
+  <h1>How much misinformation do people actually see?</h1>
+  <p class="lede">Published estimates run from a fraction of one percent to strong majorities.
+     This review collects them, codes what each one measures, and quantifies why they disagree.</p>
+
+  <div class="tiles">
+    {{TILES}}
+  </div>
+
+  <figure><img src="figures/figure_4.svg" alt="Study-level median prevalence by measurement type, sampling frame, ground-truth source, construct and identification level"></figure>
+  <figure class="wide"><img src="figures/figure_5.svg" alt="Concentration of misinformation activity versus news in general, by share of users"></figure>
+
+  <div class="callout">
+    <p style="margin-top:0"><strong>Try it yourself.</strong> Pick the methodological choices and
+      watch the estimate move, or open any of the {{N_EST}} estimates and read the sentence in the
+      original paper that it came from.</p>
+    <p style="margin-bottom:0">
+      <a class="btn primary" style="display:inline-block;text-decoration:none;padding:9px 15px" href="explore/">Explore the estimates</a>
+      &nbsp;<a class="btn" style="display:inline-block;text-decoration:none;padding:9px 15px;color:inherit" href="estimates/">Inspect them one by one</a></p>
+  </div>
+
+</main>
+<script type="module">
+  import { mountChrome, mountFooter, meta, mountContributeCTA, addPaperLink } from './assets/site.js';
+  mountChrome('');
+  meta().then(m => { addPaperLink(m); mountContributeCTA(m); mountFooter(m); });
+</script>
+</body></html>

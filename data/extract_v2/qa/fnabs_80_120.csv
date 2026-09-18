@@ -1,0 +1,41 @@
+eid,verdict,reason
+2-s2.0-105019619436,CORRECT_EXCLUDE,qualitative content analysis of viral videos not prevalence
+2-s2.0-85132106688,CORRECT_EXCLUDE,qualitative theory of offline misinfo spread
+2-s2.0-105026176004,CORRECT_EXCLUDE,prevalence of beliefs/misconceptions not content exposure
+2-s2.0-84944278306,CORRECT_EXCLUDE,economic model of misleading advertising
+2-s2.0-85098008358,CORRECT_EXCLUDE,tourism infodemic commentary not quantitative
+2-s2.0-85112112494,CORRECT_EXCLUDE,rhetorical analysis of politicians tweets
+2-s2.0-85107406140,CORRECT_EXCLUDE,qualitative factors of dissemination/acceptance
+2-s2.0-85193415736,CORRECT_EXCLUDE,fact-check reach interviews not misinfo prevalence
+2-s2.0-85218270066,CORRECT_EXCLUDE,media exposure and mammography adherence off-topic
+2-s2.0-85143307278,CORRECT_EXCLUDE,review of manipulation detection techniques
+2-s2.0-85191293693,FALSE_NEGATIVE,quantifies misinfo prevalence across social platforms
+2-s2.0-57749158754,CORRECT_EXCLUDE,narrative semiotics of comedy show off-topic
+2-s2.0-85159591417,CORRECT_EXCLUDE,emotional analysis of propaganda effects
+2-s2.0-85211190273,CORRECT_EXCLUDE,search volumes for anxiety info not misinfo
+2-s2.0-85171472780,CORRECT_EXCLUDE,survey on diffusion mechanism/credibility perceptions
+2-s2.0-105000371980,CORRECT_EXCLUDE,confirmation bias experiment on selection
+2-s2.0-85163210025,CORRECT_EXCLUDE,why people spread misinfo by age survey
+2-s2.0-85139957474,CORRECT_EXCLUDE,perceived presence of fake news not measured
+2-s2.0-85187874919,CORRECT_EXCLUDE,topic modeling of election fraud discourse
+2-s2.0-85138458987,CORRECT_EXCLUDE,framework on belief and sharing engagement
+2-s2.0-105024060165,CORRECT_EXCLUDE,methods overview of NodeXL tool
+2-s2.0-105035473584,CORRECT_EXCLUDE,quality of online info not misinfo prevalence
+2-s2.0-85046956316,CORRECT_EXCLUDE,attitudes and verification strategies survey
+2-s2.0-85203087848,CORRECT_EXCLUDE,scoping review of mpox infodemiology studies
+2-s2.0-85028074687,CORRECT_EXCLUDE,theoretical filter bubble analysis
+2-s2.0-85183930378,FALSE_NEGATIVE,quantifies fake engagement market on Instagram
+2-s2.0-105018780938,CORRECT_EXCLUDE,qualitative analysis of Kremlin deception logic
+2-s2.0-105034972150,CORRECT_EXCLUDE,framing analysis of conspiracy narratives
+2-s2.0-105036404041,CORRECT_EXCLUDE,qualitative focus groups on disinfo experience
+2-s2.0-85177507427,CORRECT_EXCLUDE,corpus discourse analysis of anti-LGBTIQ texts
+2-s2.0-85142876618,CORRECT_EXCLUDE,model of engagement with disinformation
+2-s2.0-85150439177,CORRECT_EXCLUDE,selective exposure experiment on sharing
+2-s2.0-105009756135,FALSE_NEGATIVE,monitors ad placement volume on disinfo pseudomedia
+2-s2.0-85120520047,CORRECT_EXCLUDE,semantic network analysis not prevalence measure
+2-s2.0-105025448115,CORRECT_EXCLUDE,citizen journalism credibility off-topic
+2-s2.0-105030392165,FALSE_NEGATIVE,quantifies coordinated inauthentic behavior diffusion
+2-s2.0-85182238006,CORRECT_EXCLUDE,philosophical commentary on deepfakes
+2-s2.0-85112789876,CORRECT_EXCLUDE,sentiment of vaccine opinions not misinfo prevalence
+2-s2.0-85114381630,CORRECT_EXCLUDE,classifier to detect conspiracy tweets
+2-s2.0-85168915271,CORRECT_EXCLUDE,qualitative factors of teen sharing behavior
