@@ -111,6 +111,13 @@ table.grid tbody tr:hover{background:var(--panel)}
 table.grid td.n{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 table.grid th.n{text-align:right}
 table.grid tr.clickable{cursor:pointer}
+/* a record expanded under its own row */
+table.grid tr.rec-open td{background:var(--panel);border-bottom:0}
+table.grid tr.rec-open td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+table.grid tr.rec-row td{padding:0 0 18px;background:var(--panel);border-bottom:1px solid var(--line)}
+table.grid tr.rec-row:hover td{background:var(--panel)}
+table.grid tr.rec-row .record{margin:0 12px;scroll-margin-top:72px}
+table.grid tr.rec-row .rec-head{margin:14px 12px 10px}
 table.grid tr.grouphead td{background:var(--panel);border-bottom:1px solid var(--line);
   font:600 12px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink);
   padding:11px 10px}

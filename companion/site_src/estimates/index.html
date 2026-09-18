@@ -26,7 +26,6 @@
     <aside class="side" id="filters"></aside>
     <div>
       <p class="small muted" id="count"></p>
-      <div id="open"></div>
       <table class="grid"><thead><tr>
         <th class="n">%</th><th>What</th><th>Study</th><th>Out of</th><th>Coded</th>
       </tr></thead><tbody id="rows"></tbody></table>
@@ -178,20 +177,67 @@ function render() {
   document.getElementById('more').hidden = hits.length <= state.limit;
 }
 
-function open(eid) {
+// A record opens UNDER the row it belongs to. It used to render in a panel above the table and
+// scroll there, so clicking the four-hundredth row threw you to the top and you lost your place.
+function rowFor(eid) { return document.querySelector(`tr[data-eid="${CSS.escape(eid)}"]`); }
+
+function collapse(eid) {
+  const open = eid ? [rowFor(eid)] : [...document.querySelectorAll('tr.rec-open')];
+  for (const tr of open) {
+    if (!tr) continue;
+    tr.classList.remove('rec-open');
+    if (tr.nextElementSibling?.classList.contains('rec-row')) tr.nextElementSibling.remove();
+  }
+}
+
+/* Open `eid` in place. `scroll` only when the reader did not click the row themselves — a pasted
+ * link, or Back — because scrolling someone to a row they just clicked is the bug this replaced. */
+function open(eid, { scroll = false } = {}) {
+  collapse();
   const e = d.byEid.get(eid);
-  const box = document.getElementById('open');
-  if (!e) { box.innerHTML = ''; return; }
-  box.innerHTML = recordHTML(e, d.studies,
-    { siblings: (d.byStudy.get(e.id) || []).length, repo: d.meta.repo, endpoint: d.meta.submit_endpoint });
-  box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (!e) return;
+  // the row may be filtered out or past the "show more" cut; bring it into view of the list first
+  if (!rowFor(eid)) {
+    if (!matches(e)) {
+      state.on = {}; state.q = ''; state.mainonly = e.main;
+      document.getElementById('q').value = '';
+      document.getElementById('mainonly').checked = state.mainonly;
+      fbox.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
+    }
+    let guard = 0;
+    do { state.limit += 200; render(); } while (!rowFor(eid) && ++guard < 20);
+  }
+  const tr = rowFor(eid);
+  if (!tr) return;
+  tr.classList.add('rec-open');
+  tr.insertAdjacentHTML('afterend',
+    `<tr class="rec-row"><td colspan="5">` +
+    recordHTML(e, d.studies, { siblings: (d.byStudy.get(e.id) || []).length,
+                               repo: d.meta.repo, endpoint: d.meta.submit_endpoint }) +
+    `</td></tr>`);
+  if (scroll) tr.scrollIntoView({ block: 'center' });
 }
 
 document.getElementById('rows').addEventListener('click', ev => {
+  if (ev.target.closest('.rec-row')) return;          // clicks inside an open record are its own
   const tr = ev.target.closest('tr[data-eid]');
-  if (tr) { location.hash = tr.dataset.eid; }
+  if (!tr) return;
+  const eid = tr.dataset.eid;
+  const wasOpen = tr.classList.contains('rec-open');
+  collapse();
+  // replaceState, not location.hash: assigning the hash makes the browser jump to the element
+  // with that id, which is the record itself — the very scroll we are trying to avoid.
+  if (wasOpen) {
+    history.replaceState(null, '', location.pathname + location.search);
+  } else {
+    open(eid);
+    history.replaceState(null, '', '#' + eid);
+  }
 });
-addEventListener('hashchange', () => open(location.hash.slice(1)));
+addEventListener('hashchange', () => {
+  const h = location.hash.slice(1);
+  if (/^[0-9a-f]{7,}$/.test(h)) open(h, { scroll: true }); else collapse();
+});
 
 document.getElementById('csv').addEventListener('click', () => {
   const cols = ['eid', 'id', 'value', 'construct', 'denominator', 'ground_truth', 'id_method',
@@ -206,6 +252,6 @@ document.getElementById('csv').addEventListener('click', () => {
 
 wireShare(document.getElementById('share'));
 render();
-if (isRecordLink) open(location.hash.slice(1));
+if (isRecordLink) open(location.hash.slice(1), { scroll: true });
 </script>
 </body></html>

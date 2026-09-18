@@ -11347,3 +11347,31 @@ that happens here.
 Verified after the move, from this session: every live route returns 200, and this session's own
 two changes — the widened contribution panel and the canonical estimate permalink — are present in
 the published tree and being served.
+
+## 2026-09-18 (cont.) — the arXiv PDF: checked, and the supplement merged in
+
+He was about to post `Altay_Systematic_Review_Misinfo.pdf`. It was the main text only, 25 pages, and
+it was right in every respect I could test: the corrected measurement numbers all present (16.6%,
+12.5/23.0/43.0%, k = 446, 7.3/16.6/44.7%) and every stale one absent; no `[DOI TO BE INSERTED]`, no
+"Zenodo", no tracked-change or comment residue; both URLs; 53 references numbered 1–53 with none
+missing; six figures and two tables captioned with their images embedded; and its text matching the
+authoritative .docx at 0.977, the differences being table cells that pdftotext reads in a different
+order rather than real divergence.
+
+**But the supplement was not in it**, and that produced two faults at once. The paper points at
+Supplementary Notes A–E about twenty times, plus Supplementary Table 1 and Supplementary Figs 1–2,
+none of which a reader could reach. And because the supplement carries the only citations to
+references **48–53** (Munn, Begg & Mazumdar, Kreps, and the three CSMaP papers), the main-text-only
+PDF listed six references that nothing in it cited.
+
+Merged, keeping his filename: 25 + 19 = **44 pages**, 19,186 words, exactly the sum of the parts.
+Done two ways as a cross-check — pypdf and poppler's `pdfunite` — which agreed on page count, word
+count and image count (10 + 2 = 12). The pypdf output ships because it carries Title and Author
+metadata; the previous main-only file is archived.
+
+Two strings my main-text checklist flags as stale turned up in the supplement and are neither:
+"52.7%" is the human-verified recall subset against the corpus's 43.0%, and "k = 270" is the count
+of content studies with an extractable sample size. A list calibrated on one document does not
+transfer to another without reading the hits.
+
+Not checked, and said so: the rendered layout. Nothing here can see a figure broken across a page.
