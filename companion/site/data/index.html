@@ -9,7 +9,10 @@
   <p class="lede">The full extracted dataset, the study tables, and the pipeline that produced
      every number on this site.</p>
 
-  <h2>Download</h2>
+  <h2>The paper</h2>
+  <div id="paper"></div>
+
+  <h2>Download the data</h2>
   <div id="downloads"></div>
   <p class="note">The estimate file is the frozen dataset itself: one row per estimate, every coded
      field, the verbatim quote and the denominator as extracted. It is the file the analysis reads,
@@ -48,14 +51,24 @@
 import { meta, mountChrome, mountFooter, esc, num, mountContributeCTA, addPaperLink } from '../assets/site.js';
 mountChrome('data/');
 const m = await meta(); addPaperLink(m); mountFooter(m);
+const PAPER = 'Altay_Systematic_Review_Misinfo.pdf';
 const LABEL = {
   'misinfo_prevalence_estimates.csv': 'Every estimate, every coded field, with quotes',
   'included_studies.csv': 'The included studies with DOIs',
   'study_characteristics.csv': 'Study-level characteristics and risk-of-bias ratings',
   'fulltext_exclusions.csv': 'Studies excluded at full text, with reasons',
 };
+document.getElementById('paper').innerHTML = `
+  <div class="go">
+    <a class="go-btn primary" href="../downloads/${esc(PAPER)}" download>Download the paper
+      <span class="arw">&darr;</span></a>
+    ${m.preprint ? `<a class="go-btn" href="${esc(m.preprint)}" target="_blank" rel="noopener">Read it on PsyArXiv
+      <span class="arw">&rarr;</span></a>` : ''}
+  </div>
+  <p class="small muted">PDF, ${Math.round((m.downloads || {})[PAPER] / 1024 * 10) / 10} MB.</p>`;
+
 document.getElementById('downloads').innerHTML =
-  `<table class="grid"><tbody>${Object.entries(m.downloads || {}).map(([f, kb]) =>
+  `<table class="grid"><tbody>${Object.entries(m.downloads || {}).filter(([f]) => f !== PAPER).map(([f, kb]) =>
     `<tr><td><a href="../downloads/${esc(f)}" download><code>${esc(f)}</code></a>
          <div class="small muted">${esc(LABEL[f] || '')}</div></td>
          <td class="n">${kb} KB</td></tr>`).join('')}</tbody></table>`;
@@ -64,10 +77,13 @@ document.getElementById('md5').textContent = m.freeze_md5;
 document.getElementById('nst').textContent = m.n_studies;
 document.getElementById('nes').textContent = num(m.n_estimates);
 document.getElementById('built').textContent = m.built;
+// A citation people can copy, not a link they have to reconstruct one from.
+const YEAR = new Date(m.built).getFullYear();
 document.getElementById('cite').innerHTML =
-  `<p style="margin-top:0">Altay, S. Rare on screens but on everyone's mind: a systematic review of
-   misinformation prevalence, exposure, and concentration.</p>
-   ${m.preprint ? `<p style="margin:8px 0 0"><a href="${esc(m.preprint)}" target="_blank" rel="noopener">Read the preprint</a></p>` : ''}
+  `<p style="margin-top:0">Altay, S. (${YEAR}). Rare on screens but on everyone's mind: a systematic
+   review of misinformation prevalence, exposure, and concentration.${m.preprint
+     ? ` <em>PsyArXiv</em>. <a href="${esc(m.preprint)}" target="_blank" rel="noopener">${esc(m.preprint)}</a>`
+     : ''}</p>
    <p style="margin-bottom:0" class="small muted">Dataset ${esc(m.freeze)}, MD5
    <code>${esc(m.freeze_md5)}</code>.${m.preprint ? '' : ' A preprint and a Zenodo DOI will be linked here when they exist.'}</p>`;
 mountContributeCTA(m, document.getElementById('submit'));

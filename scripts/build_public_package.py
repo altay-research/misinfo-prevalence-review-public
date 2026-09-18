@@ -131,8 +131,22 @@ TEXT_SUFFIXES = {".md", ".txt", ".csv", ".tsv", ".json", ".jsonl", ".py", ".R", 
                  ".html", ".svg", ".yml", ".yaml", ".bib", ".cfg", ".toml"}
 
 
+# The only PDF that may ship. Every other one is a publisher's and cannot be redistributed, which
+# is what the blanket *.pdf denial is for; this one is the author's own preprint, and the site
+# offers it for download. Named explicitly so the denial stays blanket for everything else.
+# Both the repo path and the published path: selection tests the repo-relative path, the stale
+# sweep tests the output-relative one, and site/ is remapped to companion/site/ between them.
+ALLOWED_PDFS = {
+    "docs/preprint/Altay_Systematic_Review_Misinfo.pdf",
+    "site/downloads/Altay_Systematic_Review_Misinfo.pdf",
+    "companion/site/downloads/Altay_Systematic_Review_Misinfo.pdf",
+}
+
+
 def denied(rel, size=None):
     """Return a reason string if `rel` (a repo-relative posix path) must not ship, else None."""
+    if rel in ALLOWED_PDFS:
+        return None
     low = rel.lower()
     base = os.path.basename(low)
     for p in DENY_DIR_PREFIXES:
@@ -360,6 +374,7 @@ ALLOW = [
     ("tree", "data/synth/phaseB", []),
     # The public companion site. site_src/ is the source, site/ the build output; both ship so the
     # deposit is the thing GitHub Pages serves AND the thing that rebuilds it.
+    ("file", "docs/preprint/Altay_Systematic_Review_Misinfo.pdf"),
     ("tree", "site_src", []),
     ("tree", "site", []),
     ("tree", "worker", []),        # the submission proxy, its tests and its setup notes
@@ -1059,9 +1074,14 @@ def main():
                 continue
             # match the file itself and every directory above it: iCloud duplicates whole FOLDERS
             # too ("docs 2/", "site 2/"), and a file-only test shipped 60 of them on 2026-09-18
+            # The sweep tested DENY_GLOBS directly and so bypassed the ALLOWED_PDFS exception in
+            # denied(): the author's own preprint was copied in and swept straight back out, while
+            # the final scan reported "no PDF" about files it had just removed. Ask denied() about
+            # the file, and keep the glob test only for the DIRECTORY components above it.
             parts = rel_.split(os.sep)
-            if any(any(fnmatch.fnmatch(part, g) for g in DENY_GLOBS) for part in parts) \
-                    or any(fnmatch.fnmatch(rel_, g) for g in DENY_GLOBS) \
+            rel_posix = rel_.replace(os.sep, "/")
+            if denied(rel_posix) \
+                    or any(any(fnmatch.fnmatch(part, g) for g in DENY_GLOBS) for part in parts[:-1]) \
                     or any(re.match(r"^.*[A-Za-z0-9] \d+$", part) for part in parts[:-1]):
                 stale.append(rel_)
     for rel_ in stale:

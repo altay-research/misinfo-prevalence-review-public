@@ -2,8 +2,8 @@
  "n_subgroup_rows": 104,
  "n_subgroup_studies": 25,
  "n_studies_total": 443,
- "n_behavioural_studies": 62,
- "n_behavioural_with_subgroups": 13,
+ "n_behavioural_studies": 72,
+ "n_behavioural_with_subgroups": 15,
  "by_dimension": {
   "political": 71,
   "age": 19,

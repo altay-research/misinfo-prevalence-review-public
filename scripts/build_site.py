@@ -32,7 +32,7 @@ REPO = "altay-research/misinfo-prevalence-review-public"
 # The preprint. Set this the day it goes up and rebuild; every link to it across the site comes
 # from here. Until then the masthead link is absent and the citation says so rather than pointing
 # at nothing. check_site.py asserts that a set URL actually reaches the pages.
-PREPRINT_URL = None        # e.g. "https://osf.io/preprints/psyarxiv/XXXXX"
+PREPRINT_URL = "https://osf.io/preprints/psyarxiv/sgvr8_v1"
 
 # The submission form. A static page cannot receive a POST, so the form posts to a Cloudflare
 # Worker (worker/) which files the submission as an issue in a PRIVATE triage repository. Until
@@ -366,6 +366,8 @@ def copy_downloads():
     dl = OUT / "downloads"
     dl.mkdir(parents=True, exist_ok=True)
     sources = {
+        # the paper itself, so a reader can take it away without leaving for OSF
+        "Altay_Systematic_Review_Misinfo.pdf": ROOT / "docs/preprint/Altay_Systematic_Review_Misinfo.pdf",
         "misinfo_prevalence_estimates.csv": ROOT / FREEZE_FILE,
         "included_studies.csv":             PHB / "si_included_studies.csv",
         "study_characteristics.csv":        PHB / "si_study_characteristics.csv",

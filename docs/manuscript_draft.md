@@ -95,7 +95,7 @@ Concentration also appears at the level of sources. Five estimates describe how 
 
 ### 2.6 Who is exposed: demographic subgroups
 
-Only 25 of the 443 included studies report estimates broken down by demographic group, contributing 104 estimates, and among the 62 studies whose measurement type is behavioural, only 13 do.
+Only 25 of the 443 included studies report estimates broken down by demographic group, contributing 104 estimates, and among the 72 studies whose measurement type is behavioural, only 15 do.
 
 Of the 104 subgroup estimates, 71 split respondents by party, vote or ideology, against 19 by age, 8 by gender, 3 by education, 2 by the office a politician holds and 1 by community. Where a study reports both sides of a political contrast, the right-leaning group is usually higher. Eighteen studies report a partisan split, and eight of them give both sides on the same measure. Across those eight, the right-leaning group's figure is a median 3.73× the left-leaning group's, ranging from 0.48× to 41.7×, and one study reverses the direction. Four studies allow an age contrast between their oldest and youngest groups, giving six contrasts: three in which older users are higher (1.8×, 4.35× and 18.5×) and three in which they are lower (0.58×, 0.67× and 0.70×). These ratios are computed within studies, so they are not confounded by differences in measurement between studies.
 

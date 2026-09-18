@@ -1,7 +1,7 @@
 # Prevalence and concentration of misinformation exposure — replication package
 
 Everything needed to reproduce the numbers, figures and tables of the systematic review
-*Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration* (Altay, 2026), from one frozen dataset. Built from the working repository
+*Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration* (Altay, 2026), preprint at https://osf.io/preprints/psyarxiv/sgvr8_v1, from one frozen dataset. Built from the working repository
 on 2026-09-18, freeze **v1.7.23** (1048 estimates from 443 studies), MD5 `08f050baf45086f45b5b3bec2390a115`.
 
 The root holds six things: **`data/`** the dataset and everything derived from it, **`scripts/`**
@@ -93,7 +93,7 @@ Full text in `LICENSE`.
 
 ## Citation
 
-The paper: Altay, S. (2026). *Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration.* Preprint to follow; this line is updated when it is posted.
+The paper: Altay, S. (2026). *Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration.* Preprint: https://osf.io/preprints/psyarxiv/sgvr8_v1
 
 This package: Altay, S. (2026). Replication package and interactive companion for *Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration*,
 freeze v1.7.23. https://github.com/altay-research/misinfo-prevalence-review-public
