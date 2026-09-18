@@ -203,7 +203,7 @@ export function submissionFormHTML(meta, kind = 'missing-study', prefill = {}) {
     <label class="sf-row"><span>Your email <i>optional</i></span>
       <input type="email" id="sf-contact" name="contact" placeholder="Only so I can ask a follow-up"></label>
     <label class="sf-hp" aria-hidden="true"><span>Website</span><input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-    <div class="sf-turnstile"></div>
+    <div class="sf-row sf-check"><span>Confirm you are a person</span><div class="sf-turnstile"></div></div>
     <div class="sf-foot">
       <button type="submit" class="cta-btn">Send</button>
       <span class="sf-msg" role="status"></span>
@@ -234,6 +234,16 @@ export function wireSubmissionForm(root, meta, onDone) {
     }
     const ts = form.querySelector('[name="cf-turnstile-response"]');
     data.turnstile = ts ? ts.value : '';
+    // Turnstile escalates to a click-the-box challenge for anything it finds unusual. Posting
+    // without a token just earns a rejection from the Worker, which reads as the form being
+    // broken; point at the check instead.
+    if (meta.turnstile_sitekey && !data.turnstile) {
+      msg.textContent = form.querySelector('.sf-turnstile iframe')
+        ? 'Please complete the check above.'
+        : 'The bot check has not loaded. Use the GitHub link below instead.';
+      msg.className = 'sf-msg bad';
+      return;
+    }
     btn.disabled = true;
     msg.className = 'sf-msg';
     msg.textContent = 'Sending…';

@@ -194,7 +194,8 @@ form.sf input::placeholder,form.sf textarea::placeholder{color:#b3b9c1}
 .sf-msg.bad{color:var(--hot)}
 .sf-note{margin:0;font-size:12.5px;color:var(--faint)}
 .sf-done{margin:0;font-size:16px;color:var(--green);font-weight:600}
-.sf-turnstile:empty{display:none}
+.sf-check:has(.sf-turnstile:empty){display:none}
+.sf-turnstile{min-height:66px}
 
 footer.site{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 60px;color:var(--faint);font-size:12.5px}
 footer.site code{color:var(--mut)}
