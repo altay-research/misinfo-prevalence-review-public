@@ -72,6 +72,15 @@ export function constructName(c) {
   return (META && META.construct_names[c]) || String(c || '').toLowerCase();
 }
 
+/* An estimate id in the hash of a page that does not handle estimate links. Older copied links
+ * look like this; send them to the page that does rather than dropping them. */
+export function rescueEstimateLink() {
+  const h = location.hash.slice(1);
+  if (!/^[0-9a-f]{7,}$/.test(h)) return false;
+  location.replace(BASE + 'estimates/#' + h);
+  return true;
+}
+
 export function mountChrome(current, meta) {
   const pages = [['', 'Overview'], ['explore/', 'Explore'], ['estimates/', 'Estimates'],
                  ['studies/', 'Studies'], ['descriptives/', 'Descriptives'], ['data/', 'Data']];
@@ -110,18 +119,16 @@ export function mountFooter(meta) {
       <p>Every number on this site is generated from the frozen dataset by
          <code>scripts/build_site.py</code> and checked by <code>scripts/check_site.py</code>.
          <a href="${BASE}data/">Download the data</a> ·
-         <a href="${submitStudyURL(meta.repo)}" target="_blank" rel="noopener">Submit a study we missed</a></p>
+         <a href="${submitStudyURL(meta.repo)}" target="_blank" rel="noopener">Send a comment</a></p>
     </div></footer>`);
 }
 
 /* A researcher who knows of a study the search missed needs somewhere to put it. Same mechanism as
  * flagging a coding error: a pre-filled public issue, dated, screenable, and not an inbox. */
 export function submitStudyURL(repo) {
-  const body = 'A DOI or citation, what it reports, and what that number is a share of — ' +
-               'however you like:\n\n';
-  return `https://github.com/${repo}/issues/new?labels=missing-study&title=` +
-    encodeURIComponent('Missing study: (replace with the reference)') +
-    '&body=' + encodeURIComponent(body);
+  const body = 'A study I missed, something coded wrongly, or any other comment:\n\n';
+  return `https://github.com/${repo}/issues/new?labels=feedback&title=` +
+    encodeURIComponent('') + '&body=' + encodeURIComponent(body);
 }
 
 /* The invitation to contribute. One component so it reads and behaves the same everywhere, and so
@@ -131,11 +138,11 @@ export function mountContributeCTA(meta, target) {
   if (!host) return;
   host.insertAdjacentHTML('beforeend', `
     <section class="cta">
-      <div class="t"><h2>Know a study we missed?</h2></div>
+      <div class="t"><h2>If I've missed a study, or you have a comment</h2></div>
       ${meta.submit_endpoint
-        ? `<button class="cta-btn" type="button" data-open-form>Submit a study <span class="arw">&rarr;</span></button>`
+        ? `<button class="cta-btn" type="button" data-open-form>Tell me <span class="arw">&rarr;</span></button>`
         : `<a class="cta-btn" href="${submitStudyURL(meta.repo)}" target="_blank" rel="noopener">
-             Submit a study <span class="arw">&rarr;</span></a>`}
+             Tell me <span class="arw">&rarr;</span></a>`}
       <div class="cta-form" hidden></div>
     </section>`);
 
@@ -210,8 +217,9 @@ export function wireShare(btn) {
 
 const FIELDS = {
   'missing-study': [
-    ['submission', 'The study', 'textarea', true,
-     "A DOI or citation, what it reports, and what that number is a share of. Write it however you like."],
+    ['submission', 'Your message', 'textarea', true,
+     "A study I missed, something coded wrongly, or any other comment. If it is a study, a DOI "
+     + "and what it reports is enough."],
   ],
   coding: [
     ['estimate', 'Estimate identifier', 'input', true, 'The seven characters at the top right of the record'],
@@ -435,7 +443,10 @@ export function wireCopy(root = document, meta) {
     }
     const b = ev.target.closest('[data-copy]');
     if (!b) return;
-    const url = location.origin + location.pathname + '#' + b.dataset.copy;
+    // Always the estimates page. Building this from location.pathname gave /explore/#<eid> or
+    // /studies/#<eid> when the record was opened there, and those pages read a hash as filter
+    // state, ignore an unknown key, then overwrite it — so the link silently went nowhere.
+    const url = new URL(BASE + 'estimates/#' + b.dataset.copy, location.href).href;
     navigator.clipboard?.writeText(url);
     const was = b.textContent; b.textContent = 'copied';
     setTimeout(() => { b.textContent = was; }, 1200);

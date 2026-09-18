@@ -11258,3 +11258,34 @@ pattern now, and the count went to zero.
 I also over-read the file count while chasing them — 695 to 801 looked like runaway duplication and
 was the other agent's commits growing `.git`. The package proper is 640 files; `.git` is not part of
 the deposit and should not be uploaded with it.
+
+## 2026-09-18 (cont.) — the published repository held five files, and I emptied it
+
+He asked whether github.com/altay-research/misinfo-prevalence-review-public is where the replication
+materials live. It is the right address and it is in §4.11, but when he asked, **the repository
+contained five files**: three issue templates, the Pages workflow and a `.gitignore`.
+
+**I did that.** `build_public_package.py --force` deleted everything in the directory except
+`.git`, `.gitignore` and `.github`, then rewrote it. That directory is also the git working tree for
+the public repository, and a commit from the other session landed inside the deletion window:
+`54e6134` (16:19) published 640 files, `13cea0a` (16:28) published 5. Two agents writing to one
+directory, and my step was the destructive one.
+
+Nothing was lost — the files regenerate and `54e6134` still held them — and the tree is restored and
+pushed, 699 files, carrying the corrected measurement moderator (16.6 on GitHub, checked through the
+API rather than assumed).
+
+**The fix is to stop emptying the tree at all.** Files are overwritten in place, and only files the
+DENYLIST refuses are swept afterwards, so there is no window in which the package looks deleted. A
+broader sweep — remove anything this build did not write — was tried first and immediately deleted
+`LICENSE`, `README.md` and the site tree, because those are produced by helper functions rather than
+copied from the repo and so are not in the `chosen` set. The narrow rule solves the problem that
+prompted it, the iCloud duplicates, without needing to know how every shipped file came to exist.
+
+**The lesson is about what I verified.** Before putting the URL in the manuscript I checked that it
+returned 200. A repository with five files in it also returns 200. The claim in §4.11 is that the
+materials are *there*, and that is what needed checking — the artefact, not the response code. It is
+the same failure as reading a count instead of parsing the file, in a new costume.
+
+Fourteen more iCloud duplicates had also appeared in the tree while this was going on; each was
+confirmed byte-identical to its original before removal.

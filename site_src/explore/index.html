@@ -64,9 +64,10 @@
 <script type="module">
 import { data, setMeta, mountChrome, mountFooter, recordHTML, esc,
          valueLabel, constructName, fieldLabel, wireCopy, num, plural, mountContributeCTA, addPaperLink,
-         decodeFilters, writeFilters, wireShare } from '../assets/site.js';
+         decodeFilters, writeFilters, wireShare , rescueEstimateLink } from '../assets/site.js';
 import { summarise, fmt } from '../assets/agg.js';
 
+if (rescueEstimateLink()) throw new Error('redirecting');
 mountChrome('explore/');
 const d = await data();
 setMeta(d.meta); addPaperLink(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta); wireCopy(document, d.meta);

@@ -667,17 +667,16 @@ excluded and why.
 
 
 ISSUE_TEMPLATES = {
-    'missing-study.yml': """\
-name: A study we missed
-description: Tell us about a study reporting a misinformation prevalence, exposure, sharing or concentration estimate that is not in the review.
-title: "Missing study: "
-labels: ["missing-study"]
+    'feedback.yml': """\
+name: A missed study, or any comment
+description: A study the review missed, something coded wrongly, or anything else you want to say.
+labels: ["feedback"]
 body:
   - type: textarea
     id: submission
     attributes:
-      label: The study
-      description: A DOI or citation, what it reports, and what that number is a share of. Write it however you like.
+      label: Your message
+      description: If it is a study, a DOI and what it reports is enough.
       placeholder: |
         Grinberg et al. 2019, Science, 10.1126/science.aau2706
         Fake news sources were 6.7% of the political links shared on Twitter, out of all

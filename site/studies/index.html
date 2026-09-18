@@ -34,7 +34,8 @@
 
 <script type="module">
 import { data, setMeta, mountChrome, mountFooter, recordHTML, esc,
-         constructName, wireCopy, humanise, clip, num, plural, mountContributeCTA, matchesQuery , addPaperLink } from '../assets/site.js';
+         constructName, wireCopy, humanise, clip, num, plural, mountContributeCTA, matchesQuery , addPaperLink , rescueEstimateLink } from '../assets/site.js';
+if (rescueEstimateLink()) throw new Error('redirecting');
 mountChrome('studies/');
 const d = await data(); setMeta(d.meta); addPaperLink(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta); wireCopy(document, d.meta);
 

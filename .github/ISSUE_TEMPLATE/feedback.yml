@@ -1,0 +1,20 @@
+name: A missed study, or any comment
+description: A study the review missed, something coded wrongly, or anything else you want to say.
+labels: ["feedback"]
+body:
+  - type: textarea
+    id: submission
+    attributes:
+      label: Your message
+      description: If it is a study, a DOI and what it reports is enough.
+      placeholder: |
+        Grinberg et al. 2019, Science, 10.1126/science.aau2706
+        Fake news sources were 6.7% of the political links shared on Twitter, out of all
+        political links shared by the panel (Table 2). US, 2016.
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Your email
+      description: Optional, only so the author can ask a follow-up.

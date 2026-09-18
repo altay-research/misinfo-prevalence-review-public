@@ -70,7 +70,7 @@ export default {
       return json({ error: 'could not verify that you are a person — please try again' }, 400, allowOrigin);
     }
 
-    const kind = f.kind === 'coding' ? 'coding' : 'missing-study';
+    const kind = f.kind === 'coding' ? 'coding' : 'feedback';
     let title, body;
 
     if (kind === 'coding') {
@@ -82,14 +82,14 @@ export default {
       title = `Coding query: ${estimate}`;
       body = [`**Estimate**: ${estimate}`, '', '**What looks wrong**', issue].join('\n');
     } else {
-      // One open box: people write whatever they have. A title is derived from the first line so
-      // the queue is skimmable, and the text is filed verbatim underneath.
+      // One open box: a missed study, a correction, or any other comment. The label says where it
+      // came from; the title is simply the first line, so the queue reads like what people wrote.
       const submission = clean(f.submission, MAX.submission);
       if (!submission) {
-        return json({ error: 'please write something about the study' }, 400, allowOrigin);
+        return json({ error: 'please write something' }, 400, allowOrigin);
       }
       const firstLine = submission.split('\n').find(l => l.trim()) || submission;
-      title = `Missing study: ${firstLine.trim().slice(0, 80)}`;
+      title = firstLine.trim().slice(0, 80);
       body = submission;
     }
 

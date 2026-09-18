@@ -369,6 +369,18 @@ else:
     check("submitStudyURL" in site_js, "B/falls back to the GitHub issue links")
 
 
+# An estimate has ONE address. The copy-link button used to build it from location.pathname, so
+# copying a record opened inside /explore/ or /studies/ produced a link those pages read as filter
+# state, ignored, and then overwrote — a link that silently went nowhere.
+check("location.pathname + '#' + b.dataset.copy" not in site_js,
+      "B/estimate links are not built from the current path")
+check("estimates/#' + b.dataset.copy" in site_js, "B/estimate links point at the estimates page")
+check("rescueEstimateLink" in site_js, "B/an estimate id on the wrong page is rescued")
+for page in ("explore/index.html", "studies/index.html"):
+    check("rescueEstimateLink" in (SITE / page).read_text(),
+          f"B/{page} rescues an estimate link")
+
+
 # ---------------------------------------------------------------- C. links
 SCRIPT = re.compile(r"<script\b.*?</script>", re.S)
 for page in SITE.rglob("*.html"):

@@ -39,7 +39,7 @@ const check = (name, ok, detail = '') => {
   if (ok) { pass++; } else { fail++; console.log(`  FAIL  ${name}${detail ? ' — ' + detail : ''}`); }
 };
 
-const GOOD = { kind: 'missing-study',
+const GOOD = { kind: 'feedback',
                submission: 'Grinberg et al. 2019, Science, 10.1126/science.aau2706\n' +
                            'fake news was 6.7% of political links shared, out of all political ' +
                            'links shared by the panel (Table 2). US, Twitter, 2016.',
@@ -51,9 +51,9 @@ let r = await post(GOOD);
 let out = await r.json();
 check('good submission returns ok', r.status === 200 && out.ok === true, JSON.stringify(out));
 check('one issue filed', filed.length === 1);
-check('title is the first line', filed[0]?.title === 'Missing study: Grinberg et al. 2019, Science, 10.1126/science.aau2706');
+check('title is the first line', filed[0]?.title === 'Grinberg et al. 2019, Science, 10.1126/science.aau2706');
 check('labels are kind + unverified',
-      JSON.stringify(filed[0]?.labels) === JSON.stringify(['missing-study', 'unverified']));
+      JSON.stringify(filed[0]?.labels) === JSON.stringify(['feedback', 'unverified']));
 check('body carries the text verbatim',
       ['10.1126', '6.7%', 'all political links', 'Table 2', 'US, Twitter'].every(t => filed[0]?.body.includes(t)));
 check('contact is recorded', filed[0]?.body.includes('someone@example.edu'));
@@ -61,9 +61,9 @@ check('token is sent as a bearer', filed[0]?.auth === 'Bearer test-token');
 
 // --- missing required fields
 filed = [];
-r = await post({ kind: 'missing-study', submission: '' });
+r = await post({ kind: 'feedback', submission: '' });
 check('an empty submission is rejected', r.status === 400 && filed.length === 0);
-r = await post({ kind: 'missing-study', submission: '   \n  ' });
+r = await post({ kind: 'feedback', submission: '   \n  ' });
 check('whitespace only is rejected', r.status === 400 && filed.length === 0);
 
 // --- coding queries
