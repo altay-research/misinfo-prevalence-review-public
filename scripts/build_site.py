@@ -384,6 +384,38 @@ def copy_downloads():
     return out
 
 
+def site_figure_4(svg):
+    """Two changes the site's copy of Figure 4 carries and the article's does not.
+
+    The article's figure is fixed: it is in the posted preprint and in a hand-formatted docx that
+    AUTHORITATIVE_FILES.txt forbids regenerating. The site is free to be clearer, so its copy gets
+    an x-axis title, and the per-band study totals move into the `n =` column on the right, where
+    they sit on the same edge as the counts they belong with. Applied to the rendered SVG so the
+    article's figure is untouched.
+    """
+    m = re.search(r'viewBox="0 0 (\d+) (\d+)"', svg)
+    if not m:
+        raise SystemExit("figure 4: no viewBox to extend for the axis title")
+    W, H = int(m.group(1)), int(m.group(2))
+    NEW_H = H + 22
+    svg = svg.replace(f'viewBox="0 0 {W} {H}"', f'viewBox="0 0 {W} {NEW_H}"', 1)
+    # the white backing rect has to grow with it, or the added strip renders transparent
+    svg = svg.replace(f'height="{H}.0"', f'height="{NEW_H}.0"', 1)
+
+    # The band totals ("446 studies") are placed just after their band label, so each lands at a
+    # different x. Move them onto the right-hand edge the `n = ` values already use.
+    mm = re.search(r'<text x="([\d.]+)"[^>]*>n = \d+</text>', svg)
+    if mm:
+        right = mm.group(1)
+        svg = re.sub(r'<text x="[\d.]+"([^>]*?)text-anchor="start"([^>]*>\d+ studies</text>)',
+                     lambda g: f'<text x="{right}"{g.group(1)}text-anchor="end"{g.group(2)}', svg)
+
+    cx = 250 + (W - 250 - 60) / 2
+    return svg.replace('</svg>',
+                       f'<text x="{cx:.1f}" y="{NEW_H - 6}" font-size="12.5" text-anchor="middle" '
+                       f'fill="#666">Prevalence of misinformation</text></svg>')
+
+
 def figures_from_manuscript():
     """The site's figures ARE the manuscript's, read out of scripts/make_nhb_docx.py rather than
     listed again here. A second list would drift: the first version of this script hard-coded
@@ -452,6 +484,9 @@ def main():
         if f["where"] == "omitted":
             continue
         src = ROOT / f["src"]
+        if f["file"] == "figure_4.svg":
+            (OUT / "figures" / f["file"]).write_text(site_figure_4(src.read_text()))
+            continue
         if not src.exists():
             raise SystemExit(f"figure missing: {f['src']} (named by make_nhb_docx.py as {f['label']})")
         shutil.copy(src, OUT / "figures" / f["file"])

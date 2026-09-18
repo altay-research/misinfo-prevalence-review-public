@@ -11420,3 +11420,59 @@ grow and puts the nav on its own row. The explorer's tables still overflow at ph
 
 **Still open, his side:** the arXiv identifier. When it exists, `PREPRINT_URL` in `build_site.py` is the
 one line to set; the site gains its "Read the paper" button and the README its link on the next build.
+
+## 2026-09-18 (cont.) — "are you sure the data and code are correct?" — cloning the package and running it
+
+He asked whether the data, code and GitHub were in good shape. Every check so far had been made
+INSIDE the working repository. The test a reviewer will actually make is different: clone the public
+repository and run the three commands in its README. Done, and it did not pass.
+
+**Six post-stage scripts died on a fresh clone**, each on an input the package did not carry:
+`make_behavioural_arm_dispositions.py` (the September arm's decision files),
+`validate_prisma.py` (the arm's funnel, then the withheld record dumps), `check_manuscript_stats.py`
+(the re-extraction scores, then the sweep's answer key, then the reach-window coding),
+`make_prisma.py` and `make_si_lists.py` (the withheld dumps), `sync_doc_freeze_headers.py` (a
+working-repository doc), `check_site.py` (the site sits under `companion/` in the package and the
+scripts looked at the root). The README's claim that `check_manuscript_stats.py` "carries on rather
+than failing" was true of one check and false of the script. And once the missing files were in, the
+guard exited non-zero on its own DOI reminder, a note that says the state is correct; the runner
+stops on the first non-zero step, so the reproduction would have ended on a sentence saying nothing
+was wrong.
+
+**Fixes, all in the generator or the scripts, none by hand in the package:** the arm's eight decision
+files and two outputs, the two campaigns' scores and per-study coding, the sweep and wave 4/5 answer
+keys and returned codes, the reach-window coding and the SI lists README now ship (identifiers,
+codes, decisions and short quotes only; the prompt batches that paste article text stay behind).
+`run_phaseB.sh` skips a stage BY NAME, printing why, when its input is one the package withholds.
+`build_site.py`, `check_site.py`, `stress_site.mjs` and `serve_site.sh` resolve the site under
+`companion/` when the root has none. The provenance ledger prints each freeze's tag name and warns
+where the checkout lacks the tag, instead of rewriting a committed document. The DOI reminder prints
+under its own heading and exits 0.
+
+**Result, on a fourth fresh clone:** pre, metareg and post all exit 0; guard 267/267 (the working
+repository registers 270; three assertions rest on withheld files and are not registered rather than
+failed); check_site 1118/1118; drift clean; and `git status` empty afterwards — every file under
+`data/synth/` and `docs/` regenerates byte-identical to the committed copy. The README now says so,
+with the date.
+
+**The one finding that touches the paper.** The regeneration changed ONE file:
+`subgroups_summary.json`, `n_behavioural_studies` 62 → 72 and `n_behavioural_with_subgroups` 13 → 15.
+The working repository regenerates the same. Cause: `measurement` was re-derived from the construct
+taxonomy on 2026-09-18 (late), and the subgroups stage was not re-run after it; the guard read the
+stale JSON and asserted 62 and 13 against a manuscript that said 62 and 13, and was green. §2.6's
+sentence "among the 62 studies whose measurement type is behavioural, only 13 do" is therefore on the
+retired join. The markdown master now says 72 and 15 (guard green on the regenerated file). The
+authoritative .docx and the PDF posted on PsyArXiv (sgvr8_v1, posted while this check was running)
+still say 62 and 13. The two-digit edit to the .docx was blocked by this session's permission mode;
+it is his call, and a v2 on PsyArXiv is the remedy. `scripts/make_arxiv_pdf.py` assembles the
+release file from his Word export and the supplement in one command.
+
+**Two sessions, one working tree.** The other session's `git add -A` swept this session's uncommitted
+edits into its commits twice, and this session's package rebuild swept its in-progress Figure 4
+change into a package commit once. Nothing was lost, but the lesson stands: stage by name, never
+`-A`, when another session may be mid-edit, and say so before building the package. Figure 4's
+viewBox changed 780×790 → 780×812; the two dashboards embedding it were regenerated here.
+
+Lesson, for the methods file: a check that reads a pipeline OUTPUT is green whenever that output and
+the prose agree, whether or not the output is current. The only test of a package is to clone it and
+run it; the only test of a number is to regenerate it.
