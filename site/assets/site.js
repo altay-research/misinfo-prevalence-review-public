@@ -114,13 +114,8 @@ export function mountFooter(meta) {
 /* A researcher who knows of a study the search missed needs somewhere to put it. Same mechanism as
  * flagging a coding error: a pre-filled public issue, dated, screenable, and not an inbox. */
 export function submitStudyURL(repo) {
-  const body = [
-    '**Reference** (DOI or full citation):', '',
-    '**What it reports** — the quantity in the paper\'s own words, and the number:', '',
-    '**Out of what** — the denominator that number is a share of:', '',
-    '**Where in the paper** (table, figure or page):', '',
-    '**Anything else** (country, platform, when the data were collected):', '',
-  ].join('\n');
+  const body = 'A DOI or citation, what it reports, and what that number is a share of — ' +
+               'however you like:\n\n';
   return `https://github.com/${repo}/issues/new?labels=missing-study&title=` +
     encodeURIComponent('Missing study: (replace with the reference)') +
     '&body=' + encodeURIComponent(body);
@@ -164,11 +159,8 @@ export function mountContributeCTA(meta, target) {
 
 const FIELDS = {
   'missing-study': [
-    ['reference', 'Reference', 'input', true, 'A DOI is enough — 10.1126/science.aau2706'],
-    ['quantity', 'What it reports', 'textarea', true, "The quantity in the paper's own words, and the number"],
-    ['denominator', 'Out of what', 'input', false, 'What that percentage is a share of'],
-    ['where', 'Where in the paper', 'input', false, 'Table 2, or p. 376'],
-    ['context', 'Anything else', 'textarea', false, 'Country, platform, when the data were collected'],
+    ['submission', 'The study', 'textarea', true,
+     "A DOI or citation, what it reports, and what that number is a share of. Write it however you like."],
   ],
   coding: [
     ['estimate', 'Estimate identifier', 'input', true, 'The seven characters at the top right of the record'],
@@ -194,7 +186,7 @@ export function submissionFormHTML(meta, kind = 'missing-study', prefill = {}) {
     const attrs = `id="sf-${name}" name="${name}" placeholder="${esc(hint)}"${required ? ' required' : ''}`;
     const val = prefill[name] ? esc(prefill[name]) : '';
     const control = tag === 'textarea'
-      ? `<textarea ${attrs} rows="3">${val}</textarea>`
+      ? `<textarea ${attrs} rows="${name === 'submission' ? 7 : 3}">${val}</textarea>`
       : `<input type="text" ${attrs} value="${val}">`;
     return `<label class="sf-row"><span>${esc(label)}${required ? ' <i>required</i>' : ''}</span>${control}</label>`;
   }).join('');

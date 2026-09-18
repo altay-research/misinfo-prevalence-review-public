@@ -13,8 +13,7 @@
  *          wrangler secret put TURNSTILE_SECRET  (Cloudflare Turnstile secret key)
  */
 
-const MAX = { reference: 500, quantity: 2000, denominator: 500, where: 200, context: 4000,
-              contact: 200, estimate: 40, issue: 4000 };
+const MAX = { submission: 8000, contact: 200, estimate: 40, issue: 4000 };
 
 const cors = origin => ({
   'access-control-allow-origin': origin,
@@ -83,19 +82,15 @@ export default {
       title = `Coding query: ${estimate}`;
       body = [`**Estimate**: ${estimate}`, '', '**What looks wrong**', issue].join('\n');
     } else {
-      const reference = clean(f.reference, MAX.reference);
-      const quantity = clean(f.quantity, MAX.quantity);
-      if (!reference || !quantity) {
-        return json({ error: 'the reference and what it reports are both needed' }, 400, allowOrigin);
+      // One open box: people write whatever they have. A title is derived from the first line so
+      // the queue is skimmable, and the text is filed verbatim underneath.
+      const submission = clean(f.submission, MAX.submission);
+      if (!submission) {
+        return json({ error: 'please write something about the study' }, 400, allowOrigin);
       }
-      title = `Missing study: ${reference.slice(0, 80)}`;
-      body = [
-        `**Reference**: ${reference}`, '',
-        '**What it reports**', quantity, '',
-        `**Out of what**: ${clean(f.denominator, MAX.denominator) || '(not given)'}`,
-        `**Where in the paper**: ${clean(f.where, MAX.where) || '(not given)'}`, '',
-        '**Anything else**', clean(f.context, MAX.context) || '(none)',
-      ].join('\n');
+      const firstLine = submission.split('\n').find(l => l.trim()) || submission;
+      title = `Missing study: ${firstLine.trim().slice(0, 80)}`;
+      body = submission;
     }
 
     const contact = clean(f.contact, MAX.contact);
