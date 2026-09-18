@@ -77,8 +77,11 @@ export function mountChrome(current, meta) {
                  ['studies/', 'Studies'], ['descriptives/', 'Descriptives'], ['data/', 'Data']];
   const nav = pages.map(([href, name]) =>
     `<a href="${BASE}${href}"${href === current ? ' aria-current="page"' : ''}>${name}</a>`).join('');
+  const main = document.querySelector('main.wrap');
+  if (main && !main.id) main.id = 'main';
   document.body.insertAdjacentHTML('afterbegin',
-    `<header class="top"><div class="wrap">
+    `<a class="skip" href="#main">Skip to content</a>
+     <header class="top"><div class="wrap">
        <a class="brand" href="${BASE}">Misinformation prevalence</a>
        <nav class="main">${nav}</nav>
      </div></header>`);
@@ -150,6 +153,54 @@ export function mountContributeCTA(meta, target) {
   }
 }
 
+
+/* ---------- filter state in the URL ----------
+ * A slice someone finds interesting should be something they can send to a colleague or cite.
+ * The state is a plain query string in the hash: #construct=EXPOSURE&ground_truth=domain_list,
+ * fact_checker. Unknown keys are ignored, so an old link never throws.
+ */
+
+export function encodeFilters(sel, extra = {}) {
+  const p = new URLSearchParams();
+  for (const [f, on] of Object.entries(sel)) {
+    if (on && on.size) p.set(f, [...on].join(','));
+  }
+  for (const [k, v] of Object.entries(extra)) {
+    if (v !== '' && v != null && v !== false) p.set(k, String(v));
+  }
+  return p.toString();
+}
+
+export function decodeFilters(fields) {
+  const p = new URLSearchParams(location.hash.replace(/^#/, ''));
+  const sel = {}, extra = {};
+  for (const [k, v] of p.entries()) {
+    if (fields.includes(k)) {
+      const vals = v.split(',').filter(Boolean);
+      if (vals.length) sel[k] = new Set(vals);
+    } else {
+      extra[k] = v;
+    }
+  }
+  return { sel, extra };
+}
+
+/* Write without stacking history entries — a filter is not a page you go "back" from. */
+export function writeFilters(sel, extra = {}) {
+  const q = encodeFilters(sel, extra);
+  history.replaceState(null, '', q ? '#' + q : location.pathname + location.search);
+}
+
+/* A button that copies the current address, with its filters, to the clipboard. */
+export function wireShare(btn) {
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    navigator.clipboard?.writeText(location.href);
+    const was = btn.textContent;
+    btn.textContent = 'link copied';
+    setTimeout(() => { btn.textContent = was; }, 1400);
+  });
+}
 
 /* ---------- the submission form ----------
  * Only shown when meta.submit_endpoint is set. Without it the site falls back to the GitHub issue
@@ -269,7 +320,7 @@ export function wireSubmissionForm(root, meta, onDone) {
 const COUNTS = /^\s*[\d,]+(\.\d+)?\s+of\s+[\d,]+/i;
 
 const CODING_ORDER = [
-  ['construct', e => constructName(e.construct)],
+  ['construct', e => constructName(e.construct), 'construct'],
   ['measurement', e => valueLabel(e.measurement, 'measurement')],
   ['classification_level', e => valueLabel(e.classification_level, 'classification_level')],
   ['ground_truth', e => valueLabel(e.ground_truth, 'ground_truth')],
@@ -306,10 +357,13 @@ export function recordHTML(e, studies, opts = {}) {
     ? e.moderator_quote : null;
   const counts = e.value_raw && COUNTS.test(e.value_raw) && e.value != null ? e.value_raw : null;
 
+  // Each coded field links to the chart that shows its levels, so a term the reader does not
+  // know is one click from being defined rather than something to go hunting for.
   const coding = CODING_ORDER.map(([f, get]) => {
     const v = get(e);
     if (!v || v === 'not_reported' || v === '—') return '';
-    return `<div><dt>${esc(fieldLabel(f))}</dt><dd>${esc(v)}</dd></div>`;
+    const href = `${BASE}descriptives/#field-${f}`;
+    return `<div><dt><a href="${href}">${esc(fieldLabel(f))}</a></dt><dd>${esc(v)}</dd></div>`;
   }).join('');
 
   const conc = e.conc_share_pct

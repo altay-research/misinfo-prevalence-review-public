@@ -17,6 +17,10 @@ main.wrap{padding-top:26px;padding-bottom:10px}
 .num,code,kbd{font-family:var(--mono);font-variant-numeric:tabular-nums}
 
 /* ---- masthead + nav ---- */
+/* Visible only when tabbed to: keyboard users should not have to walk the whole nav on every page */
+.skip{position:absolute;left:-9999px;top:0;z-index:60;background:var(--ink);color:#fff;
+  padding:12px 18px;border-radius:0 0 8px 0;font:13px var(--sans);text-decoration:none}
+.skip:focus{left:0}
 header.top{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:40}
 header.top .wrap{display:flex;align-items:center;gap:22px;height:52px}
 .brand{font-weight:650;font-size:14.5px;letter-spacing:-.01em;white-space:nowrap;text-decoration:none;color:var(--ink)}
@@ -110,6 +114,7 @@ table.grid tr.grouphead:hover td{background:var(--panel)}
 /* ---- the estimate record ---- */
 .record{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;scroll-margin-top:72px}
 h2[id],[id]{scroll-margin-top:72px}
+#codebook h3.field-hit{background:#fff6d9;box-shadow:-8px 0 0 #fff6d9,8px 0 0 #fff6d9;border-radius:2px}
 .record .rhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 20px 0}
 .record .rid{font:11.5px/1 var(--mono);color:var(--faint);margin-left:auto}
 .record .rval{font-family:var(--mono);font-size:44px;line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--accent)}
@@ -131,6 +136,8 @@ h2[id],[id]{scroll-margin-top:72px}
   margin:16px 20px 0;padding-top:16px;border-top:1px solid var(--line2)}
 .record dl.coding div{padding:5px 0;border-bottom:1px solid var(--line2)}
 .record dl.coding dt{font:11px/1.4 var(--mono);color:var(--faint);letter-spacing:.04em}
+.record dl.coding dt a{color:inherit;text-decoration:none;border-bottom:1px dotted #ccd1d7}
+.record dl.coding dt a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 .record dl.coding dd{margin:3px 0 0;font-size:13px}
 .record .rfoot{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px;padding:13px 20px;
   background:var(--panel);border-top:1px solid var(--line)}

@@ -37,7 +37,8 @@
 
 <script type="module">
 import { data, setMeta, mountChrome, mountFooter, recordHTML, esc,
-         valueLabel, constructName, fieldLabel, wireCopy, clip, num, plural, mountContributeCTA, matchesQuery , addPaperLink } from '../assets/site.js';
+         valueLabel, constructName, fieldLabel, wireCopy, clip, num, plural, mountContributeCTA, matchesQuery, addPaperLink,
+         decodeFilters, writeFilters, wireShare } from '../assets/site.js';
 
 mountChrome('estimates/');
 const d = await data();
@@ -47,7 +48,26 @@ mountFooter(d.meta);
 wireCopy(document, d.meta);
 
 const FIELDS = d.meta.controls;
-const state = { q: '', sort: 'construct', mainonly: true, on: {}, limit: 60 };
+// The filters live in the URL, so a slice can be sent to someone. An estimate permalink
+// (#<eid>) still wins: it is a different kind of link and opening a record is what it is for.
+const isRecordLink = /^#[0-9a-f]{6,}$/.test(location.hash);
+const restored = isRecordLink ? { sel: {}, extra: {} } : decodeFilters(d.meta.controls);
+const state = {
+  q: restored.extra.q || '',
+  sort: restored.extra.sort || 'construct',
+  mainonly: restored.extra.all !== '1',
+  on: restored.sel,
+  limit: 60,
+};
+
+function syncURL() {
+  if (/^#[0-9a-f]{6,}$/.test(location.hash)) return;   // a record is open; leave its link alone
+  writeFilters(state.on, {
+    q: state.q,
+    sort: state.sort === 'construct' ? '' : state.sort,
+    all: state.mainonly ? '' : '1',
+  });
+}
 const uniq = f => [...new Set(d.estimates.map(e => e[f]).filter(Boolean))].sort();
 
 // ---- filters
@@ -65,7 +85,19 @@ fbox.innerHTML = FIELDS.map(f => {
   return `<div class="ctrl"><label>${esc(fieldLabel(f))}</label><div class="chips" data-f="${f}">` +
     vals.map(v => `<span class="chip" role="button" aria-pressed="false" data-v="${esc(v)}">${esc(levelName(f, v))}</span>`).join('') +
     `</div></div>`;
-}).join('') + `<button class="btn" id="clear" style="width:100%">clear all filters</button>`;
+}).join('') +
+  `<button class="btn" id="share" style="width:100%;margin-bottom:8px">copy link to this view</button>` +
+  `<button class="btn" id="clear" style="width:100%">clear all filters</button>`;
+
+for (const [f, on] of Object.entries(state.on)) {
+  for (const v of on) {
+    fbox.querySelector(`.chips[data-f="${f}"] .chip[data-v="${CSS.escape(v)}"]`)
+      ?.setAttribute('aria-pressed', 'true');
+  }
+}
+document.getElementById('q').value = state.q;
+document.getElementById('sort').value = state.sort;
+document.getElementById('mainonly').checked = state.mainonly;
 
 fbox.addEventListener('click', ev => {
   const chip = ev.target.closest('.chip');
@@ -75,21 +107,21 @@ fbox.addEventListener('click', ev => {
     on.has(v) ? on.delete(v) : on.add(v);
     if (!on.size) delete state.on[f];
     chip.setAttribute('aria-pressed', String(on.has(v)));
-    state.limit = 60; render();
+    state.limit = 60; render(); syncURL();
   }
   if (ev.target.id === 'clear') {
-    state.on = {}; state.limit = 60;
+    state.on = {}; state.limit = 60; state.q = ''; document.getElementById('q').value = '';
     fbox.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
-    render();
+    render(); syncURL();
   }
 });
 
 document.getElementById('q').addEventListener('input', e => {
-  state.q = e.target.value.trim(); state.limit = 60; render();
+  state.q = e.target.value.trim(); state.limit = 60; render(); syncURL();
 });
-document.getElementById('sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
+document.getElementById('sort').addEventListener('change', e => { state.sort = e.target.value; render(); syncURL(); });
 document.getElementById('mainonly').addEventListener('change', e => {
-  state.mainonly = e.target.checked; state.limit = 60; render();
+  state.mainonly = e.target.checked; state.limit = 60; render(); syncURL();
 });
 document.getElementById('more').addEventListener('click', () => { state.limit += 120; render(); });
 
@@ -172,7 +204,8 @@ document.getElementById('csv').addEventListener('click', () => {
   a.download = 'misinfo_estimates_filtered.csv'; a.click();
 });
 
+wireShare(document.getElementById('share'));
 render();
-if (location.hash) open(location.hash.slice(1));
+if (isRecordLink) open(location.hash.slice(1));
 </script>
 </body></html>

@@ -63,7 +63,8 @@
 
 <script type="module">
 import { data, setMeta, mountChrome, mountFooter, recordHTML, esc,
-         valueLabel, constructName, fieldLabel, wireCopy, num, plural, mountContributeCTA , addPaperLink } from '../assets/site.js';
+         valueLabel, constructName, fieldLabel, wireCopy, num, plural, mountContributeCTA, addPaperLink,
+         decodeFilters, writeFilters, wireShare } from '../assets/site.js';
 import { summarise, fmt } from '../assets/agg.js';
 
 mountChrome('explore/');
@@ -76,19 +77,37 @@ const MAIN = d.estimates.filter(e => e.main && e.value != null);
 const uniq = (f, pool) => [...new Set((pool || d.estimates).map(e => e[f]).filter(Boolean))].sort();
 
 /* ============================ tabs ============================ */
-document.querySelectorAll('[role=tab]').forEach(b => b.addEventListener('click', () => {
-  document.querySelectorAll('[role=tab]').forEach(x => x.setAttribute('aria-selected', String(x === b)));
-  document.getElementById('tab-build').hidden = b.dataset.tab !== 'build';
-  document.getElementById('tab-all').hidden = b.dataset.tab !== 'all';
-  if (b.dataset.tab === 'all') drawSwarm();
-}));
+function showTab(name) {
+  document.querySelectorAll('[role=tab]').forEach(x =>
+    x.setAttribute('aria-selected', String(x.dataset.tab === name)));
+  document.getElementById('tab-build').hidden = name !== 'build';
+  document.getElementById('tab-all').hidden = name !== 'all';
+  if (name === 'all') drawSwarm(); else build();
+  syncURL();
+}
+document.querySelectorAll('[role=tab]').forEach(b =>
+  b.addEventListener('click', () => showTab(b.dataset.tab)));
 
 /* ==================== tab 1 — build an estimate ==================== */
 // Ordered so the first three questions are the ones that move the number most
 // (ground truth 22.8%, identification level, construct 19.1% of between-estimate variance).
-const BUILD = ['construct','ground_truth','classification_level','breadth','denom_class',
-               'platform','topic','sampling','country_scope'];
-const sel = { construct: new Set(['EXPOSURE']) };
+const BUILD = ['construct','measurement','ground_truth','classification_level','breadth',
+               'denom_class','platform_norm','topic','sampling_frame','country_scope'];
+
+// ONE selection, shared by both tabs and carried in the URL. Filtering the swarm and then
+// switching to Build an estimate used to silently discard the filter, which made the two tabs
+// feel like two different pages rather than two views of the same slice.
+const restored = decodeFilters(d.meta.controls);
+const sel = Object.keys(restored.sel).length ? restored.sel : { construct: new Set(['EXPOSURE']) };
+const initialTab = restored.extra.tab === 'build' ? 'build' : 'all';
+
+function syncURL() {
+  writeFilters(sel, {
+    tab: document.querySelector('[role=tab][aria-selected="true"]')?.dataset.tab,
+    group: document.getElementById('groupby')?.value,
+    colour: document.getElementById('colorby')?.value,
+  });
+}
 
 const cbox = document.getElementById('controls');
 // The build tab offers the six prevalence constructs in the article's order; QUALITY and OTHER
@@ -102,7 +121,9 @@ cbox.innerHTML = BUILD.map(f => {
   return `<div class="ctrl"><label>${esc(fieldLabel(f))}</label><div class="chips" data-f="${f}">` +
     vals.map(v => `<span class="chip" role="button" aria-pressed="${sel[f]?.has(v) ? 'true' : 'false'}" data-v="${esc(v)}">${esc(levelName(f, v))}</span>`).join('') +
     `</div></div>`;
-}).join('') + `<button class="btn" id="reset" style="width:100%">reset</button>`;
+}).join('') +
+  `<button class="btn" id="share" style="width:100%;margin-bottom:8px">copy link to this view</button>` +
+  `<button class="btn" id="reset" style="width:100%">reset</button>`;
 
 cbox.addEventListener('click', ev => {
   const chip = ev.target.closest('.chip');
@@ -112,16 +133,22 @@ cbox.addEventListener('click', ev => {
     on.has(v) ? on.delete(v) : on.add(v);
     if (!on.size) delete sel[f];
     chip.setAttribute('aria-pressed', String(!!sel[f]?.has(v)));
-    build();
+    redraw();
   }
   if (ev.target.id === 'reset') {
     for (const k of Object.keys(sel)) delete sel[k];
     sel.construct = new Set(['EXPOSURE']);
     cbox.querySelectorAll('.chip').forEach(c =>
       c.setAttribute('aria-pressed', String(c.closest('.chips').dataset.f === 'construct' && c.dataset.v === 'EXPOSURE')));
-    build();
+    redraw();
   }
 });
+
+function redraw() {
+  build();
+  if (!document.getElementById('tab-all').hidden) drawSwarm();
+  syncURL();
+}
 
 const picked = e => Object.entries(sel).every(([f, on]) => on.has(e[f]));
 
@@ -219,13 +246,15 @@ for (const [id, def] of [['groupby', 'construct'], ['colorby', 'ground_truth']])
 }
 document.getElementById('xscale').addEventListener('change', drawSwarm);
 document.getElementById('mainonly2').addEventListener('change', drawSwarm);
+for (const id of ['groupby', 'colorby']) document.getElementById(id).addEventListener('change', syncURL);
 
 function drawSwarm() {
   const gb = document.getElementById('groupby').value;
   const cb = document.getElementById('colorby').value;
   const log = document.getElementById('xscale').value === 'log';
-  const pool = document.getElementById('mainonly2').checked
+  const base = document.getElementById('mainonly2').checked
     ? MAIN : d.estimates.filter(e => e.value != null);
+  const pool = base.filter(picked);          // the same selection the build tab uses
 
   const colors = {}; uniq(cb, pool).forEach((v, i) => colors[v] = WONG[i % WONG.length]);
   document.getElementById('legend').innerHTML =
@@ -246,8 +275,10 @@ function drawSwarm() {
   }
   const rowName = k => gb === 'construct' ? constructName(k) : valueLabel(k, gb);
 
+  const active = Object.keys(sel).filter(f => sel[f] && sel[f].size);
   document.getElementById('count2').textContent =
-    `${plural(pool.length, 'estimate')} from ${plural(new Set(pool.map(e => e.id)).size, 'study', 'studies')}`;
+    `${plural(pool.length, 'estimate')} from ${plural(new Set(pool.map(e => e.id)).size, 'study', 'studies')}` +
+    (active.length ? ` · filtered by ${active.map(fieldLabel).join(', ').toLowerCase()}` : '');
 
   const svg = document.getElementById('swarm');
   const W = svg.clientWidth || 900, padL = 190, padR = 26, padT = 16;
@@ -283,8 +314,33 @@ function drawSwarm() {
   svg.onclick = ev => { const c = ev.target.closest('[data-eid]'); if (c) openRecord(c.dataset.eid, 'open2'); };
 }
 
-build();
-drawSwarm();
+// restore the view the link encoded
+for (const [id, key] of [['groupby', 'group'], ['colorby', 'colour']]) {
+  if (restored.extra[key] && d.meta.controls.includes(restored.extra[key])) {
+    document.getElementById(id).value = restored.extra[key];
+  }
+}
+wireShare(document.getElementById('share'));
+showTab(initialTab);
+
+// Changing the hash in the address bar, or pressing Back, is a same-document navigation: the
+// module does not re-run, so without this a pasted link only works in a fresh tab.
+// writeFilters uses replaceState, which fires no hashchange, so this cannot loop.
+addEventListener('hashchange', () => {
+  const now = decodeFilters(d.meta.controls);
+  for (const k of Object.keys(sel)) delete sel[k];
+  Object.assign(sel, Object.keys(now.sel).length ? now.sel : { construct: new Set(['EXPOSURE']) });
+  cbox.querySelectorAll('.chip').forEach(c => {
+    const f = c.closest('.chips').dataset.f;
+    c.setAttribute('aria-pressed', String(!!sel[f]?.has(c.dataset.v)));
+  });
+  for (const [id, key] of [['groupby', 'group'], ['colorby', 'colour']]) {
+    if (now.extra[key] && d.meta.controls.includes(now.extra[key])) {
+      document.getElementById(id).value = now.extra[key];
+    }
+  }
+  showTab(now.extra.tab === 'build' ? 'build' : 'all');
+});
 addEventListener('resize', () => { build(); if (!document.getElementById('tab-all').hidden) drawSwarm(); });
 </script>
 </body></html>

@@ -62,18 +62,32 @@ function bars(rows, total, order, name) {
 }
 
 const blocks = d.meta.controls.map(f => `
-  <h3>${esc(fieldLabel(f))}</h3>
+  <h3 id="field-${f}">${esc(fieldLabel(f))}</h3>
   ${bars(counts(f), TOTAL,
          f === 'construct' ? d.meta.construct_order : null,
          v => f === 'construct' ? constructName(v) : valueLabel(v, f))}`).join('');
 
 // Risk of bias is a study-level appraisal, so it is counted over studies, not estimates.
 const robRows = [...Object.values(d.studies).reduce((m, s) => m.set(s.rob, (m.get(s.rob) || 0) + 1), new Map())];
-const robBlock = `<h3>Risk of bias</h3>
+const robBlock = `<h3 id="field-rob">Risk of bias</h3>
   ${bars(robRows, d.meta.n_studies, ['LOW', 'MODERATE', 'HIGH'], v => String(v).toLowerCase())}
   <p class="small muted">Counted over the ${d.meta.n_studies} studies; every other chart here is
      over the ${num(TOTAL)} estimates.</p>`;
 
 document.getElementById('codebook').innerHTML = blocks + robBlock;
+
+// The charts are built in JavaScript, so the browser has already given up on #field-... by the
+// time they exist. Jump and highlight here instead, and again if the hash changes.
+function jumpToField() {
+  const id = location.hash.slice(1);
+  if (!/^field-/.test(id)) return;
+  const el = document.getElementById(id);
+  if (!el) return;
+  document.querySelectorAll('.field-hit').forEach(e => e.classList.remove('field-hit'));
+  el.classList.add('field-hit');
+  el.scrollIntoView({ block: 'start' });
+}
+jumpToField();
+addEventListener('hashchange', jumpToField);
 </script>
 </body></html>
