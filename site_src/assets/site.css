@@ -24,6 +24,8 @@ nav.main{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
 nav.main a{font:12.5px/1 var(--mono);color:var(--mut);text-decoration:none;padding:8px 11px;border-radius:6px}
 nav.main a:hover{background:var(--panel);color:var(--ink)}
 nav.main a[aria-current]{background:var(--ink);color:#fff}
+nav.main a.paper{background:var(--accent);color:#fff;margin-left:8px}
+nav.main a.paper:hover{background:#005c91;color:#fff}
 
 /* ---- headings ---- */
 h1{font-size:30px;line-height:1.18;letter-spacing:-.02em;margin:0 0 10px;font-weight:680}

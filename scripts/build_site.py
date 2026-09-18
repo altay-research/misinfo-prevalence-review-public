@@ -29,6 +29,11 @@ from lib_slices import sl, el, iqr, group_by_study
 # The public repo the "flag a coding error" links point at. Change here, nowhere else.
 REPO = "altay-research/misinfo-prevalence-review-public"
 
+# The preprint. Set this the day it goes up and rebuild; every link to it across the site comes
+# from here. Until then the masthead link is absent and the citation says so rather than pointing
+# at nothing. check_site.py asserts that a set URL actually reaches the pages.
+PREPRINT_URL = None        # e.g. "https://osf.io/preprints/psyarxiv/XXXXX"
+
 ROOT = Path(__file__).resolve().parents[1]
 SRC  = ROOT / "site_src"
 OUT  = ROOT / "site"
@@ -406,6 +411,7 @@ def main():
         "construct_names": CONSTRUCT_NAME, "construct_order": PREV,
         "field_value_labels": FIELD_VALUE_LABEL,
         "headline": head, "slice_notes": slice_notes, "repo": REPO,
+        "preprint": PREPRINT_URL,
         "counts": crosswalk_counts(),
         "figures": figures,
     }

@@ -113,7 +113,7 @@ USER_PATH_RE = re.compile(r"/Users/[A-Za-z0-9._-]+")
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 ALLOWED_EMAILS = {
     "sachayesilaltay@gmail.com",      # author, polite-pool contact in the retrieval scripts
-    "sacha.altay@uzh.ch",             # author, corresponding-author line of the manuscript
+    "sachayesilaltay@gmail.com",      # author, corresponding-author line of the manuscript
     "journee-etudes@arcom.fr",        # Arcom's public submission mailbox (research_log.md)
 }
 

@@ -18,9 +18,9 @@
 
 <script type="module">
 import { data, setMeta, mountChrome, mountFooter, esc, fieldLabel, valueLabel, num,
-         constructName, mountContributeCTA } from '../assets/site.js';
+         constructName, mountContributeCTA , addPaperLink } from '../assets/site.js';
 mountChrome('descriptives/');
-const d = await data(); setMeta(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta);
+const d = await data(); setMeta(d.meta); addPaperLink(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta);
 
 // Every figure in the article, in its own numbering, with the article's own captions. Both come
 // from make_nhb_docx.py via the build script, so the site cannot carry a figure the paper does not.

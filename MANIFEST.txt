@@ -12,10 +12,10 @@ By directory
   .github                    1 files       862 B
   data                     294 files     12.3 MB
   docs                     225 files      9.4 MB
-  scripts                   66 files    735.6 KB
+  scripts                   66 files    737.5 KB
   searches                   6 files     25.3 KB
   site                      25 files      4.3 MB
-  site_src                  10 files     65.0 KB
+  site_src                  10 files     66.7 KB
 
 Excluded, and why
 -----------------
@@ -556,7 +556,7 @@ Files
        13836  docs/learned_review_rules.md
        17439  docs/litreview_measurement.html
         8050  docs/llm_provenance.md
-      125912  docs/manuscript_draft.md
+      125895  docs/manuscript_draft.md
        28171  docs/moderator_codebook.md
         8333  docs/package_promises_2026-09-14.md
       102740  docs/phaseB_dashboard.html
@@ -569,7 +569,7 @@ Files
        14319  docs/prisma_flow.svg
        10881  docs/protocol.md
         5426  docs/replication_package.md
-      872723  docs/research_log.md
+      873811  docs/research_log.md
        11404  docs/rob_checklist_v3.md
         1730  docs/screening_criteria.txt
         2312  docs/screening_criteria_stage2.txt
@@ -583,11 +583,11 @@ Files
        16623  scripts/build_companion_dashboard.py
        16847  scripts/build_litreview_html.py
        47815  scripts/build_public_package.py
-       24968  scripts/build_site.py
+       25352  scripts/build_site.py
         4960  scripts/check_invariants.py
-      110600  scripts/check_manuscript_stats.py
+      111208  scripts/check_manuscript_stats.py
         2281  scripts/check_pipeline_docs.py
-       19638  scripts/check_site.py
+       20298  scripts/check_site.py
         2845  scripts/fetch_abstracts_crossref_pubmed.py
         3789  scripts/fetch_abstracts_openalex.py
         4244  scripts/fetch_abstracts_openalex_batch.py
@@ -599,7 +599,7 @@ Files
        16979  scripts/make_counts_crosswalk.py
         6830  scripts/make_forest_plot.py
         7932  scripts/make_manuscript_docx.py
-       23065  scripts/make_nhb_docx.py
+       23337  scripts/make_nhb_docx.py
        33020  scripts/make_prisma.py
         4874  scripts/make_si_characteristics.py
        35439  scripts/make_si_lists.py
@@ -651,20 +651,20 @@ Files
         3789  searches/scopus_query_log.tsv
         3319  searches/tune_search_20260620_075013.json
         4598  site/assets/agg.js
-       11945  site/assets/site.css
-       11592  site/assets/site.js
+       12069  site/assets/site.css
+       12735  site/assets/site.js
      2122410  site/data/estimates.json
-        3933  site/data/index.html
-        8033  site/data/meta.json
+        4122  site/data/index.html
+        8049  site/data/meta.json
        25875  site/data/slices.json
       162925  site/data/studies.json
-        3784  site/descriptives/index.html
+        3821  site/descriptives/index.html
       206777  site/downloads/fulltext_exclusions.csv
       101865  site/downloads/included_studies.csv
      1574383  site/downloads/misinfo_prevalence_estimates.csv
       141137  site/downloads/study_characteristics.csv
-        7865  site/estimates/index.html
-       15309  site/explore/index.html
+        7935  site/estimates/index.html
+       15379  site/explore/index.html
          327  site/favicon.svg
        14731  site/figures/figure_1.svg
        13295  site/figures/figure_2.svg
@@ -673,15 +673,15 @@ Files
         3665  site/figures/figure_5.svg
         8478  site/figures/supplementary_figure_1.svg
        15008  site/figures/supplementary_figure_2.svg
-        3067  site/index.html
-        5086  site/studies/index.html
+        3098  site/index.html
+        5147  site/studies/index.html
         4598  site_src/assets/agg.js
-       11945  site_src/assets/site.css
-       11592  site_src/assets/site.js
-        3933  site_src/data/index.html
-        3798  site_src/descriptives/index.html
-        7869  site_src/estimates/index.html
-       15309  site_src/explore/index.html
+       12069  site_src/assets/site.css
+       12735  site_src/assets/site.js
+        4122  site_src/data/index.html
+        3835  site_src/descriptives/index.html
+        7939  site_src/estimates/index.html
+       15379  site_src/explore/index.html
          327  site_src/favicon.svg
-        2054  site_src/index.html
-        5106  site_src/studies/index.html
+        2085  site_src/index.html
+        5167  site_src/studies/index.html

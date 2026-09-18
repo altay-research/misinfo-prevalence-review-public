@@ -216,7 +216,7 @@ Use of AI: generative AI (Claude Opus 4.8, Opus 5, and Fable 5.1, Anthropic, 202
 
 ### 4.11 Data and code availability
 
-The frozen dataset, every analysis script, the append-only research log, the full risk-of-bias appraisals with their supporting quotes, and the complete adjudication trail of the independent-model verification, including every row where our own coding was found wrong, are deposited on the Open Science Framework under DOI **[DOI TO BE INSERTED ON DEPOSIT]**. All reported numbers regenerate deterministically from that one dataset; the deposit contains the scripts and the run order that do it. The working repository from which the deposit is built also holds the full texts of the included studies, which cannot be redistributed, so the deposit is a curated subset and not a mirror of it.
+The frozen dataset, every analysis script, the append-only research log, the full risk-of-bias appraisals with their supporting quotes, and the complete adjudication trail of the independent-model verification, including every row where our own coding was found wrong, are released in full as a replication package accompanying this preprint. All reported numbers regenerate deterministically from that one dataset; the deposit contains the scripts and the run order that do it. The working repository from which the deposit is built also holds the full texts of the included studies, which cannot be redistributed, so the deposit is a curated subset and not a mirror of it.
 
 ---
 

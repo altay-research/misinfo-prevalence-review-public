@@ -37,11 +37,11 @@
 
 <script type="module">
 import { data, setMeta, mountChrome, mountFooter, recordHTML, esc,
-         valueLabel, constructName, fieldLabel, wireCopy, clip, num, mountContributeCTA } from '../assets/site.js';
+         valueLabel, constructName, fieldLabel, wireCopy, clip, num, plural, mountContributeCTA, matchesQuery , addPaperLink } from '../assets/site.js';
 
 mountChrome('estimates/');
 const d = await data();
-setMeta(d.meta);
+setMeta(d.meta); addPaperLink(d.meta);
 mountContributeCTA(d.meta);
 mountFooter(d.meta);
 wireCopy();
@@ -85,7 +85,7 @@ fbox.addEventListener('click', ev => {
 });
 
 document.getElementById('q').addEventListener('input', e => {
-  state.q = e.target.value.toLowerCase().trim(); state.limit = 60; render();
+  state.q = e.target.value.trim(); state.limit = 60; render();
 });
 document.getElementById('sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
 document.getElementById('mainonly').addEventListener('change', e => {
@@ -98,9 +98,9 @@ function matches(e) {
   for (const [f, on] of Object.entries(state.on)) if (!on.has(e[f])) return false;
   if (state.q) {
     const st = d.studies[e.id] || {};
-    const hay = [e.title, st.title, st.author, st.venue, e.quote, e.denominator,
-                 e.measure_type, e.country, e.platform, e.id, e.eid].join(' ').toLowerCase();
-    if (!hay.includes(state.q)) return false;
+    const hay = [e.title, st.title, st.author, st.year, st.venue, e.quote, e.denominator,
+                 e.measure_type, e.country, e.platform, e.id, e.eid].join(' ');
+    if (!matchesQuery(hay, state.q)) return false;
   }
   return true;
 }
@@ -123,7 +123,7 @@ function sorted(list) {
 function render() {
   const hits = sorted(d.estimates.filter(matches));
   document.getElementById('count').textContent =
-    `${num(hits.length)} estimates from ${new Set(hits.map(e => e.id)).size} studies`;
+    `${plural(hits.length, 'estimate')} from ${plural(new Set(hits.map(e => e.id)).size, 'study', 'studies')}`;
   const shown = hits.slice(0, state.limit);
   let lastGroup = null;
   document.getElementById('rows').innerHTML = shown.map(e => {

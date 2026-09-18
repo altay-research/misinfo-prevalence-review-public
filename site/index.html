@@ -36,8 +36,8 @@
 
 </main>
 <script type="module">
-  import { mountChrome, mountFooter, meta, mountContributeCTA } from './assets/site.js';
+  import { mountChrome, mountFooter, meta, mountContributeCTA, addPaperLink } from './assets/site.js';
   mountChrome('');
-  meta().then(m => { mountContributeCTA(m); mountFooter(m); });
+  meta().then(m => { addPaperLink(m); mountContributeCTA(m); mountFooter(m); });
 </script>
 </body></html>

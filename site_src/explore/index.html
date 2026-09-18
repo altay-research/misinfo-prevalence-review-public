@@ -63,12 +63,12 @@
 
 <script type="module">
 import { data, setMeta, mountChrome, mountFooter, recordHTML, esc,
-         valueLabel, constructName, fieldLabel, wireCopy, num, mountContributeCTA } from '../assets/site.js';
+         valueLabel, constructName, fieldLabel, wireCopy, num, plural, mountContributeCTA , addPaperLink } from '../assets/site.js';
 import { summarise, fmt } from '../assets/agg.js';
 
 mountChrome('explore/');
 const d = await data();
-setMeta(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta); wireCopy();
+setMeta(d.meta); addPaperLink(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta); wireCopy();
 
 const WONG = ['#0072B2','#D55E00','#E69F00','#009E73','#56B4E9','#CC79A7','#F0E442',
               '#6a5acd','#8a6d3b','#475569','#0d9488','#9a3412'];
@@ -247,7 +247,7 @@ function drawSwarm() {
   const rowName = k => gb === 'construct' ? constructName(k) : valueLabel(k, gb);
 
   document.getElementById('count2').textContent =
-    `${num(pool.length)} estimates from ${new Set(pool.map(e => e.id)).size} studies`;
+    `${plural(pool.length, 'estimate')} from ${plural(new Set(pool.map(e => e.id)).size, 'study', 'studies')}`;
 
   const svg = document.getElementById('swarm');
   const W = svg.clientWidth || 900, padL = 190, padR = 26, padT = 16;

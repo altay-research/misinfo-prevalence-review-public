@@ -11163,3 +11163,19 @@ the independent-model adjudication trail. Denylist, absolute paths and contact d
 byline, affiliation and correspondence from the title page, which is right when a portal collects
 them and wrong for a paper posted publicly: as built, the preprint would carry no author. And the
 DOI is circular — it can only be minted once the deposit exists, then §4.11 and a rebuild follow.
+
+### Preprint state: the author is back, the DOI sentence is out
+
+- **Title page carries its author again** — byline, affiliation and correspondence. Cut on
+  2026-09-18 for a journal submission, where the portal collects authorship; restored the same day
+  because a preprint is posted publicly and must carry it. The three ledger rows recording his cut
+  are marked superseded with that reason, so the reversal is on the record rather than looking like
+  another overwrite.
+- **§4.11 no longer names a DOI.** It reads "released in full as a replication package accompanying
+  this preprint": the deposit does not exist yet, and a `[DOI TO BE INSERTED]` placeholder in a
+  publicly posted paper is worse than no sentence.
+
+The reminder that watches this had to be rewritten, and the reason is worth keeping. It fired on the
+PRESENCE of the placeholder, so deleting the placeholder silently switched it off — a check keyed to
+a stand-in for the thing rather than to the thing. It now fires on the ABSENCE of a DOI pattern in
+§4.11 and will keep reporting until a real one is there.

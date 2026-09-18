@@ -1029,11 +1029,18 @@ add_in("3. Discussion", "Discussion sharing", f'the observed sharing ({_slc["SHA
 add_in("B1.", "C1 released freeze size", f'({len(_all)} estimates at the released freeze)')
 add_in("B3.", "C3 seventh limitation", f"{_ab0} studies were coded from the abstract alone")
 
-# NOT a MUST_NOT: the placeholder is correct until the DOI exists. This reports it every run so it
-# cannot be forgotten, and says nothing once a real DOI replaces it (2026-09-17).
-if "[DOI TO BE INSERTED ON DEPOSIT]" in MS:
-    STALE_SUPP.append("data availability still carries the DOI placeholder — mint the OSF DOI "
-                      "and replace it before upload (docs/manuscript_draft.md, section 4.11)")
+# NOT a MUST_NOT: a missing DOI is correct until the deposit exists. This reports every run so it
+# cannot be forgotten, and goes quiet once section 4.11 names a real DOI. Rewritten 2026-09-18 when
+# the placeholder itself came out for the preprint: the condition was "placeholder present", which
+# silently stopped firing the moment the placeholder was deleted — the reminder has to key on the
+# ABSENCE of a DOI, not the presence of a stand-in for one.
+_da = _section_body("4.11") or MS
+if not _re.search(r"\b10\.\d{4,9}/\S+", _da):
+    # PREPRINT STATE (2026-09-18): the DOI sentence is out, because the deposit does not exist yet
+    # and a placeholder in a publicly posted paper is worse than no sentence. This still reports,
+    # so the DOI cannot be forgotten when the OSF project is created and the paper goes to a journal.
+    STALE_SUPP.append("data availability names no DOI — correct for the preprint; mint the OSF DOI "
+                      "and put it back in section 4.11 before any journal submission")
 
 MUST_NOT = [
     # Sacha 2026-09-17: "the share is a share of is ipossible to read, never write that"

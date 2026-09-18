@@ -31,6 +31,16 @@ export async function data() {
   return (_data = { meta: m, estimates, studies, slices, byEid, byStudy, base: BASE });
 }
 
+/* Search is all-terms, not whole-string: the field order is author-then-title, so a substring
+ * match on "Guess 2020" finds nothing even though both terms are there. Split and require each. */
+export function matchesQuery(hay, q) {
+  if (!q) return true;
+  const h = hay.toLowerCase();
+  return q.toLowerCase().split(/\s+/).filter(Boolean).every(t => h.includes(t));
+}
+
+export const plural = (n, one, many) => `${num(n)} ${n === 1 ? one : (many || one + 's')}`;
+
 export const num = n => Number(n).toLocaleString('en-US');
 export const esc = s => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -62,7 +72,7 @@ export function constructName(c) {
   return (META && META.construct_names[c]) || String(c || '').toLowerCase();
 }
 
-export function mountChrome(current) {
+export function mountChrome(current, meta) {
   const pages = [['', 'Overview'], ['explore/', 'Explore'], ['estimates/', 'Estimates'],
                  ['studies/', 'Studies'], ['descriptives/', 'Descriptives'], ['data/', 'Data']];
   const nav = pages.map(([href, name]) =>
@@ -72,6 +82,19 @@ export function mountChrome(current) {
        <a class="brand" href="${BASE}">Misinformation prevalence</a>
        <nav class="main">${nav}</nav>
      </div></header>`);
+  // the paper itself, added to the masthead once it exists
+  if (meta && meta.preprint) {
+    document.querySelector('nav.main').insertAdjacentHTML('beforeend',
+      `<a class="paper" href="${meta.preprint}" target="_blank" rel="noopener">Read the paper &rarr;</a>`);
+  }
+}
+
+/* Called once meta has loaded, for pages that mount their chrome before fetching. */
+export function addPaperLink(meta) {
+  const nav = document.querySelector('nav.main');
+  if (!nav || !meta || !meta.preprint || nav.querySelector('.paper')) return;
+  nav.insertAdjacentHTML('beforeend',
+    `<a class="paper" href="${meta.preprint}" target="_blank" rel="noopener">Read the paper &rarr;</a>`);
 }
 
 export function mountFooter(meta) {

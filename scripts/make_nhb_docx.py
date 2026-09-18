@@ -322,9 +322,12 @@ def render(text, dst, figs, fig_marker, title_page=False, ref_list=None):
         r = t.add_run("Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration")
         r.bold = True
         r.font.size = Pt(15)
-        # Byline, affiliation and correspondence were cut from the title page on 2026-09-18
-        # (Sacha's edit). Authorship is supplied through the submission system.
-        for line in ("",):
+        # Cut on 2026-09-18 when this was a journal submission, where the portal collects
+        # authorship; restored the same day for the PREPRINT, which is posted publicly and must
+        # carry its author (Sacha, 2026-09-18: "yes add back author, me").
+        for line in ("", "Sacha Altay",
+                     "Department of Political Science, University of Zurich, Zurich, Switzerland",
+                     "Correspondence: sachayesilaltay@gmail.com", ""):
             doc.add_paragraph(line)
 
     lines = text.split("\n")

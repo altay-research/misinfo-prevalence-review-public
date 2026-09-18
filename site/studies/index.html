@@ -32,9 +32,9 @@
 
 <script type="module">
 import { data, setMeta, mountChrome, mountFooter, recordHTML, esc,
-         constructName, wireCopy, humanise, clip, num, mountContributeCTA } from '../assets/site.js';
+         constructName, wireCopy, humanise, clip, num, plural, mountContributeCTA, matchesQuery , addPaperLink } from '../assets/site.js';
 mountChrome('studies/');
-const d = await data(); setMeta(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta); wireCopy();
+const d = await data(); setMeta(d.meta); addPaperLink(d.meta); mountContributeCTA(d.meta); mountFooter(d.meta); wireCopy();
 
 const list = Object.entries(d.studies).map(([id, s]) => ({ id, ...s }));
 const state = { q: '', con: '', rob: '', sort: 'author', limit: 50 };
@@ -45,7 +45,7 @@ document.getElementById('con').innerHTML += d.meta.construct_order
 for (const [id, key] of [['q', 'q'], ['con', 'con'], ['rob', 'rob'], ['sort', 'sort']]) {
   const el = document.getElementById(id);
   el.addEventListener(id === 'q' ? 'input' : 'change', e => {
-    state[key] = id === 'q' ? e.target.value.toLowerCase().trim() : e.target.value;
+    state[key] = id === 'q' ? e.target.value.trim() : e.target.value;
     state.limit = 50; render();
   });
 }
@@ -55,8 +55,8 @@ function matches(s) {
   if (state.rob && s.rob !== state.rob) return false;
   if (state.con && !(s.constructs || '').includes(state.con)) return false;
   if (state.q) {
-    const hay = [s.author, s.year, s.title, s.venue, s.country, s.platform, s.id].join(' ').toLowerCase();
-    if (!hay.includes(state.q)) return false;
+    const hay = [s.author, s.year, s.title, s.venue, s.country, s.platform, s.id].join(' ');
+    if (!matchesQuery(hay, state.q)) return false;
   }
   return true;
 }
@@ -68,7 +68,7 @@ function render() {
   else hits.sort((a, b) => b.n_estimates - a.n_estimates);
 
   document.getElementById('count').textContent =
-    `${hits.length} studies · ${num(hits.reduce((n, s) => n + s.n_estimates, 0))} estimates`;
+    `${plural(hits.length, 'study', 'studies')} · ${plural(hits.reduce((n, s) => n + s.n_estimates, 0), 'estimate')}`;
   document.getElementById('rows').innerHTML = hits.slice(0, state.limit).map(s => `
     <tr class="clickable" data-id="${esc(s.id)}">
       <td><strong>${esc(s.author)} ${esc(s.year)}</strong>

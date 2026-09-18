@@ -339,6 +339,20 @@ for page in sorted(SITE.rglob("*.html")):
           f"used but not imported: {sorted(missing)}")
 
 
+# The preprint link is one constant in build_site.py. If it is set it must reach the pages; if it
+# is not, nothing on the site may claim a preprint exists.
+pre = meta.get("preprint")
+site_js = (SITE / "assets/site.js").read_text()
+check("addPaperLink" in site_js, "B/the preprint link is wired")
+for page in ("index.html", "data/index.html"):
+    check("addPaperLink" in (SITE / page).read_text(), f"B/{page} adds the paper link when set")
+if pre:
+    check(pre.startswith("https://"), "B/preprint URL is absolute https", pre)
+else:
+    check("preprint" in (SITE / "data/index.html").read_text(),
+          "B/data page says the preprint is still to come")
+
+
 # ---------------------------------------------------------------- C. links
 SCRIPT = re.compile(r"<script\b.*?</script>", re.S)
 for page in SITE.rglob("*.html"):
