@@ -1,6 +1,0 @@
-numerator,denominator,k_num,k_den,point_ratio,boot95_lo,boot95_hi
-RECALL,EXPOSURE,91,18,32.7,14.7,81.6
-RECALL-seen,EXPOSURE,71,18,43.9,20.4,99.1
-CONTENT,EXPOSURE,274,18,17.5,7.8,40.5
-RECALL,WHOLE-DIET backbone,91,34,6.3,4.8,11.8
-CONTENT,WHOLE-DIET backbone,274,34,3.3,2.5,6.0

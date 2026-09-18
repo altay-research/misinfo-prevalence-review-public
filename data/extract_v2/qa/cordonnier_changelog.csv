@@ -1,4 +1,0 @@
-id,action,construct,value_pct,note
-SEED-cordonnier2021,FIX flag,EXPOSURE,0.16,"clear abstract_only (full report read, confirmed)"
-SEED-cordonnier2021,FIX flag,EXPOSURE,5,"clear abstract_only (full report read, confirmed)"
-SEED-cordonnier2021,ADD REACH,REACH,39,"30-day reach of >=1 unreliable source, N=2372"

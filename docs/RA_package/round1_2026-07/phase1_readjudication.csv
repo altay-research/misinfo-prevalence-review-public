@@ -1,7 +1,0 @@
-order,item_id,verdict,construct,detail,change
-4,2-s2.0-105009619554,KEEP,CONTENT,"RESOLVED: primary=79% (contains any misinfo=52%+27%); secondary_severity=27% (entirely misleading, NESTED, descriptive-only, excl from pooled). n=100 TikTok #ADHD popularity.",confirmed keep + nested severity
-13,2-s2.0-105041276064,DROP,-,no clean stated estimate; 9.6% reconstructed from subgroup table; narrow single-rater; DISCERN-led,FLIP KEEP->DROP (Sacha right)
-24,2-s2.0-85066894147,KEEP,SHARING(content_share)+source_level,"RESOLVED KEEP: 20/30/40% = fake/(fake+traditional NEWS tweets) = within-news relative share; 'of news shared, ~20-40% fake'; source-list; denominator flagged",re-coded; kept
-51,2-s2.0-85151055175,DROP,-,stance-agnostic numerator (promote+refute) over fixed fact-checker topic dict; discussion volume not prevalence,FLIP KEEP->DROP (Sacha right)
-65,2-s2.0-105019603181,KEEP,REACH,"no overall figure; per-topic: electoral 12.7% (primary), social 10.9%, covid 6.7%, health 4.3% (secondary_topic); N=1240 weighted",confirmed keep + 3 topics
-81,OA-W4401812299,DROP,-,"25% = accounts spreading pro-Russian talking points = STANCE not falsity, account/producer-level",confirmed drop

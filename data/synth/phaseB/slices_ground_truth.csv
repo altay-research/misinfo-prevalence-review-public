@@ -1,6 +1,0 @@
-value,n_studies,sl_median,sl_iqr,sl_range,n_est,el_median
-classifier/LLM,21,18.0,3.2–29.4,0.5–56.0,32,17.1
-domain_list/NewsGuard,66,7.5,1.8–21.7,0.0–92.5,211,4.7
-fact_checker,18,7.4,0.7–44.8,0.2–74.0,63,11.9
-researcher_coding,243,24.5,10.1–39.6,0.0–94.3,363,22.6
-self_report,90,43.5,27.6–64.1,2.2–95.0,228,36.8
