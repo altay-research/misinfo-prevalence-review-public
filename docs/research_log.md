@@ -11289,3 +11289,61 @@ the same failure as reading a count instead of parsing the file, in a new costum
 
 Fourteen more iCloud duplicates had also appeared in the tree while this was going on; each was
 confirmed byte-identical to its original before removal.
+
+## 2026-09-18 (cont.) — tidying the public repository
+
+He looked at the repository and called it a mess. Two separate problems, one of them mine.
+
+**Duplicate directories, committed by me.** `docs 2/`, `site 2/` and `.github/workflows 2/` went up
+in the restore commit. The duplicate sweep I had just written tested FILE names only, so a whole
+duplicated folder walked straight past it. Both non-empty ones held OLDER snapshots than their
+originals (`research_log.md` 16:33 against 16:34, `studies/index.html` 16:33 against 16:36), checked
+before removal. The sweep now tests every component of a path, not the last one.
+
+**The root did not read as a replication package.** `site/`, `site_src/` and `worker/` sat between
+the data and the code: three directories about the website, which is the first thing a visitor met
+and not what they came for. He chose to group them rather than leave it or go further, so they are
+published under one `companion/` folder and the Pages workflow deploys `companion/site`.
+
+The published root is now `data/ scripts/ docs/ searches/ companion/` plus README, LICENSE, MANIFEST
+and requirements, and the README opens by saying what each of those is and that `companion/` is not
+needed to reproduce anything.
+
+**Only the PUBLISHED layout moved.** The working repository keeps `site/`, `site_src/` and `worker/`
+where they are, so the other session's scripts are untouched — the relocation is a remap in
+`build_public_package.py`, applied as files are copied. Git recorded it as 40 renames.
+
+Verified after the move rather than assumed: the Pages deployment ran green at 14:40 and the site
+serves from the new path.
+
+A relocation needs its own cleanup. The narrow stale sweep only removes DENIED files, so the old
+`site/` at the root survived the first rebuild and the package briefly held both copies. The builder
+now removes an old location once its `companion/` counterpart exists.
+
+---
+
+## 2026-09-18 (cont.) — working alongside another session on the public repo
+
+A second session reorganised `altay-research/misinfo-prevalence-review-public` while this one was
+building the companion site. Read its entries above for what moved; this note records the working
+rules that fell out of it, because two sessions touching one published repository is now a thing
+that happens here.
+
+- **The published layout is not the working layout.** `site/`, `site_src/` and `worker/` live at the
+  root of the working repo and publish under `companion/`. The remap is one function in
+  `build_public_package.py`; nothing else knows about it, and nothing else should.
+- **Seven paths are generated**: `README.md`, `LICENSE`, `MANIFEST.txt`,
+  `.github/workflows/pages.yml`, `.github/ISSUE_TEMPLATE/*.yml`, `data/identifiers/*.csv`,
+  `searches/README.md`. Editing the repo copy loses the edit on the next build. Edit the generator.
+- **Pull before pushing the deposit, and never build while mid-commit.** A `--force` rebuild used to
+  empty the directory first; a commit landing inside that window published five files where there
+  had been 640. The builder overwrites in place now and sweeps only denied leftovers, but the two
+  habits are still the right ones.
+- **Check `git status` before `git add -A` there.** Desktop is iCloud-synced, so a sync landing
+  mid-write leaves `docs 2/`, `site 3/`. The builder denies any path component matching
+  `<name> <number>`; that guard exists because duplicate FOLDERS once passed a check that tested
+  file names only.
+
+Verified after the move, from this session: every live route returns 200, and this session's own
+two changes — the widened contribution panel and the canonical estimate permalink — are present in
+the published tree and being served.

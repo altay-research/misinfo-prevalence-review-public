@@ -64,8 +64,16 @@ Then:
 python3 scripts/build_site.py
 python3 scripts/check_site.py
 python3 scripts/build_public_package.py --force
-cd ~/Desktop/Claude/Random/misinfo-prevalence-review-public && git add -A && git commit -m "Turn on the submission form" && git push
+
+cd ~/Desktop/Claude/Random/misinfo-prevalence-review-public
+git pull --rebase                 # someone else may have pushed
+git status --short                # nothing with " 2" or " 3" in its name should be staged
+git add -A && git commit -m "Turn on the submission form" && git push
 ```
+
+The pull and the status check are not ceremony. Two sessions have worked on this repository on the
+same day, and Desktop is iCloud-synced, so a build can pick up `docs 2/` or `site 3/` if a sync
+lands mid-write. The builder denies those paths now, but check anyway.
 
 The form appears on every page in place of the GitHub button. The GitHub route stays available as
 a link under the form for people who prefer it.
