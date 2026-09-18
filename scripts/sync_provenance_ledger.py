@@ -34,8 +34,10 @@ lines = [BEGIN,
          "|---|---|---|---|---|---|"]
 for v, d, f, rows, md5, built in frs:
     tag = f"dataset-frozen-{v}"
-    lines.append(f"| **{v}** | {d} | {rows.strip()} | `{md5[:12]}…` | "
-                 f"{'`'+tag+'`' if tag in tags else '—'} | {built.strip()} |")
+    # The tag NAME is a fact recorded in FROZEN.md and is printed as such; whether this checkout
+    # carries the tag is the WARNING below. Printing "—" for an absent tag made the public package,
+    # whose history has no tags, rewrite a committed document on every clean run (2026-09-18).
+    lines.append(f"| **{v}** | {d} | {rows.strip()} | `{md5[:12]}…` | `{tag}` | {built.strip()} |")
 lines += ["", END]
 
 s = open(LEDGER).read()

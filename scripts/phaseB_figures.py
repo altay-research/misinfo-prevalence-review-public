@@ -131,11 +131,14 @@ def fig2():
            ("By ground-truth source",_bysize(m3)),("By construct",_bysize(m4)),
            ("By identification level",_bysize(m5))]
     rowsN=sum(1+len(b[1]) for b in bands)
-    W,H=780,70+30*rowsN; L,Rp=250,60; xmax=65   # axis cut at 65%: the largest median is 57% (Sacha, 2026-09-11)
+    # +22px of height over the old 70 to carry an axis title under the tick labels: the bars were
+    # unlabelled percentages of nothing in particular unless the reader had the caption to hand.
+    W,H=780,92+30*rowsN; L,Rp=250,60; xmax=65   # axis cut at 65%: the largest median is 57% (Sacha, 2026-09-11)
     def X(v): return L+(min(v,xmax)/xmax)*(W-L-Rp)
     P=svg_open(W,H); P.append(rect(0,0,W,H,"#fff",0))  # caption lives in the document, not the figure
     for gx in range(0,66,15):
-        P.append(line(X(gx),40,X(gx),H-16,"#eee",1)); P.append(txt(X(gx),H-4,f"{gx}%",12,"middle","#999"))
+        P.append(line(X(gx),40,X(gx),H-38,"#eee",1)); P.append(txt(X(gx),H-26,f"{gx}%",12,"middle","#999"))
+    P.append(txt(L+(W-L-Rp)/2,H-6,"Prevalence of misinformation",12.5,"middle","#666"))
     y=52
     for band,items in bands:
         # Each band is computed over a different number of studies: a study whose value for that

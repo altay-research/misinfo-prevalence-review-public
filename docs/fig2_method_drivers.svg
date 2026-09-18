@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 790" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
-<rect x="0.0" y="0.0" width="780.0" height="790.0" rx="0" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 812" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+<rect x="0.0" y="0.0" width="780.0" height="812.0" rx="0" fill="#fff"/>
 <line x1="250.0" y1="40.0" x2="250.0" y2="774.0" stroke="#eee" stroke-width="1"/>
 <text x="250.0" y="786.0" font-size="12" text-anchor="middle" fill="#999" font-weight="normal">0%</text>
 <line x1="358.5" y1="40.0" x2="358.5" y2="774.0" stroke="#eee" stroke-width="1"/>
@@ -10,6 +10,7 @@
 <text x="575.4" y="786.0" font-size="12" text-anchor="middle" fill="#999" font-weight="normal">45%</text>
 <line x1="683.8" y1="40.0" x2="683.8" y2="774.0" stroke="#eee" stroke-width="1"/>
 <text x="683.8" y="786.0" font-size="12" text-anchor="middle" fill="#999" font-weight="normal">60%</text>
+<text x="485.0" y="806.0" font-size="12.5" text-anchor="middle" fill="#666" font-weight="normal">Prevalence of misinformation</text>
 <text x="20.0" y="65.0" font-size="13" text-anchor="start" fill="#888" font-weight="bold">By measurement</text>
 <text x="130.2" y="65.0" font-size="11" text-anchor="start" fill="#aaa" font-weight="normal">446 studies</text>
 <text x="240.0" y="91.0" font-size="13" text-anchor="end" fill="#333" font-weight="normal">Behavioural trace</text>

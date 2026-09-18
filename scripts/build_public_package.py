@@ -367,6 +367,14 @@ ALLOW = [
     ("glob", "data/extract_v2/late_reextract_2026-09/scores/*"),
     ("glob", "data/extract_v2/late_reextract_2026-09/extractions/*.json"),
     ("opt", "docs/SI_lists_README.md"),
+    # ---- the cross-family sweep on the released freeze (GPT-5.6, κ = 0.80) and its wave-5
+    # completion: the answer keys and returned codes check_manuscript_stats.py counts coverage
+    # from, the disagreement tables, and the instructions. Codes and identifiers only; the
+    # worklists that paste article text stay behind with the wave-3 batches.
+    *[("file", f"docs/codex_check/{f}") for f in (
+        "FULL_ANSWER_KEY.csv", "ANSWER_KEY.csv", "codex_disagreements.csv",
+        "codex_full_disagreements.csv", "CODEX_INSTRUCTIONS.md")],
+    ("tree", "docs/codex_check_wave5", ["*.csv", "*.md", "*.json"]),
     ("glob", "data/extract_v2/qa/excl*.csv"),
     ("glob", "data/extract_v2/qa/fn*.csv"),
     ("glob", "data/extract_v2/qa/triage_*.csv"),
