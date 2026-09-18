@@ -381,6 +381,23 @@ for page in ("explore/index.html", "studies/index.html"):
           f"B/{page} rescues an estimate link")
 
 
+# Submissions go to a PRIVATE queue. A page that tells a visitor their words will be published,
+# when they will not, is a promise broken in the wrong direction. The /data/ page said exactly
+# that for a while: copy written when the plan was public GitHub issues, left behind when the
+# private queue was chosen.
+_strip_scripts = re.compile(r"<script\b.*?</script>", re.S)
+for page in sorted(SITE.rglob("*.html")):
+    text = _strip_scripts.sub("", page.read_text()).lower()
+    for claim in ("dated and public", "public and dated", "arrive dated"):
+        check(claim not in text, f"B/{page.relative_to(SITE)} does not promise submissions are public",
+              claim)
+# collapse whitespace: the prose is hard-wrapped, so a phrase spans a newline in the source
+data_text = " ".join((SITE / "data/index.html").read_text().lower().split())
+check("private queue" in data_text, "B/the data page says the queue is private")
+check("nothing you send is published" in data_text,
+      "B/the data page says submissions are not published")
+
+
 # ---------------------------------------------------------------- C. links
 SCRIPT = re.compile(r"<script\b.*?</script>", re.S)
 for page in SITE.rglob("*.html"):
