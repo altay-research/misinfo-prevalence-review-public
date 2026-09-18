@@ -1,0 +1,39 @@
+name: A study we missed
+description: Tell us about a study reporting a misinformation prevalence, exposure, sharing or concentration estimate that is not in the review.
+title: "Missing study: "
+labels: ["missing-study"]
+body:
+  - type: input
+    id: reference
+    attributes:
+      label: Reference
+      description: A DOI is enough. A full citation is fine too.
+      placeholder: 10.1126/science.aau2706
+    validations:
+      required: true
+  - type: textarea
+    id: quantity
+    attributes:
+      label: What it reports
+      description: The quantity in the paper's own words, and the number.
+      placeholder: ""fake news sources made up 6.7% of the political links shared on Twitter""
+    validations:
+      required: true
+  - type: input
+    id: denominator
+    attributes:
+      label: Out of what
+      description: What that percentage is a share of. This is the field that most often decides whether two estimates are comparable.
+      placeholder: all political links shared by the panel during the 2016 campaign
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where in the paper
+      placeholder: Table 2, or p. 376
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else
+      description: Country, platform, when the data were collected, or why you think it belongs.

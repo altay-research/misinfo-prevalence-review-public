@@ -122,7 +122,8 @@ export function submitStudyURL(repo) {
     '**Anything else** (country, platform, when the data were collected):', '',
   ].join('\n');
   return `https://github.com/${repo}/issues/new?labels=missing-study&title=` +
-    encodeURIComponent('Missing study: ') + '&body=' + encodeURIComponent(body);
+    encodeURIComponent('Missing study: (replace with the reference)') +
+    '&body=' + encodeURIComponent(body);
 }
 
 /* The invitation to contribute. One component so it reads and behaves the same everywhere, and so

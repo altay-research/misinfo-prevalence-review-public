@@ -11179,3 +11179,20 @@ The reminder that watches this had to be rewritten, and the reason is worth keep
 PRESENCE of the placeholder, so deleting the placeholder silently switched it off — a check keyed to
 a stand-in for the thing rather than to the thing. It now fires on the ABSENCE of a DOI pattern in
 §4.11 and will keep reporting until a real one is there.
+
+### Correspondence address, and a rebuild that would have deleted the CI config
+
+`sacha.altay@uzh.ch` was never a real address. He asked for his gmail, then gave
+`sahca.altay@gmail.com`, a transposition; confirmed as **sacha.altay@gmail.com** rather than guessed,
+because a wrong contact line on a publicly posted preprint defeats the point of having one. It lives
+in two places, the title-page block in `make_nhb_docx.py` and the email allowlist in
+`build_public_package.py`, and both are updated.
+
+Checking the package afterwards showed 695 files where the builder reports 630. The difference is
+`.git` and `.github`: that tree is also the git repository behind the public companion site
+(`altay-research/misinfo-prevalence-review-public`). The builder already preserved `.git` across a
+`--force` rebuild — a lesson it had learned earlier the same day — but not `.github`, which holds
+the Pages workflow and would have gone on the next run. Added to KEEP.
+
+Worth remembering when the OSF upload happens: `.git` is 7.1 MB of the 33.7 MB, and is not part of
+the deposit. Upload the tree without it.

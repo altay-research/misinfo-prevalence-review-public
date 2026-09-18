@@ -327,7 +327,7 @@ def render(text, dst, figs, fig_marker, title_page=False, ref_list=None):
         # carry its author (Sacha, 2026-09-18: "yes add back author, me").
         for line in ("", "Sacha Altay",
                      "Department of Political Science, University of Zurich, Zurich, Switzerland",
-                     "Correspondence: sachayesilaltay@gmail.com", ""):
+                     "Correspondence: sacha.altay@gmail.com", ""):
             doc.add_paragraph(line)
 
     lines = text.split("\n")

@@ -1,0 +1,19 @@
+name: A coding query or correction
+description: Challenge how a specific estimate was coded. Every estimate on the site has an identifier and a link that fills this in for you.
+title: "Coding query: "
+labels: ["coding"]
+body:
+  - type: input
+    id: estimate
+    attributes:
+      label: Estimate identifier
+      description: The seven-character id at the top right of the estimate record, e.g. edd2e76.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What looks wrong
+      description: The field you think is miscoded, and what the paper actually says. The verbatim quote is on the record, so point at it.
+    validations:
+      required: true

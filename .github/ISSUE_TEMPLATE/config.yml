@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Explore the data first
+    url: https://altay-research.github.io/misinfo-prevalence-review-public/
+    about: Every estimate, the sentence it came from, and what it is a share of.
