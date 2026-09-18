@@ -495,6 +495,10 @@ PENDING = [_ph for _ph in ("CI_PENDING", "WITHIN_CONTENT_PENDING") if _ph in MS]
 # between them the section says 22.9% in one sentence and 22.5% in the next, and every assertion
 # passes because each half agrees with the file it came from. Compare the two files directly.
 STALE_SUPP = []   # staleness between pipeline stages: reported, never raised
+REMINDERS = []    # true statements about the CURRENT stage that must not be forgotten later.
+                  # Printed every run, never a failure: a reminder that exits non-zero stops the
+                  # runner at this step, and on a fresh clone of the public package (2026-09-18) that
+                  # is where the reproduction died — on a note saying the state was correct.
 _bs_early = {r["moderator"]: r for r in rows("metareg_r2_bootstrap.csv")}
 _boot_stale = [m for m, r in _bs_early.items()
                if m in _mr and abs(float(r["r2_adj"]) - float(_mr[m])) > 0.05]
@@ -1039,8 +1043,8 @@ if not _re.search(r"\b10\.\d{4,9}/\S+", _da):
     # PREPRINT STATE (2026-09-18): the DOI sentence is out, because the deposit does not exist yet
     # and a placeholder in a publicly posted paper is worse than no sentence. This still reports,
     # so the DOI cannot be forgotten when the OSF project is created and the paper goes to a journal.
-    STALE_SUPP.append("data availability names no DOI — correct for the preprint; mint the OSF DOI "
-                      "and put it back in section 4.11 before any journal submission")
+    REMINDERS.append("data availability names no DOI — correct for the preprint; mint the OSF DOI "
+                     "and put it back in section 4.11 before any journal submission")
 
 MUST_NOT = [
     # Sacha 2026-09-17: "the share is a share of is ipossible to read, never write that"
@@ -1551,6 +1555,10 @@ def main():
             print(f"  {_ph}")
     if misses or stale or PENDING or STALE_SUPP or MISSING_SECTIONS:
         sys.exit(1)
+    if REMINDERS:
+        print("\nREMINDERS (correct for now, not failures):")
+        for _m in REMINDERS:
+            print(f"  {_m}")
     print("PASS — all checked derived stats appear in the manuscript; no banned stale strings.")
 
 
