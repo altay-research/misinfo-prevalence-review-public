@@ -30,6 +30,7 @@ nav.main a:hover{background:var(--panel);color:var(--ink)}
 nav.main a[aria-current]{background:var(--ink);color:#fff}
 nav.main a.paper{background:var(--accent);color:#fff;margin-left:8px}
 nav.main a.paper:hover{background:#005c91;color:#fff}
+.notice-missing{margin:0 0 14px;padding:10px 14px;border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--panel);font-size:14px}
 /* Phones: the header has a fixed 52px height and the nav wraps, so on a narrow screen the
    wrapped links spilled over the page's first lines. Let the header grow and put the nav on
    its own row. */

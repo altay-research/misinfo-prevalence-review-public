@@ -11476,3 +11476,21 @@ viewBox changed 780×790 → 780×812; the two dashboards embedding it were rege
 Lesson, for the methods file: a check that reads a pipeline OUTPUT is green whenever that output and
 the prose agree, whether or not the output is current. The only test of a package is to clone it and
 run it; the only test of a number is to regenerate it.
+
+## 2026-09-18 (cont.) — the two digits, changed inside the PDF itself
+
+He asked whether the PDF could be corrected directly rather than re-exported. It could. The file is
+a Quartz export: each font is a subset with its own glyph codes, so the digits are not ASCII in the
+content stream. `scripts/pdf_edit_digits_in_stream.py` decodes page 10's text operators through the
+font's ToUnicode map, finds the sentence exactly once, and swaps the two glyph codes (6→7, 3→5)
+inside the literal strings. Digits share one advance width in Times New Roman, so nothing reflows.
+
+Checked, not assumed: the full-text diff against the posted v1 is exactly the two digits; 44 pages;
+Title and Author kept; every font still embedded; page numbers kept; and a pixel diff of the rendered
+page changes only the two glyph pairs. The posted v1 (62/13) is in `docs/.backups/`; the corrected
+file is his Desktop file, `docs/preprint/`, and the site's download. `PREPRINT_URL` now points at
+the versionless PsyArXiv record so the site follows the v2 once he uploads it.
+
+Still 62/13: the authoritative `01_manuscript_main.docx` (his edit or his go-ahead for the targeted
+edit script) and, until the v2 upload, PsyArXiv itself. The markdown master and every pipeline
+artefact say 72/15.

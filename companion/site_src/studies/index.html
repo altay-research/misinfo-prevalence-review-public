@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="en" data-v="{{DATA_V}}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The {{N_STUDIES}} included studies</title>
+<meta name="description" content="Every one of the {{N_STUDIES}} included studies, with the estimates it contributed and the full record of each.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css">
 </head><body>
@@ -110,11 +111,21 @@ function collapse() {
   }
 }
 
+/* A link to an identifier no study carries used to do nothing; say so above the list. */
+function notFound(id) {
+  document.querySelector('.notice-missing')?.remove();
+  document.getElementById('rows').closest('table').insertAdjacentHTML('beforebegin',
+    `<p class="notice-missing" role="status">No study carries the identifier <code>${id.replace(/[^0-9A-Za-z.\-]/g, '')}</code>. ` +
+    `The link may be mistyped, or the study left the dataset in a later freeze. The full list is below.</p>`);
+}
+
 function open(id, { scroll = false } = {}) {
   collapse();
+  document.querySelector('.notice-missing')?.remove();
   const st = d.studies[id];
   const rows = (d.byStudy.get(id) || []).filter(e => !state.mainonly || (e.main && e.value != null));
-  if (!st || !rows.length) return;
+  if (!st) { notFound(id); return; }
+  if (!rows.length) return;
   // the row may be filtered out or past the "show more" cut
   if (!rowFor(id)) {
     if (!matches({ id, ...st })) {

@@ -2,7 +2,7 @@
 
 Everything needed to reproduce the numbers, figures and tables of the systematic review
 *Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration* (Altay, 2026), preprint at https://osf.io/preprints/psyarxiv/sgvr8, from one frozen dataset. Built from the working repository
-on 2026-09-18, freeze **v1.7.23** (1048 estimates from 443 studies), MD5 `08f050baf45086f45b5b3bec2390a115`.
+on 2026-09-19, freeze **v1.7.23** (1048 estimates from 443 studies), MD5 `08f050baf45086f45b5b3bec2390a115`.
 
 The root holds six things: **`data/`** the dataset and everything derived from it, **`scripts/`**
 the code, **`docs/`** the methods and the audit trail, **`searches/`** the queries behind the
@@ -64,7 +64,7 @@ printing the reason, and the outputs they would write are included:
   listed with their DOIs in `data/extract_v2/qa/abstract_only_list.json`, so the same check can be
   made against the publishers' own pages.
 
-This was verified on a fresh clone of the repository (2026-09-18): the three commands above run to
+This was verified on a fresh clone of the repository (2026-09-19): the three commands above run to
 completion, and every file under `data/synth/` regenerates byte-identical to the committed copy.
 
 ## The independent-model adjudication trail

@@ -348,6 +348,9 @@ const CODING_ORDER = [
   ['n_raw', e => e.n_raw],
 ];
 
+// which Descriptives chart defines a record field; null = no chart, so no link
+const CHART_OF = { platform: 'platform_norm', country: null, unit: null, date: null, n_raw: null };
+
 export function recordHTML(e, studies, opts = {}) {
   const st = studies[e.id] || {};
   const flags = [];
@@ -371,12 +374,17 @@ export function recordHTML(e, studies, opts = {}) {
   const counts = e.value_raw && COUNTS.test(e.value_raw) && e.value != null ? e.value_raw : null;
 
   // Each coded field links to the chart that shows its levels, so a term the reader does not
-  // know is one click from being defined rather than something to go hunting for.
+  // know is one click from being defined rather than something to go hunting for. Only fields
+  // the Descriptives page charts get a link: the record's platform is the normalised one, whose
+  // chart is #field-platform_norm, and country, unit, date and sample size have no chart, so a
+  // link there landed at the top of the page (found on the 2026-09-19 release check).
   const coding = CODING_ORDER.map(([f, get]) => {
     const v = get(e);
     if (!v || v === 'not_reported' || v === '—') return '';
-    const href = `${BASE}descriptives/#field-${f}`;
-    return `<div><dt><a href="${href}">${esc(fieldLabel(f))}</a></dt><dd>${esc(v)}</dd></div>`;
+    const chart = f in CHART_OF ? CHART_OF[f] : f;
+    const dt = chart ? `<a href="${BASE}descriptives/#field-${chart}">${esc(fieldLabel(f))}</a>`
+                     : esc(fieldLabel(f));
+    return `<div><dt>${dt}</dt><dd>${esc(v)}</dd></div>`;
   }).join('');
 
   const conc = e.conc_share_pct

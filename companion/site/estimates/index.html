@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Inspect every estimate</title>
+<meta name="description" content="All 1,048 estimates from 443 studies, each with the sentence it was taken from, what it is a share of, and how every field was coded.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css">
 </head><body>
@@ -192,10 +193,20 @@ function collapse(eid) {
 
 /* Open `eid` in place. `scroll` only when the reader did not click the row themselves — a pasted
  * link, or Back — because scrolling someone to a row they just clicked is the bug this replaced. */
+/* A link to an identifier no estimate carries used to do nothing at all: the reader saw the full
+ * list and no explanation. Say so, above the list, and clear the note on the next open. */
+function notFound(eid) {
+  document.querySelector('.notice-missing')?.remove();
+  document.getElementById('rows').closest('table').insertAdjacentHTML('beforebegin',
+    `<p class="notice-missing" role="status">No estimate carries the identifier <code>${eid.replace(/[^0-9a-z]/gi, '')}</code>. ` +
+    `The link may be mistyped, or the estimate left the dataset in a later freeze. The full list is below.</p>`);
+}
+
 function open(eid, { scroll = false } = {}) {
   collapse();
+  document.querySelector('.notice-missing')?.remove();
   const e = d.byEid.get(eid);
-  if (!e) return;
+  if (!e) { notFound(eid); return; }
   // the row may be filtered out or past the "show more" cut; bring it into view of the list first
   if (!rowFor(eid)) {
     if (!matches(e)) {
