@@ -180,7 +180,7 @@ def denied(rel, size=None):
 PIPELINE_SCRIPTS = [
     "run_phaseB.sh",
     # the public companion site
-    "build_site.py", "check_site.py", "lib_slices.py", "serve_site.sh",
+    "build_site.py", "check_site.py", "lib_slices.py", "serve_site.sh", "stress_site.mjs",
     # stage 1-4
     "aggregate_rob_v3.py", "phaseB_prep_regression.py", "phaseB_descriptives.py",
     "phaseB_slices.py", "phaseB_platform_construct.py", "phaseB_precision.py",

@@ -11494,3 +11494,37 @@ the versionless PsyArXiv record so the site follows the v2 once he uploads it.
 Still 62/13: the authoritative `01_manuscript_main.docx` (his edit or his go-ahead for the targeted
 edit script) and, until the v2 upload, PsyArXiv itself. The markdown master and every pipeline
 artefact say 72/15.
+
+## 2026-09-19 — the triple check of the site and the repository
+
+Everything below was tested as a visitor would meet it: the live site in a browser, the repository
+as GitHub shows it.
+
+**Site, checked and passing:** every link and asset on all six pages resolves; no console error on
+any page after the latest deploy; "Read the paper" on every page points at the versionless PsyArXiv
+record; the Data page offers the corrected PDF (byte-identical to the Desktop file, 3.1 MB) and a
+citation with the PsyArXiv URL; Build an estimate answers a real click (content prevalence → 23.0%,
+IQR 7.1–39.0, 274 studies, 425 estimates, the paper's numbers); the study search finds Grinberg 2019
+with its nine estimates; a legacy `/explore/#<eid>` link is rescued to `/estimates/#<eid>`; the
+phone header holds; every image has alt text and every button a name; one h1 per page.
+
+**Site, two faults found and fixed.** (1) Five of the thirteen field labels on every estimate record
+(platform, country, unit, date, sample) linked to Descriptives anchors that do not exist, so the
+click landed at the top of that page. Platform now links to the normalised-platform chart and the
+four fields without a chart are plain labels; all nine remaining links were verified to land on
+their anchor. (2) A link to an identifier no estimate or study carries did nothing; both pages now
+show a one-line notice above the unfiltered list. Also: the five inner pages had no meta
+description; each has one now.
+
+**Repository, checked and passing:** clean, nothing unpushed, no stray or duplicated file; README
+names the paper, the preprint link and the clone-and-run verification; LICENSE attribution carries
+the paper's title; every README link resolves; issue templates parse and the private submissions
+repo carries its four labels; the Worker refuses a submission without a Turnstile token with a
+plain 400 message.
+
+**Repository, one thing only he can fix:** none of the 26 public commits is linked to a GitHub
+account. Ten carry the machine-local identity `Likojupa <…@…mac1.home>` and sixteen carry
+`Sacha Altay <sachayesilaltay@gmail.com>`, and that address is not on his GitHub account. Adding
+it under GitHub → Settings → Emails links the sixteen retroactively; the ten would need a history
+rewrite and force-push to relabel, which is his call. The public repo's local git identity is now
+set to the gmail one so every future commit from either session carries it.
