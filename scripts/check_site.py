@@ -416,6 +416,64 @@ if meta.get("preprint"):
           "B/the citation can render the preprint")
 
 
+# ---------------------------------------------------------------- B/fragments
+# Five of the thirteen field links on every record pointed at Descriptives anchors that do not
+# exist — platform at #field-platform when the anchor is #field-platform_norm, and country, unit,
+# date and n_raw at nothing at all, because the codebook only emits anchors for meta.controls.
+# It shipped on 1,048 records and passed 1,118 checks, because the link checker below validates
+# PATHS and never FRAGMENTS. Two checks, one static and one for the anchors built in JavaScript.
+
+def anchors_of(page):
+    """Ids the page can carry: the static ones, plus #field-<f> per control, which the codebook
+    generates at runtime and a static scan therefore cannot see."""
+    html = page.read_text()
+    ids = set(re.findall(r'\bid="([^"]+)"', html))
+    if page.name == "index.html" and page.parent.name == "descriptives":
+        ids |= {f"field-{f}" for f in meta["controls"]} | {"field-rob"}
+    return ids
+
+ANCHORS = {p.relative_to(SITE).as_posix(): anchors_of(p) for p in SITE.rglob("*.html")}
+
+# static: every href="...#frag" in the markup
+for page in sorted(SITE.rglob("*.html")):
+    markup = _strip_scripts.sub("", page.read_text())
+    for href in re.findall(r'href="([^"]*#[^"]+)"', markup):
+        path, frag = href.split("#", 1)
+        if not path:
+            target = page.relative_to(SITE).as_posix()
+        elif path.startswith(("http", "mailto:")):
+            continue
+        else:
+            t = (page.parent / path).resolve()
+            if t.is_dir():
+                t = t / "index.html"
+            if not t.exists():
+                continue                      # the path check below reports it
+            target = t.relative_to(SITE).as_posix()
+        check(frag in ANCHORS.get(target, set()),
+              f"C/{page.relative_to(SITE)} links to #{frag} in {target}", "no such id")
+
+# built in JavaScript: the record's coding grid links a field to the chart that defines it
+desc_anchors = ANCHORS.get("descriptives/index.html", set())
+m_order = re.search(r"const CODING_ORDER = \[(.*?)\n\];", site_js, re.S)
+check(bool(m_order), "C/CODING_ORDER is readable")
+if m_order:
+    fields = re.findall(r"^\s*\['(\w+)'", m_order.group(1), re.M)
+    check(len(fields) >= 10, "C/CODING_ORDER has its fields", f"found {len(fields)}")
+    m_chart = re.search(r"const CHART_OF = \{([^}]*)\}", site_js)
+    remap = {}
+    if m_chart:
+        for k, v in re.findall(r"(\w+):\s*(null|'[\w]+')", m_chart.group(1)):
+            remap[k] = None if v == "null" else v.strip("'")
+    for f in fields:
+        chart = remap[f] if f in remap else f
+        if chart is None:
+            continue                          # deliberately not linked
+        check(f"field-{chart}" in desc_anchors,
+              f"C/record field '{f}' links to a chart that exists",
+              f"#field-{chart} is not on the descriptives page")
+
+
 # ---------------------------------------------------------------- C. links
 SCRIPT = re.compile(r"<script\b.*?</script>", re.S)
 for page in SITE.rglob("*.html"):
