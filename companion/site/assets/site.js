@@ -99,19 +99,27 @@ export function mountChrome(current, meta) {
        <a class="brand" href="${BASE}">Misinformation prevalence</a>
        <nav class="main">${nav}</nav>
      </div></header>`);
-  // the paper itself, added to the masthead once it exists
-  if (meta && meta.preprint) {
-    document.querySelector('nav.main').insertAdjacentHTML('beforeend',
-      `<a class="paper" href="${meta.preprint}" target="_blank" rel="noopener">Read the paper &rarr;</a>`);
-  }
+  if (meta) addPaperLink(meta);
+}
+
+/* The masthead button hands over the PDF itself (the site ships the same file the preprint server
+ * holds), which Sacha chose over sending readers to PsyArXiv; that link stays on the Data page and
+ * in the footer. Falls back to the preprint page only if no PDF ships. */
+export function paperHref(meta) {
+  if (meta.paper_file) return { href: `${BASE}downloads/${meta.paper_file}`, download: true };
+  if (meta.preprint) return { href: meta.preprint, download: false };
+  return null;
 }
 
 /* Called once meta has loaded, for pages that mount their chrome before fetching. */
 export function addPaperLink(meta) {
   const nav = document.querySelector('nav.main');
-  if (!nav || !meta || !meta.preprint || nav.querySelector('.paper')) return;
-  nav.insertAdjacentHTML('beforeend',
-    `<a class="paper" href="${meta.preprint}" target="_blank" rel="noopener">Read the paper &rarr;</a>`);
+  if (!nav || !meta || nav.querySelector('.paper')) return;
+  const p = paperHref(meta);
+  if (!p) return;
+  nav.insertAdjacentHTML('beforeend', p.download
+    ? `<a class="paper" href="${p.href}" download>Read the paper &darr;</a>`
+    : `<a class="paper" href="${p.href}" target="_blank" rel="noopener">Read the paper &rarr;</a>`);
 }
 
 export function mountFooter(meta) {

@@ -11528,3 +11528,32 @@ account. Ten carry the machine-local identity `Likojupa <…@…mac1.home>` and 
 it under GitHub → Settings → Emails links the sixteen retroactively; the ten would need a history
 rewrite and force-push to relabel, which is his call. The public repo's local git identity is now
 set to the gmail one so every future commit from either session carries it.
+
+## 2026-09-21 — the companion site: the improvements he approved
+
+From the review of 2026-09-21 he approved everything except social preview tags. Built in
+`site_src/`, `build_site.py` and `site.css`, tested on a local build in the browser, all suites
+green (check_site 1159, stress 608), pushed to both repositories.
+
+- **Overview**: a one-line title above each figure (not a figcaption, which the overview carries
+  none of by decision); every tile is a link, the five constructs to the Build tab with that
+  construct chosen, the two recall tiles to the estimate list filtered to recall (the Build tab
+  does not make the seen/shared split); the footer names the author and affiliation, the paper,
+  the repository, the downloads and the licences.
+- **Data**: a section for the code repository. The site had never linked it.
+- **Descriptives**: one line on what each field means and one per level, from the two codebooks,
+  carried in `meta.field_defs` so the record's field links deliver a definition.
+- **Explore**: a choice trail under the answer (the median and study count at each choice, in the
+  order made); a one-line hover tooltip on every dot; the quality-score and other rows set apart
+  from the six prevalence constructs by a dashed rule and a label.
+- **Studies**: a study's estimates are one line each, the full record on click; a single estimate
+  opens in full.
+- **404 page**, linking absolutely under the site path, which GitHub Pages requires of it.
+- **Analytics hook**: `ANALYTICS_TOKEN` in `build_site.py` injects Cloudflare Web Analytics on
+  every page when set; None ships nothing. His step: create the site in Cloudflare.
+- `check_site.py` learns two things: a hash carrying `=` is filter state, not an anchor; and the
+  404 page must link absolutely under `meta.site_path`, each link landing on a shipped file.
+
+One finding along the way: the browser extension's coordinate clicks miss on this Mac because its
+screenshot frame does not map 1:1 to CSS pixels; clicking by element reference is reliable. The
+earlier "chips do not respond" alarm was that, not the site.

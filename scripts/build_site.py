@@ -612,6 +612,7 @@ def main():
         "preprint": PREPRINT_URL, "submit_endpoint": SUBMIT_ENDPOINT,
         "turnstile_sitekey": TURNSTILE_SITEKEY,
         "author": AUTHOR, "licence": LICENCE, "field_defs": FIELD_DEFS, "site_path": SITE_PATH,
+        "paper_file": Path(PAPER_PDF).name,     # the masthead button downloads the site's own copy
         "counts": crosswalk_counts(),
         "figures": figures,
     }
