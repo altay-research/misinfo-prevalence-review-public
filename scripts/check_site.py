@@ -439,6 +439,8 @@ for page in sorted(SITE.rglob("*.html")):
     markup = _strip_scripts.sub("", page.read_text())
     for href in re.findall(r'href="([^"]*#[^"]+)"', markup):
         path, frag = href.split("#", 1)
+        if "=" in frag:
+            continue                          # filter state (#construct=CONTENT&tab=build), not an anchor
         if not path:
             target = page.relative_to(SITE).as_posix()
         elif path.startswith(("http", "mailto:")):
@@ -479,6 +481,21 @@ SCRIPT = re.compile(r"<script\b.*?</script>", re.S)
 for page in SITE.rglob("*.html"):
     raw = page.read_text()
     html = SCRIPT.sub("", raw)          # markup only: a JS template literal is not a link
+    if page.name == "404.html":
+        # GitHub Pages serves 404.html at whatever address was missing, so this one page must link
+        # absolutely, under the site's own path; each link still has to land on a shipped file.
+        sp = meta["site_path"]
+        for m in re.finditer(r'(?:href|src)="([^"#?]+)', html):
+            u = m.group(1)
+            if u.startswith(("https:", "http:", "mailto:", "data:")):
+                continue
+            check(u.startswith(sp), "C/404 page links under the site path", u)
+            t = SITE / u[len(sp):]
+            if t.is_dir() or u.endswith("/"):
+                t = t / "index.html"
+            check(t.exists(), "C/404 page link resolves", u)
+        check("{{" not in raw, "C/unsubstituted token in 404.html")
+        continue
     for m in re.finditer(r'(?:href|src)="(/[^"]*)"', html):
         check(False, f"C/root-absolute link in {page.relative_to(SITE)}", m.group(1))
     for m in re.finditer(r'(?:href|src)="((?!https?:|mailto:|#|data:)[^"#?]+)', html):

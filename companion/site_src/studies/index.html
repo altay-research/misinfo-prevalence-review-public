@@ -115,7 +115,7 @@ function collapse() {
 function notFound(id) {
   document.querySelector('.notice-missing')?.remove();
   document.getElementById('rows').closest('table').insertAdjacentHTML('beforebegin',
-    `<p class="notice-missing" role="status">No study carries the identifier <code>${id.replace(/[^0-9A-Za-z.\-]/g, '')}</code>. ` +
+    `<p class="notice-missing" role="status">No study carries the identifier <code>${id.replace(/[^0-9A-Za-z._\-]/g, '')}</code>. ` +
     `The link may be mistyped, or the study left the dataset in a later freeze. The full list is below.</p>`);
 }
 
@@ -145,12 +145,39 @@ function open(id, { scroll = false } = {}) {
     `<p class="small muted rec-head">${plural(rows.length, 'estimate')}` +
     (st.doi ? ` · <a href="https://doi.org/${esc(st.doi)}" target="_blank" rel="noopener">doi.org/${esc(st.doi)}</a>` : '') +
     `</p>` +
-    rows.map(e => recordHTML(e, d.studies, { siblings: rows.length, repo: d.meta.repo,
-                                             endpoint: d.meta.submit_endpoint }))
-        .join('<div style="height:14px"></div>') +
+    // One estimate opens in full. Several are listed one line each, the full record on click:
+    // nine full records at once was a wall, and the value with its construct is what a reader
+    // scans a study for.
+    (rows.length === 1
+      ? recordHTML(rows[0], d.studies, { siblings: 1, repo: d.meta.repo, endpoint: d.meta.submit_endpoint })
+      : `<div class="est-list">` + rows.map(e => `
+          <div class="est-line" data-eid="${esc(e.eid)}" role="button" tabindex="0" aria-expanded="false">
+            <b>${e.value != null ? esc(e.value) + '%' : esc(clip(e.value_raw || '—', 14))}</b>
+            <span class="con">${esc(constructName(e.construct))}</span>
+            <span class="what small muted">${esc(e.measure_type || e.denominator || '')}</span>
+            <span class="arw">&#9656;</span>
+          </div><div class="est-rec" hidden></div>`).join('') + `</div>`) +
     `</td></tr>`);
   if (scroll) tr.scrollIntoView({ block: 'center' });
 }
+
+function toggleLine(line) {
+  const box = line.nextElementSibling;
+  if (!box.hidden) { box.hidden = true; box.innerHTML = ''; line.setAttribute('aria-expanded', 'false'); return; }
+  const e = d.byEid.get(line.dataset.eid);
+  if (!e) return;
+  box.innerHTML = recordHTML(e, d.studies, { siblings: (d.byStudy.get(e.id) || []).length,
+                                              repo: d.meta.repo, endpoint: d.meta.submit_endpoint });
+  box.hidden = false; line.setAttribute('aria-expanded', 'true');
+}
+document.getElementById('rows').addEventListener('click', ev => {
+  const line = ev.target.closest('.est-line');
+  if (line) toggleLine(line);
+});
+document.getElementById('rows').addEventListener('keydown', ev => {
+  const line = ev.target.closest('.est-line');
+  if (line && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); toggleLine(line); }
+});
 
 document.getElementById('rows').addEventListener('click', ev => {
   if (ev.target.closest('.rec-row')) return;          // clicks inside an open study are its own

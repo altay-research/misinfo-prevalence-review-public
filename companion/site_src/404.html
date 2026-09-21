@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en" data-v="{{DATA_V}}"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="{{SITE_PATH}}favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="{{SITE_PATH}}assets/site.css">
+</head><body>
+<main class="wrap">
+  <h1>There is no page at this address</h1>
+  <p class="lede">The address may be mistyped, or the page has moved. The site has six pages.</p>
+  <nav class="go">
+    <a class="go-btn primary" href="{{SITE_PATH}}">Overview <span class="arw">&rarr;</span></a>
+    <a class="go-btn" href="{{SITE_PATH}}explore/">Explore</a>
+    <a class="go-btn" href="{{SITE_PATH}}estimates/">Estimates</a>
+    <a class="go-btn" href="{{SITE_PATH}}studies/">Studies</a>
+    <a class="go-btn" href="{{SITE_PATH}}descriptives/">Descriptives</a>
+    <a class="go-btn" href="{{SITE_PATH}}data/">Data</a>
+  </nav>
+</main>
+<script type="module">
+  // GitHub Pages serves this file at whatever address was missing, so its links are absolute.
+  import { mountChrome, mountFooter, meta, addPaperLink } from '{{SITE_PATH}}assets/site.js';
+  mountChrome('');
+  meta().then(m => { addPaperLink(m); mountFooter(m); });
+</script>
+</body></html>

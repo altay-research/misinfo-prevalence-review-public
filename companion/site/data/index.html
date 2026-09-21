@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-v="b93058ce642e"><head>
+<!DOCTYPE html><html lang="en" data-v="c4c6f04ffaa4"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Data and code</title>
 <meta name="description" content="The frozen dataset, the study tables and the pipeline behind every number on this site, with the preprint and the replication package.">
@@ -18,6 +18,9 @@
   <p class="note">The estimate file is the frozen dataset itself: one row per estimate, every coded
      field, the verbatim quote and the denominator as extracted. It is the file the analysis reads,
      not an export of it.</p>
+
+  <h2>The code</h2>
+  <div id="code"></div>
 
   <h2>Provenance</h2>
   <table class="grid"><tbody>
@@ -67,6 +70,14 @@ document.getElementById('downloads').innerHTML =
     `<tr><td><a href="../downloads/${esc(f)}" download><code>${esc(f)}</code></a>
          <div class="small muted">${esc(LABEL[f] || '')}</div></td>
          <td class="n">${kb} KB</td></tr>`).join('')}</tbody></table>`;
+document.getElementById('code').innerHTML = `
+  <div class="go">
+    <a class="go-btn" href="https://github.com/${esc(m.repo)}" target="_blank" rel="noopener">Code and data on GitHub
+      <span class="arw">&rarr;</span></a>
+  </div>
+  <p class="small muted">The replication package: every script, the frozen dataset, the analysis
+     outputs and the audit trail. Data, figures and text ${esc(m.licence?.data || 'CC BY 4.0')} ·
+     code ${esc(m.licence?.code || 'MIT')}.</p>`;
 document.getElementById('freeze').textContent = m.freeze;
 document.getElementById('md5').textContent = m.freeze_md5;
 document.getElementById('nst').textContent = m.n_studies;

@@ -115,16 +115,22 @@ export function addPaperLink(meta) {
 }
 
 export function mountFooter(meta) {
+  const a = meta.author || {};
+  const lic = meta.licence || {};
   document.body.insertAdjacentHTML('beforeend',
     `<footer class="site"><div class="wrap">
+      <p class="who"><strong>${esc(a.name || '')}</strong>${a.affiliation ? `, ${esc(a.affiliation)}` : ''} ·
+         ${meta.preprint ? `<a href="${esc(meta.preprint)}" target="_blank" rel="noopener">Paper on PsyArXiv</a> · ` : ''}
+         <a href="https://github.com/${esc(meta.repo)}" target="_blank" rel="noopener">Code and data on GitHub</a> ·
+         <a href="${BASE}data/">Downloads</a> ·
+         <a href="${submitStudyURL(meta.repo)}" target="_blank" rel="noopener">Send a comment</a></p>
       <p>Systematic review of misinformation prevalence, exposure and concentration ·
          ${num(meta.n_estimates)} estimates from ${meta.n_studies} studies ·
          frozen dataset <code>${esc(meta.freeze)}</code> (MD5 <code>${esc(meta.freeze_md5.slice(0, 12))}…</code>) ·
          built ${esc(meta.built)}</p>
       <p>Every number on this site is generated from the frozen dataset by
          <code>scripts/build_site.py</code> and checked by <code>scripts/check_site.py</code>.
-         <a href="${BASE}data/">Download the data</a> ·
-         <a href="${submitStudyURL(meta.repo)}" target="_blank" rel="noopener">Send a comment</a></p>
+         ${lic.data ? `Data, figures and text ${esc(lic.data)} · code ${esc(lic.code)}.` : ''}</p>
     </div></footer>`);
 }
 

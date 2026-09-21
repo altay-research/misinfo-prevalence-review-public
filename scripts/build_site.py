@@ -42,6 +42,136 @@ PREPRINT_URL = "https://osf.io/preprints/psyarxiv/sgvr8"   # versionless: follow
 SUBMIT_ENDPOINT = "https://misinfo-prevalence-submit.sacha-altay.workers.dev"
 TURNSTILE_SITEKEY = "0x4AAAAAAE76FRJFyjbY2FJl"   # public half; the secret lives in the Worker
 
+AUTHOR = {"name": "Sacha Altay",
+          "affiliation": "Department of Political Science, University of Zurich"}
+LICENCE = {"data": "CC BY 4.0", "code": "MIT"}          # as LICENSE in the public package
+# The site's path on its host. Only 404.html needs it: GitHub Pages serves that page at whatever
+# address was missing, so its own links cannot be relative.
+SITE_PATH = "/misinfo-prevalence-review-public/"
+# Cloudflare Web Analytics: no cookies, no personal data, one script tag. Create the site under
+# Cloudflare -> Web Analytics -> Add a site (hostname altay-research.github.io), paste the token
+# here and rebuild. None ships no script at all.
+ANALYTICS_TOKEN = None
+ANALYTICS_SNIPPET = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+                     'data-cf-beacon=\'{"token": "%s"}\'></script>')
+
+# What each coded field and each of its levels means, in one line, from docs/CODEBOOK_estimates.md
+# and docs/moderator_codebook.md. Rendered on the Descriptives page under each chart, which is
+# where every record's field label links. A level absent from the data is simply not shown.
+FIELD_DEFS = {
+    "construct": {
+        "def": "What the percentage is a share of. The denominator sets the construct, never the "
+               "topic or what is counted in the numerator.",
+        "levels": {
+            "EXPOSURE": "the share of a person's actual information diet (visits, views, time) that is misinformation, from behavioural records",
+            "REACH": "the share of people who encountered misinformation at least once, from behavioural records",
+            "RECALL": "the share of people who say they have seen or shared misinformation, from surveys",
+            "SHARING": "the share of shares, posts or links that carry misinformation, from behavioural records",
+            "CONTENT": "the share of items in a sampled corpus (posts, videos, articles) classified as misinformation",
+            "CONCENTRATION": "the share of all misinformation activity accounted for by the most active users or sources",
+            "QUALITY": "a source or content quality rating that is not a veracity judgement; never pooled with prevalence",
+            "OTHER": "a composition or other quantity outside the six constructs; never pooled",
+        }},
+    "measurement": {
+        "def": "The kind of evidence, derived from the construct.",
+        "levels": {
+            "CONTENT_CODING": "researchers, fact-checkers or classifiers judged sampled items",
+            "SELF_REPORT": "respondents answered a survey question",
+            "BEHAVIOURAL": "records of what people actually saw, visited or shared",
+            "NA": "quality scores and other quantities outside the six constructs",
+        }},
+    "ground_truth": {
+        "def": "Who decided what counted as misinformation.",
+        "levels": {
+            "researcher_coding": "the authors or trained coders, following a codebook",
+            "domain_list": "a list of unreliable sources such as NewsGuard or the Grinberg lists; everything from a listed source counts",
+            "self_report": "the respondents' own judgement of what they saw",
+            "fact_checker": "verdicts of professional fact-checkers or an expert panel, claim by claim",
+            "classifier": "an automated classifier or suspicion score",
+        }},
+    "classification_level": {
+        "def": "Whether misinformation was judged per source or per item. Claim-level judgement "
+               "finds several times more than source-level.",
+        "levels": {
+            "claim_level": "each item, post or claim was classified on its own content",
+            "source_level": "whole outlets or accounts were classified and everything they published counts; a lower bound on false items",
+            "mixed": "both levels were used",
+            "post_level": "each post was classified",
+            "topic_level": "whole topics were classified",
+            "self_perceived": "the respondent judged for themselves",
+            "not_reported": "the paper does not say",
+        }},
+    "breadth": {
+        "def": "How wide the veracity net is, where the definition sets a per-item standard.",
+        "levels": {
+            "fabricated": "invented or hoax content only",
+            "false": "verifiably false against a ground truth",
+            "misleading": "false or misleading, including manipulated or missing-context content",
+            "not_stated": "no per-item veracity standard: typically source lists and quality ratings",
+        }},
+    "denom_class": {
+        "def": "The universe the percentage is a share of. If the percentage were 100%, what would "
+               "that mean?",
+        "levels": {
+            "population": "a defined group of people: respondents, panellists, users",
+            "all_media": "everything a person consumed, news and non-news",
+            "news_diet": "all the news a person consumed, on any topic",
+            "political_news": "political or election news only",
+            "topical": "content on one issue, typically a keyword or hashtag corpus",
+            "curated_sample": "a hand-picked set with no natural total, such as the most-shared posts or fact-check-seeded items",
+            "single_source": "one account, channel, outlet or platform feature",
+            "n/a": "no denominator by construction: concentration estimates",
+            "not_reported": "the fused class was not filled on this row; its scope is coded separately",
+        }},
+    "sampling_frame": {
+        "def": "How the data were drawn.",
+        "levels": {
+            "keyword_topical": "a keyword or hashtag search",
+            "survey_sample": "survey respondents",
+            "convenience": "a convenience or non-representative sample",
+            "panel_trace": "a behavioural panel: web tracking, browsing or voter-file panels",
+            "full_census": "a full platform census or firehose",
+            "curated_seed": "a set seeded from fact-checks or a known-misinformation list",
+            "purposive": "a purposive selection by the researchers",
+            "random_platform": "a random or representative sample of the platform",
+            "convenience_snowball": "convenience plus snowball recruitment",
+            "curated_business_pages": "a curated set of business pages",
+            "not_reported": "the paper does not say",
+        }},
+    "platform_norm": {
+        "def": "The platform or medium, with the papers' 274 spellings collapsed. For surveys it is "
+               "the frame of the question, not a measured source.",
+        "levels": {
+            "survey": "a survey question, not a measured platform",
+            "web_cross_platform": "browsing or tracking data across the web",
+            "multi_platform": "several platforms measured together",
+            "other": "a platform outside the named list",
+        }},
+    "topic": {
+        "def": "The subject of the misinformation studied, one code per study. COVID vaccines count "
+               "as COVID-19; a whole-diet or domain-list study is general news.",
+        "levels": {
+            "health_other": "health topics other than COVID-19",
+            "general_news": "no single subject: whole diets, domain lists, general news",
+            "covid19": "COVID-19, including its vaccines",
+            "vaccines": "vaccines other than COVID-19",
+            "other": "a subject outside the list",
+        }},
+    "country_scope": {
+        "def": "How many countries the estimate covers.",
+        "levels": {
+            "single": "one country",
+            "multi": "several named countries",
+            "global": "worldwide or unspecified",
+            "not_reported": "the paper does not say",
+        }},
+    "rob": {
+        "def": "Risk of bias on the Hoy prevalence instrument, adapted for this review (Methods 4.7). "
+               "LOW: 0 to 2 items at high risk with the two design items low. MODERATE: 3 to 5, or "
+               "one design item high. HIGH: 6 or more, or both design items high.",
+        "levels": {}},
+}
+
 ROOT = Path(__file__).resolve().parents[1]
 # In the working repository the site lives at the root; the public package publishes it under
 # companion/ (build_public_package.py remaps it). Resolve whichever layout this checkout has.
@@ -334,8 +464,13 @@ def tiles_html(head):
         extra = (f'<span class="k2">{head["CONCENTRATION"]["band_median"]:.1f}% across the '
                  f'{head["CONCENTRATION"]["band_k"]} studies reporting the top 1% or less</span>'
                  if key == "CONCENTRATION" else "")
-        out.append(f'<div class="tile {cls}"><b>{val}%</b><p>{phrase}</p>'
-                   f'<span class="k">{h["k"]} studies · {evidence}</span>{extra}</div>')
+        # Each tile opens the slice it summarises. The five constructs open the Build tab with
+        # that construct chosen; the two recall tiles are the seen/shared split, which the Build
+        # tab does not make, so they open the estimate list filtered to recall instead.
+        href = (f"estimates/#construct=RECALL" if key.startswith("RECALL")
+                else f"explore/#construct={key}&tab=build")
+        out.append(f'<a class="tile {cls}" href="{href}"><b>{val}%</b><p>{phrase}</p>'
+                   f'<span class="k">{h["k"]} studies · {evidence}</span>{extra}</a>')
     return "\n    ".join(out)
 
 
@@ -476,6 +611,7 @@ def main():
         "headline": head, "slice_notes": slice_notes, "repo": REPO,
         "preprint": PREPRINT_URL, "submit_endpoint": SUBMIT_ENDPOINT,
         "turnstile_sitekey": TURNSTILE_SITEKEY,
+        "author": AUTHOR, "licence": LICENCE, "field_defs": FIELD_DEFS, "site_path": SITE_PATH,
         "counts": crosswalk_counts(),
         "figures": figures,
     }
@@ -524,6 +660,7 @@ def main():
         "CONC_BAND_K": str(head["concentration"]["band_k"]),
         "CONTRAST": f"{head['contrast']}",
         "TILES": tiles_html(head),
+        "SITE_PATH": SITE_PATH,
         # baked in rather than read from meta.json at runtime: the two files cache independently,
         # and a page served with a stale meta rendered "PDF, NaN MB"
         "PAPER_MB": f"{(ROOT / PAPER_PDF).stat().st_size / 1048576:.1f}",
@@ -546,6 +683,8 @@ def main():
             left = re.findall(r"\{\{([A-Z_]+)\}\}", text)
             if left:
                 raise SystemExit(f"unsubstituted token(s) in {p.relative_to(ROOT)}: {sorted(set(left))}")
+            if p.suffix == ".html" and ANALYTICS_TOKEN:
+                text = text.replace("</head>", ANALYTICS_SNIPPET % ANALYTICS_TOKEN + "\n</head>", 1)
             dst.write_text(text)
         else:
             shutil.copy(p, dst)

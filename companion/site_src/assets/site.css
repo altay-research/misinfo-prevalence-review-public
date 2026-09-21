@@ -51,7 +51,10 @@ a{color:var(--accent)}
 /* ---- headline tiles ---- */
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 8px}
 .tiles .tile:nth-child(n+5){grid-column:span 1}
-.tile{border:1px solid var(--line);border-radius:10px;padding:16px 16px 14px;background:#fff}
+.tile{border:1px solid var(--line);border-radius:10px;padding:16px 16px 14px;background:#fff;
+  display:block;color:inherit;text-decoration:none;transition:border-color .12s ease,box-shadow .12s ease,transform .08s ease}
+a.tile:hover{border-color:#c7ccd3;box-shadow:0 4px 12px #16181d14;transform:translateY(-1px)}
+a.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .tile b{display:block;font-family:var(--mono);font-size:38px;line-height:1;letter-spacing:-.03em;font-weight:600}
 .tile p{margin:9px 0 0;font-size:13.5px;line-height:1.45;color:var(--ink)}
 .tile .k{display:block;margin-top:9px;font:11.5px/1 var(--mono);color:var(--faint)}
@@ -79,6 +82,8 @@ a{color:var(--accent)}
 .go-btn.primary:hover{background:#005c91;box-shadow:0 2px 4px #0b3e6a33,0 10px 24px #0b3e6a2b}
 .go-btn .arw{font-size:17px;line-height:1;opacity:.75}
 @media (max-width:560px){ .go{flex-direction:column} .go-btn{justify-content:center} }
+h2.figtitle{margin:40px 0 4px;font-size:17px}
+h2.figtitle+figure{margin-top:8px}
 figure{margin:26px 0;max-width:880px}
 /* The concentration SVG carries explicit width/height attributes, so max-width alone caps it at
    its intrinsic 820px. width:100% lets its viewBox scale to the container instead. */
@@ -236,6 +241,41 @@ form.sf input::placeholder,form.sf textarea::placeholder{color:#b3b9c1}
 
 footer.site{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 60px;color:var(--faint);font-size:12.5px}
 footer.site code{color:var(--mut)}
+footer.site p.who{color:var(--mut);font-size:13.5px}
+footer.site p.who strong{color:var(--ink)}
+footer.site a{color:var(--mut)}
+footer.site a:hover{color:var(--accent)}
+/* field definitions under each Descriptives chart */
+p.fdef{margin:0 0 10px;max-width:72ch;color:var(--mut);font-size:14px}
+dl.levels{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:4px 26px;margin:6px 0 0;max-width:960px}
+dl.levels div{padding:5px 0;border-bottom:1px solid var(--line2);font-size:13px}
+dl.levels dt{display:inline;font-family:var(--mono);font-size:12px;color:var(--ink)}
+dl.levels dt::after{content:" — "}
+dl.levels dd{display:inline;margin:0;color:var(--mut)}
+/* the choice trail on the Build tab */
+ol.trail{list-style:none;margin:18px 0 0;padding:14px 0 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 0;justify-content:center;align-items:stretch}
+ol.trail li{display:flex;flex-direction:column;align-items:center;padding:0 14px;min-width:120px;position:relative;color:var(--mut)}
+ol.trail li+li::before{content:"\2192";position:absolute;left:-7px;top:12px;color:#c1c7cf;font-size:14px}
+ol.trail .tl{font:11px/1.35 var(--mono);text-align:center;max-width:150px}
+ol.trail b{font:600 19px/1.1 var(--mono);color:var(--ink);margin-top:5px;letter-spacing:-.02em}
+ol.trail i{font:11px/1 var(--mono);font-style:normal;color:var(--faint);margin-top:4px}
+ol.trail li.now b{color:var(--accent)}
+/* hover tooltip on the explorer's dots */
+.tip{position:fixed;z-index:50;pointer-events:none;font:12px/1.3 var(--mono);background:var(--ink);color:#fff;
+  padding:6px 9px;border-radius:6px;white-space:nowrap;box-shadow:0 4px 12px #0003}
+/* a study's estimates: one line each, the full record on demand */
+.est-list{margin:0 12px}
+.est-line{display:flex;align-items:baseline;gap:14px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;
+  background:#fff;margin-bottom:6px;cursor:pointer}
+.est-line:hover{border-color:#c7ccd3}
+.est-line b{font:600 16px/1 var(--mono);color:var(--accent);min-width:64px;text-align:right}
+.est-line .con{font-size:13px;color:var(--ink);white-space:nowrap}
+.est-line .what{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.est-line .arw{color:var(--faint);font-size:12px;transition:transform .12s}
+.est-line[aria-expanded="true"]{border-color:var(--accent)}
+.est-line[aria-expanded="true"] .arw{transform:rotate(90deg)}
+.est-rec{margin:0 0 12px}
+.est-rec .record{margin:0 12px}
 .desktop-only{display:none;padding:50px 20px;text-align:center;color:var(--mut)}
 
 @media (max-width:900px){

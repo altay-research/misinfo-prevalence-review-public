@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-v="b93058ce642e"><head>
+<!DOCTYPE html><html lang="en" data-v="c4c6f04ffaa4"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Descriptives</title>
 <meta name="description" content="Every figure in the review, and what the 443 studies and 1,048 estimates are made of.">
@@ -62,15 +62,29 @@ function bars(rows, total, order, name) {
   return `<svg viewBox="0 0 ${W} ${H}" height="${H}" style="width:100%;max-width:${W}px;border:0;background:none" role="img">${body}</svg>`;
 }
 
-const blocks = d.meta.controls.map(f => `
+// Every record's field label links here, so the page has to say what the field and its levels
+// mean, not only how often each level occurs. The wording is the codebook's, carried in meta.
+const DEFS = d.meta.field_defs || {};
+const levelsHTML = (f, rows, name) => {
+  const defs = (DEFS[f] || {}).levels || {};
+  const items = rows.filter(([v]) => defs[v]).map(([v]) =>
+    `<div><dt>${esc(name(v))}</dt><dd>${esc(defs[v])}</dd></div>`).join('');
+  return items ? `<dl class="levels">${items}</dl>` : '';
+};
+const blocks = d.meta.controls.map(f => {
+  const rows = counts(f);
+  const name = v => f === 'construct' ? constructName(v) : valueLabel(v, f);
+  return `
   <h3 id="field-${f}">${esc(fieldLabel(f))}</h3>
-  ${bars(counts(f), TOTAL,
-         f === 'construct' ? d.meta.construct_order : null,
-         v => f === 'construct' ? constructName(v) : valueLabel(v, f))}`).join('');
+  ${DEFS[f]?.def ? `<p class="fdef">${esc(DEFS[f].def)}</p>` : ''}
+  ${bars(rows, TOTAL, f === 'construct' ? d.meta.construct_order : null, name)}
+  ${levelsHTML(f, rows, name)}`;
+}).join('');
 
 // Risk of bias is a study-level appraisal, so it is counted over studies, not estimates.
 const robRows = [...Object.values(d.studies).reduce((m, s) => m.set(s.rob, (m.get(s.rob) || 0) + 1), new Map())];
 const robBlock = `<h3 id="field-rob">Risk of bias</h3>
+  ${DEFS.rob?.def ? `<p class="fdef">${esc(DEFS.rob.def)}</p>` : ''}
   ${bars(robRows, d.meta.n_studies, ['LOW', 'MODERATE', 'HIGH'], v => String(v).toLowerCase())}
   <p class="small muted">Counted over the ${d.meta.n_studies} studies; every other chart here is
      over the ${num(TOTAL)} estimates.</p>`;
