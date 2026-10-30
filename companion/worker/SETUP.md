@@ -101,8 +101,37 @@ Triage by closing what does not qualify and keeping what does. If a submission d
 corpus, that is a re-freeze, with its own entry in `FROZEN.md` and `research_log.md`, like any
 other change.
 
+## Is it working right now?
+
+```bash
+curl -s https://misinfo-prevalence-submit.sacha-altay.workers.dev/health | python3 -m json.tool
+```
+
+```json
+{ "ok": true, "github": "ok", "token_expires": "2027-09-18 00:00:00 UTC",
+  "turnstile": "configured", "repo": "altay-research/misinfo-prevalence-submissions" }
+```
+
+`ok: true` means a submission sent now would be filed. Anything else answers 503 and says which
+half is broken: `github` reads `unauthorized` when the token has expired or been revoked,
+`forbidden` when it lacks Issues access, `no-such-repo` when the name is wrong, `missing` when the
+secret was never set.
+
+**Watch `token_expires`.** That date is GitHub's own, returned with every authenticated request,
+and it is the one number that turns a silent outage into a diary entry. The first token was issued
+on 2026-09-18 with GitHub's 30-day default and nothing announced its lapse: the form kept telling
+submitters to try again later, and the queue simply stayed empty, which looks exactly like nobody
+writing. Check this route whenever the queue has been quiet for a while, and reissue the token
+before the date rather than after.
+
+This route is safe to call from anywhere. It reports whether the backend is configured and nothing
+else — never the token, the repository's contents, or any submission. A healthy answer is memoised
+for 60 seconds so the route cannot burn the GitHub rate limit the submissions depend on; a failing
+one is always re-checked.
+
 ## If it stops working
 
+- Start with `/health` above: it names the broken half without needing a submission.
 - `npx wrangler tail` streams the Worker's logs live. A GitHub failure is logged there and never
   shown to the submitter.
 - The commonest cause is the token expiring. Re-issue it and `wrangler secret put GITHUB_TOKEN`

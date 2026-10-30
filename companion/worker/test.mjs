@@ -4,8 +4,9 @@
  *   node worker/test.mjs
  *
  * GitHub and Turnstile are stubbed, so this checks the parts that are ours: origin allow-listing,
- * required fields, the honeypot, field truncation, the shape of the issue that gets filed, and
- * that a GitHub failure never leaks upstream detail to the page.
+ * required fields, the honeypot, field truncation, the shape of the issue that gets filed, that a
+ * GitHub failure never leaks upstream detail to the page, and that /health reports the state of
+ * the submission path without leaking the token.
  */
 import worker from './index.js';
 
@@ -18,9 +19,16 @@ const ENV = {
 
 let filed = [];
 let githubStatus = 201;
+let repoStatus = 200;                 // what GET /repos/<repo> returns, for the health route
+let repoExpiry = '2026-11-18 00:00:00 UTC';
 const realFetch = globalThis.fetch;
 globalThis.fetch = async (url, opts) => {
   if (String(url).includes('api.github.com')) {
+    // the health route reads the repo; a submission posts an issue
+    if (!opts || opts.method !== 'POST') {
+      const h = repoExpiry ? { 'github-authentication-token-expiration': repoExpiry } : {};
+      return new Response(repoStatus === 200 ? '{}' : 'nope', { status: repoStatus, headers: h });
+    }
     filed.push({ auth: opts.headers.authorization, ...JSON.parse(opts.body) });
     return new Response(githubStatus === 201 ? '{}' : 'boom', { status: githubStatus });
   }
@@ -119,6 +127,63 @@ r = await worker.fetch(new Request('https://x/', {
   body: 'not json',
 }), ENV);
 check('malformed JSON is rejected', r.status === 400);
+
+// --- /health: the submission path's only observable
+// Turnstile is deliberately unset in ENV above (local testing), so health must report that and
+// refuse to call itself ok, even when GitHub is fine.
+const HENV = { ...ENV, HEALTH_CACHE_SECONDS: '0' };   // no memo, so each case is checked afresh
+const getHealth = (env = HENV) =>
+  worker.fetch(new Request('https://x/health', { method: 'GET' }), env);
+
+repoStatus = 200;
+r = await getHealth();
+out = await r.json();
+check('health reports github ok', out.github === 'ok', JSON.stringify(out));
+check('health reports the token expiry', out.token_expires === repoExpiry);
+check('health names the repo', out.repo === ENV.SUBMISSIONS_REPO);
+check('health is not ok while turnstile is unset', out.ok === false && out.turnstile === 'missing');
+check('an unhealthy path answers 503', r.status === 503);
+check('health never leaks the token', !JSON.stringify(out).includes('test-token'));
+
+// with Turnstile configured too, the whole path is healthy
+r = await getHealth({ ...HENV, TURNSTILE_SECRET: 'sekrit' });
+out = await r.json();
+check('health is ok when both halves are configured', r.status === 200 && out.ok === true,
+      JSON.stringify(out));
+check('health never leaks the turnstile secret', !JSON.stringify(out).includes('sekrit'));
+
+// an expired or revoked token is the case this route exists for
+repoStatus = 401;
+r = await getHealth({ ...HENV, TURNSTILE_SECRET: 'sekrit' });
+out = await r.json();
+check('an expired token reads as unauthorized', out.github === 'unauthorized' && out.ok === false);
+check('an expired token answers 503', r.status === 503);
+check('github error text does not reach the page', !JSON.stringify(out).includes('nope'));
+
+repoStatus = 404;
+out = await (await getHealth()).json();
+check('a wrong repo name is named as such', out.github === 'no-such-repo');
+repoStatus = 500;
+out = await (await getHealth()).json();
+check('an upstream fault is reported with its status', out.github === 'error-500');
+
+// a missing token must not look healthy
+out = await (await getHealth({ ...HENV, GITHUB_TOKEN: '' })).json();
+check('a missing token reads as missing', out.github === 'missing' && out.ok === false);
+repoStatus = 200;
+
+// the memo: a healthy answer is reused briefly, so this route cannot burn the GitHub rate limit
+const MENV = { ...ENV, TURNSTILE_SECRET: 'sekrit', HEALTH_CACHE_SECONDS: '60' };
+await getHealth(MENV);                       // populate
+out = await (await getHealth(MENV)).json();
+check('a healthy answer is memoised', out.cached === true);
+
+// health must not disturb the rest of the routing
+r = await worker.fetch(new Request('https://x/', { method: 'GET', headers: { origin: ENV.ALLOWED_ORIGIN } }), ENV);
+check('GET on any other path is still refused', r.status === 405);
+filed = [];
+r = await post(GOOD);
+check('submissions still work after a health check', (await r.json()).ok === true && filed.length === 1);
 
 console.log(`\nworker: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
