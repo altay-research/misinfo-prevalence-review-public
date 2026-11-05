@@ -11557,3 +11557,34 @@ green (check_site 1159, stress 608), pushed to both repositories.
 One finding along the way: the browser extension's coordinate clicks miss on this Mac because its
 screenshot frame does not map 1:1 to CSS pixels; clicking by element reference is reliable. The
 earlier "chips do not respond" alarm was that, not the site.
+
+## 2026-11-02 — §2.6's stale pair corrected in the authoritative docx; pre-submission audit
+
+**The last inconsistency is closed.** `01_manuscript_main.docx` said "among the 62 studies whose
+measurement type is behavioural, only 13 do"; the released pipeline has said 72 and 15 since the
+measurement moderator was re-derived on 2026-09-18. Changed with `scripts/edit_docx_text.py`, never
+a rebuild, because `AUTHORITATIVE_FILES.txt` protects that file and no text diff can see what a
+rebuild would destroy.
+
+Verified against the artefact rather than the process: of the 21 parts inside the file only
+`word/document.xml` differs, and every structural count is unchanged either side — 303 paragraphs,
+423 runs, 285 `rPr`, 39 `pPr`, 2 tables, 6 drawings, 1 `sectPr`. Guards: manuscript 267/267, author
+edits 173/173. Previous version in `docs/.backups/`.
+
+**Pre-submission audit of `~/Desktop/NHB_submission`.** Cover letter, reporting-summary content,
+PRISMA checklist and the read-me carry no placeholders. Supplementary Data 1 and 2 and the six
+figures are present. Main text 4,742 words against NHB's 5,000 with Methods excluded; abstract 148
+against 150. The SI docx was built an hour before the last master change and is still in sync: the
+only differences are the build's own citation numbering (`GRADE,24` for `GRADE (Guyatt et al. 2008)`)
+and section titles substituted for `§` references, plus its front matter.
+
+**One blocker remains, and it is the project's own rule**: `check_manuscript_stats.py` reports every
+run that section 4.11 names no DOI, correct for a preprint and not for a journal. Mint the deposit
+DOI and edit it into both the master and the authoritative docx, by targeted edit.
+
+**Stale by design, not by error**: `01_manuscript_main.pdf` beside the docx is a Word export from
+18 September and still reads 62 and 13. It regenerates whenever he next exports from Word.
+
+**The submission path was never broken.** The GitHub token runs to 2027-09-19, not the 30 days I
+predicted; `GET /health` on the Worker settled it in one call. In the 30 days to 2026-11-02 the
+endpoint received requests only from this session, so the empty queue means nobody has written.

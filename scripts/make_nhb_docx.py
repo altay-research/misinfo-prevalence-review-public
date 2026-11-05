@@ -326,7 +326,7 @@ def render(text, dst, figs, fig_marker, title_page=False, ref_list=None):
         # authorship; restored the same day for the PREPRINT, which is posted publicly and must
         # carry its author (Sacha, 2026-09-18: "yes add back author, me").
         for line in ("", "Sacha Altay",
-                     "Department of Political Science, University of Zurich, Zurich, Switzerland",
+                     "AMIAD / École Polytechnique",
                      "Correspondence: sacha.altay@gmail.com", ""):
             doc.add_paragraph(line)
 
