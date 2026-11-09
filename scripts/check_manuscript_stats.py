@@ -421,7 +421,7 @@ def _cov(field):
 _top, _gt = _cov("topic"), _cov("ground_truth")
 add("topic: content health", f'{_top["Health, non-COVID"]["CONTENT"]} concern non-COVID health topics and {_top["COVID-19"]["CONTENT"]} COVID-19')
 add("topic: content politics", f'against {_top["Politics, elections"]["CONTENT"]} on politics and elections')
-add("topic: general news", f'general news accounting for {_top["General news"]["EXPOSURE"]} of the {_K["EXPOSURE"]} exposure studies, {_top["General news"]["REACH"]} of the {_K["REACH"]} reach studies and {_top["General news"]["CONCENTRATION"]} of the {_K["CONCENTRATION"]} concentration studies')
+add("topic: general news", f'general news accounts for {_top["General news"]["EXPOSURE"]} of the {_K["EXPOSURE"]} exposure studies, {_top["General news"]["REACH"]} of the {_K["REACH"]} reach studies and {_top["General news"]["CONCENTRATION"]} of the {_K["CONCENTRATION"]} concentration studies')
 add("topic: sharing politics", f'politics and elections for {_top["Politics, elections"]["SHARING"]} of the {_K["SHARING"]} sharing studies')
 # denominators derived, never hardcoded: they were 210/15/24/30/17/27 and went stale at the
 # v1.7.16 re-freeze, producing impossible strings like "233 of the 210" (2026-09-04).
@@ -978,16 +978,16 @@ _tps = {}
 for _r in _all: _tps.setdefault(_r["topic"], set()).add(_r["id"])
 _nst = len({_r["id"] for _r in _all})
 _hlth = _tps["health_other"] | _tps["covid19"] | _tps["vaccines"]
-add("§2.1 topic corpus", f'of {_nst} studies, {len(_tps["health_other"])} concern non-COVID health topics, {len(_tps["covid19"])} COVID-19, and '
+add("§2.1 topic corpus", f'of {_nst} studies, {len(_tps["health_other"])} on non-COVID health topics, {len(_tps["covid19"])} COVID-19, and '
     f'{len(_tps["vaccines"])} non-COVID vaccines ({round(100*len(_hlth)/_nst)}% health-adjacent), against {len(_tps["general_news"])} on general news and {len(_tps["politics_elections"])} on politics')
 add("§2.1 twitter pair", f'Twitter/X appears in {_pbc_row["Twitter/X"]["SHARING"]} of the {_K["SHARING"]} sharing studies and {_pbc_row["Twitter/X"]["CONCENTRATION"]} of the {_K["CONCENTRATION"]} concentration studies')
 add("§2.1 browsing pair", f'browsing-panel data in {_pbc_row["Web browsing"]["EXPOSURE"]} of the {_K["EXPOSURE"]} exposure studies and {_pbc_row["Web browsing"]["REACH"]} of the {_K["REACH"]} reach studies')
 _ytmax = max(int(_pbc_row[_pl][_c]) for _pl in ("YouTube", "TikTok") for _c in ("EXPOSURE", "REACH", "SHARING", "CONCENTRATION", "RECALL"))
-add("§2.1 youtube/tiktok", f'YouTube and TikTok run the other way: {_pbc_row["YouTube"]["CONTENT"]} and {_pbc_row["TikTok"]["CONTENT"]} of the {_K["CONTENT"]} content analyses, '
+add("§2.1 youtube/tiktok", f'YouTube and TikTok sit on the other side: {_pbc_row["YouTube"]["CONTENT"]} and {_pbc_row["TikTok"]["CONTENT"]} of the {_K["CONTENT"]} content analyses, '
     f'against no more than {_ytmax} studies in any other construct')
 add("§2.1 content topics denominator", f'Of the {_K["CONTENT"]} content analyses, {_top["Health, non-COVID"]["CONTENT"]} concern non-COVID health topics')
 _lvl = _cov("classification_level")
-add("§2.2 level by construct", f'of the {_K["CONTENT"]} content analyses, {_lvl["Claim or item level"]["CONTENT"]} identify misinformation at the claim or item level. The behavioural constructs almost always classify whole sources: whole-source classification accounts for '
+add("§2.2 level by construct", f'of the {_K["CONTENT"]} content analyses, {_lvl["Claim or item level"]["CONTENT"]} identify misinformation at the claim or item level. The behavioural constructs almost always classify whole sources, and account for '
     f'{_lvl["Whole source"]["EXPOSURE"]} of the {_K["EXPOSURE"]} exposure studies, {_lvl["Whole source"]["REACH"]} of the {_K["REACH"]} reach studies, '
     f'{_lvl["Whole source"]["SHARING"]} of the {_K["SHARING"]} sharing studies and {_lvl["Whole source"]["CONCENTRATION"]} of the {_K["CONCENTRATION"]} concentration studies')
 add("grey recall corpus comparator", f'Recall claims have a median of {_gcm("RECALL")[0]:.1f}% (n = {_gcm("RECALL")[1]}, against {_rsp["RECALL_exposure"]["median"]}% for the corpus\'s self-reported exposure recall)')

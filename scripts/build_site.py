@@ -43,7 +43,7 @@ SUBMIT_ENDPOINT = "https://misinfo-prevalence-submit.sacha-altay.workers.dev"
 TURNSTILE_SITEKEY = "0x4AAAAAAE76FRJFyjbY2FJl"   # public half; the secret lives in the Worker
 
 AUTHOR = {"name": "Sacha Altay",
-          "affiliation": "AMIAD / École Polytechnique"}
+          "affiliation": "AMIAD, École Polytechnique"}
 LICENCE = {"data": "CC BY 4.0", "code": "MIT"}          # as LICENSE in the public package
 # The site's path on its host. Only 404.html needs it: GitHub Pages serves that page at whatever
 # address was missing, so its own links cannot be relative.
