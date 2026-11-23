@@ -50,3 +50,12 @@ from_version,to_version,construct,from_median,to_median,delta_pp,direction,trans
 1.7.16,1.7.18,SHARING,12.41,13.0,0.59,up,correction,-4
 1.7.16,1.7.18,CONTENT,23.2,23.0,-0.2,down,correction,-4
 1.7.19,1.7.20,REACH,12.5,12.0,-0.5,down,correction,-1
+1.7.23,1.7.24,RECALL,43.0,43.45,0.45,up,correction,4
+1.7.23,1.7.24,SHARING,13.0,12.7,-0.3,down,correction,4
+1.7.23,1.7.24,CONTENT,23.0,22.8,-0.2,down,correction,4
+1.7.24,1.7.25,EXPOSURE,1.31,1.81,0.49,up,expansion,45
+1.7.24,1.7.25,REACH,12.0,11.5,-0.5,down,expansion,45
+1.7.24,1.7.25,RECALL,43.45,43.9,0.45,up,expansion,45
+1.7.24,1.7.25,SHARING,12.7,11.4,-1.3,down,expansion,45
+1.7.24,1.7.25,CONTENT,22.8,21.4,-1.4,down,expansion,45
+1.7.24,1.7.25,CONCENTRATION,74.0,74.5,0.5,up,expansion,45

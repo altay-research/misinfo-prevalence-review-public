@@ -1400,9 +1400,15 @@ _rep_ids = {r["id"] for r in csv.DictReader(open(os.path.join(
 _rep_in_freeze = len(_rep_ids & {r["id"] for r in _all})
 _rep_poolable = len({r["id"] for r in csv.DictReader(open(os.path.join(
     ROOT, "data/extract_v2/repair_2026-09/repair_estimates_final.csv"), encoding="utf-8")) if r["pool"] == "main"})
+# Since v1.7.25 the removals happened at two points: the September dispute adjudication and the
+# November re-check (v1.7.24 dropped 85180239525 and 85188303314). The split is counted against the
+# submitted freeze v1.7.23 (audit R15, 2026-11-23).
+_v123 = os.path.join(ROOT, "data/extract_v2/estimates_v1.7.23_frozen.csv")
+_rep_in_123 = len(_rep_ids & {r["id"] for r in csv.DictReader(open(_v123, encoding="utf-8"))}) if os.path.exists(_v123) else _rep_in_freeze
 add("§4.4 repair ladder", f"The repair confirmed {len(_rep_ids)} studies at full text, of which {_rep_poolable} "
-    f"carry a poolable estimate; {_rep_poolable - _rep_in_freeze} of those were removed in the later dispute "
-    f"adjudication, leaving {_rep_in_freeze} in the released dataset")
+    f"carry a poolable estimate; {_rep_poolable - _rep_in_freeze} of those were removed in later adjudication, "
+    f"{_rep_poolable - _rep_in_123} in the dispute adjudication and {_rep_in_123 - _rep_in_freeze} in the November "
+    f"re-check, leaving {_rep_in_freeze} in the released dataset")
 # The repair's size left the Discussion with the sentence Sacha cut on 2026-09-15; §4.4 and Note C1
 # still carry it, and both are asserted below.
 # Section 4.4 said 141 carry a poolable estimate while C1 and the crosswalk said 131, and no
@@ -1620,8 +1626,7 @@ _claim(_claim_dl == 0, lambda: f"{_claim_dl} claim-level estimates now use a dom
 _cv = {(r["mod_a"], r["mod_b"]): r for r in rows("review_cramers_v.csv")}
 add("§2.4 covariation",
     f"{_src_dl} of the {len(_src)} source-level estimates in the meta-regression ({round(100*_src_dl/len(_src))}%) "
-    f"take their ground truth from a domain list, and no claim-level estimate does "
-    f"(Cramér's V = {float(_cv[('id_method','ground_truth')]['cramers_v']):.2f})")
+    f"take their ground truth from a domain list, and no claim-level estimate does")
 _sm = rows("slices_measurement.csv")
 add("§2.4 measurement k", f"(k = {sum(int(r['n_studies']) for r in _sm)} studies across the three levels)")
 _cs = rows("concentration_standardized.csv")

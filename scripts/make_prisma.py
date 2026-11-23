@@ -331,7 +331,7 @@ def load():
     streams = [("Scopus", len(scopus)), ("OpenAlex keyword and PubMed", len(oapm)),
                ("September behavioural query", len(behav)), ("corpus repair", len(repair)),
                ("citation snowballing", len(snow)), ("Google Scholar recall check", len(scholar)),
-               ("November second-model re-screen", len(s3)),
+               ("November third-model re-screen", len(s3)),
                ("seed and hand-added records", len(direct))]
 
     # ASSERTION 3 (top-down): the streams drawn above the retrieval box must sum to it.
@@ -464,8 +464,8 @@ def main():
           f'{rp["main_pool"]} of the {rp["eligible"]} carried a main-pool estimate at the repair’s '
           f'own freeze; {rp["ledgered"]} survive in the current freeze and carry a terminal state, '
           f'{rp["fulltext"]-rp["ledgered"]} do not (see the note below)'], "#fff7ed"),
-        ([f'Other methods: November second-model re-screen (n = {d["s3"]["screened"]:,})',
-          "every title- and abstract-screened record, re-screened blind by a second model family "
+        ([f'Other methods: November third-model re-screen (n = {d["s3"]["screened"]:,})',
+          "every title- and abstract-screened record, re-screened blind by a third model family "
           f'(Mistral Large); {d["s3"]["flagged"]:,} flagged as possible false exclusions, filtered '
           f'under the settled rules and read; {d["s3"]["sought"]} sought, {d["s3"]["read"]} '
           f'retrieved and assessed at full text, {d["s3"]["eligible"]} eligible.',
