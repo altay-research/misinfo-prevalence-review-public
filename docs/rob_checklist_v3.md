@@ -3,10 +3,10 @@
 **Status:** supersedes `docs/Old/rob_checklist.txt` (v2, 5 bespoke dimensions scored from
 "title + context"). Introduced 2026-07-23 following the multi-dimension project review.
 
-**Coverage, as at 2026-09-16.** Risk of bias is appraised for all 443 studies in the freeze, 418 of
-them from full text and 25 from the abstract alone. On the ruling-corrected variant the summary
-ratings are LOW 53, MODERATE 210, HIGH 181; the full-text-only sensitivity is LOW 52, MODERATE 208,
-HIGH 159. `scripts/aggregate_rob_v3.py` asserts coverage against the freeze on every run and writes
+**Coverage, as at 2026-11-20 (v1.7.25).** Risk of bias is appraised for all 493 studies in the freeze,
+471 of them from full text and 22 from the abstract alone. On the ruling-corrected variant the summary
+ratings are LOW 62, MODERATE 239, HIGH 192; the full-text-only sensitivity is LOW 61, MODERATE 238,
+HIGH 172. `scripts/aggregate_rob_v3.py` asserts coverage against the freeze on every run and writes
 the distributions to `data/rob/rob_v3_summary.csv`; the §"Why v3 exists" section below describes the
 July 2026 corpus and is kept as the rationale of record, not as a current count.
 

@@ -42,8 +42,11 @@ PREPRINT_URL = "https://osf.io/preprints/psyarxiv/sgvr8"   # versionless: follow
 SUBMIT_ENDPOINT = "https://misinfo-prevalence-submit.sacha-altay.workers.dev"
 TURNSTILE_SITEKEY = "0x4AAAAAAE76FRJFyjbY2FJl"   # public half; the secret lives in the Worker
 
-AUTHOR = {"name": "Sacha Altay",
-          "affiliation": "AMIAD, École Polytechnique"}
+# Two authors since 2026-11-20 (Laura Hitz accepted co-authorship); affiliations as on the
+# title page (Sacha's ruling 2026-11-23: "Institut Polytechnique de Paris").
+AUTHOR = {"name": "Sacha Altay (AMIAD, Institut Polytechnique de Paris) and Laura Hitz "
+                  "(Center for Philanthropy Studies, University of Basel)",
+          "affiliation": ""}
 LICENCE = {"data": "CC BY 4.0", "code": "MIT"}          # as LICENSE in the public package
 # The site's path on its host. Only 404.html needs it: GitHub Pages serves that page at whatever
 # address was missing, so its own links cannot be relative.

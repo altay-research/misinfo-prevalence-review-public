@@ -1,8 +1,8 @@
 # Codebook — the frozen estimates dataset
 
 Every one of the **57 columns** of the frozen CSV named on the `File:` line of the top block of
-[`FROZEN.md`](FROZEN.md). Counts and vocabularies below are as at **v1.7.23** (1,048 estimate rows /
-443 studies); the codes are stable across freezes, the counts are not.
+[`FROZEN.md`](FROZEN.md). Counts and vocabularies below are as at **v1.7.25** (1,159 estimate rows /
+493 studies); the codes are stable across freezes, the counts are not.
 
 One row is **one estimate**: a study × country × platform/source × construct × measure combination.
 There is no primary/secondary hierarchy — most studies contribute several co-equal rows, and they
@@ -161,7 +161,7 @@ call. Each was added because it caught something real. Non-zero exit blocks a fr
 8. No mean-scale value sits in the proportion pool.
 9. No two rows are fully identical.
 
-All nine hold on v1.7.23.
+All nine hold on v1.7.25.
 
 ## Reading a row
 

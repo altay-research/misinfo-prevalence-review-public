@@ -6,7 +6,7 @@ verification campaign. Each layer targets a different failure mode; every step i
 + MD5 + git tag + changelog) and logged (`docs/research_log.md`), and all human adjudications are recorded
 (`docs/human_review_provenance.md`, `human_review_ledger.csv` — 206 logged author decisions). The dataset evolved from
 v1.4.0 through the audit campaign, the 2026-07-23 review, the September 2026 corpus repair and the September
-re-extraction merge to the frozen **v1.7.23 (1,048 estimates / 443 studies)**; see `docs/counts_crosswalk.md` for the
+re-extraction merge to the frozen **v1.7.25 (1,159 estimates / 493 studies)**; see `docs/counts_crosswalk.md` for the
 canonical counts and `docs/FROZEN.md` for the full version history.
 
 Sections 1 to 7 describe the layers in the order they were run. Each is dated, because several were run on a corpus

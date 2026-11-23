@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-v="850f8789af33"><head>
+<!DOCTYPE html><html lang="en" data-v="512e61ec783c"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Data and code</title>
 <meta name="description" content="The frozen dataset, the study tables and the pipeline behind every number on this site, with the preprint and the replication package.">
@@ -37,7 +37,7 @@
 
   <h2>Tell me about a study I missed, or anything else</h2>
   <div id="submit"></div>
-  <p class="small muted">It reaches a private queue only the author reads; nothing you send is
+  <p class="small muted">It reaches a private queue only the authors read; nothing you send is
      published. If it is a study, a DOI and the quantity as the paper words it is enough, and it is
      screened against the same eligibility criteria as everything else.</p>
 
@@ -58,7 +58,7 @@ const LABEL = {
 };
 document.getElementById('paper').innerHTML = `
   <div class="go">
-    <a class="go-btn primary" href="../downloads/${esc(PAPER)}" download>Download the paper
+    <a class="go-btn primary" href="../downloads/${esc(PAPER)}" download>Download the preprint (version 1)
       <span class="arw">&darr;</span></a>
     ${m.preprint ? `<a class="go-btn" href="${esc(m.preprint)}" target="_blank" rel="noopener">Read it on PsyArXiv
       <span class="arw">&rarr;</span></a>` : ''}
@@ -86,12 +86,13 @@ document.getElementById('built').textContent = m.built;
 // A citation people can copy, not a link they have to reconstruct one from.
 const YEAR = new Date(m.built).getFullYear();
 document.getElementById('cite').innerHTML =
-  `<p style="margin-top:0">Altay, S. (${YEAR}). Rare on screens but on everyone's mind: a systematic
+  `<p style="margin-top:0">Altay, S., &amp; Hitz, L. (${YEAR}). Rare on screens but on everyone's mind: a systematic
    review of misinformation prevalence, exposure, and concentration.${m.preprint
      ? ` <em>PsyArXiv</em>. <a href="${esc(m.preprint)}" target="_blank" rel="noopener">${esc(m.preprint)}</a>`
      : ''}</p>
    <p style="margin-bottom:0" class="small muted">Dataset ${esc(m.freeze)}, MD5
-   <code>${esc(m.freeze_md5)}</code>.${m.preprint ? '' : ' A preprint and a Zenodo DOI will be linked here when they exist.'}</p>`;
+   <code>${esc(m.freeze_md5)}</code>.${m.preprint ? '' : ' A preprint and a Zenodo DOI will be linked here when they exist.'}</p>
+   ${m.preprint ? `<p class="small muted" style="margin-bottom:0">Version 1 of the preprint (Altay, 2026), the PDF offered above, reports the earlier dataset v1.7.23 (443 studies). The data on this site are ${esc(m.freeze)}, the version under peer review; the preprint will be updated to match.</p>` : ''}`;
 mountContributeCTA(m, document.getElementById('submit'));
 </script>
 </body></html>

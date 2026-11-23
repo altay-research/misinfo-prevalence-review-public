@@ -188,7 +188,13 @@ def drift_check(c):
             (re.compile(r"appraised\s+for\s+all\s+(\d{3,4})\s+studies", re.I), LEGIT_STUDIES, "studies"),
             (re.compile(r"risk\s+of\s+bias[^.]{0,60}?(\d{3,4})\s+studies", re.I), LEGIT_STUDIES, "studies"),
             (re.compile(r"main[- ]analysis\s+set[^.]{0,80}?\((\d{3,4})\s+in\s+total\)", re.I), LEGIT_MAINSET, "estimates"),
-            (re.compile(r"computed\s+on\s+the\s+(\d{3,4})\s+of\s+these", re.I), LEGIT_SIXSET, "estimates")]
+            (re.compile(r"computed\s+on\s+the\s+(\d{3,4})\s+of\s+these", re.I), LEGIT_SIXSET, "estimates"),
+            # 2026-11-10: the Methods' own summary sentence, "The final dataset comprises N
+            # estimates from M studies", matched no idiom above and carried v1.7.22's pair into
+            # the submission draft through the v1.7.23 re-freeze. It is the most explicit corpus
+            # claim in the paper, so it gets the most literal pattern.
+            (re.compile(r"dataset\s+comprises\s+(\d{3,4})\s+estimates", re.I), LEGIT_ESTIMATES, "estimates"),
+            (re.compile(r"comprises\s+\d{3,4}\s+estimates\s+from\s+(\d{3,4})\s+studies", re.I), LEGIT_STUDIES, "studies")]
     # docs/ plus the repo-root markdown. README.md was outside the scan until 2026-09-07 and had
     # sat on v1.7.9's counts for seven freezes -- and it is the first file any reproducer reads.
     # Anything else at the root that states a corpus count is caught for the same reason.

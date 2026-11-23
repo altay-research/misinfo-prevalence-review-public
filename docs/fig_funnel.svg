@@ -14,44 +14,44 @@
 <rect x="250" y="82.0" width="30.9" height="12" fill="#178a3f"/>
 <text x="285.9166666666667" y="91.0" font-size="10.5" fill="#178a3f" font-weight="bold">3.5%</text>
 <text x="242" y="117.0" font-size="11" text-anchor="end" fill="#333">+ false</text>
-<rect x="250" y="108.0" width="164.3" height="12" fill="#e0902a"/>
-<text x="419.3" y="117.0" font-size="10.5" fill="#e0902a" font-weight="bold">18.6%</text>
+<rect x="250" y="108.0" width="143.1" height="12" fill="#e0902a"/>
+<text x="398.09999999999997" y="117.0" font-size="10.5" fill="#e0902a" font-weight="bold">16.2%</text>
 <text x="242" y="143.0" font-size="11" text-anchor="end" fill="#333">+ misleading</text>
-<rect x="250" y="134.0" width="199.2" height="12" fill="#e0902a"/>
-<text x="454.19166666666666" y="143.0" font-size="10.5" fill="#e0902a" font-weight="bold">22.6%</text>
+<rect x="250" y="134.0" width="183.7" height="12" fill="#e0902a"/>
+<text x="438.73333333333335" y="143.0" font-size="10.5" fill="#e0902a" font-weight="bold">20.8%</text>
 <text x="242" y="169.0" font-size="11" text-anchor="end" fill="#333">+ low-quality</text>
 <text x="254" y="169.0" font-size="10" fill="#bbb">(n/a)</text>
 <text x="18" y="210" font-size="10.5" font-weight="bold" fill="#666">METHODOLOGICAL — how identified</text>
 <text x="242" y="231.0" font-size="11" text-anchor="end" fill="#333">domain / source list</text>
-<rect x="250" y="222.0" width="60.5" height="12" fill="#178a3f"/>
-<text x="315.5083333333333" y="231.0" font-size="10.5" fill="#178a3f" font-weight="bold">6.8%</text>
+<rect x="250" y="222.0" width="63.5" height="12" fill="#178a3f"/>
+<text x="318.46750000000003" y="231.0" font-size="10.5" fill="#178a3f" font-weight="bold">7.2%</text>
 <text x="242" y="257.0" font-size="11" text-anchor="end" fill="#333">fact-check (claim/URL)</text>
-<rect x="250" y="248.0" width="98.1" height="12" fill="#e0902a"/>
-<text x="353.05" y="257.0" font-size="10.5" fill="#e0902a" font-weight="bold">11.1%</text>
+<rect x="250" y="248.0" width="63.4" height="12" fill="#178a3f"/>
+<text x="318.42333333333335" y="257.0" font-size="10.5" fill="#178a3f" font-weight="bold">7.2%</text>
 <text x="242" y="283.0" font-size="11" text-anchor="end" fill="#333">researcher content-coding</text>
-<rect x="250" y="274.0" width="205.4" height="12" fill="#e0902a"/>
-<text x="460.375" y="283.0" font-size="10.5" fill="#e0902a" font-weight="bold">23.2%</text>
+<rect x="250" y="274.0" width="198.8" height="12" fill="#e0902a"/>
+<text x="453.75" y="283.0" font-size="10.5" fill="#e0902a" font-weight="bold">22.5%</text>
 <text x="18" y="324" font-size="10.5" font-weight="bold" fill="#666">METHODOLOGICAL — measurement</text>
 <text x="242" y="345.0" font-size="11" text-anchor="end" fill="#333">behavioural trace</text>
-<rect x="250" y="336.0" width="70.9" height="12" fill="#e0902a"/>
-<text x="325.8875" y="345.0" font-size="10.5" fill="#e0902a" font-weight="bold">8.0%</text>
+<rect x="250" y="336.0" width="71.1" height="12" fill="#e0902a"/>
+<text x="326.10833333333335" y="345.0" font-size="10.5" fill="#e0902a" font-weight="bold">8.1%</text>
 <text x="242" y="371.0" font-size="11" text-anchor="end" fill="#333">content coding</text>
-<rect x="250" y="362.0" width="163.4" height="12" fill="#e0902a"/>
-<text x="418.4166666666667" y="371.0" font-size="10.5" fill="#e0902a" font-weight="bold">18.5%</text>
+<rect x="250" y="362.0" width="149.3" height="12" fill="#e0902a"/>
+<text x="404.2833333333333" y="371.0" font-size="10.5" fill="#e0902a" font-weight="bold">16.9%</text>
 <text x="242" y="397.0" font-size="11" text-anchor="end" fill="#333">self-report</text>
-<rect x="250" y="388.0" width="337.9" height="12" fill="#cc3333"/>
-<text x="592.875" y="397.0" font-size="10.5" fill="#cc3333" font-weight="bold">38.2%</text>
+<rect x="250" y="388.0" width="348.9" height="12" fill="#cc3333"/>
+<text x="603.9166666666667" y="397.0" font-size="10.5" fill="#cc3333" font-weight="bold">39.5%</text>
 <text x="18" y="438" font-size="10.5" font-weight="bold" fill="#666">REFERENCE CLASS — denominator</text>
 <text x="242" y="459.0" font-size="11" text-anchor="end" fill="#333">whole diet (all media)</text>
-<rect x="250" y="450.0" width="1.3" height="12" fill="#178a3f"/>
-<text x="256.3073333333333" y="459.0" font-size="10.5" fill="#178a3f" font-weight="bold">0.1%</text>
+<rect x="250" y="450.0" width="3.7" height="12" fill="#178a3f"/>
+<text x="258.71000000000004" y="459.0" font-size="10.5" fill="#178a3f" font-weight="bold">0.4%</text>
 <text x="242" y="485.0" font-size="11" text-anchor="end" fill="#333">political-news diet</text>
-<rect x="250" y="476.0" width="89.2" height="12" fill="#e0902a"/>
-<text x="344.2166666666667" y="485.0" font-size="10.5" fill="#e0902a" font-weight="bold">10.1%</text>
+<rect x="250" y="476.0" width="84.2" height="12" fill="#e0902a"/>
+<text x="339.1816666666667" y="485.0" font-size="10.5" fill="#e0902a" font-weight="bold">9.5%</text>
 <text x="242" y="511.0" font-size="11" text-anchor="end" fill="#333">population (reached ≥1)</text>
 <rect x="250" y="502.0" width="274.6" height="12" fill="#cc3333"/>
 <text x="529.6283333333333" y="511.0" font-size="10.5" fill="#cc3333" font-weight="bold">31.1%</text>
 <text x="242" y="537.0" font-size="11" text-anchor="end" fill="#333">topical / curated sample</text>
-<rect x="250" y="528.0" width="173.1" height="12" fill="#e0902a"/>
-<text x="428.1333333333333" y="537.0" font-size="10.5" fill="#e0902a" font-weight="bold">19.6%</text>
+<rect x="250" y="528.0" width="154.6" height="12" fill="#e0902a"/>
+<text x="409.58333333333337" y="537.0" font-size="10.5" fill="#e0902a" font-weight="bold">17.5%</text>
 </svg>

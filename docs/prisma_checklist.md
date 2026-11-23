@@ -1,9 +1,9 @@
 # PRISMA 2020 Checklist — "Rare on screens but on everyone's mind"
 
-Manuscript: `docs/manuscript_draft.md` (frozen dataset v1.7.23). Drafted 2026-08-12; section and
+Manuscript: `docs/manuscript_draft.md` (frozen dataset v1.7.25). Drafted 2026-08-12; section and
 figure numbers re-verified against the Nature Human Behaviour build (`scripts/make_nhb_docx.py`)
 on 2026-09-07. Supplementary material is numbered as Supplementary Notes A-E and Supplementary
-Figs. 1-3, which is the numbering the submitted files use.
+Figs. 1-2, which is the numbering the submitted files use.
 
 | # | Item (abbreviated) | Where reported |
 |---|---|---|
@@ -28,7 +28,7 @@ Figs. 1-3, which is the numbering the submitted files use.
 | 13f | Sensitivity analyses | §4.9 + Supplementary Note C2; results §2.7 + Supplementary Note B2 |
 | 14 | Reporting bias assessment | Supplementary Note C2 (Spearman rationale vs Egger); results §2.4 |
 | 15 | Certainty assessment | §4.7 (the risk-of-bias input); method and ratings in Supplementary Note B3; summary in §2.7 |
-| 16a | Selection results + flow | Supplementary Fig. 1 (PRISMA flow); counts in Abstract, §4.3–4.4 |
+| 16a | Selection results + flow | Figure 6 (PRISMA flow); counts in Abstract, §4.3–4.4 |
 | 16b | Excluded-at-full-text list with reasons | `data/synth/phaseB/si_fulltext_exclusions.csv` — one row per excluded report with its reason category and the ledger's own free text (`docs/SI_lists_README.md`); ships as supplementary data, no in-text table |
 | 17 | Study characteristics | Aggregate in §2.1–2.2; per-study in `data/synth/phaseB/si_included_studies.csv` (author, year, title, venue, DOI, constructs, n estimates, text basis) and in the frozen dataset (§4.11) |
 | 18 | Risk of bias per study | Distributions in Supplementary Note B1; per-study appraisals with quotes in the repository (§4.11) |

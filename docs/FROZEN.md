@@ -1,3 +1,78 @@
+# FROZEN DATASET v1.7.25 (2026-11-20) - REVISION BRANCH rev/v1.7.24, not the submitted version
+Estimate dataset frozen. Downstream analysis refers to THIS snapshot ON THIS BRANCH. The submitted
+manuscript (NHB, 2026-11-12) rests on v1.7.23, which stays the pointer on main until the revision.
+
+- File: data/extract_v2/estimates_v1.7.25_frozen.csv
+- Rows: 1159 estimates / 493 studies
+- MD5: b392eb9da1717ee9e16c21e162fa4b0a
+- Git tag: dataset-frozen-v1.7.25 (supersedes v1.7.24 for the revision)
+- Built by: scripts/apply_v1725.py (changelog: data/extract_v2/qa/changelog_v1725.csv)
+
+## v1.7.24 -> v1.7.25 - the screening misses (stage 3 of the Mistral re-check)
+
+Stage 3 re-read every June title/abstract exclusion with a second model family (Mistral), filtered
+and ruled the flags (Sacha, 2026-11-18), retrieved the full texts, read them blind (Mistral) and
+then against the paper and the rules (Claude), and Sacha ruled eligibility (69 INCLUDE, 2026-11-19).
+All in data/extract_v2/qa/screening_pass_2026-11/.
+
+1. **68 papers extracted** (one more was a thesis duplicating two corpus studies): 148 rows, by
+   Opus extractors on the September instrument + R8 + ledger L1-L47 (L47 new: chatbot/LLM answers to
+   researcher prompts are not prevalence). No Mistral figure was copied.
+2. **5 leave at extraction** (Sacha, 2026-11-20): a seed sample stratified on the outcome (L1), two
+   papers whose text and tables cannot be reconciled, one coding insults as misinformation, and the
+   Truth Social/X preprint (impossible denominator).
+3. **17 leave at the integrity screen**: risk of bias (rob_checklist_v3, unchanged) and an integrity
+   screen built from the July fabrication signals, on all 63 from full text: 5 SUSPECT (fabrication
+   signals) and 12 CONCERN surveys, all excluded by Sacha.
+4. **46 studies enter, 103 rows.** Edits on entry: link-bearing posts by a class of accounts recoded
+   SHARING (a0-bis; 9 rows + Politoscope); Politoscope's printed 0.081% corrected to 0.0081% (the
+   paper's slip: 4,888 of ~60M tweets), kept as a lower bound; Guess et al. 2021 gains News Feed
+   views (EXPOSURE 12%, the Discussion's pair read as swapped); a 'not verified by the ACS' video
+   share moved to QUALITY; chemtrail rows of a climate-video study dropped (search terms) and its
+   view share coded view-weighted CONTENT; an equal-weight pooled row dropped in favour of its four
+   platform rows; two denominators corrected against the papers' counts.
+5. **Risk of bias** for the 46: data/rob/v3out/shard_r17.csv.
+
+---
+
+# FROZEN DATASET v1.7.24 (2026-11-13) - REVISION BRANCH rev/v1.7.24, not the submitted version
+Estimate dataset frozen. Downstream analysis refers to THIS snapshot ON THIS BRANCH. The submitted
+manuscript (NHB, 2026-11-12) rests on v1.7.23, which stays the pointer on main until the revision.
+
+- File: data/extract_v2/estimates_v1.7.24_frozen.csv
+- Rows: 1056 estimates / 447 studies
+- MD5: b3f5daee66a7d91ed11d2cdeb2b5d7bd
+- Git tag: dataset-frozen-v1.7.24 (supersedes v1.7.23 for the revision)
+- Built by: scripts/apply_v1724.py (changelog: data/extract_v2/qa/changelog_v1724.csv)
+
+## v1.7.23 -> v1.7.24 - corrections from the November 2026 Mistral full-text passes
+
+Three blind passes by a second model family (Mistral Large 4) on the included studies, the
+full-text exclusions, and both together under the review's own settled screening rules
+(data/extract_v2/qa/rules_pass_2026-11/). Every dispute was read against the paper by Claude and
+ruled by Sacha on 2026-11-13 (fulltext_pass_rulings_sacha_2026-11-13.csv + _amendments_).
+
+1. **Six studies leave**:
+   - 2-s2.0-85145404443: a July 2026 drop ruling was never applied;
+   - 2-s2.0-86000736431: curated conspiracy search terms;
+   - OA-W7155615941 and 2-s2.0-85186467273: verbal quantifiers;
+   - 2-s2.0-85188303314: a Snopes fact-check corpus;
+   - 2-s2.0-85180239525: a topic-model theme.
+2. **Ten studies enter, 15 rows.** They had been wrongly excluded at full text, 6 of them by the June
+   abstract re-screen mislabelled as a full-text exclusion. Three topical view shares enter as
+   CONTENT view-weighted.
+3. **2-s2.0-85130071721 gains its headline CONTENT 41.6** (misleading); 6.2 stays as the stricter variant.
+4. **2-s2.0-85127732083 loses its claim-type row** and keeps the "alternative to treatment" row (L46).
+5. **Finding (c):** 2-s2.0-85074596916 SHARING 2016 restored to 24.1 and CONCENTRATION to 27.8. Both had been
+   misplaced since v1.7.20 by a substring matcher.
+6. **Five invalid codes** recoded (convenience_snowball, business_source_not_general_public, at_risk_nonrepresentative).
+7. **PRISMA:**
+   - the 112 records rejected at the June 21 second-reader re-screen move from "excluded at full text" to a screening box, with their own list (si_rescreen_exclusions.csv);
+   - two never-read records move to not retrieved (finding (a)): 2-s2.0-84929523850, 2-s2.0-105031628111;
+   - Gruzd 2023 stays a full-text exclusion, with its real reason.
+
+---
+
 # FROZEN DATASET v1.7.23 (2026-09-16)
 Estimate dataset frozen. Downstream analysis refers to THIS snapshot.
 Each frozen version is its own immutable file on disk, each git-tagged.

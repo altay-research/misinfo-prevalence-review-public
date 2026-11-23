@@ -1,0 +1,2 @@
+id,reason,evidence
+2-s2.0-85147303661,"Full text of Gruzd et al. 2023 retrieved 2026-09-13 (Europe PMC) and screened: every video is hand-coded PRO / ANTI / NEUTRAL vaccine stance, no video judged true or false; stance is not veracity (L29). (The archived text had been the COMPROP Data Memo 2020.6, a different document.)",data/extract_v2/qa/gruzd2023_screen_2026-09-13.md

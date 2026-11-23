@@ -166,7 +166,6 @@ def ids(rows, field):
 # records have in common instead.
 EXCL_LABELS = [
     ("DROPPED", "No qualifying estimate at full text: no denominator, curated sample, wrong construct, or secondary source"),
-    ("VERIFY_REJECTED", "Not eligible on full-text re-reading: wrong construct, no denominator, or not empirical"),
     ("DROPPED_V2_UNLEDGERED", "No qualifying estimate at the second full-text extraction, or a duplicate of a counted record"),
     ("DISP_EXCLUDED", "Not a prevalence or exposure estimate"),
     ("DEDUP_COLLAPSED", "Duplicate of an included record"),
@@ -177,6 +176,16 @@ EXCL_LABELS = [
     ("ARM_EXCLUDED_FULL_TEXT", "Not eligible on full-text reading: no falsity coding, stance not falsity, or no numeric estimate"),
     ("ARM_EXCLUDED_AT_RULING", "Extracted, then excluded: quality-only, value not printed by the study, or unreliable tables"),
 ]
+
+
+# The 2026-06-21 second-reader re-screen of the 635 screening includes worked from titles and
+# abstracts (its adjudication input, data/verify/disputed.jsonl, holds only eid/title/abstract; no
+# reject reason cites a table, figure or methods section; the round produced a "needs full text"
+# category). Until v1.7.24 its rejections were labelled "Not eligible on full-text re-reading" and
+# counted among full-text exclusions. Sacha ruled on 2026-11-13 that they are a SCREENING outcome
+# (finding (b), research log). They leave the assessed set and get their own box on the spine and
+# their own supplementary list; the November full-text pass re-read 89 of them and 6 were included.
+RESCREEN = ("VERIFY_REJECTED", "Excluded at a second-reader title/abstract re-screen of the screening includes")
 
 
 def load():
@@ -201,7 +210,8 @@ def load():
     # a screening outcome of its own stream, reported in the arm's box, so they come out of the
     # sought-for-retrieval total rather than inflating it.
     arm_abs_excl = ts.get("ARM_EXCLUDED_ABSTRACT", 0)
-    assessed_total = d["included_or_staged_to_reconcile"] - arm_abs_excl
+    n_rescreen = ts.get("VERIFY_REJECTED", 0)
+    assessed_total = d["included_or_staged_to_reconcile"] - arm_abs_excl - n_rescreen
     included = ts.get("INCLUDED_FROZEN", 0)
     not_retrieved = ts.get("INCLUDED_NOT_RETRIEVED", 0) + ts.get("ARM_NOT_RETRIEVED", 0)
     no_data = (ts.get("DISP_INCLUDED_NO_DATA", 0) + ts.get("DISP_INCLUDED_RECOVERED", 0)
@@ -218,7 +228,7 @@ def load():
     # ledger after this script was written, and the figure then sat unregenerated for several
     # freezes. Name the offender instead.
     KNOWN = ({st for st, _ in EXCL_LABELS}
-             | {"INCLUDED_FROZEN", "INCLUDED_NOT_RETRIEVED",
+             | {"INCLUDED_FROZEN", "INCLUDED_NOT_RETRIEVED", "VERIFY_REJECTED",
                 "DISP_INCLUDED_NO_DATA", "DISP_INCLUDED_RECOVERED",
                 "ARM_NOT_RETRIEVED", "ARM_INCLUDED_NO_DATA", "ARM_EXCLUDED_ABSTRACT"})
     unknown = {k: v for k, v in ts.items() if k not in KNOWN and v}
@@ -297,18 +307,31 @@ def load():
     snow_ids = {canon(r["oaid"]) for r in snow_rows}
     scholar_ids = {canon(r["id"]) for r in rows if r.get("source") == "scholar_arm_2026-09"}
 
+    rescreen_ids = {canon(r["id"]) for r in rc("data/synth/prisma_terminal_states.csv")
+                    if r.get("terminal_state") == "VERIFY_REJECTED"}
+    assert len(rescreen_ids) == n_rescreen, (len(rescreen_ids), n_rescreen)
+    assert rescreen_ids <= (inc_abs | inc_st5 | tagged), \
+        "a re-screen rejection is not a Scopus screening include; the spine box would misattribute it"
     assessed_ids = ((inc_abs | inc_st5 | tagged | inc_oa | inc_pm | staged
-                     | set(arm_disp) | frozen) - {""}) - arm_abs_ids
+                     | set(arm_disp) | frozen) - {""}) - arm_abs_ids - rescreen_ids
     scopus = (inc_abs | inc_st5 | tagged) & assessed_ids
     oapm = ((inc_oa | staged | inc_pm) - scopus) & assessed_ids
     behav = ((set(arm_disp) - arm_abs_ids) - scopus - oapm) & assessed_ids
     repair = (repair_ids - scopus - oapm - behav) & assessed_ids
     snow = (snow_ids - scopus - oapm - behav - repair) & assessed_ids
     scholar = (scholar_ids - scopus - oapm - behav - repair - snow) & assessed_ids
-    direct = assessed_ids - scopus - oapm - behav - repair - snow - scholar
+    # Stage 3 of the November Mistral re-check (v1.7.25): records this review had excluded at
+    # title/abstract, re-screened blind by a second model family and confirmed at full text. Like the
+    # corpus repair, only the studies it added to the freeze carry a terminal state; until
+    # 2026-11-23 they fell through to "seed and hand-added records", which they are not.
+    s3_ids = {canon(r["id"]) for r in rows
+              if (r.get("data_provenance") or "").startswith("screening_pass_2026-11")}
+    s3 = (s3_ids - scopus - oapm - behav - repair - snow - scholar) & assessed_ids
+    direct = assessed_ids - scopus - oapm - behav - repair - snow - scholar - s3
     streams = [("Scopus", len(scopus)), ("OpenAlex keyword and PubMed", len(oapm)),
                ("September behavioural query", len(behav)), ("corpus repair", len(repair)),
                ("citation snowballing", len(snow)), ("Google Scholar recall check", len(scholar)),
+               ("November second-model re-screen", len(s3)),
                ("seed and hand-added records", len(direct))]
 
     # ASSERTION 3 (top-down): the streams drawn above the retrieval box must sum to it.
@@ -340,6 +363,22 @@ def load():
                         main_pool=len({r["id"] for r in rep_est if r.get("pool") == "main"}),
                         ledgered=len(repair_ids & assessed_ids))
 
+    QS = "data/extract_v2/qa/screening_pass_2026-11"
+    s3_rul = rc(QS + "/fulltext/screening_fulltext_rulings_sacha_2026-11-19.csv")
+    s3_stats = dict(screened=len(rc(QS + "/per_record.csv")),
+                    flagged=len(rc(QS + "/candidates.csv")),
+                    sought=len(rc(QS + "/retrieval_list.csv")),
+                    read=len(rc(QS + "/fulltext_manifest.csv")),
+                    eligible=sum(1 for r in s3_rul if r.get("RULING") == "INCLUDE"),
+                    extracted=len({r.get("study_id") or r.get("id") for r in rc(QS + "/extraction/rows.csv")}),
+                    entered=len(s3_ids), own=len(s3), via_snow=len(s3_ids & snow_ids))
+    # the 19 (v1.7.25) were snowballed records that had advanced to retrieval in the summer but never
+    # received a full-text decision; they stay attributed to snowballing, where they first advanced.
+    assert s3_stats["own"] + s3_stats["via_snow"] == s3_stats["entered"], s3_stats
+
+    # the spine box's arithmetic, as printed on it
+    assert len(spine_inc) + len((scopus | rescreen_ids) - tadv) - n_rescreen == len(scopus), (
+        f"PRISMA spine box: {len(spine_inc)} + tagged - {n_rescreen} != {len(scopus)}")
     return dict(ident=ident, db=db, arm=arm, ver=ver, n_est=len(rows),
                 title_excl=title_excl, title_adv=title_adv, title_dups=title_dups,
                 abs_excl=abs_excl, st5_excl=st5_excl,
@@ -351,10 +390,11 @@ def load():
                 spine_exc_abs=len(spine_exc & {canon(r["eid"]) for r in abs_rows
                                                if r.get("label") == "EXCLUDE"}),
                 spine_maybe=len(spine_maybe),
-                scopus_adv=len(scopus), scopus_tagged=len(scopus - tadv),
+                scopus_adv=len(scopus), scopus_tagged=len((scopus | rescreen_ids) - tadv),
+                n_rescreen=n_rescreen,
                 netnew_total=netnew_total, netnew_adj=netnew_adj, netnew_inc=netnew_inc,
                 netnew_staged=len(oapm) - netnew_inc, netnew_adv=len(oapm),
-                snow=snow, repair=repair_stats, streams=streams,
+                snow=snow, repair=repair_stats, streams=streams, s3=s3_stats,
                 assessed=assessed_total, included=included, not_retrieved=not_retrieved,
                 nr_main=ts.get("INCLUDED_NOT_RETRIEVED", 0), nr_arm=ts.get("ARM_NOT_RETRIEVED", 0),
                 no_data=no_data, excl_reasons=excl_reasons, excl_total=excl_total,
@@ -424,6 +464,16 @@ def main():
           f'{rp["main_pool"]} of the {rp["eligible"]} carried a main-pool estimate at the repair’s '
           f'own freeze; {rp["ledgered"]} survive in the current freeze and carry a terminal state, '
           f'{rp["fulltext"]-rp["ledgered"]} do not (see the note below)'], "#fff7ed"),
+        ([f'Other methods: November second-model re-screen (n = {d["s3"]["screened"]:,})',
+          "every title- and abstract-screened record, re-screened blind by a second model family "
+          f'(Mistral Large); {d["s3"]["flagged"]:,} flagged as possible false exclusions, filtered '
+          f'under the settled rules and read; {d["s3"]["sought"]} sought, {d["s3"]["read"]} '
+          f'retrieved and assessed at full text, {d["s3"]["eligible"]} eligible.',
+          f'{d["s3"]["extracted"]} extracted (one duplicated two included studies); '
+          f'{d["s3"]["entered"]} entered the dataset and {d["s3"]["extracted"]-d["s3"]["entered"]} '
+          f'were dropped at extraction or at the integrity screen. {d["s3"]["own"]} advance to '
+          f'retrieval here; the other {d["s3"]["via_snow"]} were snowballed records that had '
+          f'advanced without a full-text decision and are counted there'], "#fff7ed"),
         (["Other methods: Google Scholar recall check",
           "a hand-run probe of the primary query’s recall rather than a search arm; "
           f'{d["n_scholar"]} studies held'], "#fff7ed"),
@@ -477,7 +527,13 @@ def main():
         f'{d["spine_inc"]} of the {d["title_adv"]:,} title-advanced records '
         f'({d["title_adv"]:,} less {d["spine_exc"]:,} excluded, {d["spine_maybe"]} left at '
         f'"maybe" and {d["n_no_second_screen"]} undecided), plus {d["scopus_tagged"]} record '
-        f'from the tagged include list that predates the title screen'])
+        f'from the tagged include list that predates the title screen, less '
+        f'{d["n_rescreen"]} excluded at the second-reader re-screen'])
+    mid_r = (y - 40 + y) / 2
+    put(MX, y - 64, MW, [RESCREEN[1] + f' (n = {d["n_rescreen"]})',
+                         "two independent readers per record, a third on disagreement, from titles "
+                         "and abstracts"], fill="#fef2f2", fs=11.5)
+    s.append(arrow(LX + LW, mid_r, MX, mid_r))
 
     # ---- the merge --------------------------------------------------------------------------------
     y4 = max(y, yr) + 46
@@ -531,11 +587,12 @@ def main():
         f'Reports sought for retrieval = {d["included"]} included + {d["not_retrieved"]} not '
         f'retrieved + {d["no_data"]} without a codeable estimate + {d["excl_total"]} excluded '
         f'= {d["assessed"]:,}.',
-        f'Note. The citation-snowballing and corpus-repair arms ran their own full-text screens, '
-        f'and their per-record outcomes are held in the arm ledgers rather than in the record '
-        f'ledger reconciled here; only their retained studies carry a terminal state. '
-        f'{sn["advancing"]-sn["ledgered"]} snowballed records and {rp["fulltext"]-rp["ledgered"]} '
-        f'repaired records therefore sit outside every total below the retrieval box. The repair’s '
+        f'Note. The citation-snowballing, corpus-repair and November re-screen arms ran their own '
+        f'full-text screens, and their per-record outcomes are held in the arm ledgers rather than '
+        f'in the record ledger reconciled here; only their retained studies carry a terminal state. '
+        f'{sn["advancing"]-sn["ledgered"]} snowballed records, {rp["fulltext"]-rp["ledgered"]} '
+        f'repaired records and {d["s3"]["sought"]-d["s3"]["entered"]} re-screened records '
+        f'therefore sit outside every total below the retrieval box. The repair’s '
         f'{rp["eligible"]} eligible papers and the {d["no_data"]} reports without a codeable '
         f'estimate are different quantities and do not subtract: the repair’s non-pooled papers '
         f'yielded estimates that the author’s class-level rulings sent to the appendix pool.',

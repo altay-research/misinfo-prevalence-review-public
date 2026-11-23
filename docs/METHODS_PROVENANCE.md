@@ -47,7 +47,7 @@ denom_type: population (whole-diet) / topical (keyword/topic) / single_source / 
 > (679/317) for fifteen freezes, and went stale again at v1.7.14 and v1.7.16. Those two files are
 > authoritative whenever they disagree with what follows.
 
-As at freeze **v1.7.23** (2026-09-16): 1,048 estimate rows / 443 studies, 934 of them in the main
+As at freeze **v1.7.25** (2026-11-20): 1,159 estimate rows / 493 studies, 942 of them in the main
 analysis set. Constructs: {'CONTENT': 429, 'RECALL': 255, 'SHARING': 128, 'REACH': 106,
 'EXPOSURE': 46, 'CONCENTRATION': 36, 'OTHER': 27, 'QUALITY': 21}
 (`data/synth/phaseB/corpus_counts.csv`).

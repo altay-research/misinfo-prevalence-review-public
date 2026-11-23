@@ -392,6 +392,11 @@ def exclusion_reasons():
         if k and reason and k not in detail:
             detail[k] = (reason, source)
 
+    # Reasons re-established by the November 2026 passes win over every earlier ledger: each was
+    # read against the full text after the earlier reason was found wrong (v1.7.24).
+    for r in read_csv("data/extract_v2/qa/exclusion_reasons_2026-11.csv"):
+        put(r.get("id"), r.get("reason"), "exclusion_reasons_2026-11.csv")
+
     # The dedup ledger first, and only it, for the records it collapsed: those rows are filed under
     # "Duplicate of an included record", so any other file's reading of the same record would
     # contradict the category the row prints.
@@ -570,6 +575,29 @@ def write_exclusions(meta, state, flow):
     return path, out, table
 
 
+def write_rescreen(meta, state):
+    """The second-reader title/abstract re-screen exclusions (make_prisma.RESCREEN), moved out of the
+    full-text exclusion list at v1.7.24 (finding (b)); one row per record, with the verifier's reason."""
+    detail = exclusion_reasons()
+    st0, lab = make_prisma.RESCREEN
+    out = []
+    for k, st in state.items():
+        if st != st0:
+            continue
+        d = meta.get(k, {})
+        reason, source = detail.get(k, (NO_REASON, "none recorded"))
+        out.append({"record_id": k, "title": d.get("title") or "", "exclusion_stage": lab,
+                    "terminal_state": st, "reason_detail": reason, "reason_source": source})
+    out.sort(key=lambda r: r["record_id"])
+    path = P("data/synth/phaseB/si_rescreen_exclusions.csv")
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["record_id", "title", "exclusion_stage", "terminal_state",
+                                          "reason_detail", "reason_source"])
+        w.writeheader()
+        w.writerows(out)
+    return path, out
+
+
 def write_readme(flow, inc_path, exc_path, included, exclusions, table, gaps):
     ver = flow["ver"]
     no_detail = sum(1 for r in exclusions if r["reason_source"] == "none recorded")
@@ -670,12 +698,15 @@ def main():
 
     inc_path, included, gaps = write_included(meta, flow)
     exc_path, exclusions, table = write_exclusions(meta, state, flow)
+    rs_path, rescreen = write_rescreen(meta, state)
+    assert len(rescreen) == flow["n_rescreen"], (len(rescreen), flow["n_rescreen"])
     readme = write_readme(flow, inc_path, exc_path, included, exclusions, table, gaps)
 
     print(f"included studies : {len(included):>4}  -> {os.path.relpath(inc_path, ROOT)}")
     print(f"  gaps: {gaps['first_author']} no author, {gaps['year']} no year, "
           f"{gaps['venue']} no venue, {gaps['doi']} no DOI, {gaps['title']} no title")
     print(f"exclusions       : {len(exclusions):>4}  -> {os.path.relpath(exc_path, ROOT)}")
+    print(f"re-screen excl.  : {len(rescreen):>4}  -> {os.path.relpath(rs_path, ROOT)}")
     print(f"                   {os.path.relpath(readme, ROOT)}")
     print("-" * 78)
     print(f"{'exclusion reason':<62}{'list':>6}{'flow':>6}")

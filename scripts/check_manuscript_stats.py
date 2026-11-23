@@ -48,6 +48,20 @@ def C(name):
 
 MISSING_SECTIONS = set()   # heading prefixes no section starts with; reported, never raised
 misses_xref = []           # cross-reference faults; reported with the rest, never raised
+
+# Module-level structural claims REPORT instead of raising (2026-11-20). A bare assert at module
+# level aborted the whole guard at the v1.7.24/25 re-freezes and hid every assertion after it
+# (lesson: a guard must fail as a MISMATCH, not an exception). Same tests, same messages.
+CLAIM_FAILS = []
+
+
+def _claim(cond, msg):
+    if not cond:
+        try:
+            CLAIM_FAILS.append(str(msg()))
+        except Exception as e:          # the message itself can index what just failed
+            CLAIM_FAILS.append(f"(message unavailable: {e!r})")
+
 checks = []   # (label, must-appear string)
 section_checks = []   # (heading prefix, label, must-appear string) -- anchored to one section
 
@@ -272,7 +286,31 @@ for g in ["CONTENT", "REACH", "SHARING", "EXPOSURE", "RECALL"]:   # backbone rho
     add(f"Spearman rho {g}", _rho(ss[g]["spearman_rho"]))
 add("Spearman CONTENT k", f'k = {ss["CONTENT"]["k"]}')
 add("Spearman REACH k", f'k = {ss["REACH"]["k"]}')
-add("Spearman REACH p", f'{float(ss["REACH"]["p_value"]):.3f}'.replace("0.", "*p* = ."))
+# a p below .001 is written "< .001", never "= .000" (fixed 2026-11-23, when REACH's p fell below .001)
+add("Spearman REACH p", "*p* < .001" if float(ss["REACH"]["p_value"]) < .001
+    else f'{float(ss["REACH"]["p_value"]):.3f}'.replace("0.", "*p* = ."))
+# 2026-11-10 (independent audit): "k = 271" and t(269) = −5.93 survived a re-freeze because the
+# loose "k = 270" assertion above matched the weighting sentence instead. Assert each construct's
+# whole quoted tuple, so the ρ, interval, t, df, p and k can only pass together.
+def _c2(x):
+    v = float(x)
+    return ("−" if v < 0 else "") + f"{abs(v):.2f}".lstrip("0")
+def _half(x):   # a 3-dp CSV value ending in 5 cannot say which way its 2-dp rounding goes
+    return f"{abs(float(x)):.3f}".endswith("5")
+def _sp_tuple(g, ci_prefix=""):
+    r = ss[g]; p = float(r["p_value"]); t = float(r["t"])
+    pstr = "*p* < .001" if p < 0.001 else "*p* = " + f"{p:.3f}".lstrip("0")
+    tail = f'*t*({r["df"]}) = {"−" if t < 0 else ""}{abs(t):.2f}, {pstr}, k = {r["k"]}'
+    if _half(r["rho_ci_lo"]) or _half(r["rho_ci_hi"]):
+        # Exposure's .085 and Recall's −.325 unrounded are .0847 and −.3253 (checked 2026-11-10 by
+        # re-running spearman() unrounded): the text says .08 and −.33; assert the tail only.
+        return tail
+    return f'{_rho(r["spearman_rho"])} [{ci_prefix}{_c2(r["rho_ci_lo"])}, {_c2(r["rho_ci_hi"])}], {tail}'
+add("Spearman CONTENT tuple", _sp_tuple("CONTENT", "95% CI "))
+for g in ["REACH", "SHARING", "EXPOSURE", "RECALL"]:
+    add(f"Spearman {g} tuple", _sp_tuple(g))
+_rhos = [float(ss[g]["spearman_rho"]) for g in ["CONTENT", "REACH", "SHARING", "EXPOSURE", "RECALL"]]
+add("Spearman range", f'ρ between {_c2(max(_rhos))} and {_c2(min(_rhos))}')
 # RETIRED 2026-08-25 (backbone localised): Spearman backbone p
 
 # --- precision weighting: quoted from-to pairs must match the CSV subset baselines ---
@@ -439,15 +477,20 @@ add_in("A5.", "B5 country US",
 _cells = len({(r["id"], r["construct"]) for r in _all
               if r["construct"] in ("CONTENT", "EXPOSURE", "REACH", "SHARING", "RECALL", "CONCENTRATION")})
 add_in("A5.", "B5 cells", f"{_cells} study-construct cells")
-assert int(_pbc_row["Web browsing"]["CONTENT"]) == 0, "browsing panels now carry content studies"
+# v1.7.24 added one view-weighted content study on browsing data (2-s2.0-85093701917, ruling F9);
+# Note A5 names it as the single one.
+_claim(int(_pbc_row["Web browsing"]["CONTENT"]) == 1,
+       lambda: f'browsing panels now carry {_pbc_row["Web browsing"]["CONTENT"]} content studies, not one')
 for _lab2 in ("Reddit", "Weibo", "News outlets", "Forums", "Telegram", "Websites", "No platform named"):
     assert _lab2 in _pbc_row, f"Appendix B5 lost the {_lab2} row"
 _figN = open(os.path.join(ROOT, "docs/figN_platform_panels.svg"), encoding="utf-8").read()
 for _c in ("EXPOSURE", "REACH", "SHARING", "CONCENTRATION", "CONTENT", "RECALL"):
     assert f'k = {_K[_c]}' in _figN, f"figN is stale for {_c}"
-assert not os.path.exists(os.path.join(ROOT, "docs/figM_platform_scatter.svg")), "retired scatter is back"
+_claim(not os.path.exists(os.path.join(ROOT, "docs/figM_platform_scatter.svg")),
+       lambda: "retired scatter is back")
 _figs = re.findall(r"\(\"Figure (\d)\.\"", open(os.path.join(ROOT, "scripts/make_manuscript_docx.py"), encoding="utf-8").read())
-assert _figs == [str(i) for i in range(1, 9)], f"figure numbering broken in the builder: {_figs}"   # 8 since 2026-08-26 (backbone figure deleted with §2.6)
+_claim(_figs == [str(i) for i in range(1, 9)],
+       lambda: f"figure numbering broken in the builder: {_figs}")   # 8 since 2026-08-26 (backbone figure deleted with §2.6)
 
 # --- metaregression R2 ladder (section 2.7) -------------------------------------
 _mr = {r["moderator"]: r["R2_adj"] for r in
@@ -479,12 +522,18 @@ _ranked = sorted(((float(v), k) for k, v in _mr.items()), reverse=True)
 # "unspecified" level that meant "not appraised yet"). It now ties denom_fine at 16.6, so ranks 4
 # and 5 are asserted as a SET: a tie has no order, and asserting one would fail on a rounding
 # change that means nothing.
-assert [k for _, k in _ranked[:3]] == ["ground_truth", "id_method", "construct"], _ranked
-assert {k for _, k in _ranked[3:5]} == {"denom_fine", "measurement"}, _ranked
-assert abs(_ranked[3][0] - _ranked[4][0]) < 0.05, \
-    f"denom_fine and measurement no longer tie at rank 4-5: {_ranked[3]} vs {_ranked[4]}"
-assert [k for _, k in _ranked[5:8]] == ["platform", "sampling", "breadth"], "R2 ladder order changed: rewrite the section 2.6 sentence"
-assert _ranked[-2][1] == "topic", "topic is no longer second-from-last: rewrite the 2.6 claim"
+_claim([k for _, k in _ranked[:3]] == ["ground_truth", "id_method", "construct"],
+       lambda: _ranked)
+# v1.7.25 (2026-11-23): the tie broke, measurement 17.3 above denominator class 16.1, and §2.4 now lists
+# them in that order. Asserted as an order; if they tie again, the sentence must say so.
+_claim([k for _, k in _ranked[3:5]] == ["measurement", "denom_fine"],
+       lambda: f"ranks 4-5 are no longer measurement then denominator class: {_ranked[3:5]}")
+_claim(abs(_ranked[3][0] - _ranked[4][0]) >= 0.05,
+       lambda: f"measurement and denom_fine tie again at rank 4-5: {_ranked[3]} vs {_ranked[4]}")
+_claim([k for _, k in _ranked[5:8]] == ["platform", "sampling", "breadth"],
+       lambda: "R2 ladder order changed: rewrite the section 2.6 sentence")
+_claim(_ranked[-2][1] == "topic",
+       lambda: "topic is no longer second-from-last: rewrite the 2.6 claim")
 # Placeholders are collected rather than raised, so the other 240-odd checks still run while the
 # bootstrap is in flight. They still fail the run: PENDING is reported and the exit is
 # non-zero, so the manuscript cannot be called clean while section 2.6 carries them.
@@ -522,8 +571,8 @@ _fig_order, _seen_fig = [], set()
 for _m in _re.finditer(r"Figure (\d)", MS):
     if _m.group(1) not in _seen_fig:
         _seen_fig.add(_m.group(1)); _fig_order.append(int(_m.group(1)))
-assert _fig_order == sorted(_fig_order), \
-    f"figures are not cited in numerical order: first mentions run {_fig_order}"
+_claim(_fig_order == sorted(_fig_order),
+       lambda: f"figures are not cited in numerical order: first mentions run {_fig_order}")
 
 class _Num(list):
     """Number words. A list indexed by value, extended past twenty so a growing count cannot
@@ -551,8 +600,10 @@ _wcl = sorted(((float(r["r2_adj"]), r["moderator"]) for r in rows("metareg_r2_wi
 _wc_rank = [m for _, m in _wcl]
 # topic is 4th of eight now, not 5th of nine: measurement left this ladder on 2026-09-18 because it
 # cannot be fitted inside a single construct.
-assert _wc_rank.index("topic") == 3, f"within-content ladder moved: {_wc_rank}"
-assert "measurement" not in _wc_rank, "measurement is fittable within content again: restore its rung"
+_claim(_wc_rank.index("topic") == 3,
+       lambda: f"within-content ladder moved: {_wc_rank}")
+_claim("measurement" not in _wc_rank,
+       lambda: "measurement is fittable within content again: restore its rung")
 # Derived from the ladder rather than typed: measurement left it on 2026-09-18, so the rank and the
 # ladder length both moved and a hardcoded phrase would have gone stale silently.
 _ORD_W = ["", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth"]
@@ -588,8 +639,12 @@ _m_unc = _wmed({"unclear", "unclear_no_fulltext"})
 add_in("A4.", "B4 unbounded median", f"{_m_unb[0]}% for ever/frequency studies (k = {_m_unb[1]})")
 add_in("A4.", "B4 period median", f"period-specific studies have a median of {_m_per[0]}% (k = {_m_per[1]})")
 add_in("A4.", "B4 unclear median", f"the unclear ones {_m_unc[0]}% (k = {_m_unc[1]})")
-assert sum(_wc.values()) == len(_w)
-add_in("A4.", "B4 instrument denominator", f"Four of the {len(_w)} studies are analyses of one instrument")
+_claim(sum(_wc.values()) == len(_w),
+       lambda: 'line 613')
+# HINTS item studies: four at v1.7.23, five since 2-s2.0-85193697372 entered (v1.7.24 stage 3, 2026-11-23)
+_hints = sum(1 for r in _w if "How much of the health information" in (r.get("question_verbatim") or ""))
+_num = {4: "Four", 5: "Five", 6: "Six"}
+add_in("A4.", "B4 instrument denominator", f"{_num.get(_hints, _hints)} of the {len(_w)} studies are analyses of one instrument")
 
 # Note B5's panel k range was a literal pair (15 to 210) from an old corpus, next to a cell total
 # the guard already derives. Derived from the same coverage table the panels are drawn from.
@@ -701,16 +756,33 @@ def _independent_reach():
            _glob.glob(os.path.join(ROOT, "data/extract_v2/full_reextract_2026-09/extractions/*.json"))}
     _bl |= {os.path.basename(_f)[:-5] for _f in
             _glob.glob(os.path.join(ROOT, "data/extract_v2/late_reextract_2026-09/extractions/*.json"))}
-    return len(_rel & _cf), len(_rel & _bl), len(_rel & (_cf | _bl)), len(_rel)
+    # The November re-check (2026-11-12..20): a third model family, Mistral Large, read the full text
+    # of every included study (stage 1), every full-text exclusion (stage 2) and every record the
+    # re-screen sent to full text (stage 3). Counted from the ANSWERS it returned, as above.
+    _mi = set()
+    for _d in ("fulltext_pass_2026-11_mistral", "exclusion_pass_2026-11_mistral",
+               "screening_fulltext_2026-11_mistral"):
+        _mi |= {os.path.basename(_f)[:-5] for _f in
+                _glob.glob(os.path.join(ROOT, "data/extract_v2", _d, "extractions", "*.json"))}
+    return (len(_rel & _cf), len(_rel & _bl), len(_rel & (_cf | _bl | _mi)), len(_rel),
+            len(_rel & _mi))
 
-_cf_n, _bl_n, _any_n, _rel_n = _independent_reach()
-add_in("B1.", "C1 independent reach",
-       f"the cross-family check reaches all {_cf_n} included studies, and the blind re-extraction "
-       f"reaches all {_bl_n} as well")
+_cf_n, _bl_n, _any_n, _rel_n, _mi_n = _independent_reach()
+# The Mistral extraction folders quote copyrighted full texts and are not in the public package; there
+# the coverage count cannot be made, so it is skipped with a message (clean-clone test, 2026-11-23).
+_mi_here = os.path.isdir(os.path.join(ROOT, "data/extract_v2/fulltext_pass_2026-11_mistral/extractions"))
+if _mi_here:
+    add_in("B1.", "C1 independent reach",
+           f"the cross-family check reaches {_cf_n} of the {_rel_n} included studies and the blind "
+           f"re-extraction {_bl_n}; the November re-check, by a third model family, read the full text "
+           f"of all {_mi_n}")
+else:
+    print("SKIPPED: the third-family coverage count (Note B1) needs the November re-check's extraction "
+          "folders, which quote copyrighted full texts and are not redistributed.")
 # The sentence that follows has to change shape when the gap closes, so assert the right one.
 # The paragraph was split chronologically on 2026-09-17, so the residual is no longer a separate
 # sentence; when a gap reopens it must be stated again, and this fails until it is.
-if _any_n != _rel_n:
+if _mi_here and _any_n != _rel_n:
     add_in("B1.", "C1 independent residual",
            f"leaving {_rel_n - _any_n} that neither has read")
 
@@ -743,7 +815,8 @@ _null = json.load(open(os.path.join(ROOT, "data/synth/phaseB/concentration_null.
 # instruction, so there is no prose left to assert the range against. The simulation still runs and
 # its result is still checked: if it ever stopped being a null, the assertion below fails and the
 # decision to leave it out would have to be revisited.
-assert _null["observed_min"] > _null["null_ratio_max"], _null["verdict"]
+_claim(_null["observed_min"] > _null["null_ratio_max"],
+       lambda: _null["verdict"])
 
 # Supplementary Data 1 must reproduce the paper's k for every construct, or the table a referee
 # uses to trace a median disagrees with the median. Cheap to assert, and it is the whole point.
@@ -766,7 +839,8 @@ if any(r["risk_of_bias"] == "not appraised" for r in _sc):
 # say so, from the coding file rather than from the report that describes it.
 _rw2 = list(csv.DictReader(open(os.path.join(
     ROOT, "data/extract_v2/qa/reach_windows_2026-09-15.csv"), encoding="utf-8")))
-assert len(_rw2) == int(_K["REACH"]), f"reach windows cover {len(_rw2)} of {_K['REACH']} studies"
+_claim(len(_rw2) == int(_K["REACH"]),
+       lambda: f"reach windows cover {len(_rw2)} of {_K['REACH']} studies")
 add_in("A4.", "B4 reach window count",
        f"observation window of all {len(_rw2)} behavioural reach studies")
 
@@ -822,7 +896,8 @@ add("recall windows: main-text summary",
 add_in("A4.", "recall windows: past week", f'{_stt.median(_pwk):.1f}%')
 _win_ids = {r["study_id"] for r in _rw}
 _seen_ids = {r["id"] for r in _pool if r["construct"] == "RECALL" and (r["recall_subtype"] or "") != "sharing"}
-assert _win_ids == _seen_ids, "the window coding and the seen-recall cell differ: re-code the windows for the new studies (§2.4 and B4)"
+_claim(_win_ids == _seen_ids,
+       lambda: "the window coding and the seen-recall cell differ: re-code the windows for the new studies (§2.4 and B4)")
 add("§2.4 window coverage", f'the full text of all {len(_win_ids)} seen-recall studies')
 add_in("A4.", "B4 past-week values", f"The five past-week studies report {', '.join(f'{v:.1f}%' for v in _pwk[:-1])} and {_pwk[-1]:.1f}% (median {_stt.median(_pwk):.1f}%)")
 add_in("A4.", "B4 corpus-wide median",
@@ -849,7 +924,8 @@ add("weighted EXPOSURE", f'behavioural exposure from {float(pw["EXPOSURE"]["unwe
 # B6's "falls" verb both have to carry the exception (2026-09-07 audit).
 add_in("A6.", "weighted RECALL", f'rises, from {float(pw["RECALL"]["unweighted_median"]):.1f}% to {float(pw["RECALL"]["weighted_median"]):.1f}% (seen and shared pooled, k = {_K["RECALL"]})')
 _rise = sorted(g for g, r in pw.items() if float(r["weighted_median"]) > float(r["unweighted_median"]))
-assert _rise == ["RECALL"], f"the set of constructs that rise under sample-size weighting changed: {_rise}"
+_claim(_rise == ["RECALL"],
+       lambda: f"the set of constructs that rise under sample-size weighting changed: {_rise}")
 add("§2.7 weighting exception", "lowers every construct's median except self-reported recall, which rises")
 for _g in ("EXPOSURE", "RECALL", "SHARING"):
     add(f"Spearman p {_g}", f'*p* = {float(ss[_g]["p_value"]):.3f}'.replace("0.", "."))
@@ -954,8 +1030,8 @@ add("conc broader bands", f'report similar shares: {float(_ct2["top 15-35%"]["me
 # a broader top group must account for a LARGER share within any one study, so the observed order
 # (5-15% above 15-35%) is between-study incomparability and the sentence says so. If that reverses,
 # the sentence has to change.
-assert float(_ct2["top 5-15%"]["median_activity_share_pct"]) > float(_ct2["top 15-35%"]["median_activity_share_pct"]), \
-    "the concentration bands are now monotonic: rewrite the §2.8 non-monotonicity sentence"
+_claim(float(_ct2["top 5-15%"]["median_activity_share_pct"]) > float(_ct2["top 15-35%"]["median_activity_share_pct"]),
+       lambda: "the concentration bands are now monotonic: rewrite the §2.8 non-monotonicity sentence")
 
 # --- 2026-09-07: passages that survived the v1.7.16 re-sync because nothing asserted them -------
 # The abstract, the §2.1 k-list, the corpus topic sentence, the platform pairs, the §2.2 level
@@ -1050,6 +1126,12 @@ MUST_NOT = [
     # Sacha 2026-09-17: "the share is a share of is ipossible to read, never write that"
     ("banned phrasing: share is a share of", "share is a share of"),
     ("stale freeze pointer", "v1.6.8"),
+    # 2026-11-10 independent audit: v1.7.22's Content small-study tuple, and two CI bounds that
+    # double-rounded from the 3-dp CSV (−.3253 and .0847 unrounded)
+    ("stale Spearman CONTENT t", "*t*(269) = −5.93"),
+    ("stale Spearman CONTENT k", "k = 271"),
+    ("double-rounded RECALL CI", "[−.32, .09]"),
+    ("double-rounded EXPOSURE CI", "[−.76, .09]"),
     ("stale abstract SHARING", "9.6% of the links"),
     ("stale abstract RECALL", "62% of people say"),
     ("stale §2.1 CONTENT k", "k = 210"),
@@ -1155,17 +1237,18 @@ _wc = {r["moderator"]: r for r in rows("metareg_r2_within_content.csv")}
 # were unreachable, because the script aborted at the ladder-order assert before reaching them.
 # Moved out of the Results into Note C2 (Sacha comment 398, 2026-09-17), which already carried
 # the full ladder; assert it where it now lives.
-add_in("B2.", "R2 gt CI", f"ground-truth source {_bs['ground_truth']['r2_adj']}% [{_bs['ground_truth']['ci_lo']}\u2013{_bs['ground_truth']['ci_hi']}]")
-add("R2 topic CI", f"topic {_bs['topic']['r2_adj']}% [{_bs['topic']['ci_lo']}\u2013{_bs['topic']['ci_hi']}]")
+add_in("B2.", "R2 gt CI", f"ground-truth source {float(_bs['ground_truth']['r2_adj']):.1f}% [{_bs['ground_truth']['ci_lo']}\u2013{_bs['ground_truth']['ci_hi']}]")
+add("R2 topic CI", f"topic {float(_bs['topic']['r2_adj']):.1f}% [{_bs['topic']['ci_lo']}\u2013{_bs['topic']['ci_hi']}]")
 # Cut from the main text on 2026-09-18 for length; the same ladder is asserted in C2 below
 # ("C2 within-content ladder"), so the numbers are still checked against the pipeline.
 _retired_within_content = (f"the ground-truth source explains {_wc['ground_truth']['r2_adj']}%, the identification level {_wc['id_method']['r2_adj']}%, measurement type {_wc['measurement']['r2_adj']}% and topic {_wc['topic']['r2_adj']}%, which puts topic above the denominator class, the platform and the sampling frame but still below every identification and measurement moderator ({_wc['topic']['n_estimates']} estimates from {_wc['topic']['n_studies']} studies")
-assert all(int(r["B"]) == 200 for r in _bs.values()), "bootstrap B is not 200: the manuscript says 200 resamples"
+_claim(all(int(r["B"]) == 200 for r in _bs.values()),
+       lambda: "bootstrap B is not 200: the manuscript says 200 resamples")
 # The claim that survives the overlapping intervals: topic's upper bound sits below every
 # measurement moderator's lower bound. If that stops being true, the 2.6 sentence must change.
-assert all(float(_bs["topic"]["ci_hi"]) < float(_bs[m]["ci_lo"])
-           for m in ("ground_truth", "id_method", "measurement", "sampling")), \
-    "topic's interval now overlaps a measurement moderator's: rewrite the 2.6 claim about the gap at the bottom"
+_claim(all(float(_bs["topic"]["ci_hi"]) < float(_bs[m]["ci_lo"])
+           for m in ("ground_truth", "id_method", "measurement", "sampling")),
+       lambda: "topic's interval now overlaps a measurement moderator's: rewrite the 2.6 claim about the gap at the bottom")
 
 # --- 2.9 demographic subgroups (phaseB_subgroups.py) ---
 _sg = json.load(open(os.path.join(ROOT, "data/synth/phaseB/subgroups_summary.json"), encoding="utf-8"))
@@ -1173,7 +1256,8 @@ add("2.9 coverage", f"Only {_sg['n_subgroup_studies']} of the {_sg['n_studies_to
 add("2.9 rows", f"contributing {_sg['n_subgroup_rows']} estimates")
 add("2.9 behavioural", f"{_sg['n_behavioural_studies']} studies whose measurement type is behavioural")
 # the set is the RoB-derived MEASUREMENT field (2026-09-07); the old local definition let 93 recall surveys in
-assert _sg["n_behavioural_studies"] < 100, "the behavioural set is back to including recall surveys"
+_claim(_sg["n_behavioural_studies"] < 100,
+       lambda: "the behavioural set is back to including recall surveys")
 add("2.9 beh with subgroups", f"only\n{_sg['n_behavioural_with_subgroups']} do".replace("\n", " "))
 add("2.9 political", f"{_sg['by_dimension'].get('political',0)} split respondents by party")
 add("2.9 ratio", f"a median {_sg['political_ratio_median']}\u00d7 the left-leaning")
@@ -1209,14 +1293,16 @@ else:
 
 # --- §2.2: the five ground-truth levels partition the main set; the blanks decompose by level ---
 _gtm = _modal("ground_truth")
-assert sum(_gtm.values()) == _N and "" not in _gtm, "ground-truth levels no longer partition the main set"
+_claim(sum(_gtm.values()) == _N and "" not in _gtm,
+       lambda: "ground-truth levels no longer partition the main set")
 add("defs: respondents", f'in {_gtm["self_report"]} studies ({_p(_gtm["self_report"])}%), all surveys, the respondents themselves decided')
 _cl_by = {s: (_Ctr([x["classification_level"] for x in rs if x["classification_level"]]).most_common(1)[0][0]
               if any(x["classification_level"] for x in rs) else "") for s, rs in _bys.items()}
 _br_by = {s: (_Ctr([x["breadth"] for x in rs if x["breadth"]]).most_common(1)[0][0]
               if any(x["breadth"] for x in rs) else "") for s, rs in _bys.items()}
 _blank_by_level = _Ctr(_cl_by[s] for s in _bys if _br_by[s] == "")
-assert sum(_blank_by_level.values()) == _br[""], "the blank-breadth decomposition no longer sums to the blank count"
+_claim(sum(_blank_by_level.values()) == _br[""],
+       lambda: "the blank-breadth decomposition no longer sums to the blank count")
 add_in("A5.", "defs: blanks decomposed",
     f'{_blank_by_level["source_level"]} of the {_cl["source_level"]} state none, because a domain list rates outlets rather than claims, and so do {_blank_by_level["claim_level"]} of the {_cl["claim_level"]} claim-level studies')
 
@@ -1232,9 +1318,9 @@ add_in("A7.", "disclosure: base", f"Among the {len(_cad)} studies in this corpus
 add_in("A7.", "disclosure: headline", f"of the {len(_cadh)} abstracts that headline the percentage, {len(_cadhn)} ({round(100*len(_cadhn)/len(_cadh))}%) do so without saying how the sample was selected")
 add("§2.6 gradient scope", "Wider definitions produce higher estimates within the content analyses")
 _ra = {r["value"]: r for r in rows("slices_breadth_audience.csv")}
-assert not (float(_ra["fabricated"]["sl_median"]) < float(_ra["false"]["sl_median"])
-            < float(_ra["misleading"]["sl_median"])), \
-    "the breadth gradient is now monotonic outside CONTENT too: the §2.6 scope caveat can be dropped"
+_claim(not (float(_ra["fabricated"]["sl_median"]) < float(_ra["false"]["sl_median"])
+            < float(_ra["misleading"]["sl_median"])),
+       lambda: "the breadth gradient is now monotonic outside CONTENT too: the §2.6 scope caveat can be dropped")
 add("§2.6 denom binary", f'explains almost none of the variance ({float(mr["denom"]["R2_adj"]):.1f}%, '
     + f'*p* = {float(mr["denom"]["QMp"]):.3f}'.replace("0.", ".", 1) + ")")
 add("§2.6 denom_fine (full set)", f'the full set of denominator categories explains {float(mr["denom_fine"]["R2_adj"]):.1f}%')
@@ -1243,20 +1329,23 @@ add("§2.6 denom_fine (full set)", f'the full set of denominator categories expl
 # RETIRED 2026-09-18b: the sentence citing Figure 5 for the comparison went with that paragraph
 _caps = dict(re.findall(r'\("Figure (\d)\.", "([^"]+)"',
                         open(os.path.join(ROOT, "scripts/make_manuscript_docx.py"), encoding="utf-8").read()))
-assert _caps["6"].split(".")[0] in MS_RAW, "Figure 6's caption text is not in the manuscript's figure list"
+_claim(_caps["6"].split(".")[0] in MS_RAW,
+       lambda: "Figure 6's caption text is not in the manuscript's figure list")
 _mc_ctry = {c for i in {r["study"] for r in _mc_panels} for c in {r["country_norm"] for r in _all if r["id"] == i}}
-assert _mc_ctry == {"United States"}, f"the matched concentration panels are no longer all US: {_mc_ctry}"
+_claim(_mc_ctry == {"United States"},
+       lambda: f"the matched concentration panels are no longer all US: {_mc_ctry}")
 
 # --- §2.9: no subgroup row is pooled anywhere; the dimension tally is exhaustive ---
-assert not any((r["demographic_group"] or "").strip() for r in _pool), "a subgroup row entered the main analysis set"
+_claim(not any((r["demographic_group"] or "").strip() for r in _pool),
+       lambda: "a subgroup row entered the main analysis set")
 # Sacha cut this sentence on 2026-09-15 when he shortened section 2.9. The rule it stated - that a
 # demographic row never enters a median, an interval or the meta-regression - still holds and is
 # still stated in Methods ("proportion, non-demographic-subgroup estimates"), so the guard now
 # anchors it there instead of retiring it.
 add_in("4.9 Synthesis", "main-set excludes subgroups",
        "proportion, non-demographic-subgroup estimates")
-assert sum(_sg["by_dimension"].values()) == _sg["n_subgroup_rows"], \
-    "the subgroup dimension tally no longer sums to the row count"
+_claim(sum(_sg["by_dimension"].values()) == _sg["n_subgroup_rows"],
+       lambda: "the subgroup dimension tally no longer sums to the row count")
 # The dimension counts must still sum to the total: his shortened sentence dropped the residual and
 # left 71 + 21 + 7 + 3 against 104 estimates, which a reader can add up.
 # Every dimension is asserted, not just the two that happened to be written down. The prose said
@@ -1289,7 +1378,8 @@ add_in("2.6", "Discussion subgroup coverage",
 add_in("2.6", "subgroup coverage, behavioural",
        f"among the {_sg['n_behavioural_studies']} studies whose measurement type is behavioural, only {_sg['n_behavioural_with_subgroups']} do")
 # the two limitation counts must move together (the Discussion promises what C3 delivers)
-assert MS.count("limitations qualify the synthesis") == 2, "the two limitation counts have diverged again"
+_claim(MS.count("limitations qualify the synthesis") == 2,
+       lambda: "the two limitation counts have diverged again")
 add_in("3. Discussion", "Discussion behavioural breadth",
        f"of the {len(_beh_ids)} studies contributing an estimate in a behavioural construct, {_beh_src_blank} classify whole sources")
 
@@ -1327,7 +1417,8 @@ add("Table 2 repair coverage", f"{_rep_in_freeze} are in the released dataset")
 _w5 = open(os.path.join(ROOT, "data/extract_v2/qa/gpt_check_2026-09_wave5_adjudication.md"),
            encoding="utf-8").read()
 _w5_k = _re.search(r"construct \|\s*(\d+)\s*\|[^|]*\|\s*\*\*([0-9.]+)\*\*", _w5)
-assert _w5_k, "wave-5 adjudication no longer states the construct n and kappa in its table"
+_claim(_w5_k,
+       lambda: "wave-5 adjudication no longer states the construct n and kappa in its table")
 add("Table 2 wave-5 row",
        f"{_w5_k.group(1)} estimates in the 22 studies no earlier pass had read")
 add("Table 2 wave-5 kappa",
@@ -1397,8 +1488,12 @@ add_in("A2.", "B2 fold-QUALITY pair",
        f'{float(_sv("A2", "CONTENT")["median_pct"]):.1f}%')
 
 # --- B1's unweighted-vs-weighted contrast (the eight generic items against the two design items) ---
+# When the two medians round alike (v1.7.25: 21.4 and 21.4) "moves ... from X to X" reads as an error;
+# the sentence then says the median is unchanged, and the assertion follows it (2026-11-23).
+_b1a, _b1b = float(_s6["CONTENT"]["median_all"]), float(_s6["CONTENT"]["median_excl_high"])
 add_in("A1.", "B1 unweighted vs weighted",
-       f'from {float(_s6["CONTENT"]["median_all"]):.1f}% to {float(_s6["CONTENT"]["median_excl_high"]):.1f}%, '
+       (f'leaves the content median at {_b1b:.1f}%, ' if f"{_b1a:.1f}" == f"{_b1b:.1f}" else
+        f'from {_b1a:.1f}% to {_b1b:.1f}%, ') +
        f'against {float(_sv("D exclude", "CONTENT")["median_pct"]):.1f}% when the two design items are weighted in')
 
 # --- C2, rewritten to the 200-resample run (it still carried the 100-resample one) ---
@@ -1458,7 +1553,8 @@ for _m, _cap in _MOD_UNCODED_MAX.items():
                             f"the declared share needs updating with a reason"))
 
 # --- display items must be cited in prose, and the SI tables numbered in order of first citation ---
-assert len(re.findall(r"(?<!Supplementary )Table 2", MS)) >= 2, "Table 2 is never cited in the prose"
+_claim(len(re.findall(r"(?<!Supplementary )Table 2", MS)) >= 2,
+       lambda: "Table 2 is never cited in the prose")
 # What EXISTS: the supplementary notes that have a heading and the tables/figures that have a
 # caption. Derived, never hardcoded — the old list named Note A, and a hardcoded list goes stale
 # exactly when the document changes under it (Note A was removed on 2026-09-18).
@@ -1511,8 +1607,76 @@ try:
 except Exception as _exc:
     print(f"  note: orphaned-reference check could not run ({_exc})")
 
-assert not _re.search(r"\b[Ss]ections?\s+\d", MS), "mixed cross-reference styles: the master uses §X.Y throughout"
+_claim(not _re.search(r"\b[Ss]ections?\s+\d", MS),
+       lambda: "mixed cross-reference styles: the master uses §X.Y throughout")
 
+
+# --- v1.7.25 update (2026-11-23): numbers written by hand during the update, now derived ----------
+_rd = rows("regression_data.csv")
+_src = [r for r in _rd if r["id_method"] == "domain_list"]
+_src_dl = sum(1 for r in _src if r["ground_truth"] == "domain_list")
+_claim_dl = sum(1 for r in _rd if r["id_method"] != "domain_list" and r["ground_truth"] == "domain_list")
+_claim(_claim_dl == 0, lambda: f"{_claim_dl} claim-level estimates now use a domain list: rewrite the §2.4 covariation")
+_cv = {(r["mod_a"], r["mod_b"]): r for r in rows("review_cramers_v.csv")}
+add("§2.4 covariation",
+    f"{_src_dl} of the {len(_src)} source-level estimates in the meta-regression ({round(100*_src_dl/len(_src))}%) "
+    f"take their ground truth from a domain list, and no claim-level estimate does "
+    f"(Cramér's V = {float(_cv[('id_method','ground_truth')]['cramers_v']):.2f})")
+_sm = rows("slices_measurement.csv")
+add("§2.4 measurement k", f"(k = {sum(int(r['n_studies']) for r in _sm)} studies across the three levels)")
+_cs = rows("concentration_standardized.csv")
+_le = [r for r in _cs if r["top_pct_people"] and float(r["top_pct_people"]) <= 1]
+_ex = {r["id"] for r in _le if float(r["top_pct_people"]) == 1}
+_sm1 = {r["id"] for r in _le if float(r["top_pct_people"]) < 1}
+_w2 = {5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten", 11: "Eleven", 12: "Twelve"}
+add("§2.5 top-1% counts",
+    f"{_w2[len(_ex | _sm1)]} studies report a figure for the top 1% of users or smaller. "
+    f"{_w2[len(_ex)]} give exactly the top 1%")
+_shs = [float(r["activity_share_pct"]) for r in _le if float(r["top_pct_people"]) < 1]
+add("§2.5 smaller groups",
+    f"{_w2[len(_sm1)]} give smaller groups still, from 0.001% to 0.3% of users, with shares of "
+    f"{min(_shs):.0f}% to {max(_shs):.0f}%")
+QS = os.path.join(ROOT, "data/extract_v2/qa/screening_pass_2026-11")
+# The re-screen funnel is counted from stage-3 files built from the raw record dumps, which the public
+# package does not redistribute (found by the clean-clone test, 2026-11-23). There the check says so
+# and carries on, like the archived-abstract check, rather than failing the run.
+if os.path.exists(os.path.join(QS, "per_record.csv")):
+    def _n(f): return sum(1 for _ in csv.DictReader(open(os.path.join(QS, f), encoding="utf-8")))
+    _rul = list(csv.DictReader(open(os.path.join(QS, "fulltext/screening_fulltext_rulings_sacha_2026-11-19.csv"), encoding="utf-8")))
+    _s3 = {r["id"] for r in _all if (r.get("data_provenance") or "").startswith("screening_pass_2026-11")}
+    add_in("4.4 Screening", "4.4 re-screen funnel",
+           f"re-screened all {_n('per_record.csv'):,} records screened at title or abstract")
+    add_in("4.4 Screening", "4.4 re-screen funnel 2",
+           f"The re-screen flagged {_n('candidates.csv'):,} records we had excluded; a stricter second pass under "
+           f"the settled rules and a reading of each abstract left {_n('retrieval_list.csv')} to retrieve, of which "
+           f"{_n('fulltext_manifest.csv')} could be obtained and read at full text and "
+           f"{sum(1 for r in _rul if r['RULING'] == 'INCLUDE')} were eligible")
+    add_in("4.4 Screening", "4.4 re-screen entered", f"{len(_s3)} entered the dataset")
+    add_in("4.4 Screening", "4.4 not retrieved",
+           f"the {_n('retrieval_list.csv') - _n('fulltext_manifest.csv')} records that could not be retrieved")
+
+    # --- A2 temporal bullet (rewritten 2026-11-23 after the phaseB_temporal p-value fix) -------------
+    _tt = {r["construct"]: r for r in rows("temporal_trend.csv")}
+    _te = {(r["construct"], r["era"]): r for r in rows("temporal.csv")}
+    _sig = [k for k, r in _tt.items() if r["p"] and float(r["p"]) < .05]
+    _claim(_sig == ["CONTENT"], lambda: f"constructs with a significant year trend are now {_sig}: rewrite the A2 temporal bullet")
+    for _era in ("<=2016", "2017-2019", "2020-2021", ">=2022"):
+        _m = {c: float(_te[(c, _era)]["median_pct"]) for c in ("EXPOSURE", "REACH", "SHARING", "CONTENT", "RECALL") if (c, _era) in _te}
+        _claim(min(_m, key=_m.get) == "EXPOSURE" and max(_m, key=_m.get) == "RECALL",
+               lambda: f"in era {_era} exposure is not lowest or recall not highest: {_m}")
+    add_in("A2.", "A2 temporal content",
+           f'reaches conventional significance only for content (ρ = {float(_tt["CONTENT"]["rho"]):.2f}'.replace("0.", ".")
+           + f', *p* = {float(_tt["CONTENT"]["p"]):.3f}'.replace("0.", ".") + f', k = {_tt["CONTENT"]["k_studies"]}), '
+           f'whose study-level median rises from {_te[("CONTENT", "<=2016")]["median_pct"]}% up to 2016 to '
+           f'{_te[("CONTENT", ">=2022")]["median_pct"]}% from 2022')
+    add_in("A2.", "A2 temporal exposure",
+           f'({_te[("EXPOSURE", "<=2016")]["median_pct"]}% up to 2016, {_te[("EXPOSURE", "2020-2021")]["median_pct"]}% in 2020–2021; '
+           f'k = {_te[("EXPOSURE", "<=2016")]["k_studies"]} and {_te[("EXPOSURE", "2020-2021")]["k_studies"]})')
+    add_in("A2.", "A2 temporal recall",
+           f'({_te[("RECALL", "2017-2019")]["median_pct"]}% in 2017–2019, {_te[("RECALL", ">=2022")]["median_pct"]}% from 2022)')
+else:
+    print("SKIPPED: the November re-screen funnel (§4.4) is counted from stage-3 screening files built "
+          "from record dumps that are not redistributed; its numbers are asserted in the working repository.")
 
 def main():
     misses = []
@@ -1553,7 +1717,11 @@ def main():
               "data/synth/phaseB/metareg_r2_bootstrap.csv when the bootstrap finishes):")
         for _ph in PENDING:
             print(f"  {_ph}")
-    if misses or stale or PENDING or STALE_SUPP or MISSING_SECTIONS:
+    if CLAIM_FAILS:
+        print("\nSTRUCTURAL CLAIMS THAT NO LONGER HOLD (a sentence built on them needs rewriting):")
+        for _m in CLAIM_FAILS:
+            print(f"  {_m}")
+    if misses or stale or PENDING or STALE_SUPP or MISSING_SECTIONS or CLAIM_FAILS:
         sys.exit(1)
     if REMINDERS:
         print("\nREMINDERS (correct for now, not failures):")

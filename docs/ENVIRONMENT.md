@@ -1,7 +1,7 @@
 # Environment
 
 The software the published numbers were produced on, and the minimum a reproducer needs.
-Freeze **v1.7.23**. Recorded 2026-09-07, freeze pointer refreshed 2026-09-14.
+Freeze **v1.7.25**. Recorded 2026-09-07, freeze pointer refreshed 2026-09-14.
 
 ## Interpreters
 
@@ -81,7 +81,7 @@ B=200 RESUME=1 Rscript scripts/phaseB_metareg_robustness.R
 ```
 
 `B` is read from the environment and defaults to 200 — the value behind the published intervals
-(e.g. ground truth 21.4 [16.5–27.7] in §2.6). A smoke run with `B=5` finishes in minutes and
+(e.g. ground truth 22.8 [17.4–29.1] in §2.6). A smoke run with `B=5` finishes in minutes and
 verifies the plumbing without reproducing the intervals.
 
 Everything else in the pipeline finishes in seconds to a couple of minutes. `phaseB_metareg.R`

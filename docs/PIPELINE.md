@@ -31,7 +31,7 @@ The bootstrap (`phaseB_metareg_robustness.R`) is deliberately not in the script.
 by hand when the ladder has actually changed:
 
 ```bash
-B=200 Rscript scripts/phaseB_metareg_robustness.R          # ~28 h
+B=200 Rscript scripts/phaseB_metareg_robustness.R          # ~25 min
 B=200 RESUME=1 Rscript scripts/phaseB_metareg_robustness.R # resume after an interruption
 ```
 
@@ -345,4 +345,4 @@ Order: `build_full_reextraction.py` -> extraction agents -> `validate_repair_ext
 (-> `merge_plan.py`, imported by the freeze script). See
 `data/extract_v2/full_reextract_2026-09/README.md`. The behavioural-arm screening
 (`build_behavioural_screen.py`, screening agents, then aggregation) was a search top-up on the same
-path; it is also complete, and its 20 studies are in the released freeze.
+path; it is also complete, and its 19 studies are in the released freeze.

@@ -31,7 +31,7 @@ from docx.shared import Inches, Pt
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "docs/manuscript_draft.md")
 DST = os.path.join(ROOT, "docs/manuscript_draft.docx")
-FIGS = [("Figure 1.", "PRISMA flow diagram. Records identified, screened, retrieved and included, with the corpus repair shown as its own identification stream.", "docs/prisma_flow.svg"),
+FIGS = [("Figure 1.", "PRISMA flow diagram. Records identified, screened, retrieved and included, with the corpus repair and the November second-model re-screen shown as their own streams.", "docs/prisma_flow.svg"),
         ("Figure 2.", "Platforms studied, by construct. Bars are the share of that construct's studies that cover the platform, against a track showing all of them; study counts are in brackets and the eight most covered platforms are shown per construct. A study counts once in every platform it names, so bars within a panel sum to more than k. The full breakdown, including self-reported recall, is in Supplementary Note A5.", "docs/figN_platform_panels.svg"),
         ("Figure 3.", "Topics studied, by construct. Bars are the share of that construct's studies on each topic, with study counts in brackets.", "docs/figP_topic_panels.svg"),
         ("Figure 4.", "Prevalence estimates by construct. Study-level medians with 95% confidence intervals from a study-cluster bootstrap (2,000 resamples).", "docs/fig5_forest_constructs.svg"),

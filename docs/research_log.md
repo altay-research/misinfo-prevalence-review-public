@@ -11588,3 +11588,979 @@ DOI and edit it into both the master and the authoritative docx, by targeted edi
 **The submission path was never broken.** The GitHub token runs to 2027-09-19, not the 30 days I
 predicted; `GET /health` on the Worker settled it in one call. In the 30 days to 2026-11-02 the
 endpoint received requests only from this session, so the empty queue means nobody has written.
+
+## 2026-11-09 — his tracked round, his comments, and the folder signed off
+
+**He marked the manuscript up in tracked changes for the first time** (previous rounds were
+untracked, which is why the ledger exists). Thirty-two revisions: 21 accepted and carried into the
+master, 11 rejected on the data, not on taste. Rejected: "a large majority" for 274 of 443 (62%),
+which also dropped the counting rule that explains why the construct counts sum to 474 against 443
+studies; the removal of "of 443 studies"; "1 on climate misinformation", when the corpus holds one
+climate ESTIMATE in a study coded science_other and no study whose topic is climate; the hedge on
+the forced-exposure comparison; and "checked by a human at every stage", which Table 2 contradicts
+(humans at four stages, risk of bias a same-model double appraisal). His sentence split there was
+kept and only "by a human" dropped.
+
+**His eight comments are answered in the text and removed.** The platform paragraph said "run the
+other way" twice and ended in a 60-word sentence; both fixed, counts kept because a percentage
+without its denominator is the thing this paper argues against. The variance-family passage now
+says in one sentence why it exists: without it a reader adds 22.8 and 21.8. The fact-checker
+sentence no longer implies that not checking something causes the 5%. The closing passage ends on
+the conclusion he asked for: definitional breadth moves the content estimates and does not explain
+the low behavioural figures.
+
+**Four guard assertions re-anchored** to his wording, numbers unchanged and still derived. One
+ledger row marked superseded: his September insertion of "largely" had no host after comment [30]
+asked for that sentence to be cut, which is supersession rather than loss and is what the guard
+prescribes.
+
+**Two mechanics worth keeping.** `scripts/edit_docx_tracked.py` makes a targeted TRACKED edit in a
+file that must never be rebuilt; it was written for this round. And a rewrite must not span a
+superscript citation run, because the tool carries one run's properties onto the replacement and
+would silently flatten it; two of the six planned rewrites were held back for that reason and are
+his to make in Word.
+
+**Word and a targeted edit race, and Word wins.** An edit written while he had the document open
+was gone an hour later. Check for the `~$` lock file before writing.
+
+**State at sign-off:** manuscript clean, no tracked changes, no comments, 303 paragraphs, 2 tables,
+6 images, 46 superscripts intact. Guards 270/270, author edits 172/172, invariants, pipeline docs
+and drift all green; site 1159, stress 608, worker 40. Affiliation reads "AMIAD, École
+Polytechnique" in the paper and in the site footer. Section 4.11 carries the Zenodo DOI
+10.5281/zenodo.23978950. The only thing outstanding is the PDF export from Word, which he removed
+deliberately while editing, and transcribing the reporting summary into NHB's own form.
+
+## 2026-11-09 — Arcom talk deck (16/11/2026)
+
+Sacha asked for a 15-slide, 15-minute talk for a mixed Arcom audience: light on method, all the
+major figures, and the companion site shown near the end. Built in French (Arcom audience),
+notes in English (his convention for French decks). New: `scripts/make_arcom_talk_figures.py`
+(French copies of Figures 1-5 and Supplementary Fig. 1 from the current SVGs; the six-panel
+figures are re-laid out as 3 columns so they read on a 16:9 slide; the August application
+figures were stale, written at v1.7.10) and `scripts/make_arcom_talk_deck.py`. PRISMA is a
+backup slide only; the method slide carries its four numbers. Every number is from the
+manuscript at v1.7.23. Output in `docs/arcom_talk_2026/`.
+
+## 2026-11-10 — the handoff package for an independent model, and a stale pair the drift check could not see
+
+Sacha is giving the project to another model (Mistral) to replicate, in `~/Desktop/TestMistral`,
+which already held a copy of the NHB submission folder. The replication half is
+`scripts/build_public_package.py --out ~/Desktop/TestMistral/09_replication_package`: 1,179 files,
+42.1 MB, freeze v1.7.23, all three exclusion scans clean (no PDF, no record dump, no absolute user
+path, no third-party contact detail) and the runner complete at 46 of 46 scripts. Alongside it,
+`00_START_HERE.md` orients a model that arrives with no context: what the two halves are, the three
+commands, the five guards and what each asserts, the headline numbers with the file each comes from,
+what is held back and why, and where to audit rather than re-run.
+
+**The package was not shipped on trust, it was run.** In that folder, on Python 3.14.5 and R 4.2.0
+with metafor 4.2.0: `run_phaseB.sh`, `phaseB_metareg.R` and `run_phaseB.sh --post-metareg` all
+exited zero, the guards passed (invariants, manuscript 267/267 with the archived-abstract check
+skipped by design, drift clean, site 1159/1159, pipeline docs 43/43), and all 71 files under
+`data/synth/` came back byte-identical to the shipped copies, the R meta-regression outputs
+included. The five main figures and `counts_crosswalk.md` also regenerated identical to the repo's.
+
+**A stale pair was sitting in the Methods of the submission draft.** Section 4 read "The final
+dataset comprises 1050 estimates from 444 studies, of which 934 are proportion, non-subgroup rows",
+v1.7.22's counts, against 1,048 and 443 in the abstract, the results, the SI and the freeze. 934 and
+897 in the same sentence are current; only the two totals were left behind at the v1.7.23 re-freeze.
+
+**Why the drift check was green.** It matches enumerated corpus-total idioms, and "the final dataset
+comprises N estimates from M studies" was not one of them — the most explicit corpus claim in the
+paper had no pattern. Two were added (`dataset comprises N estimates`, `comprises N estimates from
+M studies`); the check then failed on exactly those two numbers, which is how it should have failed
+in September. Fixed in the md master (`1048 estimates / 443 studies` in the two provenance comments
+and `1048 estimates from 443 studies` in §4), crosswalk re-run clean, manuscript 270/270, author
+edits 172/172.
+
+**The authoritative docx is not yet corrected.** `edit_docx_text.py` is the right tool — a number
+that is simply wrong, which its own docstring distinguishes from an editorial change needing
+tracking — and the edit is prepared and verified on a copy: of the 21 parts only `word/document.xml`
+differs, and paragraphs 506, runs 958, rPr 351, pPr 39, tables 12, drawings 6, sectPr 1 and the 46
+superscripts are all unchanged either side. Writing it into `~/Desktop/NHB_submission/01_manuscript_main.docx`
+needs his go-ahead; the verified copy waits in the session scratchpad. The TestMistral copy of the
+docx is deliberately left identical to the submission file until both move together.
+
+**A second defect in the same folder, and a rebuild that must not happen.**
+`00_READ_ME_FIRST.docx`, the note to the NHB editors, reads "Dataset freeze {freeze()}" — the
+builder's own f-string placeholder, bolded, where v1.7.23 belongs. Every committed version of
+`build_submission_folder.py` interpolates it, and a rebuild in the scratchpad produces "Dataset
+freeze v1.7.23", so the shipped file predates that fix in the working tree: it was built at 15:14 on
+2026-11-09 from a state that had the placeholder, and the fix was committed minutes later without a
+rebuild. The 2026-11-02 audit read the folder for placeholders and missed this one, because it
+looked for the `[FIGURE N HERE]` shape, not for an unexpanded brace.
+
+**Fixing it by rebuilding the folder would damage the supplement.** The same scratchpad build also
+wrote a fresh `02_supplementary_information.docx`, and the delivered file is the better of the two:
+the rebuild prefixes a stray "B" to every Supplementary Note A heading ("BA2. Sensitivity
+analyses") and renumbers citation 48 as 498. The delivered 02 is correct and `build_submission_folder.py`
+has a numbering bug to find before it is ever run against that folder again. So the read-me is
+replaced as a single file, not as part of a folder rebuild.
+
+Both replacements are built and wait in `.work/pending_submission_fixes_2026-11-10/`. Neither has
+been written into `~/Desktop/NHB_submission`: that is his folder and the writes need his word.
+
+## 2026-11-10 — Arcom deck, his first round of feedback
+
+His Desktop copy carried no content edits (only PowerPoint's English spell-check flags on the
+French text), so the deck was rebuilt from the script; runs now carry lang="fr-FR". Changes:
+slide 2 shows three real claims with their source pages (Fondation Descartes 2021 0.16%,
+Science Feedback SIMODS 2026 25% of TikTok posts, Arcom's own 97% self-report; all in the
+grey ledger or the corpus); slide 4 carries the paper's Table 1 examples, translated; slides
+5-6 are native charts of the top 4 per construct from coverage_<field>.csv (same counts and
+tie-break as Figures 1-2); slide 8 lost its last line; slide 9 is three of Figure 4's five bands
+as native charts; slide 10's labels say what each moderator is. Implications slide unchanged,
+pending his choice.
+
+## 2026-11-10 (afternoon) — an independent model's audit of the submission folder, verified and extended
+
+Mistral, given the replication package and a copy of the submission folder in `~/Desktop/TestMistral`,
+re-ran the pipeline (byte-identical) and reported defects in the submission documents. It edited only
+its own copies; `~/Desktop/NHB_submission` was untouched. Every claim was checked against the pipeline
+before anything moved.
+
+**Confirmed, all of them.** (1) The Content small-study tuple in §2.4 and SI Note B6 was v1.7.22's:
+`small_study_effects.csv` gives t(268) = −5.91, k = 270, not t(269) = −5.93, k = 271; and the
+"ρ between −.14 and −.57" range should open at −.12 (Recall is −0.122). The guard asserted "k = 270"
+on its own, which the precision-weighting sentence satisfied. (2) The reporting-summary content (04)
+quoted v1.7.20's MD5, 67/15.1% outside Scopus (66/14.9%), 20 behavioural-arm studies (19 in
+`behavioural_arm_funnel.json`), 184 studies in 2020–21 (185), a freeze date of 2026-09-14 as v1.7.20
+(2026-09-16, v1.7.23), and a stale Recall tuple. (3) The PRISMA checklist (05) named "Supplementary
+Figs 1-3" (the SI has two) and put the flow diagram in Supplementary Fig. 1 (it is main Figure 6).
+(4) Doc typos: PIPELINE.md's "~28 h" bootstrap (25 min) and "20 studies"; ENVIRONMENT.md's old
+21.4 [16.5–27.7] example (22.8 [17.4–29.1]).
+
+**What the audit missed.** (a) Two CI bounds double-rounded from the 3-dp CSV: re-running `spearman()`
+unrounded gives Recall's lower bound −0.3253 and Exposure's upper 0.0847, so −.33 and .08, not the −.32
+and .09 the SI carried (and the auditor kept). (b) A full sweep of every number in 04 against the
+master found five more stale values: 135/121 US studies (134/120, ×2), 102 COVID-19 studies (103),
+Cramér's V 0.43–0.97 (0.48, ×3), and the Quality-fold median 23.8% (23.3%). (c) 04's data-availability
+answer still said the package "will be deposited" at an unnamed URL; it now carries the public repo,
+the Zenodo DOI and the companion, as §4.11 does. Its open-items list still had the affiliation open;
+it was settled this morning. Data-collection end date 2026-09-14 → 2026-09-16 (the last abstraction
+corrections are the v1.7.23 freeze).
+
+**Guard.** `check_manuscript_stats.py` now asserts each construct's whole Spearman tuple (ρ, interval,
+t, df, p, k together) and the ρ range, and bans the four stale strings. A CI bound whose 3-dp value
+ends in 5 cannot be decided from the CSV, so for those two constructs only the t/df/p/k tail is
+asserted. It failed on exactly the stale tuple and range before the fix. 276/276 + 73/73, invariants,
+drift, pipeline docs 43/43, site 1159/1159, author edits 172/172. 04 has no guard of its own, which
+is how eleven stale values accumulated in it; it was swept by hand this time.
+
+**Submission files.** Prepared in `.work/pending_submission_fixes_2026-11-10/`, none yet written into
+`NHB_submission`: 01 and 02 by `edit_docx_text.py` (only `document.xml` differs; paragraph, run, rPr,
+pPr, table, drawing, sectPr and italic counts unchanged); 04 and 05 regenerated by `md_to_docx.py`
+after confirming that a rebuild from the pre-edit sources is byte-identical in every part to the
+shipped files; 00 the read-me prepared this morning. The shipped 01/02 carry no tracked revisions:
+he accepted them, so the read-me's "arrive WITH tracked changes" describes the delivery, not the
+upload state.
+
+**Installed, on his word (same afternoon).** The five prepared files were copied into
+`~/Desktop/NHB_submission` (00, 01, 02, 04, 05); the files they replaced are kept in
+`docs/.backups/NHB_submission_pre-audit-fixes_2026-11-10/`. Each installed file is MD5-identical to its
+prepared copy, every .docx in the folder passes zip integrity, and none carries any of the fourteen
+stale strings this audit and this morning's fixed. `~/Desktop/TestMistral` keeps Mistral's own edits
+and is no longer identical to the submission folder.
+
+## 2026-11-10 — Arcom deck, feedback round 2
+
+Sacha: slide 9 percentages read oddly, slide 11 figure too small (white margin), still not keen on the implications slide.
+- Bar charts (slides 5, 6, 9, 10) now drawn as native shapes with text labels instead of chart objects: in a chart the plot area shrinks with the longest category label, so equal values had different bar lengths across side-by-side panels, and PowerPoint wrapped the " %" of data labels onto a second line. Value labels have no wrap and no inner margin. Shared row pitch across sibling panels. Slide 9 labels "Sources"/"Affirmations" (heading already says what is classified). Same values as before (Figure 4 medians, coverage CSVs).
+- Slide 11: concentration figure auto-trimmed of its white margin and enlarged (5.2 in max height).
+- Slide 12 rewritten as three statements from the Discussion (implications paragraph + which-construct paragraph): measured problem small / concern large with its own effect on trust; concentration; blind spots (no exposure/reach study for TikTok, a handful for YouTube, WhatsApp, Telegram). The experiments point moved to the notes for Q&A; Hoes et al. 2025 kept in notes. DSA art. 40 data access is flagged in the notes as a talking point NOT in the paper.
+- His Desktop copy had identical text to the delivered version; moved to Trash as Arcom_2026-11-16_ALTAY_v2.pptx, new build copied to the Desktop.
+
+## 2026-11-10 (evening) — a cross-family blind full-text pass, built for outside models
+
+Sacha has unlimited Mistral tokens and local models (qwen3.5:9b via Ollama 0.40.16) and wants to
+use them after submission. The one check a different model family can add that the paper does not
+already have is a blind FULL-TEXT re-extraction: the GPT waves coded moderators from quoted
+sentences, and the September census was Opus, the extractor's own family, so it is reported as
+curation and not as a reliability tier. A Mistral full-text pass would be the cross-family version.
+
+`scripts/build_fulltext_pass_folder.py` builds `~/Desktop/FullText_Pass_2026-11/`: 443 studies in
+56 seeded batches of 8 (seed 20261110), every study with a text (422 full text, 21 abstract only;
+the 19 behavioural-arm late arrivals resolved from the arm's own text folder), the September
+codebook (sections 1-5 verbatim) with a folder-specific section 0, and the validator with check()
+verbatim. Blind by construction: the folder holds no freeze, no value and no code of ours, so an
+agent that looks around cannot anchor. Outputs go to `outputs/<model>/`, one JSON per paper, the
+September schema, so `scripts/import_fulltext_pass.py --model <tag>` can score them with the
+unchanged `score_full_reextract.py --camp`. `tools/run_ollama.py` (repo copy
+`scripts/fulltext_pass_run_ollama.py`) drives a local model one paper per call at temperature 0,
+seed 42, 64k context, logging digest, Ollama version, options and an instructions hash per paper,
+and truncates visibly rather than letting Ollama drop the instructions. The folder holds
+copyrighted texts and is never pushed or shared. Nothing here touches the submitted version; any
+finding goes through adjudication against the source and a new freeze.
+
+**Audited before use (same evening), against the methods lessons, with a clone-and-run.** The
+codebook in the folder is word for word the instrument both September blind passes used (diffed),
+and it carries R3-R8 and the falsity-quality rule. Found and fixed: 27 papers shipped with no title
+(the September census had the same gap; now filled from Supplementary Data 1's TITLE column only,
+since that file also lists each study's constructs and estimate count); the instructions forbade
+editing another model's outputs but not reading them (a Mistral agent could have anchored on
+qwen); the model tag was left to the agent although the retest and the importer assume `mistral`;
+an agent cannot open a new session, so it now STOPS after 3 batches (lesson #13 drift); a retest
+batch of 8 papers redone blind at the end (self-consistency caps any kappa); the qwen runner
+discarded a valid second answer when the first was invalid JSON and logged the error count of the
+last attempt rather than the file kept; truncation now drops the reference list before cutting
+anything (lesson #47). Tests, on a fresh build in the scratchpad: the folder's validator passes all
+416 September census extractions (as the repo validator does) and catches a planted invented
+quote, a bad code and broken JSON; importing those 416 as a pretend model and scoring them
+end to end gives 85.4% values reproduced and construct kappa 0.90 against v1.7.23, above the
+census's own September 85.1% / 0.885 as expected once its disputes were merged (lesson #57); the
+runner against a mock Ollama server keeps the valid answer, keeps the better of two, and trims
+references then truncates. Test artefacts moved to the Trash.
+
+## 2026-11-12 — cover letter: archive wording
+The Zenodo record (10.5281/zenodo.23978950) has been published since 2026-11-05, so "will be publicly archived, before submission" was stale. Changed to "are publicly archived" in docs/cover_letter_NHB.md and, by targeted edit (scripts/edit_docx_text.py; backup in docs/.backups/), in ~/Desktop/NHB_submission/03_cover_letter.docx. Cover-letter figures re-checked against the manuscript (1.3%, 12.0%, 13.0%, 57.7%, 70%, 443/1,048); the "roughly fivefold" is 57.7/12.0 = 4.8, which the manuscript does not state as a ratio. Guards re-run: stats 276/276, author edits 172/172, drift clean.
+
+## 2026-11-12 — full-text pass: Mistral through the API instead of the Vibe CLI
+Sacha has a Mistral API key (held in ~/.zshrc as MISTRAL_API_KEY; never pasted into the session or written to any file). New runner scripts/fulltext_pass_run_mistral.py (copied by the builder to tools/run_mistral.py): one API call per paper, so every paper starts from a clean context — the drift that forced the CLI's stop-after-3-batches rule cannot arise, and no sessions need managing. Same instructions as the local runner (section 0 removed), same validator, keep-the-best-version rule, up to 3 validator-feedback rounds, 4 papers in parallel, backoff on 429/5xx. Model pinned by exact version, mistral-large-4-0 (1M context; served name logged per call). Options temperature 0, top_p 1 (the API refuses greedy sampling otherwise), random_seed 42, max_tokens 64000 (Large 4 reasons before answering and the reasoning counts against the limit: at 16000, two of four answers were cut off mid-JSON). Its replies come as typed chunks (thinking, text); only the text chunk is parsed, the chunk types are logged. The retest batch runs at temperature 0.7 into mistral_retest: at 0 a rerun mostly repeats itself, which tests determinism rather than consistency; the runner refuses to mix the retest and main tags.
+Mock-server tests (rate limit then retry, invalid JSON then repair, resume, retest guard, missing key, key absent from every output) passed. Real pilot on batch 1: 8/8 returned, 6 validate clean, 2 with one quote problem each after 3 rounds; 1–11 min per paper. Construct type matches September's blind pass on all 8; Mistral extracts more rows (one paper 20 vs 2: per-vaccine subgroup breakdowns), which is what the instructions ask and what the omission queue will adjudicate. START_HERE now makes the API the default route, the CLI the fallback.
+
+## 2026-11-12 — NHB compliance pass on the statements (targeted, tracked)
+Pre-submission check of the NHB package against Nature-portfolio rules. Sacha restored the author block and the
+funding/competing-interests/ethics line in 01 himself. On his word, four tracked edits (author "Claude") in
+~/Desktop/NHB_submission/01_manuscript_main.docx, mirrored in manuscript_draft.md: (1) Author contributions statement
+added (Nature journals require one, single author included); (2) "Data and code availability" split into separate Data
+availability and Code availability statements, the Methods cross-reference updated to match; (3) "Sonnet" added to the
+Use-of-AI model list, which omitted the model family Methods says ran most title screening (its exact version is not
+recorded anywhere in the repository). Backup: docs/.backups/01_manuscript_main_pre-statements-fix_2026-11-12.docx.
+Guards: manuscript 276/276 + 73/73, invariants hold, drift clean, author edits 172/172.
+
+2026-11-12 (later): on Sacha's word, the standard funder-role sentence ("The funder had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.") added after the funding line, tracked in 01 and mirrored in the md. Backup docs/.backups/01_manuscript_main_pre-funder-role_2026-11-12.docx. Guards green.
+
+## 2026-11-12 11:50 — full-text pass: pre-launch soundness checks and full Mistral run launched
+Before committing ~6–10 h of API time, the 8 pilot outputs went through the real import and scorer (scripts/import_fulltext_pass.py --model mistral → score_full_reextract.py --camp data/extract_v2/fulltext_pass_2026-11_mistral). Output schema identical to the September census, field for field (top-level and row keys). Pilot scores (8 studies, not yet interpretable as estimates): screen 8/8 INCLUDE, 0 disputes; 12 of 14 frozen main-pool values reproduced (85.7%; September 85.1%); construct κ 1.0 on 12 pairs; 20 omission candidates across 3 studies; 6 moderator disputes. Weakest field platform_norm (raw 0.50, κ 0.40): every disagreement is the survey-item boundary — the freeze and the September agents code a survey question about "social media / any medium" as platform_norm = survey, Mistral codes it multi_platform. Both are in the codebook's list, so this is a codebook boundary, not a pipeline fault; it is scored and adjudicated like any other dispute. The codebook was deliberately NOT edited to resolve it: the instrument must stay verbatim September's for the two passes to be read on one scale. The pilot import's files in data/extract_v2/fulltext_pass_2026-11_mistral and data/extract_v2/qa/fulltext_pass_2026-11_mistral_* are provisional and will be overwritten by the full import.
+Full run launched by Claude on Sacha's go-ahead ("cant you run the rest?"), 11:50, detached (nohup caffeinate -i python3 tools/run_mistral.py --all --workers 10; console log outputs/mistral/full_run_console.log in the pass folder): 437 of 443 papers to do, mistral-large-4-0, temperature 0, top_p 1, seed 42, max_tokens 64000, up to 3 validator-feedback rounds. Workers raised from 4 to 10 because 4 would take ~10 h, past the 18:00 the machine stays open; the run is resumable, so an unfinished run is continued later with the same command. Still to do: the retest (--batch 57 --tag mistral_retest --temperature 0.7) in its own run after the main one, then the full import, scoring and adjudication against the sources; any change only through a new freeze, for the revision.
+
+## 2026-11-12 — full-text pass: machine kept awake
+Sacha is running caffeinate -dimsu -t 172800 (pid 66103), keeping the Mac awake until Sat 14/11 11:44, so the full Mistral run no longer has to fit before 18:00; it can run to completion, then the retest.
+
+## 2026-11-12 — SUBMITTED to Nature Human Behaviour
+Sacha submitted the package from ~/Desktop/NHB_submission (01 with the statements fixes above, single-blind, title block in the manuscript). Next: await the editorial decision; search-currency top-up only if it slips into 2027.
+
+## 2026-11-12 13:45 — full-text pass: progress, and Cloudflare 520s
+201 of 437 done (178 validator-clean, 23 with problems). Six papers got no answer: the API gateway returned HTTP 520 (a transient Cloudflare error) and the runner retried only 429/5xx-standard codes. Added 408 and 520-524 to the retry list (scripts/fulltext_pass_run_mistral.py, copied to the folder); the running process is unaffected, and the post-run cleanup pass (same command, resumable) redoes those six with the new list.
+
+## 2026-11-12 ~16:05 — blind full-text pass on the full-text EXCLUSIONS (Supplementary Data 2): built, audited, launched
+Why: the included pass cannot find a false exclusion; the 506 full-text exclusions are judgment calls on full text, the stage where a cross-family reader is most likely to catch one. Purpose as always: find our mistakes and codebook ambiguities, adjudicated against the paper ([[crosscheck purpose]]). Sacha: "make sure to build it accurately, double or triple check it".
+Build: scripts/build_exclusion_pass_folder.py -> ~/Desktop/FullText_Pass_2026-11_exclusions (copyrighted texts; never shared). 506 rows; 37 skipped (23 duplicates of an included record, 14 title-screen exclusions with no text); 469 kept, asserted disjoint from the freeze; 414 with a usable text (407 full, 7 abstract-only), 55 without (listed by the scorer as no_text.csv, for retrieval). Codebook asserted byte-identical to the included pass (sections 1-5 verbatim from September); validator and runner copied from the included pass and asserted identical to the repo's. Batches of 8, seed 20261112, 52 batches; batch files carry only id/title/text_file/status, campaign renamed to a neutral "fulltext_pass_2026-11_b".
+ONE deliberate difference, the preamble: the included pass (like September's census) tells the coder every paper is "in the review's corpus"; said of excluded records that is false and pushes toward inclusion, so this preamble is neutral ("retrieved by the review's literature search ... decide from scratch"). A sentence of my own draft restating section 1's "aim is something else, still eligible" paragraph was removed as an inclusion nudge the included pass does not have. Verified by printing the exact system prompt the runner sends: section 0 absent, no corpus claim, rules identical.
+Text resolution: texts had been archived under six schemes (census resolver 214, .txt by id in other folders 157, PDF named by DOI 37, PDF by id 1, abstract 5). IDENTITY CHECKS, three layers, because the first was not enough:
+ (1) title-word overlap >= 0.6 let two WRONG papers through, so raised to 0.85;
+ (2) a DOI printed in the opening that is not the record's: 7 flags, read by eye: 1 wrong paper, 6 placeholders/preprints/references;
+ (3) a strict test (25-letter runs of the title in the opening), added after the overlap test passed a wrong paper at a PERFECT score: 2-s2.0-84929523850 "The media's role in vaccine misinformation" is filed with the KCL/Ipsos report "Coronavirus: vaccine misinformation and the role of social media", which contains every title word. 17 strict failures read by eye: 1 wrong, 16 right (translations, SAGE/Digital Health headers, column splits, ligatures).
+ Result: 4 archived texts are the WRONG PAPER (2-s2.0-84929523850, 2-s2.0-85147303661, 2-s2.0-105031628111, 2-s2.0-85192806272); they are recorded in WRONG_TEXT with what each file really is and kept out of the pass. Every override is in the builder with its reason, and a rebuild rejects any new unverified failure.
+ The same strict test on the INCLUDED pass's 443 texts: 32 failures, all read by eye, all the right paper (hand-written titles such as "Jadara (2022) — ...", preprint versions under other titles, Spanish editions, SAGE headers). The run in progress is unaffected.
+FINDINGS for the record (not yet acted on, for Sacha):
+ (a) Three records are in Supplementary Data 2 as excluded AT FULL TEXT although their reason says the archived text is a different paper (84929523850, 85147303661, 105031628111): the paper itself was never read, which in PRISMA terms is "not retrieved", not "excluded at full text".
+ (b) The 118 VERIFY_REJECTED records are labelled "Not eligible on full-text re-reading" (make_prisma.py:169) and counted among full-text exclusions, but the 2026-06-21 step that produced them was an adversarial RE-SCREEN of the 635 screening includes (research log §31; its adjudication input data/verify/disputed.jsonl holds title + abstract only; validate_prisma.py calls the set screen_rejected; 31 were sent on "to full text"). If the verifiers read abstracts, the label and the PRISMA box are wrong for these 118. Not yet established what the v_*.csv verifiers read; to settle before any correction.
+Scorer: scripts/score_exclusion_pass.py (candidates = INCLUDE with >=1 numeric row in the six constructs; cross-tab of our exclusion reason x its verdict as the codebook signal; per_record, no_text, SUMMARY). Mock-tested end to end (fake server: one INCLUDE with a schema-valid row, one EXCLUDE; runner -> validator -> scorer), mock artefacts to the Trash.
+Real smoke test, 2 papers: both INCLUDE against our exclusion. 2-s2.0-85096090608 (Portuguese 2019 election, Facebook; we dropped it as a curated sample of pre-selected fake-news pages; Mistral reports 177/1,197 posts from fake-news sources = 14.8%, which is a legitimate denominator if the 1,197 include non-fake sources) and 2-s2.0-85132050196 (attention to retracted papers: is a retracted paper misinformation? a codebook boundary).
+Launched ~16:05, detached: nohup caffeinate -i python3 tools/run_mistral.py --all --workers 8 (412 to do), while the included pass finishes (408/437 at 16:04).
+
+## 2026-11-12 16:30 — full-text pass (included): main run finished
+437 of 437 papers attempted: 391 validator-clean, 38 with problems, 8 with no answer (HTTP 520 before the retry list was widened). Cleanup pass launched (same command, --workers 8, console outputs/mistral/cleanup_run_console.log): retries the 46, keeps the better version of each. Then the retest (batch 57, tag mistral_retest, temperature 0.7) and the full import and score.
+
+## 2026-11-12 16:50 — full-text pass: retest launched; machine to sleep tonight
+Retest launched (batch 57, tag mistral_retest, temperature 0.7, fresh calls; independent of the main run, so it need not wait for the cleanup). Sacha closes the laptop ~18:00: the runs freeze while it sleeps; papers in flight at sleep fail on wake and are retried by rerunning the same command (resumable, keeps the best version). To resume: in each pass folder, python3 tools/run_mistral.py --all (exclusions: --workers 8).
+
+## 2026-11-12 ~17:00 — full-text pass folders leave the Desktop
+Sacha: the two pass folders should not sit on the Desktop. Destination: the repo's .work/ (gitignored, verified with git check-ignore: the folders hold copyrighted full texts and must never be pushed): .work/fulltext_pass_2026-11 and .work/fulltext_pass_2026-11_exclusions. Default paths updated in build_fulltext_pass_folder.py, build_exclusion_pass_folder.py (incl. MAIN), import_fulltext_pass.py, score_exclusion_pass.py and docs/fulltext_pass_START_HERE.md; no Desktop path left in scripts/ or that doc. The folders themselves are NOT moved while a run uses them (each runner fixes its folder path at start-up): a watcher per folder waits for that folder's run processes to exit, checks lsof shows no open handle, then moves it and re-validates its outputs in place. Run logs and PROVENANCE inside each folder use relative paths, so nothing in them breaks.
+
+## 2026-11-12 ~18:15 — full-text pass (included, Mistral Large 4): finished, moved, imported, scored
+Cleanup pass done 18:00 (35 of 46 retried papers now clean). Final: 443 of 443 papers have an output; 11 still carry validator problems, all quote-verbatim (25 rows, mostly table cells), none a schema or eligibility problem; scored anyway and listed per study. Retest: 8 of 8 clean.
+Folder moved to .work/fulltext_pass_2026-11 at ~18:10 (the watcher's lsof check saw 4 open handles at 18:00, the two other watchers' validate runs; rechecked at 0, then moved by hand; START_HERE refreshed; validate after the move: 443 done, 11 with problems; retest 8/8 clean).
+Import + score (scripts/import_fulltext_pass.py --model mistral; scorer unchanged): screen 440 INCLUDE / 3 disputes (two "quality-only" health-video studies, 2-s2.0-105040091272 and 2-s2.0-85134489939, and scholar_09, AI-generated images); 850 of 897 frozen main-pool values reproduced (94.8%); 488 moderator disputes; kappas construct .883, ground_truth .908, classification_level .898, sampling_frame .787, topic .809, denom_scope .879, breadth .686, platform_norm .819, population_scope .475.
+NOT directly comparable with the September census (712/837, 85.1%): this pass is scored against v1.7.23, which already contains the census's own corrections. Comparable in kind, not in level.
+Omission queue: 1,864 rows in 280 studies (census: 202). Mistral writes 3,944 rows to the census's 1,087: it splits by item, topic and platform far more finely. Triage (new, scripts/triage_fulltext_pass_omissions.py, read-only, the scorer's closeness rule): 177 rows already ruled NOT_CODEABLE in the census adjudication, 2 SAME_AS_OURS, 1 ruled ADD_ROW yet absent from the freeze (below), 64 rows in 37 studies where the census's blind Opus output also has the value (two families independently: the strongest new signal), 1,030 Mistral-only rows with no flag (176 studies), 590 Mistral-only rows flagged borderline / definition variant / not high confidence. -> data/extract_v2/qa/fulltext_pass_2026-11_mistral_omission_triage.csv
+Self-consistency (new, scripts/score_fulltext_pass_retest.py; main run at temperature 0 vs retest at 0.7): screen 8/8; 51 values in both runs of 56/55 (85% of the union); on matched pairs construct, ground_truth, classification_level, topic and platform_norm 1.00; denom_scope .97; sampling_frame .76; breadth .66; population_scope .23. The three unstable fields are the three with the lowest agreement with us: there the disagreement is mostly the instrument's own, i.e. the codebook definitions of sampling_frame, breadth and population_scope are loose enough that one careful reader codes the same paper differently twice. Codebook signal, not evidence about our coding.
+
+FINDING (c), a DATA ERROR in the submitted freeze, found through the triage's ADD_ROW tier. 2-s2.0-85074596916 (Bradshaw et al., junk news on Twitter 2016/2018). The census ruled ADD_ROW CONCENTRATION 27.8 (amplifier accounts, 0.11% of users, produced 27.8% of divisive/conspiracy shares) and SAME_AS_OURS SHARING 24.1 (2016 Table 2 subtotal 674,269 / 2,792,760). apply_v1718's non-unique matcher clobbered the 2016 SHARING row with the 2018 row's 18.2; apply_v1720's CLOBBER_FIX was meant to restore it but matched on a SUBSTRING of `date` ("1 November 2016"), which the SHARING row ("1-9 Nov 2016") does not contain and the CONCENTRATION row ("1 November 2016 - 9 November 2016") does. Its one-row guard passed. Result since v1.7.20, carried into v1.7.23 (submitted): SHARING 2016 = 18.2 with the 2018 value_raw (paper: 24.1); CONCENTRATION = 24.1 with the SHARING value_raw (paper and the row's own quote: 27.8). Verified against the text (Table 2: "Subtotal 674,269 24.1 | 21,219 18.2"; "180,337 shares generating 27.8 percent of all tweets in this category"). phaseB/diagnostics.csv had flagged "2 rows share value=18.2 ... verify not double-counted"; no one acted on it.
+Impact checked: none on the reported numbers checked. SHARING study-level median 13.31% (44 studies) unchanged with the correction (the study is above the median either way). Concentration <=1% band: median 62.4 unchanged; the manuscript's "24% to 81%" stays right because its 24% is a different study (2-s2.0-85195353413, 24.13%). The regression moves by one row's value; not refitted. Other substring matchers: grep of scripts/apply_v1*.py finds only this one (apply_v1720.py:126); its four other restorations were checked and landed on the right rows. Fix: two rows, at the next freeze (revision), not now.
+Methods lesson: a one-row guard on a substring match proves uniqueness, not identity; match on a normalised field or on the value being replaced.
+Next: the exclusions pass (~160/412 at 18:00, running); then present (1) the 3 screen disputes, (2) the 64 two-family omissions, (3) the codebook signal, (4) findings (a)-(c).
+
+## 2026-11-12 19:45 — exclusions pass: stalled by laptop sleep, restarted
+The laptop slept from ~18:10; on wake the run (pid 87828) was alive but had finished nothing since 18:10 (181/412): its open HTTPS connections had died in sleep. Stopped it and relaunched the same resumable command (nohup caffeinate -i python3 tools/run_mistral.py --all --workers 8, console outputs/mistral/resume_console.log): 244 of 414 to do (outputs that do not validate are retried, best version kept). First paper back at 19:46. The move-folder watcher fired when the old pid exited, saw 8 open handles (the new run) and correctly did NOT move; a new watcher waits on the new pid. Lesson: after a sleep, check the console's last-write time, not just that the process is alive.
+
+## 2026-11-12 ~22:30 — exclusions pass: finished, moved, scored; the instrument lacks our exclusion rules
+Run finished 22:19 (229 of 244 clean in the resumed run; final 414 of 414 with output, 15 with quote problems). Folder moved by the watcher to .work/fulltext_pass_2026-11_exclusions (0 open handles; validate after move 414 done). (The stale 11:50 watcher on the old Desktop path exited with an error: harmless.)
+Score (scripts/score_exclusion_pass.py --model mistral): 174 EXCLUDE / 240 INCLUDE; 237 candidate false exclusions (INCLUDE with >=1 numeric row in the six constructs). Cross-tab in data/extract_v2/qa/exclusion_pass_2026-11_mistral/SUMMARY.md.
+READING: 58% INCLUDE is not 237 mistakes. The instrument (sections 1-5 of the September INSTRUCTIONS.md, identical to the included pass) treats `curated` only as a MODERATOR value and contains none of the exclusion rules our reasons cite: L24/L26 (sample selected BY misinformation status, so its composition is circular), L14 (producer/creator concentration), Addendum rule E (being "affected" is not exposure), L27 (source-level coding). grep of the folder's INSTRUCTIONS.md: "circular", "stance", "producer", "affected", "pre-selected" 0 hits each. Mistral also included 440 of 443 in the included pass: it is lenient, and it was never given these rules.
+Rough triage by the rule our own reason cites (regex on reason_detail, crude): 64 circular/curated-by-status, 49 stance/perception not falsity or exposure, 9 no denominator / secondary, 3 producer concentration, 2 duplicates, 110 not matched by the regex (on reading the first 12: fact-check corpora, qualitative typologies, source-level coding, a planted-ads experiment — mostly the same rules in other words). So the pass mostly measures the instrument/criteria GAP, which is itself the codebook finding: the eligibility rules we apply at exclusion live in the rulings ledger and the protocol addenda, not in the instrument any coder (human RA, Opus, Mistral) was given.
+Options for Sacha: (1) rerun the 237 candidates with the instrument plus our ratified exclusion rules (L14, L24/L26, L27, rule E; verbatim from the ledger) so the remaining INCLUDEs are true disagreements under OUR rules; (2) consistency check in the other direction: do included studies carry samples the same rules would exclude (115 studies coded denom_selection=curated)? Nothing changed.
+
+## 2026-11-12 ~23:15 — RULES pass launched: our eligibility calls tested under our own rules, both directions
+Sacha: "sure you can run them if it makes sense" (the two follow-ups proposed at 22:30). Built as ONE test (scripts/build_rules_pass_folder.py -> .work/fulltext_pass_2026-11_rules, copyrighted texts, never shared): the 237 exclusion-pass candidates and all 443 included studies, shuffled together (seed 20261113, 85 batches), one identical instrument, so the model cannot tell the groups apart.
+Instrument = the exclusions pass's INSTRUCTIONS.md (neutral preamble, no corpus claim) + a section "1b" inserted before section 2: (1) VERBATIM the behavioural arm's full-text screening rules ("The rules that survived the abstract stage" + Addenda 1-4, rules A-J; data/extract_v2/qa/behavioural_arm/openalex_2026-09/fulltext/screen/INSTRUCTIONS.md), minus the "Re-ruling from batch 3" paragraph, which names a paper; (2) six ledger rules (docs/learned_review_rules.md) not covered by (1), restated WITHOUT examples because the ledger's examples name papers, some in this pass (one, 105028607759, is a candidate): L2 modelled numbers; L14/L28 creator/source concentration out, with L37 spreader concentration in; L16 within-misinfo composition; L35 relative virality; and the two KEEP rules L23 (curated topical samples are valid) and L25 (single-source samples are valid), so the block is not one-sided. Plus one sentence: the arm protocol allowed UNCERTAIN, this pass's validator does not (INCLUDE|EXCLUDE), so doubt goes in missed_or_uncertain.
+Blindness checks: no paper id from the pass appears in the instructions (regex for every id scheme: 0 hits); NO title sent for any paper (65 excluded records have no title anywhere, so sending titles would have marked the group; the title is in each text); the group map lives outside the folder (data/extract_v2/qa/rules_pass_2026-11/group_map.json, with a copy of the instructions, sha 8e7b80e268574ba9); all 680 texts byte-identical to their source folders; validator identical in both source folders.
+Smoke test (2 papers, real API): both clean; both INCLUDE, each naming the deciding rule (the excluded candidate 2-s2.0-85205783299: "topical hashtag sample, not selected by misinformation status"; we dropped it under L29, stance not falsity: a real dispute for the queue).
+Launched ~23:10, detached: nohup caffeinate -i (run_mistral --all --workers 10; then the same with --workers 8 as a cleanup; then validate -> outputs/mistral/FINAL_VALIDATE.txt). Scorer: scripts/score_rules_pass.py (disputes_excluded.csv = candidates still INCLUDE under our rules; disputes_included.csv = included studies EXCLUDED under our rules; tested on the smoke outputs).
+
+### 2026-11-13 09:15 — Rules pass finished and scored
+
+The rules pass (built 2026-11-12, scripts/build_rules_pass_folder.py) ran overnight without stalling: main run 640/678 clean by 03:00, cleanup pass 30/38 more by 03:29, final validation 680/680 done, 8 with validator problems (kept, best version). Scored with scripts/score_rules_pass.py -> data/extract_v2/qa/rules_pass_2026-11/ (SUMMARY.md, per_record.csv, disputes_excluded.csv, disputes_included.csv).
+
+- 237 excluded candidates under our settled rules: 99 now EXCLUDE (the rule named explains our call); 138 still INCLUDE with a qualifying number. These are the disputes to read against the papers; none is acted on before that.
+- 443 included studies: 427 INCLUDE, 16 EXCLUDE under our rules. Recurring reasons: quality-only instruments (2, both already among the 3 screen disputes of the included pass), verbal quantifiers turned into numbers (3, Addendum F), stance/sentiment not falsity (2), samples assembled from fact-checks or known-fraud cases (2), producer-side concentration (1), no falsity coding (scholar_09, scholar_10), no qualifying share printed (3), classifier work (1).
+Nothing in the freeze changes; confirmed changes go through a new freeze.
+
+### 2026-11-13 ~11:30 — Rules-pass disputes read against the papers (both directions)
+
+Read by Claude against the pass texts, frozen rows, ledger, arm addenda and earlier rulings. Nothing changed; all calls are Sacha's; any change goes through a new freeze (at revision: the submitted version is untouched).
+
+**16 included studies Mistral excludes** -> data/extract_v2/qa/rules_pass_2026-11/disputes_included_REVIEW.md
+- 6 look like our errors:
+  - 2-s2.0-85145404443: Sacha's 2026-07-21 drop (reread jc44, anti-vaccine stance) was never applied. apply_v143.py has no line for it; every other July drop ruling was checked and was applied.
+  - three abstract-only values derived from verbal quantifiers (Addendum F): 2-s2.0-86000736431, OA-W7155615941, 2-s2.0-85186467273. Addendum F's claim that no frozen value comes from a verbal quantifier was therefore wrong.
+  - 2-s2.0-85188303314: a Snopes fact-check corpus, against L31/L41.
+  - 2-s2.0-85180239525: a topic-model theme, against Addendum G.
+- 3 judgment calls: 85194023903 poster concentration; 85127732083 cure claims; whether quality/other-only studies count as included.
+- 4 keeps (Mistral wrong).
+- 1 ruling reversal to confirm: 85055756722 67.7, dropped in July and re-added in September by Sacha's own census ruling.
+
+**138 excluded candidates Mistral still includes** -> disputes_excluded_REVIEW.csv (tiered)
+- 99: our call stands. Mistral misapplies a settled rule or a recorded ruling.
+- 17: rule-boundary calls. Families: Likert misinformation scales, popularity samples vs L23, cure-claim subtypes (inconsistent with the included 85127732083), fact-check-matched lower bounds, domain-level supply, guideline contradiction.
+- 22: likely our errors, i.e. a printed qualifying number we missed or a rule applied unevenly. The strongest: 85194774500 (0.3% of vaccine-URL views flagged false), 85093701917 (1.48% reach of vaccine-skeptical pages), 85101747540 (49% visited a fake-news site), 85105453320 (0.8% of UK COVID tweets), 105026155756 (10.4%), and several video studies whose falsity share sits next to a quality score we excluded on. Inconsistencies: 105011696813 Bolsonaro single-source vs the included 85173224200; 85135458831 self-reported sharing vs RECALL elsewhere.
+Pattern: most of the 22 carry short early-stage reasons ("no prevalence estimate", "quality scores") that a full read contradicts. The full-text exclusion stage under-included.
+
+### 2026-11-13 ~12:15 — Decision page for the November passes
+scripts/build_fulltext_pass_decisions.py -> ~/Desktop/fulltext_pass_decisions.html (57 cards, same form as the pre-merge page: evidence, Claude's call, chips, reason, autosave, Download -> fulltext_pass_rulings_sacha_FILLED.csv, to be archived in data/extract_v2/qa/rules_pass_2026-11/; the builder reads archived rulings back and hides ruled cards).
+- 0: when (Claude: build the corrected freeze now on a branch, use it at revision).
+- A: 10 cards on included studies.
+- B: 22 likely-error exclusions.
+- C: 17 rule-boundary exclusions.
+- D: the 99 where our call stands, as one block.
+- E: findings (a), (b), (c), scholar_09, the 64 two-family omissions, the three loose codebook fields.
+Page JS syntax-checked with node.
+
+### 2026-11-13 — Sacha's rulings on the November passes
+Archived as data/extract_v2/qa/rules_pass_2026-11/fulltext_pass_rulings_sacha_2026-11-13.csv (57/57 ruled). The Desktop copy and the regenerable page went to the Trash.
+- **Timing:** BRANCH_NOW, i.e. build the corrected freeze now on a branch for use at revision.
+- **A, included studies:**
+  - DROP 85145404443, applying the July ruling;
+  - RETRIEVE 86000736431 and OA-W7155615941;
+  - EXCLUDE 85186467273, 85188303314 and 85180239525;
+  - keep 85194023903 and write the poster-concentration rule into the ledger;
+  - 85127732083: keep only the "alternative to conventional treatment" row;
+  - keep the quality/other-only definition (443);
+  - confirm 85055756722 67.7.
+- **B, 8 ADDs:** 105009881997, 85093701917, 85101747540, 85105453320, 85105969129, 85135458831, 85194774500 and 85203317819. The other 13 stay excluded; 105014108895 follows its parent.
+- **C:** all 18 kept excluded.
+- **D:** the 99 confirmed.
+- **E:**
+  - FIX finding (c);
+  - RELABEL finding (a);
+  - ESTABLISH what the VERIFY_REJECTED verifiers read (b);
+  - READ_AND_CARD the 64 two-family omissions;
+  - DRAFT tighter definitions for sampling_frame, breadth and population_scope.
+- **Two rulings pull against each other, to confirm with Sacha before the freeze:**
+  - (1) KEEP_ALTERNATIVE_ONLY on 85127732083: its label said to include Realfood (85151113840) alike, yet C keeps Realfood excluded.
+  - (2) Bolsonaro single-account census 105011696813 kept excluded, while 85173224200 (most-retweeted Abascal/Bolsonaro tweets) stays included as single-source under L25.
+
+### 2026-11-13 — The two conflicting rulings settled (Sacha, in chat)
+- **Cure claims:** include Realfood (85151113840), consistent with keeping the Pinterest "alternative to treatment" row. New ledger rule L46.
+- **Politicians:** my first question offered "both out: producer-side" and Sacha took it, but that framing was too narrow. Applying it consistently would also drop 85131964464 (the same Bolsonaro design) and four elite-sharing studies (W4306964957, 105029521599, 85142396682, 105027856675). Asked again with the full scope; Sacha ruled that politicians' posts count. New ledger rule L44: the Bolsonaro census 105011696813 is added and nothing is dropped.
+- New ledger rule L45 records the poster-concentration ruling on 85194023903.
+- Amendments: data/extract_v2/qa/rules_pass_2026-11/fulltext_pass_rulings_amendments_2026-11-13.csv. Applied after the page file, later entries winning.
+- Net result:
+  - included: 10 studies added (105009881997, 105011696813, 85093701917, 85101747540, 85105453320, 85105969129, 85135458831, 85151113840, 85194774500, 85203317819);
+  - 4 studies leave (85145404443, 85186467273, 85188303314, 85180239525);
+  - 2 retrievals pending (86000736431, OA-W7155615941);
+  - 1 row drops in 85127732083;
+  - finding (c) fixed;
+  - finding (a) relabelled.
+
+### 2026-11-13 — Step 1 (retrievals) and step 2 (finding b) of the corrected freeze
+**Retrieval.**
+- 2-s2.0-86000736431 (Baerbock, M&K 2025): the full text had been on file since July (data/fulltext/pdf/), but as an image-only PDF with no text layer. The pass fell back to the abstract. Read page by page.
+  - It prints "Im Schnitt unterstützten ein Viertel der Suchresultate die Verschwörungstheorie (MW=28,4 %)" ("on average a quarter of the search results supported the conspiracy theory, mean = 28.4%"), over Google results.
+  - The eight search terms are the conspiracy's own Telegram vocabulary. Sacha: EXCLUDE as curated search terms (L24), consistent with 85085657500.
+  - Lesson: a text-extraction step must flag a PDF with 0 extractable words, not silently fall back to the abstract.
+- OA-W7155615941 (Clin Exp Dermatol, closed access, OpenAlex has no OA copy): opened in Sacha's Chrome for his institutional access; waiting on him.
+
+**Finding (b) settled.** All 118 records labelled "Not eligible on full-text re-reading" come from the 2026-06-21 re-screen of the 635 screening includes: 50 from the v_*.csv verifiers only, 62 from verifiers plus adjudication, 6 from adjudication only. Commit a9f5862f. The evidence that they read titles and abstracts:
+- the adjudication input data/verify/disputed.jsonl holds only eid, title and abstract;
+- none of the 211 reject reasons cites a table, a figure, a methods section or the full text;
+- the round produced a "needs full text" category (31 records);
+- the verifier inputs were not saved, but the log calls the step verification of single-reader screening includes.
+These are abstract-stage exclusions mislabelled at make_prisma.py:169. This is also where the November errors cluster: 11 of the 22 likely-error exclusions and 6 of the 10 studies now added come from the 118. The November exclusions pass had a full text for 89 of them.
+Sacha: move the 118 to the screening stage in PRISMA. The Methods will note that the November full-text pass re-read 89 and recovered 6.
+
+### 2026-11-13 — Step 3: drafted rows for the 10 added studies
+OA-W7155615941 is excluded: Sacha has no access, and its only value is verbal (Addendum F); recorded in the amendments file. The 10 added studies give 15 rows, staged in data/extract_v2/qa/rules_pass_2026-11/additions_draft_2026-11-13.json and .md, taken from the Mistral rules-pass extraction.
+- **Choosing rows:** within-misinformation composition dropped; conditional rows dropped; slices of a kept total dropped; total kept over parts (following ruling F12).
+- **85093701917:** the 18.5% is not held. It is the paper's annualised extrapolation of the observed 1.48% (L2).
+- **85101747540:** 49% (prose) held, 44% (Table A1, analysis sample) recorded in flag.
+- **85135458831:** abstract and body counts differ (133/250 vs 129/244); the printed 46% (n = 383) is held.
+- **Checks:** every source and moderator quote asserted verbatim against the text (4 moderator quotes replaced with verbatim text); all controlled-vocabulary values already exist in v1.7.23.
+Awaiting Sacha's approval before the freeze.
+
+### 2026-11-13 — Step 4: the 64 two-family omissions read
+data/extract_v2/qa/rules_pass_2026-11/omissions_64_REVIEW.md: 61 settled by existing rules or rulings, 3 open.
+Two apparent merge errors turned out to be deliberate:
+- 85074511992 holds the junk + Russia subtotals by Sacha's ledger ruling (changelog_v1718 lines 241-249). Note: the F7 card text on the pre-merge page still quoted the pre-switch 9.1.
+- 85069463611's 0.96 was removed by ledger ruling at v1.7.18.
+Sacha on the 3 open items:
+- 85130071721: hold 41.6, keep 6.2 as a variant.
+- OA-W2992531903: not added; his September ruling had already removed per-outlet REACH.
+- W4210350805: not added.
+
+### 2026-11-13 — Step 5: tighter definitions drafted for the three unstable fields
+docs/codebook_tightening_draft_2026-11.md covers sampling_frame, breadth and population_scope. For each field: one question, ordered decision rules, and the confusions the rules target, tabulated from the November pass's matched rows.
+- **sampling_frame:** convenience vs survey_sample is the main confusion (39).
+- **breadth:** the main confusion is false vs misleading (90 in both directions). Mistral also fills breadth on 39 source-level rows that stay blank.
+- **population_scope:** general_public vs other (98). Mistral codes topic-defined content as `other`.
+- **Off-vocabulary values found in v1.7.23:**
+  - sampling_frame: 14 blank and 1 `convenience_snowball`;
+  - population_scope: 3 `business_source_not_general_public` and 1 `at_risk_nonrepresentative`.
+Proposed test before adoption: rerun the 8-paper retest with the new definitions.
+
+### 2026-11-13 — Steps 5b-6: definitions tested; corrected freeze v1.7.24 built on branch rev/v1.7.24
+**Definitions test** (Sacha: "test now, recode at revision"): qa/rules_pass_2026-11/defs_test_retest_2026-11-13.md.
+- Self-agreement kappa: sampling_frame .76 -> .82; breadth .66 -> .73; population_scope .23 -> 1.00.
+- Value overlap between the runs fell from 85% to 65%, so the kappas rest on 44 rather than 51 pairs. The test is directional only.
+- The full recode waits for the revision.
+
+**v1.7.24.** Built in a separate git worktree (.work/rev_v1724, gitignored) on branch rev/v1.7.24, so the main checkout and the other session sharing it never switch branch. main still points to v1.7.23.
+- scripts/apply_v1724.py: 443 -> 447 studies, 1048 -> 1056 estimates, MD5 b3f5daee66a7d91ed11d2cdeb2b5d7bd.
+- Convention applied: the three topical view shares (85194774500 0.3 and 5.1, 85093701917 7.5) enter as CONTENT view-weighted, because EXPOSURE is whole-diet only (as 85085201199, 85127039075, ruling F9). So these low figures do NOT join the EXPOSURE construct.
+
+**PRISMA changes.**
+- make_prisma.py: VERIFY_REJECTED (112 once the 6 re-included are counted) becomes a screening-stage box. It leaves the assessed set, with a new assertion that every one was a Scopus screening include.
+- make_si_lists.py: writes si_rescreen_exclusions.csv, and exclusion_reasons_2026-11.csv takes precedence.
+- Finding (a): 84929523850 and 105031628111 go to included_not_retrieved.csv. The finding was wrong for Gruzd (85147303661): its real paper WAS retrieved and screened on 2026-09-13 (stance only), so it stays a full-text exclusion and now carries that reason.
+- 85180239525 and 85188303314 leave the ledger entirely: they were corpus-repair records, which count only while in the freeze, as the figure's note states. Repair ledgered 129 -> 127.
+
+**Flow:**
+- sought 1,145 -> 1,031;
+- not retrieved 145 -> 147;
+- excluded 506 -> 386;
+- included 443 -> 447;
+- validate_prisma PASS; make_prisma reconciles.
+
+**Headline medians (v1.7.23 -> v1.7.24):**
+- CONTENT 23.0 -> 22.8 (k 274 -> 277);
+- SHARING 13.0 -> 12.7;
+- RECALL 43.0 -> 43.5;
+- REACH 12.0 -> 12.0 (k 27 -> 29);
+- EXPOSURE 1.3 unchanged;
+- whole-diet backbone 6.9 unchanged.
+
+Status: run_phaseB pre stage passed and phaseB_metareg.R done; the robustness bootstrap (B=200) is running. Then --post-metareg, the guards and the drift check. The drift check will fail against the submitted manuscript's counts by construction; that list is the revision's to-do.
+
+### 2026-11-13 (late afternoon) — v1.7.24 completed on branch; stage 3 of the Mistral re-check begun
+**v1.7.24 done** (branch rev/v1.7.24, tag dataset-frozen-v1.7.24, commit d4c84359; main still on v1.7.23).
+- **Risk of bias:** the 10 added studies had no appraisal (make_si_characteristics stopped on them). Claude appraised them from full text on checklist v3, calibrated on comparable designs already in the master (scripts/rob_v1724_additions.py -> data/rob/v3out/shard_r16.csv; item-6/10 quotes asserted verbatim):
+  - LOW 1 (105011696813);
+  - MODERATE 7;
+  - HIGH 2 (85151113840, 85203317819).
+- **Pipeline:** full run regenerated (pre, metareg, robustness B=200, post).
+- **Guards PASS:** validate_frozen, validate_prisma, check_invariants, make_prisma, make_si_lists, make_si_characteristics, check_site (1147/1147), check_pipeline_docs.
+- **Expected FAILS** (the revision's to-do; the manuscript still describes v1.7.23): check_manuscript_stats (first failing claim: "browsing panels carry no content studies", now false because 85093701917's 7.5 is CONTENT on a browsing panel), and the crosswalk drift check (5 stale counts in manuscript_draft.md and site_design_2026-09-18.md). No .docx and no manuscript file were touched.
+- **Pipeline-order note:** build_site runs before make_si_lists, so on a study-set change the site reads the previous run's lists. A second run fixed it; consider reordering at revision.
+
+**Stage 3, step 1: the inventory** (scripts/build_screening_pass_inventory.py -> data/extract_v2/qa/screening_pass_2026-11/inventory.csv, INVENTORY.md). 32,282 rows across five streams, each reconciled to prisma_counts.json:
+- scopus 20,344; openalex 4,822 (+1 stray screening row); pubmed 410; behavioural 4,883 unique; snowball 1,822 candidates.
+- **Context:** the Scopus title/abstract exclusions were already re-screened in September by Claude and GPT (corpus repair; 3,379 titles flagged by at least one family). Mistral is a third family there. The other streams were screened once.
+- **FINDING (d):** 73 of the 4,822 OpenAlex net-new records have no screening decision in data/oa_screen_*.csv and were never adjudicated. PRISMA counts them as "excluded at screening", because that box is identified minus adjudicated. Mistral will screen them.
+- **Abstract coverage:** Scopus 4,645 of 20,344 have an abstract on file (most title-stage records were screened on title alone); OpenAlex, PubMed and the arm are nearly complete; snowball has 1,529 of 1,822.
+
+### 2026-11-13 ~17:45 — Stage 3, steps 1b-2: abstracts fetched, blind screening folder built, full run launched overnight
+**1b, abstracts** (Sacha: fetch the missing abstracts so Mistral screens title + abstract everywhere). scripts/fetch_abstracts_screening_pass.py ran 2026-11-13 against the OpenAlex works API, batched by DOI filter, anonymous (no contact address sent) -> data/abstracts/screening_pass_2026-11.jsonl (gitignored).
+- 14,398 DOIs without an abstract were asked; 10,263 came back with one.
+- One batch failed six times (a malformed DOI breaks a batched filter); a per-DOI fallback was added and the fetch resumed.
+
+**2, the folder.** scripts/build_screening_pass_folder.py -> .work/screening_pass_2026-11 (gitignored).
+- 32,111 distinct records (the 32,282 inventory rows less 170 cross-stream duplicates and 1 record with neither title nor abstract), 26,155 with an abstract, in 1,606 batches of 20, shuffled with seed 20261114.
+- Neutral keys; the key map is outside the folder (qa/screening_pass_2026-11/key_map.csv). Every batch record was asserted to carry only key/title/abstract, and the keys to equal the map.
+- **Instrument:** docs/screening_criteria_v2_2026-09.txt verbatim (six constructs, recall included), framed for title + abstract (decisive with an abstract, MAYBE when it is missing, from docs/screening_criteria_stage2.txt), with a JSON contract carrying construct and confidence. Instructions sha 511062fab2578da5, copy in qa/screening_pass_2026-11/INSTRUCTIONS.md.
+- The full-text rules of the rules pass were deliberately NOT added: a screen must stay inclusive.
+- **Runner:** scripts/screening_pass_run_mistral.py (tools/run_screen.py in the folder): mistral-large-4-0, temperature 0, top_p 1, seed 42, max_tokens 16000, 2 repair rounds, resumable.
+- **Smoke test:** 2 of 2 batches valid, ~100 s each.
+- **Full run:** launched ~17:45, detached with caffeinate: 10 workers, then a 6-worker retry pass, then a count. Expected 4-5 h; Sacha leaves the laptop open overnight.
+
+**3, the scorer** (written, tested on the smoke batches, partial outputs then removed): scripts/score_screening_pass.py.
+- **Candidates** = Mistral INCLUDE on a record that never advanced in any stream, tiered:
+  - A: high confidence with an abstract;
+  - B: high confidence without an abstract, or medium with one;
+  - C: the rest.
+- Candidates the September repair already took to full text are flagged and read last.
+- The reverse direction (we advanced, Mistral EXCLUDE high) is written separately, for the codebook signal.
+
+Start-here doc for the pass: docs/screening_pass_START_HERE.md (steps, numbers, how to restart after sleep).
+
+## 2026-11-14 — Stage 3 of the Mistral re-check, step 2 done; step 3 scored
+
+- Full run finished overnight (launched 2026-11-13 ~17:45, done before 22:30): 1,606/1,606 batches valid
+  (main pass 1,601/1,604; 3 batches hit a transient Mistral HTTP 503 around 18:20 and passed on the
+  automatic retry). Served model mistral-large-4-0 throughout; instructions sha 511062fab2578da5.
+  Provenance: .work/screening_pass_2026-11/outputs/mistral/PROVENANCE.md.
+- Scored with scripts/score_screening_pass.py: 32,111/32,111 records. Cross-tab (ours x Mistral,
+  INCLUDE/MAYBE/EXCLUDE): ADVANCED 913/178/413; EXCLUDED 1,186/2,785/25,363; MAYBE_NOT_ADVANCED
+  315/559/194; INCLUDE_NOT_ADVANCED 86/27/14; NO_DECISION 3/4/71.
+- Candidate false exclusions (Mistral INCLUDE, never advanced): 1,590. Tier A 1,057 not yet assessed at
+  full text + 127 already assessed by the September repair; tier B 358 + 27; tier C 20 + 1.
+  By stream: scopus 968, openalex 384, snowball 196, pubmed 34, behavioural 18.
+  Reverse direction (we advanced, Mistral EXCLUDE high): 343.
+- First read of a random 15 of tier A: mostly out of scope under the full-text rules (fake-news
+  detection datasets, sharing-intention or predictor surveys, fact-checks of politicians' claims, LLM
+  safety rates), with a few plausible content shares. The screen instrument is deliberately inclusive,
+  so the candidate list is far too long to read one by one as it stands. Next step under discussion
+  with Sacha: a second, stricter filter before Claude reads the survivors.
+
+## 2026-11-14 — Stage 3, step 3a-3b: stricter filter, Claude's read, decision page
+
+- **Why a second pass.** The screen instrument (criteria v2) is inclusive by design and carries none of the
+  settled exclusion rules, so 1,590 candidates is mostly the criteria/rules gap. Sacha approved a stricter
+  Mistral pass before Claude reads anything.
+- **Filter instrument** (`scripts/build_screening_filter_folder.py`, sha 185cb1d14cd074a1): sections 1 and 1b
+  of the November rules-pass instrument verbatim (eligibility, exclusion grounds, settled rules, Addenda A-J,
+  ledger rules), plus L44-L46 restated without ids; labels QUALIFIES / POSSIBLE / OUT. Blind: new keys
+  f00001..., same title + abstract text as the screen, shuffled (seed 20261115), map outside the folder
+  (filter_key_map.csv). Runner = the screen runner with a new `--labels` option (default unchanged).
+  mistral-large-4-0, temperature 0, top_p 1, seed 42.
+- **Run.** 80 batches; 79 valid on the first pass. Batch 9 hit the 16,000-token limit (a runaway output,
+  repeated identically on each retry because decoding is deterministic); split into batches 81-82 (10 records
+  each, same settings, original kept in batches_split_original/): both valid. 1,590/1,590 verdicts.
+- **Result** (`scripts/score_screening_filter.py`, FILTER_SUMMARY.md): QUALIFIES 141 not yet assessed + 27
+  already assessed by the September repair; POSSIBLE 391 + 54; OUT 903 + 74.
+- **Audit of OUT** (seeded random 50, filter_out_audit_sample.csv, read by Claude against the abstracts): 47
+  clearly out; 3 arguable as POSSIBLE at most (85211231258 German survey measuring misinformation exposure;
+  85114788121 YouTube prostate videos "contained less misinformation"; W4405414329 perceived amount, likely
+  means only). None clearly qualifying. The filter discards few eligible records.
+- **Where the QUALIFIES came from.** 95 of the 141 were excluded at the June title screen, mostly called
+  "off-topic": health-information accuracy studies (YouTube/TikTok videos, chatbot answers, websites) whose
+  titles do not say misinformation, and recall surveys (the June criteria omitted recall). Only 2 are already
+  in the corpus under another id (85092497520 Zika network; 37632797 tanning salons), matched by DOI/title
+  against si_included_studies.csv of v1.7.24; none is a full-text exclusion.
+- **Claude's read of the 141** (`scripts/screening_filter_claude_read.py` -> filter_claude_read.csv, one verdict
+  and note per record): LIKELY 76, BORDERLINE 47, NO 14, DUPLICATE 4 (2 already included, 2 listed twice).
+  LIKELY is a reading of the abstract only; nothing enters the data without the full-text check.
+- **Decision page** (`scripts/build_screening_pass_decisions.py` -> ~/Desktop/screening_pass_decisions.html,
+  142 cards): card 0 asks what to do with the 445 POSSIBLE records (recommended: the blind full-text check,
+  open access automatic, paywalled via Sacha's browser); A/B recommend RETRIEVE, C recommends DROP.
+- **Implication to report.** If even half of the LIKELY records survive full text, the title screen missed
+  roughly 40 eligible studies, concentrated in health content and recall surveys. This is a recall finding
+  for the revision (Methods and limitations), not a change to the submitted v1.7.23.
+
+## 2026-11-18 — Stage 3 of the Mistral re-check: Sacha's screening rulings; retrieval started
+
+- Sacha filed `screening_pass_decisions.html` (archived as `data/extract_v2/qa/screening_pass_2026-11/screening_pass_rulings_sacha_2026-11-18.csv`; Desktop copy to the Trash). He took every recommendation, with no written reasons:
+  - card 0: FULLTEXT. The POSSIBLE records go through the same blind full-text check as stage 2. Counted on filter_results.csv, the POSSIBLE records not yet assessed in September number 391; card 0's header showed 445.
+  - section A (76 likely misses) and section B (47 borderline): RETRIEVE, 123 in all;
+  - section C (14 Claude would drop plus 4 duplicates): DROP, 18 in all.
+- Retrieval list: `retrieval_list.csv` in the same folder, 514 records (76 LIKELY, 47 BORDERLINE, 391 POSSIBLE). 47 have no DOI, so they go straight to manual retrieval.
+- `scripts/retrieve_rescreen_fulltext.py` was reused with `--dir data/extract_v2/qa/screening_pass_2026-11`. One change: the contact email is no longer hardcoded but opt-in via `RETRIEVAL_MAILTO`. With it blank, OpenAlex is queried anonymously and Unpaywall, which requires an email, is skipped. Europe PMC is unchanged.
+- Outputs: `retrieval_status.csv` and `needs_manual_retrieval.csv`. Paywalled records then go through Sacha's Chrome in batches of 30, most valuable first (LIKELY, then BORDERLINE, then POSSIBLE).
+
+## 2026-11-18 (later): Stage 3 retrieval round 1; full-text check launched
+
+- **Open-access retrieval** finished: 168 of 514 retrieved (113 OpenAlex OA, 41 already on file, 14 from Sacha's Articles library); 346 not retrieved.
+- **Folder built.** `scripts/build_screening_fulltext_folder.py` built `.work/fulltext_pass_2026-11_screen/`, with instructions sha fbe28f7fa8811580. The instrument is the stage-2 rules pass plus L44–L46; the runner and validator are byte-identical to stage 2. The folder is blind, with no titles, and shuffled with seed 20261118.
+- **Identity check:** 21 rejects, each read by eye and decided in the builder:
+  - 18 are the right paper: a header-split title, a preprint or published version, or a Spanish original.
+  - 3 are set aside:
+    - a First Draft report filed under a survey paper's id;
+    - a conference abstract-book page that mixes several studies;
+    - one duplicate record, the same Righetti paper as another.
+- **Result:** 165 papers in 22 batches. The Mistral run is launched (`tools/run_mistral.py --all --workers 4`, mistral-large-4-0).
+- **Manual retrieval:** `scripts/build_screening_manual_retrieval.py` lists 348 papers: 56 LIKELY, 38 BORDERLINE and 254 POSSIBLE, 46 of them without a DOI.
+  - Order: most valuable first.
+  - Files: `needs_manual_retrieval.csv`, and `.work/retrieval/screening_doi_urls.txt` for the opener.
+  - Opener: `~/screen_next.sh`, which takes 30 at a time, keeps a resumable cursor, opens in Chrome and resolves the repo through the registry.
+  - Sacha's downloads go through `scripts/match_retrieved_pdfs.py`; the builder is then rerun, and it adds only the new papers.
+
+## 2026-11-19: Stage 3 retrieval round 2 (Sacha's Chrome); 243 papers in the full-text check
+
+- **Retrieval.** Sacha opened links 1–150 of `.work/retrieval/screening_doi_urls.txt` with `~/screen_next.sh` and saved what his access allowed. Claude then drove his Chrome (Claude-in-Chrome extension, its own tab group) through links 151–309, the remaining records with a DOI. Per paper, it opened the landing page, followed the publisher's own PDF link only when the page offered access, and saved the PDF.
+  - Nothing was bypassed. Restricted pages (SAGE "Restricted access", T&F "Get Access") were skipped, and so was one bot-check page.
+  - Chrome blocks repeated programmatic downloads per tab, so each save used a fresh tab. Sacha confirmed the macOS save dialogs.
+  - Open-access PDFs with a plain URL were fetched with curl.
+- **Wrong files trashed:**
+  - Two ScienceDirect saves on inaccessible pages had grabbed a "recommended article" PDF. The selector was fixed to require the article's own pii.
+  - One Wellcome Open Research PDF was fetched from a mistyped article number, then replaced with the right one.
+- **Match.** `scripts/match_retrieved_pdfs.py --src ~/Desktop/New_papers --apply` gave 87 PDFs, 81 records matched (72 by DOI, 12 by title), 3 duplicates and 3 unmatched. The report is copied to `qa/screening_pass_2026-11/manual_pdf_match_2026-11-19.csv`.
+  - Unmatched: a JMIR appendix, a Technium PDF with a garbled text layer, and a congress abstract page.
+- **Identity check.** The builder added 78 papers, giving 243 in 33 batches.
+  - 3 rejects are the right paper behind a SAGE or journal header, now in RIGHT_TEXT.
+  - 2 are WRONG_TEXT: PubMed records 40894131 and 40901141. Their DOI in our search metadata resolves to an unrelated paper. Those PDFs and texts were moved out of `data/fulltext/` to the Trash.
+  - Finding for the revision: some PubMed records carry wrong DOIs.
+- **Mistral.** The first run (165 papers) continues. A second runner takes batches 23–33.
+- **Not retrieved:**
+  - links 310–348 (46 records with no DOI), left to Sacha or to report as not retrieved;
+  - about 20 DOI links on small Indian or IEEE sites, skipped;
+  - everything behind publishers his access does not cover.
+
+## 2026-11-19 — NHB pre-review requests (due 2026-11-23): coder authorship, RA clarity, PRISMA, included-study list, forms
+
+The editor sent the paper to review subject to six requests. Everything is in
+`~/Desktop/Sent/NHB_submission_systematic/editor_requests_2026-11-19/`; the submitted files are untouched
+(backup of the submitted 01 at `docs/.backups/01_manuscript_main_AS_SUBMITTED_2026-11-12.docx`).
+
+**1. Coder authorship.** The only human coder other than the author is Laura Hitz (paid RA; four rounds,
+~640 items, R1-R4 in `docs/human_review_provenance.md` §B1; no hours were ever logged, estimated 50-70 h).
+Sacha emailed her on 2026-11-19 offering a genuine choice between co-authorship (read, approve, be
+accountable) and acknowledgement, with a reply line for each. Her answer decides the author list.
+
+**2. Which RA did what.** The paper said "a research assistant" in five places and "an earlier
+research-assistant round" in one, and the AI statement said generative AI was used "as a research
+assistant", which together read as several people. Twelve tracked edits (author "Claude") in 01 and 02:
+named at first mention, "the same research assistant" thereafter, one sentence that a single RA did all
+human coding other than the author's, a Table 2 caption line, an itemised Acknowledgement, "research tool"
+in the AI statement, and in Note B1 a new sentence reporting her value-verification round (221 values / 89
+studies; RA 208 = 94.1%, author 202 = 91.4% confirmed outright; numbers from
+`qa/value_verification_keys/laura_vs_sacha_2026-09-13.md`), which the paper had never reported. Mirrored
+into the master; ledger row 2026-09-18b-main #30 marked superseded by this request. Guards: stats 276/276,
+author edits 171/171, drift clean.
+`scripts/edit_docx_tracked.py` now trims the shared prefix/suffix (word-snapped) so only changed words
+are tracked, and supports pure insertions.
+
+**3. PRISMA.** The submitted checklist was an internal pointer table (cited the md master, § numbers,
+"Remaining gaps" notes) and pointed at the wrong SI letters (search = Note C not D; certainty = A3 not B3).
+Rebuilt on the official PRISMA 2020 template with section names + page numbers from a LibreOffice render of
+01/02 with the edits accepted. Quality assessment exists and is now pointed at explicitly: Hoy-adapted RoB
+on all 443, GRADE certainty (A3), small-study effects (B2). Found while doing it: the shipped Supplementary
+Data 1 was the slim `si_included_studies.csv` (no RoB) although the submission README said it carried RoB;
+the revised upload is `si_study_characteristics.csv` (same freeze, per-study RoB + items 6/10).
+
+**4. Included-study references.** New `scripts/make_included_references.py`: resolves the 443 DOIs by
+content negotiation (generic client name, cache `data/synth/included_refs_csl_cache.json`), checks the
+returned title against ours and accepts a different title only when first author and year confirm the
+work (subtitle-less registry titles; bilingual journals registering the original-language title). 19
+entries fall back to our own fields (9 no DOI, 1 dead PsyArXiv DOI 10.31234/osf.io/vmt4c, 9 bilingual
+records the surname check did not confirm).
+
+**A/B. Forms.** Both Nature forms are XFA; filled by writing the XFA datasets packet (incremental save).
+Reporting Summary answers taken from `04_reporting_summary_content.docx` with old cross-references
+translated (§ numbers -> section names; Note C2/C3 -> B2/B3) and three stale values corrected against the
+paper: abstract-stage exclusions 1,120 -> 1,308 ("abstract or stage-5 screen", Figure 6); recall study count
+after the repair 94 -> 96 (twice); snowballing wording aligned with Methods. Code checklist: two boxes left
+unticked (non-standard hardware; install time) because the public README states neither.
+
+**Noticed, not changed:** Methods says snowballing screened 1,818 records; Figure 6 says 1,822.
+
+## 2026-11-19 (afternoon): Stage 3, Claude's check of the 156 full-text candidates; decision page
+
+- **The run.** The blind Mistral full-text check finished: 243 read, 156 called INCLUDE with at least one numeric six-construct row (788 rows).
+  - By tier: LIKELY 38 of 38, BORDERLINE 11 of 13, POSSIBLE 107 of 192.
+  - It was re-run at 16 workers after Sacha asked for more parallelism. 7 papers with validator problems were retried.
+- **Claude's check.** Sacha chose Opus subagents and asked for few at a time because of his credits, so batch 1 ran alone. Once he said limits were relaxed, batches 2 and 3 ran together.
+  - Each subagent checked 52 papers against our rules (INSTRUCTIONS sections 1, 1b and L44–L46, plus the ledger) and verified up to 3 of Mistral's rows per paper against the text.
+  - Verdicts are in `data/extract_v2/qa/screening_pass_2026-11/fulltext/claude_check/verdicts_{1,2,3}.csv`.
+- **Totals:** 89 INCLUDE, 40 EXCLUDE, 27 UNSURE, 0 WRONG_TEXT.
+  - Batch 1 checked 120 rows and found 69 right; batch 2 checked 117 and found 74 right.
+- **Mistral's systematic errors:**
+  1. It takes the abstract's paraphrase ("inaccurate") over the actual item ("negative information").
+  2. Mixed categories (rules G/I): falsity pooled with bias, propaganda, commercial or unverified content.
+  3. R8 breaches: complements, summed categories, zero bins.
+  4. Non-falsity coded as falsity.
+  5. Value or denominator slips.
+
+  So no Mistral figure is copied into the data: accepted papers are re-extracted.
+- **Duplicates (Claude's title check against the v1.7.24 included studies):**
+  - 3 candidates are preprints of included studies: Yin 2025, Ng 2021 and Lasser 2022.
+  - 2 candidate pairs are second versions of each other.
+  - Still to check: two HINTS papers on the same item, a possible Flamino and Bovet & Makse overlap, a Bolsonaro voting-machine census against the L44 Bolsonaro study, and a thesis bundling two articles.
+- **Decision page:** `~/Desktop/screening_fulltext_decisions.html`, built by `scripts/build_screening_fulltext_decisions.py`. It has 156 cards: A includes 86, B rule boundaries 25, C excludes 40, D duplicates 5. Rulings download as `screening_fulltext_rulings_sacha_FILLED.csv`.
+
+## 2026-11-19 (cont.) — reference list audited; Table 2 human rows harmonised
+
+**Reference audit (Sacha: "make sure none is invented").** No reference text is model-written: each
+entry is the DOI's registry record or a hand-verified override. Checks on all 443: 406 registry records
+whose title matches our record (two independent sources agree); 18 accepted on first author + year,
+all eyeballed (registry drops the subtitle, or holds the original-language title of a bilingual
+journal); every one of the 403 archived full texts confirms its entry (title, or the DOI printed in the
+paper) except two retitled versions of the same work (Kogan SSRN; Lazer COVID States report) and one
+real error. **The error:** `OA-W2992531903` carried the bibliographic record of a news article about
+the study ("M. Camille", 2018); the paper read and coded is Fletcher, Cornia, Graves & Nielsen (2018),
+Reuters Institute factsheet, DOI 10.60625/risj-z2zp-5f64, printed on its first page. The dataset's
+bibliographic fields for that study are wrong (not the estimates); not edited in the frozen data.
+The 19 former fallbacks are now `data/inputs/included_refs_overrides.csv`, one row each with its
+evidence: 9 correct DOIs whose Scopus first-author field had split a double surname (Blanco-Alfonso,
+Pérez-Escoda, Brenes Peralta …), the PsyArXiv DOI corrected to `_v1`, and 9 manual references (authors
+from each document's own first page; Amazeen 2012 confirmed as a Temple dissertation via OpenAlex;
+Dahlke et al.'s OSF DOI is its preregistration, so no DOI given). Builder fixes: HTML entities decoded
+(81 records), surname particles moved out of given names, all-caps surnames recased. 12 years differ
+from the dataset's, all following the published version's DOI record. **Open:** Berriche et al. 2026
+author list (Sacha is a co-author).
+
+**Table 2.** The four human rows named the same two coders two ways ("Two coders, adjudicated" vs
+"Author and research assistant"); Sacha flagged it. All four now read "Author and research assistant,
+adjudicated", and row 18's check reads "Human coding"; tracked in 01, mirrored in the master.
+**Faker Island resolved (same day).** Published as Berriche, Cointet, Altay, Hacquin, Mazoyer,
+Ooghe-Tabanou, Mercier & Cardon (2026), JQD: Digital Media 6, 1–99, doi:10.51685/jqd.2026.016 (PDF
+supplied by Sacha). The dataset coded the earlier manuscript; both estimates (0.05% of tweets, 0.9% of
+accounts) are verbatim in the published text, so no value changes. The dataset's venue field
+("Unpublished manuscript") is stale, like the Fletcher record: fix both at the next freeze.
+
+## 2026-11-19 (later): Strict second look at section A; chatbot rule card; check for lost high-quality excludes
+
+- **Sacha's prompts:** "you've been generous with some includes in A", "check whether there are some high qual studies that we exclude (behavioral data, actual exposure)", and "i dont get why you included some LLM/chatbot studies".
+- **Chatbot studies.** Our codebook (INSTRUCTIONS line 29 and the construct table) lists chatbot answers as CONTENT. The subagent brief repeated that, so the readers kept them. Yet no chatbot-accuracy study is among the 447 included, so the codebook and our practice disagree.
+  - New rule card R1 on the page, recommending EXCLUDE: amend the codebook and add L47, so that chatbot outputs count only when they sample what users actually received.
+  - The 5 chatbot candidates now depend on R1.
+- **Strict pass over the 86 includes.** Claude read every include's figure and note again. Overrides are in `claude_check/strict_review_2026-11-19.csv`:
+  - 3 to EXCLUDE:
+    - a balanced training dataset;
+    - a qualitative interview count;
+    - a "difficulty" item that is concern, not encounter (rule E).
+  - 9 to UNSURE: hoax-, claim- or conspiracy-defined samples (L24/L26), a 3-bot sock-puppet audit, and pooled or mixed items (rule I).
+  - 2 HINTS 6 subsample papers marked as same-survey duplicates of the national HINTS paper.
+- **The page now reads:** rule card 1, A 69, B 37, C 43, D 7.
+- **High-quality excludes.** Every behavioural or platform-data paper among the 40 Claude excludes and the 86 Mistral excludes was re-read for a printed share. None qualifies:
+  - Ventura et al. (WhatsApp deactivation) gives effects only;
+  - Pierri et al. (vaccine hesitancy) gives regressions;
+  - the Twitter impressions paper gives regressions only;
+  - Mosleh et al. (suspension policies) gives simulations.
+  - The Mosleh & Rand 2022 *Nature Communications* record in this list is the Author Correction. The article itself (2-s2.0-85142383397) was advanced in June and excluded at full text (continuous score, no share).
+  - Among the unretrieved records, the one behavioural title is Guess, Nyhan & Reifler 2018, the working-paper version of the included Guess et al. 2020 *NHB*.
+
+- **Accepted calls recorded (2026-11-19, Sacha in chat).** He agreed with the 3 strict-review excludes and the duplicates, and asked to see only what he has to code. So Claude's A (69 INCLUDE), C (43 EXCLUDE) and D (7 DUPLICATE) calls are recorded as accepted in `fulltext/screening_fulltext_rulings_chat_2026-11-19.csv`. The page now shows 38 cards: rule card R1 and 37 UNSURE.
+
+## 2026-11-19 (evening): Sacha's full-text rulings filed
+
+- **Filed rulings:** `qa/screening_pass_2026-11/fulltext/screening_fulltext_rulings_sacha_2026-11-19.csv`.
+  - Rule card R1: EXCLUDE_CHATBOTS. His notes on two cards: "we don't do ChatGPT accuracy no???" and "again we don't take LLM info no?". To do: amend the INSTRUCTIONS construct table and add ledger rule L47.
+  - All 37 UNSURE cards: EXCLUDE.
+- **Correction:** the browser download carried a stale INCLUDE, saved from the first page version, for 5 cards: the 3 strict-review excludes and the 2 HINTS subsample duplicates. His explicit chat agreement wins, so they are archived as EXCLUDE or DUPLICATE with that note.
+- **Final:** 69 INCLUDE, 80 EXCLUDE, 7 DUPLICATE.
+- **Next:** re-extract the 69 properly (Mistral's rows are not copied), check overlaps (Flamino against Bovet & Makse, the Bolsonaro census against the L44 Bolsonaro study, the dental-caries thesis), and build v1.7.25 on rev/v1.7.24.
+- **Cleanup:**
+  - `~/Desktop/New_papers` moved to the Trash. All 81 matched PDFs were already in `data/fulltext/`, and both downloads are superseded by the archived file.
+  - Both Desktop decision pages trashed.
+  - One unlisted PDF (an OSF preprint on youths' donated social-media feeds; no text layer, not in our search) set aside in `.work/retrieval/unlisted/`.
+**Gold set provenance (author's account, 2026-11-19).** Asked who built the 40-title screening gold
+set (2026-06-20), Sacha confirmed that the 9 known positives were his selection: high-quality studies
+from his own paper index plus the prevalence-study table in Berriche's thesis, so they are human-chosen.
+Who labelled the 31 sampled negatives (28 EXCLUDE, 3 MAYBE) is not recorded anywhere; it may have been
+the session that built the workflow. Left as is for now at his request: no change to
+`docs/human_review_provenance.md` (A1) or to the manuscript. Revisit at revision if the wording
+"gold set" needs qualifying.
+
+## 2026-11-19 (evening) — stage 3, step 6: extraction of the screening misses begins
+
+**Rule L47 added to the ledger** (docs/learned_review_rules.md), from Sacha's card R|chatbot: a share of chatbot/LLM answers to researcher prompts measures a model's accuracy on a test set, not what audiences meet, so it is appendix-only and EXCLUDE at the screen; the exception is a sample of conversations real users had. This is what the September repair already did ("chatbot/LLM accuracy studies" to the appendix pool, FROZEN.md); the repair-era instrument's CONTENT line "chatbot answers" is now read with L47, and the instrument file is left as run.
+
+**Overlap checks on the 69 includes.** (1) The Bolsonaro voting-machine study (2-s2.0-85180128879) codes his speeches and verified fake news 2019-2022; the L44 study 2-s2.0-105011696813 (v1.7.24) is a census of his tweets in August and October 2022. Different samples: both stay. (2) Flamino et al. (W4324130084) cites Bovet & Makse, which is not in the corpus: no overlap. (3) The São Paulo master's thesis on dental-caries posts (W4401697118) analyses 500 English and 500 Portuguese Facebook posts, which are exactly the two corpus studies 2-s2.0-85212052138 (44%) and 2-s2.0-85218448454 (39.6%): a duplicate of the corpus, found after the ruling, not extracted, reported to Sacha. (4) W3203151065 (Teng et al., user susceptibility on Twitter) and W4385475027 (Nigeria health communication) are unrelated papers: both stay.
+
+**Extraction set-up.** `scripts/build_screening_extraction.py` writes 68 papers into 9 batches (seed 20261119, 8 per batch) under data/extract_v2/qa/screening_pass_2026-11/extraction/. Instrument: the September full re-extraction's INSTRUCTIONS.md and JSON schema (so the rows arrive in the corpus's shape), the ledger L1-L47, and a campaign sheet (extraction/INSTRUCTIONS.md) that says the extractor is not blind and lists the errors the earlier readers made on these papers (abstract values, mixed constructs, quality coded as falsity, R8, chatbots). Each paper carries the ground and main estimate from Claude's full-text check; no Mistral figure is passed on, since about 40% of Mistral's rows were wrong even in includes. Texts stay in .work (copyright). Validator: validate_repair_extractions.py --dir. Extractors: one Opus subagent per batch, one at a time.
+
+## 2026-11-19 (night) — stage 3, step 6: extraction of the 68 screening misses complete
+
+Nine Opus batches, one at a time; every paper stayed INCLUDE (none reversed at extraction); 148 estimates from 68 studies (CONTENT 52 rows / 26 studies, RECALL 50/29, SHARING 31/13, REACH 5/3, CONCENTRATION 5/4, EXPOSURE 4/2, QUALITY 1/1); 35 rows borderline, 9 low confidence. Validator: 68 papers, 0 problems. Rows: extraction/rows.csv (`scripts/aggregate_screening_extraction.py`, a copy of the behavioural arm's aggregator).
+
+**A coordinator error, caught and corrected.** The prompts for batches 3 and 4 added "never compute a value, not even from printed counts", which is stricter than the instrument's R8 (an exact part/whole share from verbatim counts with the same printed denominator is kept). Batch 3 lost nothing to it; batch 4 dropped two rows, and the extractor was asked to restore any that meet R8: W2787552064's 16.0% (203,591/1,269,736) was restored; W3131477973's 1.74% stays out because its denominator is the extractor's own sum of six categories. My batch-2 note calling the Yahoo! Answers 6.48% (544/8,401) a breach was wrong for the same reason; it stands. Batches 5-9 ran with R8 as written.
+
+Every point an extractor raised is in extraction/ADJUDICATION_NOTES.md, batch by batch. The ones that need a ruling are (a) samples selected on the outcome (Teng et al. W3203151065, L1), (b) source lists that mix fake with hyperpartisan sites (MBFC, Allcott, "junk news", the "low-quality" list of W4386713356), (c) papers whose text and tables disagree, (d) breadth calls where "misleading" includes insults or non-evidence-based advice, (e) CONTENT vs SHARING for posts by pages or channels. Next: a decision page for these, then apply into v1.7.25 on rev/v1.7.24.
+
+## 2026-11-20 — Laura Hitz accepts co-authorship; solo-author wording converted (tracked)
+
+Laura replied to the 2026-11-19 offer and accepted co-authorship (she also offered further work as a
+co-author; none is needed for the pre-review response, possibly useful at revision for the stage-3 additions).
+Decision recorded: **two authors, S.A. and L.H.** This supersedes "SOLO author (decided 2026-07-28)".
+
+**Base file.** `editor_requests_2026-11-19/01_manuscript_main.docx` had no tracked changes left: Sacha accepted
+the 2026-11-19 edits in Word (saved 14:54) and dropped the Table 2 caption line ("The two human coders are the
+author and one research assistant, the same person in every row."). His removal is mirrored in the master.
+`02` still carried the four pending 2026-11-19 insertions.
+
+**Tracked edits (author "Claude"), all solo-author wording converted to initials:**
+- 01 (16 edit rows, 19 places): title block "Sacha Altay¹ and Laura Hitz²", affiliations numbered with
+  "²[L.H. affiliation]" placeholder; Limitations "by the two authors", adjudication "by S.A."; Screening
+  "S.A. and L.H., the latter blind to the pipeline's decisions"; Reliability "S.A. and L.H. (the latter blind
+  to the pipeline)", "S.A. adjudicated", "L.H. did all of the human coding other than S.A.'s"; "rulings S.A.
+  made himself"; Table 2 four cells "S.A. and L.H., adjudicated", "23 rows re-ruled by S.A."; Acknowledgements
+  deleted (her four rounds moved to Author contributions); "the authors declare no competing interests";
+  contributions sentence for L.H. + "Both authors approved the final version."; AI statement "the authors'
+  own. S.A. designed…".
+- 02 (22 rows): every "the author"/"research assistant"/"the assistant" in Note B1 → S.A./L.H.; where the text
+  sat inside our own pending 2026-11-19 insertions, the insertion was rewritten in place.
+- `Title page.docx` copied into the request folder and edited the same way (its affiliation reads "AMIAD,
+  École Polytechnique", the manuscript's "Institut Polytechnique de Paris": left for Sacha).
+- Reporting Summary (XFA): data-collection sentence now "against the two authors as human coders; L.H. was
+  blind to the pipeline's coding, S.A. was not. S.A. adjudicated…". Corresponding-author field unchanged.
+- `reply_to_editor.txt`: the accepted branch for point 1; point 2 rewritten (coders named by initials; her
+  rounds in Author contributions). The Table 2 caption claim was removed since Sacha cut that line.
+
+`scripts/edit_docx_tracked.py`: expected-count column for repeated cells; in-place rewrite of our own pending
+insertions; backup stamps now carry microseconds (two edits in one second had shared a backup name, so the
+02 pre-edit backup from 09:56 holds the state after the first pass, not before it).
+Ledger row 2026-09-18b-main #64 (his sentence split in the AI statement) kept active with must_appear updated.
+Guards: stats 276/276, author edits 171/171, drift clean.
+
+**Still needed from L.H. before upload:** affiliation (placeholder in 01 and title page), ORCID for the portal,
+competing-interests confirmation (text now says "the authors declare none"), her read-through and approval.
+
+## 2026-11-20 — stage 3, step 7: decision page for the extracted screening misses
+
+`scripts/build_screening_extraction_decisions.py` writes ~/Desktop/screening_extraction_decisions.html (14 cards; template of build_screening_fulltext_decisions.py). Only the calls that need the author are cards; the rest of ADJUDICATION_NOTES.md was settled by existing rules. G0: the 55 papers not carded enter as extracted (routine calls listed on the card, including the Politoscope recode to claim-level fact-checker ground truth, verified against the paper: 179 debunked stories). G1: link-bearing posts by a class of actors -> SHARING (rule a0-bis, v1.7.8) for W4389608230 and 2-s2.0-85195153909. G2: mixed fake/hyperpartisan source lists kept source-level under ruling A1. G3: frequency bands, printed band (R8) vs summed top bands. Ten single-paper cards; Claude recommends excluding Teng et al. W3203151065 (seeds stratified on flagged-URL share, verified: L1), W4313473247 (text and table irreconcilable) and W7151958572 (insults and "overreach" coded as misinformation), and keeping only the denial rows of W2953415400 (chemtrail search terms). Download: screening_extraction_rulings_sacha_FILLED.csv, read by the v1.7.25 apply script.
+
+## 2026-11-20 (cont.) — Sacha's first pass on the extraction page, and four re-reads
+
+His first download archived as extraction/screening_extraction_rulings_sacha_2026-11-20a.csv. He took Claude's call on most cards but asked for more information on the general cards and re-reads of four papers:
+- **Guess et al. 2021, "Cracking Open the News Feed" (W3161533314), "a good paper".** Re-read in full: Condor URL dataset, US 2018, 966,591 news URLs shared publicly >=100 times, NewsGuard <60. It has News Feed VIEW data. Results: shares 84% credible / "the rest (15%)" low-quality; views ~89% credible, "roughly one out of eight" low-quality. Discussion: "12% of news shares - and 16% of news exposures". Never reconciled. Proposed: keep 15% SHARING and add the only printed views share, 16% EXPOSURE, both flagged.
+- **Truth Social vs X (W4411412948), "87% sharing is crazy".** Re-read: the denominator is MBFC-matched links only; the Truth Social data are 109,715 posts from 2,855 users (third-party keyword collection) and Table 1 reports the same 109,715 as MBFC-matched URLs, impossible if not every post carries a matched link; 720 domains; two different windows; Research Square preprint. Proposed: exclude the paper (or keep the X row only).
+- **Epstein conspiracy posts (W4394797912), "include if well done".** Re-read: Social Science Computer Review 2024, 25 posts drawn at random per platform and period (n = 300), Krippendorff's alpha .89 for "unwarranted conspiracy theory" (implausible and beyond the evidence, Keeley 1999). Well done: KEEP stands, rows borderline on the plausibility coding.
+- **Climate YouTube (W2953415400), "actual exposure measures really?".** No: the "views" are the view counts of the 200 search-result videos (20 per search term, Tor). The corpus codes view-weighted shares of a video sample as CONTENT (e.g. 2-s2.0-85085201199, 2-s2.0-85127039075), so the denial row's 2% of views becomes a CONTENT view-weighted variant; KEEPDENIAL stands.
+The page was rebuilt with these five cards reopened (G0 now lists all 55 papers and their rows; G1 and G2 carry the papers' own descriptions, the rule text and the corpus counts: 68 of 80 source-level link-denominator rows in v1.7.24 are SHARING), a new browser key so no stale value carries over, and his other nine rulings kept.
+
+## 2026-11-20 (cont.) — final extraction rulings; risk of bias and integrity screen started
+
+Second download archived as extraction/screening_extraction_rulings_sacha_2026-11-20b.csv: G0 ACCEPT, G1 SHARING, G2 KEEP, Guess et al. ADDVIEWS (15% shares + 16% views), Truth Social/X EXCLUDE; with the first pass, five papers are excluded at extraction (W3203151065, W4313473247, W4417209109, W7151958572, W4411412948), 63 go forward.
+
+Asked whether the 55 G0 papers are "all good", answered: eligible and correctly extracted, not all good. About 20 are solid (representative surveys, behavioural traces, platform censuses); about 20 are small convenience RECALL surveys, many in low-visibility venues, the profile behind the three fabricated papers removed in July. He agreed to run, before the merge, (1) the integrity screen used on the corpus in July/August and (2) the same Hoy-mapped RoB v3 appraisal every corpus study has, then include whatever survives (a stricter survey rule, if wanted, belongs to the whole corpus at the revision).
+
+Venue metadata pulled from OpenAlex (extraction/rob/venue_metadata.csv; generic user agent, no email). 28 of 63 are outside OpenAlex's core-journal set; about 12 of those are the small surveys, in venues with a pay-to-publish or hijacked-journal profile (e.g. IRE Journals, IJFMR, SAS Publishers, David Publishing, EA Journals, IJISRT via Zenodo, Journal for ReAttach Therapy). `scripts/build_screening_rob_integrity.py` writes 7 shards of 9 (non-core venues spread across shards); instrument extraction/rob/INSTRUCTIONS.md = rob_checklist_v3.md unchanged + an integrity part built from the signals of the three July removals (CLEAN / CONCERN / SUSPECT with evidence). Output in the v3out shard format plus two integrity columns, so aggregate_rob_v3.py can read it on the v1.7.25 branch. Three Opus appraisers at a time.
+
+## 2026-11-20 (cont.) — risk of bias and integrity screen complete; decision page
+
+63 studies appraised from full text by seven Opus appraisers (three at a time) with rob_checklist_v3.md unchanged: LOW 9, MODERATE 26, HIGH 28. Integrity: 41 CLEAN, 17 CONCERN, 5 SUSPECT (extraction/rob/rob_integrity_all.csv; evidence in ADJUDICATION_NOTES.md). The five SUSPECT are all small surveys in non-core venues, and match the July fabrication profile: W4410466412 (tortured phrases, spun duplicated literature review, thesis sections pasted in, science/architecture journal), W7116631500 (table percentages that do not match their counts, Likert items with no "agree", journal URL mismatch), W4396574736 (age percentages reused for education, 100% response, template residue, a sleep-quality paper cited for a fake-news claim), W4390714432 (journalism survey in the Journal for ReAttach Therapy and Developmental Diversities, identical splits for two items, confidence intervals excluding their own estimates), W4385475027 (three references carrying the paper's own title, interviews "will be conducted" yet analysed).
+
+Claude verified against the texts: Politoscope's "4 888 shares ... in our dataset of 60 million tweets (0.081%)" is ten times too high (0.0081%); the W4411120741 26% is of the 10,269 unique links; the W3135847883 percentages are printed explicitly (R8 keeps them); the breast-cancer "misleading" means "not verified by" the American Cancer Society. One correction of my own: the appraiser of Guess et al. saw that the Discussion's "12% of news shares - and 16% of news exposures" fits the Results only with the labels swapped; I had recommended, and Sacha ruled, adding views at 16%. Reopened.
+
+`scripts/build_screening_integrity_decisions.py` writes ~/Desktop/screening_integrity_decisions.html, 21 cards: 5 SUSPECT (exclude), 12 CONCERN surveys split into 7 where the figure we would use is itself in doubt (exclude) and 5 where it is not (keep at their RoB rating), 3 value questions (Guess views, Politoscope 0.0081%, breast-cancer "not verified"), and one card listing what Claude settled. The previous decision page went to the Trash.
+
+## 2026-11-20 (later) — §2.7 reach-vs-sharing sentence clarified (tracked)
+Sacha found "reach against sharing, whose medians differ by one point and are not separable under any of
+them" confusing (it can read as the constructs being indistinguishable). Now: "except the gap between reach
+and sharing: their medians differ by one point, and their confidence intervals overlap under every check."
+Checked against `data/synth/phaseB/sensitivity.csv`: reach 12.0 [8.5, 21.0] vs sharing 13.0 [7.5, 16.9]
+primary; intervals overlap in every variant and the ordering flips (blind subset 18.5 vs 11.6; high-RoB
+excluded 12.2 vs 9.2). One tracked edit in editor_requests 01, mirrored in the master. SI Note A's wording
+("flips in nearly half of draws") is already clear; unchanged. Guards: stats, author edits, drift all pass.
+
+## 2026-11-20 (evening) — integrity rulings applied; v1.7.25 frozen on the revision branch
+
+**Rulings** (screening_integrity_rulings_sacha_2026-11-20.csv, downloaded 16:07): all 5 SUSPECT excluded; all 12 CONCERN
+surveys excluded (Claude had recommended keeping 5 whose figure was not in doubt; he excluded all 12); Guess et al.
+VIEWS12 (shares 15% + News Feed views 12%, the Discussion's pair read as label-swapped); breast-cancer YouTube
+"not verified by the ACS" share -> QUALITY; G9 accepted; Politoscope CORRECT, with three questions answered in chat:
+- *Did the authors make a mistake?* Yes, an arithmetic one. "4 888 shares of fake news links inside our dataset of 60 million
+  tweets (0.081%)": 4,888/60,000,000 = 0.0081% (0.0083% on the 59.15M implied by its "43.44% (25 695 888)"). No smaller base
+  (e.g. link-bearing tweets) is named anywhere that would make 0.081% right; the Discussion's 0.08% and the Conclusions'
+  "order of magnitude of 0.1%" repeat the same slip.
+- *Is it a good paper?* A genuine, careful dataset (PLOS ONE 2018, CNRS team, 11 months of continuous capture, tweet IDs on
+  Dataverse; RoB LOW overall, items 1-2 HIGH because the universe is a curated political Twittersphere). The fake-news
+  analysis is a side section of a methods paper, and it is where the slip sits.
+- *Is it really a misinformation estimate, so low?* Yes, but narrow: only tweets linking to the exact URLs of 179 stories Le
+  Monde's Decodex debunked in 2017, so a lower bound, as the authors say. A list of 179 specific stories catches far less
+  than a domain list. 0.0081% is the second-lowest non-zero proportion in v1.7.25 (after a 0.0009% SHARING row, W4306964957;
+  v1.7.23 had 10 CONTENT rows below 0.1%, 7 of them 0); the claim-level CONTENT median is 20%, but those code the items in a topical sample, not a whole stream.
+- Construct: entered as SHARING (a share of a user population's tweets that broadcast a fake-news link), consistent with
+  G1/a0-bis; the previous session applied this without a card. To confirm at revision.
+
+**v1.7.25** (branch rev/v1.7.24, commit ad0a7535, tag dataset-frozen-v1.7.25): 1,159 estimates / 493 studies, MD5
+b392eb9da1717ee9e16c21e162fa4b0a. 46 of the 68 extracted papers enter (103 rows); 22 do not (5 at extraction, 17 at
+integrity). scripts/apply_v1725.py had been written and run, and the full pipeline regenerated (16:11-16:35), by the
+session that closed before committing; this session verified it: the apply script re-run is byte-identical (freeze,
+changelog, RoB shard), the bootstrap finished at B=200, and every guard was re-run.
+- What moved (v1.7.24 -> v1.7.25, study-level medians): EXPOSURE 1.3% -> 1.8% (k 18 -> 20); REACH 12.0 -> 11.5 (29 -> 32);
+  SHARING 12.7 -> 11.4 (44 -> 57); CONTENT 22.8 -> 21.4 (277 -> 297); RECALL 43.5 -> 43.9 (92 -> 103). Recall/exposure
+  ratio 24.3x (submitted v1.7.23: 32.7x). R² ladder order unchanged at the top (ground truth 24.0 [19.2-31.2], id 23.0,
+  construct 19.5); measurement (17.3) and denom_fine (16.1) no longer tie; topic 3.0 [0.9-8.6], still last but one.
+  Reach now sits just above sharing (11.5 vs 11.4): the §2.7 sentence edited today stays true in substance (intervals
+  overlap) but every number in it moves at the revision.
+- Guards: validate_frozen, validate_prisma, check_invariants, check_pipeline_docs, check_site 1159/1159 pass. Expected
+  failures (the manuscript describes v1.7.23): check_manuscript_stats 108/277 present, and the drift check (stale 443
+  counts in reporting_summary_draft, rob_checklist_v3, site_design). Four structural claims no longer hold: browsing
+  panels now carry a content study (the v1.7.24 vaccine-pageviews row, 2-s2.0-85093701917, coded view-weighted CONTENT
+  under F9); denom_fine and measurement no longer tie; **reach-window coding covers 27 of 32 reach studies and the
+  window coding no longer matches the seen-recall cell: the new studies need their windows coded (§2.4, B4)** — a
+  revision to-do, not a freeze error.
+
+**Guard fix (both branches).** check_manuscript_stats.py had 31 module-level asserts; the browsing one (from v1.7.24)
+aborted the guard and hid every assertion after it. They now report as "structural claims" with the same tests and
+messages (AST rewrite; main still 276/276).
+
+**Housekeeping.** (1) manual_pdf_match.csv had been overwritten at 16:03 by a match_retrieved_pdfs.py run on a folder holding
+one PDF ("News, Politics, Societal Issues, and Hate on Youths' Donated Social Media Feeds", OSF, unmatched to any record),
+wiping the 10 ruled September rows. Restored from git; that run kept as manual_pdf_match_2026-11-20.csv; the script now
+writes a dated file instead of overwriting. The OSF paper is not in the corpus or the stage-3 lists: ask Sacha whether it
+is a candidate. (2) 205 stage-3 full texts committed to data/fulltext/v2txt (the folder's convention). (3) Three iCloud
+conflict copies in the branch's site/ moved to the Trash.
+
+## 2026-11-23 — last pre-upload edits for the NHB pre-review requests (due today)
+- **L.H. affiliation** (Sacha): "Center for Philanthropy Studies, University of Basel" replaces the `[L.H. affiliation]`
+  placeholder, tracked, in editor_requests 01 and Title page.docx (it sat inside our own pending insertion, so the
+  insertion now proposes the real wording). Her ORCID is not in either file; only the portal asks for it.
+- **S.A. affiliation**: Sacha ruled "Institut Polytechnique de Paris"; Title page.docx's "École Polytechnique" changed,
+  tracked, to match 01.
+- **Snowballing 1,818 vs 1,822: not an inconsistency.** `data/snowball/candidates.jsonl` holds 1,822 unique candidates
+  (Figure 6's "n = 1,822" identified); `data/snowball/screen/*.csv` holds 1,818 screened (1,487 EXCLUDE, 222 MAYBE,
+  109 INCLUDE), which is the Methods' "screened 1,818", and Figure 6 prints both. Four candidates were never screened:
+  W4282944762, W4235347277, W7160029530, W4387606806 (all have abstracts). A small, unreported residual; screen them
+  at the revision with the other stage-3 work. No text changed.
+- **The 19 fallback references** were already resolved on 2026-11-19 (data/inputs/included_refs_overrides.csv, one row
+  of evidence each); the delivered included_studies_references.docx carries them (checked: Blanco-Alfonso, Fletcher
+  et al. 2018 in place of the "Camille" news record). The "skim" was an optional eyeball, not an open fix.
+- Sacha checked both XFA forms in Acrobat: fine. He will accept the tracked edits himself before upload.
+
+## 2026-11-23 — NHB pre-review package brought to v1.7.25 (Sacha: "get started"; all changes tracked)
+Sacha decided to send the reviewers the corrected dataset rather than change it after review. Everything below is on
+branch rev/v1.7.24 (main was merged in first, commit "Merge main ... ahead of the pre-review data update"); main and
+the submitted files stay v1.7.23 until he accepts.
+
+**Master (docs/manuscript_draft.md), reproducible from main by `scripts/update_manuscript_v1725.py`:** 120 pairs taken
+mechanically from check_manuscript_stats (every assertion whose expected string changed between the two pipelines,
+>= 16 characters, longest first; `qa/manuscript_update_v1725/mechanical_pairs.tsv`) + 63 hand edits, each with its
+reason in the script. A first mechanical pass that went short-string-first produced mixed old/new tuples (a ρ replaced
+inside an otherwise old Spearman tuple); reverted and redone longest-first, and A6 swept by hand.
+- New text: §4.1 (Mistral named), §4.4 (the re-check paragraph: 32,111 re-screened, 1,590 flagged, 514 sought, 243
+  read, 69 eligible, 68 extracted, 46 entered, 5 + 17 dropped; the sampled screening checks understated the misses;
+  271 not retrieved), §4.8 (stage 1: 850/897 = 94.8%, κ .88; data error (c)), limitation, AI statement (Mistral added;
+  GPT-5.6 had been missing from it), Table 2 (three rows), Note B1 (new "The November re-check" paragraph; coverage
+  counted against v1.7.25: GPT 438/493, blind re-extraction 438, Mistral 493; 56 studies new since v1.7.23, 55 read by
+  neither earlier check), Figure 6 caption.
+- Coding: reach windows for 5 new reach studies and recall windows for 10 new seen-recall studies, from the full
+  texts (appended, with quotes, to reach_windows_2026-09-15.csv / recall_windows_2026-09-14.csv).
+- Rewritten because the meaning changed: §2.4 ladder order (measurement 17.3 now above denominator class 16.1);
+  A2 reach-vs-sharing perturbation (11.5 vs 11.4; reach below sharing in 37% of draws at a tenth); A1 (median
+  unchanged at 21.4); A5 browsing panels now carry one content study (2-s2.0-85093701917).
+- **Two pre-existing errors found and fixed:** (1) §2.4's "source-level estimates use a domain list in 95% of cases,
+  claim-level ... in 87%" could not be reproduced from v1.7.23 or v1.7.25 (regression set gives 90% at v1.7.23);
+  replaced by "209 of the 234 ... (89%) ... no claim-level estimate does (Cramér's V = 0.97)", now asserted.
+  (2) `phaseB_temporal.py` computed its p-values with t/sqrt(2(n-2)) instead of a t distribution, inflating every p;
+  the SI's "within no construct is the rank correlation significant" was false at v1.7.23 too (CONTENT p = .049;
+  now .032). Fixed (exact t, checked against scipy), trend saved to temporal_trend.csv, A2 bullet rewritten and
+  asserted. Not fixed, flagged: main text says "stable across 2005–2026" though one included study (1996) predates it.
+- Unscripted September numbers now scripted: `scripts/reach_window_stats.py` (reproduces the v1.7.23 A4 values
+  exactly on the September set, then gives v1.7.25).
+- Checker: 277 -> 287 assertions (covariation, k = 501, top-1% counts, re-screen funnel, A2 temporal, third-family
+  coverage; structural claims for the new ladder order and the browsing content study; "< .001" formatting; one
+  decimal on C2 rungs). PASS 287/287, 73/73 stale absent, invariants hold. Drift check: manuscript clean; three
+  other docs still flagged (reporting_summary_draft.md, rob_checklist_v3.md "as at 2026-09-16",
+  site_design_2026-09-18.md), all dated internal notes.
+
+**PRISMA (make_prisma.py):** a "November second-model re-screen" arm box; its 46 studies were falling through to
+"seed and hand-added records" (41 -> 14). 27 advance via the new stream; 19 were snowballed records that had advanced
+without a full-text decision and stay attributed to snowballing (asserted). validate_prisma PASS.
+
+**Word files (authoritative, never rebuilt), all changes author "Claude", tracked:** `make_docx_hunks_v1725.py` turns
+the master diff into minimal unique hunks (01: 129, 02: 110), applied by edit_docx_tracked.py; one re-anchored (its
+context sat in a pending insertion). New `docx_tracked_struct.py` (cell edits, tracked rows, tracked paragraphs) for
+the GRADE cells (9), Table 2 rows (3), §4.4 and B1 paragraphs; `swap_docx_figures_tracked.py` swaps 7 figures as
+deleted-old / inserted-new pictures (Figure 5 byte-identical, left alone). Bug caught by the paragraph diff and fixed
+by hand: the limitation insertion had landed before the pending "two authors" insertion and lost its comma. "§"
+references in new text converted to quoted section names, as make_nhb_docx does. `verify_docx_v1725.py`: all 287
+assertions present in the accepted text of 01+02, no "§". Paragraph-level diff against the master: the only remaining
+differences are Sacha's own untracked edits in 01 that the master never mirrored (kept as he wrote them).
+
+**Other package files:** references rebuilt for 493 (55 new DOIs resolved and title-checked; W3129222959, a COMPROP
+memo with no DOI, added to included_refs_overrides.csv from its first page); Supplementary Data 1 (493) and 2 (386,
+new upload) from si_*.csv; Reporting Summary (11 answers, `update_reporting_summary_v1725.py`; needs his Acrobat
+eyeball); PRISMA checklist page numbers from accepted renders of old and new 01/02 (22 tracked edits; PDF rendered
+from the accepted copy); figure SVGs in 08_figures_REVISED; reply_to_editor point 5. Pre-update package archived in
+docs/.backups/pre_v1725_update_2026-11-23/.
+
+**Open (Sacha):** accept/reject the tracked changes in 01/02/05/title page; eyeball the Reporting Summary in Acrobat;
+mint a new Zenodo version for v1.7.25 (01's Data availability and the forms still cite 10.5281/zenodo.23978950, the
+v1.7.23 deposit) and redeploy the companion site (the paper now says all 1,159 estimates are browsable); then merge
+rev/v1.7.24 into main.
+
+Author-edits guard after the update: 13 anchors carried numbers or a phrase the update changed (his words all intact); contexts renumbered in docs/author_edits.tsv with a note on each row. PASS 171/171.
+
+## 2026-11-23 (later) — companion site and public package for v1.7.25
+Site rebuilt (check_site 1159/1159, stress 610/610, worker 40/40); authors now S.A. + L.H. with the title-page affiliations; Data page keeps the PsyArXiv preprint and its PDF (Sacha chose "keep, add a note") with a line that preprint version 1 reports v1.7.23; download button "Download the preprint (version 1)". Package README citations Altay & Hitz. The clean-clone test (README's three commands on a fresh clone) caught the new guard assertions crashing on files the package does not ship (stage-3 screening files built from record dumps; Mistral extraction folders quoting full texts): both now SKIP with a message, like the archived-abstract check, and the README says so. Zenodo record 23978950 was minted by the GitHub integration from release v1.7.23 (concept DOI 10.5281/zenodo.23978949), so a new version = a GitHub release v1.7.25 on the public repo.
