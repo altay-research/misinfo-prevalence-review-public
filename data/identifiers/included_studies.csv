@@ -1,10 +1,13 @@
 study_id,id_type,doi,n_estimates
+2-s2.0-0031174888,scopus_eid,,1
 2-s2.0-0032975127,scopus_eid,,1
+2-s2.0-105000853687,scopus_eid,,2
 2-s2.0-105002025382,scopus_eid,,1
 2-s2.0-105002155467,scopus_eid,10.1177/14614448231196863,2
 2-s2.0-105002578811,scopus_eid,10.1097/QMH.0000000000000478,1
 2-s2.0-105002620495,scopus_eid,10.18225/ci.inf.v54i1.7569,4
 2-s2.0-105002670726,scopus_eid,,1
+2-s2.0-105002693512,scopus_eid,,1
 2-s2.0-105002787411,scopus_eid,,2
 2-s2.0-105003865545,scopus_eid,,3
 2-s2.0-105004460836,scopus_eid,,1
@@ -36,6 +39,7 @@ study_id,id_type,doi,n_estimates
 2-s2.0-105014632937,scopus_eid,10.1111/hex.70408,1
 2-s2.0-105014807194,scopus_eid,10.1016/j.jposna.2025.100207,1
 2-s2.0-105014886450,scopus_eid,,1
+2-s2.0-105016506408,scopus_eid,,1
 2-s2.0-105016716843,scopus_eid,,6
 2-s2.0-105017506015,scopus_eid,,1
 2-s2.0-105017599346,scopus_eid,,1
@@ -96,6 +100,7 @@ study_id,id_type,doi,n_estimates
 2-s2.0-84883291462,scopus_eid,10.1111/adj.12080,1
 2-s2.0-84903975957,scopus_eid,,2
 2-s2.0-84908440181,scopus_eid,,2
+2-s2.0-84951923910,scopus_eid,,1
 2-s2.0-84964787366,scopus_eid,10.1177/003335491613100312,2
 2-s2.0-84977272679,scopus_eid,,1
 2-s2.0-84985993999,scopus_eid,10.1111/ctr.12791,1
@@ -143,7 +148,7 @@ study_id,id_type,doi,n_estimates
 2-s2.0-85085201199,scopus_eid,10.1136/bmjgh-2020-002604,2
 2-s2.0-85085263461,scopus_eid,,3
 2-s2.0-85085573221,scopus_eid,10.1016/j.mjafi.2020.05.009,4
-2-s2.0-85086031086,scopus_eid,10.1177/1461444820928059,4
+2-s2.0-85086031086,scopus_eid,10.1177/1461444820928059,6
 2-s2.0-85086037795,scopus_eid,,2
 2-s2.0-85086160482,scopus_eid,,4
 2-s2.0-85086906408,scopus_eid,10.1016/j.esxm.2020.05.007,1
@@ -176,6 +181,7 @@ study_id,id_type,doi,n_estimates
 2-s2.0-85100218180,scopus_eid,10.1007/s42001-020-00093-6,2
 2-s2.0-85100334459,scopus_eid,,2
 2-s2.0-85100445322,scopus_eid,,1
+2-s2.0-85100501124,scopus_eid,,1
 2-s2.0-85100947948,scopus_eid,,1
 2-s2.0-85101747540,scopus_eid,,1
 2-s2.0-85101834091,scopus_eid,,1
@@ -208,10 +214,12 @@ study_id,id_type,doi,n_estimates
 2-s2.0-85112780522,scopus_eid,,5
 2-s2.0-85114012653,scopus_eid,,2
 2-s2.0-85114336487,scopus_eid,,2
+2-s2.0-85115324504,scopus_eid,,5
 2-s2.0-85115631663,scopus_eid,10.1177/20539517211041279,1
 2-s2.0-85116003554,scopus_eid,,4
 2-s2.0-85117084466,scopus_eid,,2
 2-s2.0-85117399204,scopus_eid,10.1007/s11606-021-07171-z,1
+2-s2.0-85117917051,scopus_eid,,1
 2-s2.0-85118260096,scopus_eid,10.1136/tobaccocontrol-2020-055960,2
 2-s2.0-85118574992,scopus_eid,,4
 2-s2.0-85120656688,scopus_eid,,1
@@ -261,6 +269,7 @@ study_id,id_type,doi,n_estimates
 2-s2.0-85135458831,scopus_eid,,1
 2-s2.0-85135857201,scopus_eid,,1
 2-s2.0-85136023139,scopus_eid,10.1073/pnas.2115900119,1
+2-s2.0-85136066795,scopus_eid,,1
 2-s2.0-85136139565,scopus_eid,10.1016/j.cub.2022.07.026,1
 2-s2.0-85136545530,scopus_eid,,6
 2-s2.0-85137779722,scopus_eid,10.2196/32378,1
@@ -304,6 +313,7 @@ study_id,id_type,doi,n_estimates
 2-s2.0-85159486270,scopus_eid,10.4315/FPT-22-016,1
 2-s2.0-85159554330,scopus_eid,,1
 2-s2.0-85159598935,scopus_eid,10.1145/3543873.3587638,2
+2-s2.0-85159854851,scopus_eid,,2
 2-s2.0-85159871316,scopus_eid,10.1093/jamiaopen/ooad013,1
 2-s2.0-85159889148,scopus_eid,10.1002/bco2.200,2
 2-s2.0-85160008311,scopus_eid,,2
@@ -319,7 +329,6 @@ study_id,id_type,doi,n_estimates
 2-s2.0-85168270535,scopus_eid,10.1038/s41598-023-40399-9,3
 2-s2.0-85168520853,scopus_eid,10.2196/44656,3
 2-s2.0-85169326292,scopus_eid,10.37016/mr-2020-121,1
-2-s2.0-85169998829,scopus_eid,,2
 2-s2.0-85170646255,scopus_eid,,2
 2-s2.0-85172171076,scopus_eid,,2
 2-s2.0-85172813494,scopus_eid,10.3145/epi.2023.sep.08,7
@@ -372,6 +381,7 @@ study_id,id_type,doi,n_estimates
 2-s2.0-85199446608,scopus_eid,10.1097/PHH.0000000000002019,6
 2-s2.0-85200952814,scopus_eid,10.1002/ijgo.15846,1
 2-s2.0-85201115057,scopus_eid,,12
+2-s2.0-85202766488,scopus_eid,,6
 2-s2.0-85203317819,scopus_eid,,1
 2-s2.0-85203845655,scopus_eid,10.18687/LACCEI2024.1.1.423,1
 2-s2.0-85205142420,scopus_eid,,4
@@ -392,6 +402,7 @@ study_id,id_type,doi,n_estimates
 2-s2.0-85215303159,scopus_eid,,3
 2-s2.0-85215601689,scopus_eid,,1
 2-s2.0-85217197547,scopus_eid,10.1001/jamaoto.2024.4211,1
+2-s2.0-85217821777,scopus_eid,,2
 2-s2.0-85217829893,scopus_eid,10.5354/0719-1529.2024.73089,3
 2-s2.0-85218232009,scopus_eid,,2
 2-s2.0-85218245924,scopus_eid,10.1002/ijgo.70007,2
@@ -426,9 +437,12 @@ SEED-cordonnier2021,hand_added,,5
 W1796766288,openalex_work,,1
 W2787552064,openalex_work,,3
 W2901308345,openalex_work,10.2139/ssrn.3237763,2
+W2924561613,openalex_work,,8
 W2943976830,openalex_work,,1
 W2953415400,openalex_work,10.3389/fcomm.2019.00036,2
+W2979643654,openalex_work,,1
 W3011186656,openalex_work,10.7759/cureus.7255,1
+W3015170206,openalex_work,,2
 W3015998441,openalex_work,,4
 W3033912864,openalex_work,10.48550/arxiv.2006.04278,21
 W3035025978,openalex_work,10.7759/cureus.8622,1
@@ -440,6 +454,7 @@ W3138656580,openalex_work,10.1080/21645515.2021.1894896,2
 W3160616563,openalex_work,,2
 W3161533314,openalex_work,,2
 W3169245467,openalex_work,,3
+W3170757121,openalex_work,,1
 W3171657220,openalex_work,,1
 W3189543626,openalex_work,10.1080/21645515.2021.1957416,1
 W4205602257,openalex_work,10.31219/osf.io/vzb9t,9
@@ -466,10 +481,13 @@ W4389608230,openalex_work,,5
 W4389633384,openalex_work,,1
 W4393231882,openalex_work,10.1080/1369118x.2024.2331756,1
 W4394797912,openalex_work,,4
+W4399205974,openalex_work,,2
 W4400887711,openalex_work,,1
 W4403681113,openalex_work,,3
 W4405121834,openalex_work,,2
+W4406127278,openalex_work,,2
 W4407878374,openalex_work,10.1007/s42001-025-00367-x,2
+W4410606929,openalex_work,,1
 W4411120741,openalex_work,,1
 W4413477744,openalex_work,,1
 W4414259328,openalex_work,,1
@@ -479,6 +497,7 @@ W4416223891,openalex_work,10.1007/s00210-025-04518-9,1
 W4417119300,openalex_work,,1
 W7117302408,openalex_work,,1
 W7146985142,openalex_work,10.51685/jqd.2026.006,6
+W7154958187,openalex_work,,1
 W7162938155,openalex_work,,1
 W7163821603,openalex_work,,1
 W7163893383,openalex_work,10.64898/2026.06.04.26354962,1

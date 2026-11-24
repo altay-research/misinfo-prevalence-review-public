@@ -38,3 +38,5 @@ NEW-bergeronboutin-sciadv2026,United States,Instagram,11,80,concentration of unt
 2-s2.0-85218232009,Germany,web_cross_platform,top 1.8% of all 594 tracked participants (8.82% of the 107 exposed; 11-56 disinformation page visits each),50,Concentration of EXPOSURE: share of all disinformation page visits acc,general_news
 W1796766288,Global,Twitter/X,"top 30 users (0.3%) of the 10,215 users who tweeted fake Sandy image URLs, ranked by retweets received",90,concentration of SHARING: share of all retweets of fake Hurricane Sand,other
 W3131477973,Global,Reddit,top 10% of reddit users who submitted extremely biased or low factual news links,84,concentration of SHARING-side potential exposures: share of potential ,general_news
+W4406127278,United States,Twitter/X,top 1% most-retweeted users (all accounts in the rumor dataset),84,% of all retweets of rumor-related tweets accounted for by the top 1% ,politics_elections
+W4406127278,United States,Twitter/X,top 0.1% most-retweeted users (all accounts in the rumor dataset),40,% of all retweets of rumor-related tweets accounted for by the top 0.1,politics_elections

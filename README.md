@@ -2,7 +2,7 @@
 
 Everything needed to reproduce the numbers, figures and tables of the systematic review
 *Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration* (Altay & Hitz, 2026), preprint at https://osf.io/preprints/psyarxiv/sgvr8, from one frozen dataset. Built from the working repository
-on 2026-11-23, freeze **v1.7.25** (1159 estimates from 493 studies), MD5 `b392eb9da1717ee9e16c21e162fa4b0a`.
+on 2026-11-24, freeze **v1.7.26** (1201 estimates from 512 studies), MD5 `78b81f58f9c3d315cdb4747672957b16`.
 
 The root holds six things: **`data/`** the dataset and everything derived from it, **`scripts/`**
 the code, **`docs/`** the methods and the audit trail, **`searches/`** the queries behind the
@@ -13,7 +13,7 @@ reproduce the paper, and `companion/` is not needed at all.
 
 | | |
 |---|---|
-| `data/extract_v2/estimates_v1.7.25_frozen.csv` | the frozen dataset. Every number in the paper comes from this one file. |
+| `data/extract_v2/estimates_v1.7.26_frozen.csv` | the frozen dataset. Every number in the paper comes from this one file. |
 | `docs/CODEBOOK_estimates.md` | what each of its 57 columns means |
 | `docs/PIPELINE.md` | the ordered run of every script, with inputs and outputs |
 | `docs/ENVIRONMENT.md` | interpreter and package versions, seeds, compute cost |
@@ -67,7 +67,7 @@ printing the reason, and the outputs they would write are included:
   listed with their DOIs in `data/extract_v2/qa/abstract_only_list.json`, so the same check can be
   made against the publishers' own pages.
 
-This was verified on a fresh clone of the repository (2026-11-23): the three commands above run to
+This was verified on a fresh clone of the repository (2026-11-24): the three commands above run to
 completion, and every file under `data/synth/` regenerates byte-identical to the committed copy.
 
 ## The independent-model adjudication trail
@@ -107,7 +107,7 @@ Full text in `LICENSE`.
 The paper: Altay, S., & Hitz, L. (2026). *Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration.* Preprint: https://osf.io/preprints/psyarxiv/sgvr8
 
 This package: Altay, S., & Hitz, L. (2026). Replication package and interactive companion for *Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration*,
-freeze v1.7.25. https://github.com/altay-research/misinfo-prevalence-review-public
+freeze v1.7.26. https://github.com/altay-research/misinfo-prevalence-review-public
 
 ## Contents
 

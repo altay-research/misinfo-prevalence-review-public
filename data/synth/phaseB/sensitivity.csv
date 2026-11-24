@@ -1,37 +1,37 @@
 analysis,group,k_studies,median_pct,ci_lo,ci_hi,note
-PRIMARY (as specified),EXPOSURE,20,1.8,0.6,2.8,headline
+PRIMARY (as specified),EXPOSURE,21,1.7,0.6,2.6,headline
 PRIMARY (as specified),REACH,32,11.5,7.5,18.4,headline
-PRIMARY (as specified),SHARING,57,11.4,7.0,15.0,headline
-PRIMARY (as specified),CONTENT,297,21.4,18.0,25.0,headline
-PRIMARY (as specified),RECALL,103,43.9,37.9,53.1,headline
-PRIMARY (as specified),WHOLE-DIET backbone,40,6.8,3.7,8.5,headline
-A1 exclude borderline falsity/quality rows,EXPOSURE,20,1.8,0.6,3.1,drops 66 flagged rows
-A1 exclude borderline falsity/quality rows,REACH,31,12.0,7.6,18.5,drops 66 flagged rows
-A1 exclude borderline falsity/quality rows,SHARING,50,9.2,5.8,13.9,drops 66 flagged rows
-A1 exclude borderline falsity/quality rows,CONTENT,281,20.2,17.5,24.8,drops 66 flagged rows
-A1 exclude borderline falsity/quality rows,RECALL,100,45.0,37.2,53.5,drops 66 flagged rows
-A1 exclude borderline falsity/quality rows,WHOLE-DIET backbone,39,7.0,3.7,8.5,drops 66 flagged rows
-A2 fold QUALITY into CONTENT (adversarial),EXPOSURE,20,1.8,0.6,2.8,what CONTENT would be under the field's looser common practice
+PRIMARY (as specified),SHARING,61,10.2,5.7,14.3,headline
+PRIMARY (as specified),CONTENT,307,20.2,17.0,24.0,headline
+PRIMARY (as specified),RECALL,108,45.0,37.9,52.9,headline
+PRIMARY (as specified),WHOLE-DIET backbone,41,6.5,3.2,8.5,headline
+A1 exclude borderline falsity/quality rows,EXPOSURE,21,1.7,0.6,2.6,drops 64 flagged rows
+A1 exclude borderline falsity/quality rows,REACH,31,12.0,7.6,18.5,drops 64 flagged rows
+A1 exclude borderline falsity/quality rows,SHARING,55,8.2,4.1,13.1,drops 64 flagged rows
+A1 exclude borderline falsity/quality rows,CONTENT,291,20.0,16.1,24.0,drops 64 flagged rows
+A1 exclude borderline falsity/quality rows,RECALL,105,46.0,37.4,53.3,drops 64 flagged rows
+A1 exclude borderline falsity/quality rows,WHOLE-DIET backbone,40,6.8,3.5,8.5,drops 64 flagged rows
+A2 fold QUALITY into CONTENT (adversarial),EXPOSURE,21,1.7,0.6,2.6,what CONTENT would be under the field's looser common practice
 A2 fold QUALITY into CONTENT (adversarial),REACH,32,11.5,7.5,18.4,what CONTENT would be under the field's looser common practice
-A2 fold QUALITY into CONTENT (adversarial),SHARING,57,11.4,7.0,15.0,what CONTENT would be under the field's looser common practice
-A2 fold QUALITY into CONTENT (adversarial),CONTENT,305,22.8,18.4,25.7,what CONTENT would be under the field's looser common practice
-A2 fold QUALITY into CONTENT (adversarial),RECALL,103,43.9,37.9,53.1,what CONTENT would be under the field's looser common practice
-A2 fold QUALITY into CONTENT (adversarial),WHOLE-DIET backbone,40,6.8,3.7,8.5,what CONTENT would be under the field's looser common practice
+A2 fold QUALITY into CONTENT (adversarial),SHARING,61,10.2,5.7,14.3,what CONTENT would be under the field's looser common practice
+A2 fold QUALITY into CONTENT (adversarial),CONTENT,315,21.5,18.0,25.0,what CONTENT would be under the field's looser common practice
+A2 fold QUALITY into CONTENT (adversarial),RECALL,108,45.0,37.9,52.8,what CONTENT would be under the field's looser common practice
+A2 fold QUALITY into CONTENT (adversarial),WHOLE-DIET backbone,41,6.5,3.2,8.5,what CONTENT would be under the field's looser common practice
 B blind re-extraction subset,EXPOSURE,15,2.0,0.6,5.1,48 independently re-extracted studies
 B blind re-extraction subset,REACH,13,18.5,12.5,39.2,48 independently re-extracted studies
-B blind re-extraction subset,SHARING,22,11.6,6.7,21.1,48 independently re-extracted studies
-B blind re-extraction subset,CONTENT,8,9.2,3.4,25.8,48 independently re-extracted studies
+B blind re-extraction subset,SHARING,22,11.6,6.8,21.1,48 independently re-extracted studies
+B blind re-extraction subset,CONTENT,8,9.2,1.3,25.8,48 independently re-extracted studies
 B blind re-extraction subset,RECALL,3,23.5,15.0,37.9,48 independently re-extracted studies
 B blind re-extraction subset,WHOLE-DIET backbone,20,6.6,4.0,11.0,48 independently re-extracted studies
-C full-text-appraised studies only,EXPOSURE,20,1.8,0.6,2.8,drops 22 abstract-only studies
-C full-text-appraised studies only,REACH,32,11.5,7.5,18.5,drops 22 abstract-only studies
-C full-text-appraised studies only,SHARING,56,11.9,7.2,15.5,drops 22 abstract-only studies
-C full-text-appraised studies only,CONTENT,277,20.2,14.9,24.0,drops 22 abstract-only studies
-C full-text-appraised studies only,RECALL,102,43.5,37.5,52.9,drops 22 abstract-only studies
-C full-text-appraised studies only,WHOLE-DIET backbone,40,6.8,3.5,8.5,drops 22 abstract-only studies
-D exclude HIGH risk-of-bias studies,EXPOSURE,20,1.8,0.6,3.1,"directional prediction: CONTENT should fall, EXPOSURE should not"
-D exclude HIGH risk-of-bias studies,REACH,31,12.0,7.6,18.5,"directional prediction: CONTENT should fall, EXPOSURE should not"
-D exclude HIGH risk-of-bias studies,SHARING,45,10.2,6.7,13.9,"directional prediction: CONTENT should fall, EXPOSURE should not"
-D exclude HIGH risk-of-bias studies,CONTENT,139,13.5,10.0,19.0,"directional prediction: CONTENT should fall, EXPOSURE should not"
-D exclude HIGH risk-of-bias studies,RECALL,79,41.5,36.7,50.8,"directional prediction: CONTENT should fall, EXPOSURE should not"
-D exclude HIGH risk-of-bias studies,WHOLE-DIET backbone,39,6.5,3.2,8.5,"directional prediction: CONTENT should fall, EXPOSURE should not"
+C full-text-appraised studies only,EXPOSURE,21,1.7,0.6,2.6,drops 22 abstract-only studies
+C full-text-appraised studies only,REACH,32,11.5,7.5,19.5,drops 22 abstract-only studies
+C full-text-appraised studies only,SHARING,60,10.2,6.7,14.3,drops 22 abstract-only studies
+C full-text-appraised studies only,CONTENT,287,19.5,14.6,23.8,drops 22 abstract-only studies
+C full-text-appraised studies only,RECALL,107,43.9,37.5,52.7,drops 22 abstract-only studies
+C full-text-appraised studies only,WHOLE-DIET backbone,41,6.5,3.2,8.5,drops 22 abstract-only studies
+D exclude HIGH risk-of-bias studies,EXPOSURE,21,1.7,0.6,2.6,"directional prediction: CONTENT should fall, EXPOSURE should not"
+D exclude HIGH risk-of-bias studies,REACH,31,12.0,7.5,18.5,"directional prediction: CONTENT should fall, EXPOSURE should not"
+D exclude HIGH risk-of-bias studies,SHARING,50,8.2,4.0,13.5,"directional prediction: CONTENT should fall, EXPOSURE should not"
+D exclude HIGH risk-of-bias studies,CONTENT,149,13.1,9.2,17.9,"directional prediction: CONTENT should fall, EXPOSURE should not"
+D exclude HIGH risk-of-bias studies,RECALL,83,41.5,36.4,50.8,"directional prediction: CONTENT should fall, EXPOSURE should not"
+D exclude HIGH risk-of-bias studies,WHOLE-DIET backbone,40,6.2,3.1,8.5,"directional prediction: CONTENT should fall, EXPOSURE should not"

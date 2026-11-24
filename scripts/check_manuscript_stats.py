@@ -123,6 +123,18 @@ def add_in(heading_prefix, label, s):
     section_checks.append((heading_prefix, label, s))
 
 
+def _seen_high():
+    """High-RoB share over the SEEN-recall studies the row describes (audit N2, 2026-11-23): the GRADE
+    script's pct_high_rob is over pooled recall (seen + shared), which mixed two sets in one row."""
+    _rb = {r["study_id"]: r["overall_ruling_corrected"] for r in csv.DictReader(open(os.path.join(
+        ROOT, "data/rob/risk_of_bias_v3_master.csv"), encoding="utf-8"))}
+    _fz = re.search(r"File:\s*(\S+)", open(os.path.join(ROOT, "docs/FROZEN.md"), encoding="utf-8").read()).group(1)
+    _ids = {r["id"] for r in csv.DictReader(open(os.path.join(ROOT, _fz), encoding="utf-8"))
+            if r["construct"] == "RECALL" and r["value_kind"] == "proportion"
+            and not (r["demographic_group"] or "").strip() and (r["recall_subtype"] or "") != "sharing"}
+    return round(100 * sum(_rb.get(i) == "HIGH" for i in _ids) / len(_ids))
+
+
 # --- construct medians + k (uncertainty_medians) ---
 um = {r["group"]: r for r in rows("uncertainty_medians.csv")}
 for g, disp in [("EXPOSURE", "EXPOSURE"), ("CONTENT", "CONTENT"),
@@ -202,7 +214,7 @@ for _r in rows("grade_sof.csv"):
         add("GRADE row RECALL (seen-split hybrid)",
             f'| Recall (seen) | {_s["k_studies"]} | {float(_s["median"]):.1f} '
             f'({float(_s["iqr_lo"]):.1f}–{float(_s["iqr_hi"]):.1f}) | '
-            f'{int(round(float(_r["pct_high_rob"])))}% | {_cert_disp} |')
+            f'{_seen_high()}% | {_cert_disp} |')
     elif _c == "CONCENTRATION":
         # threshold-specific (a pooled median across thresholds is not interpretable — review item 2)
         add("GRADE row CONCENTRATION (per-band)",
@@ -330,8 +342,7 @@ add("abstract-excl CONTENT delta", f'−{_pc - _cc:.1f} pp')
 # re-extracted blind, which makes the restriction vacuous. The cell sizes are still asserted,
 # in the note that records why it went.
 _rex = [_sv("B blind", g)["k_studies"] for g in ("CONTENT", "RECALL", "REACH")]
-add_in("A2.", "re-extraction retirement",
-       f'cells hold {_rex[0]}, {_rex[1]} and {_rex[2]} studies, too few to inform anything')
+# The retired-analysis bullet was deleted at Sacha's request (2026-11-23, comment #1); nothing to assert.
 _dc = float(_sv("D exclude", "CONTENT")["median_pct"])
 # RETIRED 2026-08-25: add("exclude-HIGH CONTENT delta", f'−{_pc - _dc:.1f} pp')
 # (2026-08-24 RoB reframe: the Discussion no longer restates the exclude-HIGH pair; the B2
@@ -347,10 +358,10 @@ add("predicted behavioural", f'{float(pr["BEHAVIOURAL"]["pred_pct"]):.1f}%')
 add("predicted content-coding", f'{float(pr["CONTENT_CODING"]["pred_pct"]):.1f}%')
 
 # --- concentration: STRICT top-1% headline + <=1% band, both STUDY-level (2026-08-12 review items 1-2) ---
-add("top-1% strict headline", f'with a study-level median of {float(_strict["median_activity_share_pct"]):.0f}%')
+add("top-1% strict headline", f'with a study-level median of {float(_strict["median_activity_share_pct"]):g}%')
 # the k is still asserted, just no longer inside the same clause (Sacha comment 531, 2026-09-17)
-add("top-1% strict k", f'Five give exactly the top 1%' if int(_strict["k_studies"]) == 5 else f'{_strict["k_studies"]} give exactly the top 1%')
-add("top-1% abstract", f'median {float(_strict["median_activity_share_pct"]):.0f}%')
+add("top-1% strict k", f'{dict(enumerate("Zero One Two Three Four Five Six Seven Eight Nine Ten".split()))[int(_strict["k_studies"])]} give exactly the top 1%')
+add("top-1% abstract", f'median {float(_strict["median_activity_share_pct"]):g}%')
 add("<=1% band", f'across all ten the study-level median is {float(_band["median_activity_share_pct"]):.1f}%'
     if int(_band["k_studies"]) == 10 else
     f'across all {_band["k_studies"]} the study-level median is {float(_band["median_activity_share_pct"]):.1f}%')
@@ -377,7 +388,7 @@ add("freeze version bold", f'**{_ver}**')
 _cw = open(os.path.join(ROOT, "docs/counts_crosswalk.md"), encoding="utf-8").read()
 _nr = _re2.search(r"Not retrieved \| (\d+)", _cw) or _re2.search(r"\| Not retrieved \| (\d+)", _cw)
 if _nr:
-    add("not-retrieved count", f'{_nr.group(1)} advancing records')
+    add("not-retrieved count", f'{json.load(open(os.path.join(ROOT, "data/synth/prisma_counts.json")))["total"]["not_retrieved"]:,} could not be retrieved')
 
 
 # --- definitions descriptives (§2.2, added 2026-08-12) + platform mix + recall windows ---
@@ -434,7 +445,7 @@ add_in("A5.", "B5 recall no platform", f'{_pbc_row["No platform named"]["RECALL"
 _cty = {}
 for _r in _all:
     _cty.setdefault(_r["id"], set()).add(_r["country_norm"])
-_us_any = sum(1 for v in _cty.values() if "United States" in v)
+_us_any = sum(1 for v in _cty.values() if any("United States" in x for x in v))
 _us_only = sum(1 for v in _cty.values() if v == {"United States"})
 _WEST = {"United States", "United Kingdom", "Canada", "Australia", "New Zealand", "Ireland",
          "Germany", "France", "Italy", "Spain", "Portugal", "Netherlands", "Belgium", "Austria",
@@ -607,8 +618,9 @@ _claim("measurement" not in _wc_rank,
 # Derived from the ladder rather than typed: measurement left it on 2026-09-18, so the rank and the
 # ladder length both moved and a hardcoded phrase would have gone stale silently.
 _ORD_W = ["", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth"]
-add_in("B2.", "C2 within-content rank",
-       f"Topic rises to {_ORD_W[_wc_rank.index('topic') + 1]} of "
+# RETIRED 2026-11-23 (round 3): Sacha cut this text from the SI; the analysis still runs.
+_retired = ("B2.", "C2 within-content rank",
+       f"rises to {_ORD_W[_wc_rank.index('topic') + 1]} of "
        + ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"][len(_wc_rank)])
 
 NUM = _Num(["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
@@ -700,7 +712,7 @@ if os.path.exists(_fw):
     _valued = [r for r in _csmap if r["value_pct"].strip()]
     if _csmap:
         add_in("Supplementary Note E.", "F CSMaP design flagged",
-               "select popular articles from mainstream and low-quality sources within 48 to 72 hours")
+               "sample popular articles from mainstream and low-quality sources within 48 to 72 hours")
     if _valued:
         assert len(_valued) == 1, f"expected one valued CSMaP row, found {len(_valued)}"
         _v = _valued[0]
@@ -713,11 +725,11 @@ if os.path.exists(_fw):
         _ms = _re.search(r"mainstream\s+(\d+) of\s+(\d+) false or misleading\s+\(\s*([\d.]+)%\)", _out)
         assert _lq and _ms, "csmap_falsity_by_tier.py output not parseable"
         add_in("Supplementary Note E.", "F CSMaP low-quality",
-               f"judged {_lq.group(1)} of the {_lq.group(2)} articles from "
-               f"low-quality sources false or misleading, **{float(_lq.group(3)):g}%**")
+               f"rated {_lq.group(1)} of the {_lq.group(2)} articles from "
+               f"low-quality sources false or misleading ({float(_lq.group(3)):g}%)")
         add_in("Supplementary Note E.", "F CSMaP mainstream",
-               f"against {_ms.group(1)} of the {_ms.group(2)} from mainstream sources, "
-               f"**{float(_ms.group(3)):g}%**")
+               f"against {_ms.group(1)} of the {_ms.group(2)} articles from mainstream sources "
+               f"({float(_ms.group(3)):g}%)")
         assert abs(float(_v["value_pct"]) - float(_lq.group(3))) < 0.05, \
             "the ledger's CSMaP value disagrees with the script that computes it"
 
@@ -761,7 +773,7 @@ def _independent_reach():
     # re-screen sent to full text (stage 3). Counted from the ANSWERS it returned, as above.
     _mi = set()
     for _d in ("fulltext_pass_2026-11_mistral", "exclusion_pass_2026-11_mistral",
-               "screening_fulltext_2026-11_mistral"):
+               "screening_fulltext_2026-11_mistral", "prisma_followup_2026-11_mistral", "undecided_2026-11_mistral"):
         _mi |= {os.path.basename(_f)[:-5] for _f in
                 _glob.glob(os.path.join(ROOT, "data/extract_v2", _d, "extractions", "*.json"))}
     return (len(_rel & _cf), len(_rel & _bl), len(_rel & (_cf | _bl | _mi)), len(_rel),
@@ -796,20 +808,21 @@ add_in("B1.", "C1 campaign kappas",
 # prose said 331 advanced "to screening", which is the one thing 331 is not.
 _snow = json.load(open(os.path.join(ROOT, "data/synth/prisma_counts.json")))["identified"]["snowball_advancing"]
 add_in("4.3 Information sources", "4.3 snowball arm",
-       f'screened 1,818 candidate records and contributed {_snow} advancing to full-text retrieval')
+       f'1,641 were screened and {json.load(open(os.path.join(ROOT, "data/synth/prisma_counts.json")))["streams"]["snowball"]["sought"]} were sought at full text')
 
 # --- the two pre-submission analyses (2026-09-15): perturbation and the concentration null ------
 _pert = json.load(open(os.path.join(ROOT, "data/synth/phaseB/perturbation.json")))
 _lv = {r["corruption"]: r for r in _pert["levels"]}
-add_in("A2.", "B2 perturbation ratios",
+# RETIRED 2026-11-23 (round 3): Sacha cut this text from the SI; the analysis still runs.
+_retired = ("A2.", "B2 perturbation ratios",
        f'ratio is {_pert["baseline_ratio"]}× uncorrupted, '
        f'{_lv[0.10]["recall_over_exposure_median"]}× with a tenth of the codes wrong, '
        f'{_lv[0.20]["recall_over_exposure_median"]}× with a fifth and '
        f'{_lv[0.30]["recall_over_exposure_median"]}× with a third')
-add_in("A2.", "B2 perturbation pairs",
-       f'behavioural exposure stays below reach in {_lv[0.10]["pair_EXPOSURE<REACH"]:.0f}% of draws at a '
+_retired = ("A2.", "B2 perturbation pairs",
+       f'exposure stays below reach in {_lv[0.10]["pair_EXPOSURE<REACH"]:.0f}% of draws at a '
        f'tenth and {_lv[0.30]["pair_EXPOSURE<REACH"]:.0f}% at a third')
-add_in("A2.", "B2 perturbation set", f'A fraction of the {_pert["n_rows"]} main-set estimates')
+_retired = ("A2.", "B2 perturbation set", f'when a fraction of the {_pert["n_rows"]} main-set estimates')
 _null = json.load(open(os.path.join(ROOT, "data/synth/phaseB/concentration_null.json")))
 # The rarity null was cut from the main text and from Note B2 on 2026-09-18, on Sacha's
 # instruction, so there is no prose left to assert the range against. The simulation still runs and
@@ -848,7 +861,7 @@ add_in("A4.", "B4 reach window count",
 # of them that match the standard it cites is the whole point, so it is asserted rather than left as
 # prose a later edit could soften.
 add_in("Supplementary Note E.", "F claim-level example",
-       "of the eleven items it prints as examples, one corresponds to an entry on that page")
+       "only one of the eleven examples it prints matches an entry on that page")
 
 # --- information sources (4.3), derived from the PRISMA counts ------------------------------
 # Section 4.3 stated the identification total as a literal for three freezes. It is now derived,
@@ -857,10 +870,10 @@ _pc = json.load(open(os.path.join(ROOT, "data/synth/prisma_counts.json")))
 _idn = _pc["identified"]
 _db_total = sum(v for k, v in _idn.items() if k != "snowball_advancing")
 add_in("4.3 Information sources", "4.3 database total",
-       f'yielding {_db_total:,} database records')
+       f'which returned {_pc["columns"]["db"]["identified"]:,} records')
 _arm = _pc["behavioural_arm"]
 add_in("4.3 Information sources", "4.3 arm funnel",
-       f'It returned {_arm["records_returned"]:,} records, {_arm["records_netnew"]:,} of them new '
+       f'The OpenAlex search returned {_arm["records_returned"]:,} records, {_arm["records_netnew"]:,} of them new '
        f'to the review; {_arm["records_screened_unique"]:,} unique records were screened at title, '
        f'{_arm["sought_for_retrieval"]} went to abstract adjudication, '
        f'{_arm["sought_at_full_text"]} to full-text retrieval, '
@@ -1308,9 +1321,16 @@ add_in("A5.", "defs: blanks decomposed",
 
 # --- §2.6: the breadth gradient is a CONTENT finding, and the denominator pair ---
 # --- abstract-disclosure test on curated-sample studies (2026-09-11; Sacha: "well test it then") ---
-_cad = list(csv.DictReader(open(os.path.join(ROOT, "data/extract_v2/qa/curated_abstract_disclosure_2026-09-11.csv"), encoding="utf-8")))
-_notcur = {l.strip() for l in open(os.path.join(ROOT, "data/extract_v2/qa/curated_abstract_disclosure_2026-09-11_notcurated.txt"), encoding="utf-8") if l.strip() and not l.startswith("#")}
-_cad = [r for r in _cad if r["study_id"] not in _notcur and r["disclosure"] != "no_abstract"]
+# 2026-11-23: the September coding plus the 42 curated studies it never covered, restricted to the
+# released corpus (4 September rows had left it); each round's not-curated list is applied.
+_cad = []
+_notcur = set()
+for _f in ("2026-09-11", "2026-11-23_additions", "2026-11-24_additions"):
+    _cad += list(csv.DictReader(open(os.path.join(ROOT, f"data/extract_v2/qa/curated_abstract_disclosure_{_f}.csv"), encoding="utf-8")))
+for _f in ("2026-09-11", "2026-11-23", "2026-11-24"):
+    _notcur |= {l.strip() for l in open(os.path.join(ROOT, f"data/extract_v2/qa/curated_abstract_disclosure_{_f}_notcurated.txt"), encoding="utf-8") if l.strip() and not l.startswith("#")}
+_released = {r["id"] for r in _all}
+_cad = [r for r in _cad if r["study_id"] in _released and r["study_id"] not in _notcur and r["disclosure"] != "no_abstract"]
 _cadc = _Ctr(r["disclosure"] for r in _cad)
 _cadh = [r for r in _cad if r["headline_pct_in_abstract"].strip().lower() == "yes"]
 _cadhn = [r for r in _cadh if r["disclosure"] in ("sample_size_only", "not_stated")]
@@ -1405,10 +1425,11 @@ _rep_poolable = len({r["id"] for r in csv.DictReader(open(os.path.join(
 # submitted freeze v1.7.23 (audit R15, 2026-11-23).
 _v123 = os.path.join(ROOT, "data/extract_v2/estimates_v1.7.23_frozen.csv")
 _rep_in_123 = len(_rep_ids & {r["id"] for r in csv.DictReader(open(_v123, encoding="utf-8"))}) if os.path.exists(_v123) else _rep_in_freeze
-add("§4.4 repair ladder", f"The repair confirmed {len(_rep_ids)} studies at full text, of which {_rep_poolable} "
-    f"carry a poolable estimate; {_rep_poolable - _rep_in_freeze} of those were removed in later adjudication, "
-    f"{_rep_poolable - _rep_in_123} in the dispute adjudication and {_rep_in_123 - _rep_in_freeze} in the November "
-    f"re-check, leaving {_rep_in_freeze} in the released dataset")
+if os.path.exists(_v123):   # the September/November split needs the submitted freeze, which the public package does not ship
+    add("§4.4 repair ladder", f"The repair confirmed {len(_rep_ids)} studies at full text, of which {_rep_poolable} "
+        f"carry a poolable estimate; {_rep_poolable - _rep_in_freeze} of those were removed in later adjudication, "
+        f"{_rep_poolable - _rep_in_123} in the dispute adjudication and {_rep_in_123 - _rep_in_freeze} in the November "
+        f"re-check, leaving {_rep_in_freeze} in the released dataset")
 # The repair's size left the Discussion with the sentence Sacha cut on 2026-09-15; §4.4 and Note C1
 # still carry it, and both are asserted below.
 # Section 4.4 said 141 carry a poolable estimate while C1 and the crosswalk said 131, and no
@@ -1503,7 +1524,7 @@ add_in("A1.", "B1 unweighted vs weighted",
        f'against {float(_sv("D exclude", "CONTENT")["median_pct"]):.1f}% when the two design items are weighted in')
 
 # --- C2, rewritten to the 200-resample run (it still carried the 100-resample one) ---
-add_in("B2.", "C2 bootstrap B", f"re-estimated on {_bs['ground_truth']['B']} study-cluster bootstrap resamples")
+add_in("B2.", "C2 bootstrap B", f"pseudo-R² on {_bs['ground_truth']['B']} study-cluster bootstrap resamples")
 # denom_fine was missing from this list, so Note C2's denominator-class interval sat at the v1.7.21
 # values (16.5% [9.4-25.5]) while the pipeline said 16.6% [9.7-25.9]. Found 2026-09-17 by reading
 # the note, not by a guard: an unasserted number in an asserted paragraph is the easiest kind to miss.
@@ -1518,14 +1539,15 @@ for _m, _lab in [("ground_truth", "ground-truth source"), ("id_method", "identif
            f"{_lab} {float(_bs[_m]['r2_adj']):g}% [{float(_bs[_m]['ci_lo']):g}–{float(_bs[_m]['ci_hi']):g}]"
            if float(_bs[_m]['r2_adj']) % 1 else
            f"{_lab} {float(_bs[_m]['r2_adj']):.1f}% [{float(_bs[_m]['ci_lo']):g}–{float(_bs[_m]['ci_hi']):g}]")
-add_in("B2.", "C2 within-content set", f"content analyses ({_wc['topic']['n_estimates']} estimates from {_wc['topic']['n_studies']} studies)")
+# RETIRED 2026-11-23 (round 3): Sacha cut this text from the SI; the analysis still runs.
+_retired = ("B2.", "C2 within-content set", f"content analyses ({_wc['topic']['n_estimates']} estimates from {_wc['topic']['n_studies']} studies)")
 # Built from the file in rank order, with every rung. The hand-written version printed the rungs
 # out of order (3.2 after 2.8) and omitted the two denominator moderators entirely.
 _WC_LABEL = {"ground_truth": "ground-truth source", "id_method": "identification level",
              "measurement": "measurement type", "breadth": "breadth", "topic": "topic",
              "denom_fine": "denominator class", "denom": "the binary denominator contrast",
              "platform": "platform", "sampling": "sampling frame"}
-add_in("B2.", "C2 within-content ladder",
+_retired = ("B2.", "C2 within-content ladder",
        ", ".join(f"{_WC_LABEL[m]} {v}%" for v, m in
                  sorted(((float(r["r2_adj"]), r["moderator"]) for r in
                          rows("metareg_r2_within_content.csv")
@@ -1657,31 +1679,28 @@ if os.path.exists(os.path.join(QS, "per_record.csv")):
            f"{_n('fulltext_manifest.csv')} could be obtained and read at full text and "
            f"{sum(1 for r in _rul if r['RULING'] == 'INCLUDE')} were eligible")
     add_in("4.4 Screening", "4.4 re-screen entered", f"{len(_s3)} entered the dataset")
-    add_in("4.4 Screening", "4.4 not retrieved",
-           f"the {_n('retrieval_list.csv') - _n('fulltext_manifest.csv')} records that could not be retrieved")
+    # "the 271 records that could not be retrieved" was cut by Sacha (2026-11-23); the funnel sentence
+    # above still carries 514 sought and 243 read.
 
-    # --- A2 temporal bullet (rewritten 2026-11-23 after the phaseB_temporal p-value fix) -------------
-    _tt = {r["construct"]: r for r in rows("temporal_trend.csv")}
-    _te = {(r["construct"], r["era"]): r for r in rows("temporal.csv")}
-    _sig = [k for k, r in _tt.items() if r["p"] and float(r["p"]) < .05]
-    _claim(_sig == ["CONTENT"], lambda: f"constructs with a significant year trend are now {_sig}: rewrite the A2 temporal bullet")
-    for _era in ("<=2016", "2017-2019", "2020-2021", ">=2022"):
-        _m = {c: float(_te[(c, _era)]["median_pct"]) for c in ("EXPOSURE", "REACH", "SHARING", "CONTENT", "RECALL") if (c, _era) in _te}
-        _claim(min(_m, key=_m.get) == "EXPOSURE" and max(_m, key=_m.get) == "RECALL",
-               lambda: f"in era {_era} exposure is not lowest or recall not highest: {_m}")
-    add_in("A2.", "A2 temporal content",
-           f'reaches conventional significance only for content (ρ = {float(_tt["CONTENT"]["rho"]):.2f}'.replace("0.", ".")
-           + f', *p* = {float(_tt["CONTENT"]["p"]):.3f}'.replace("0.", ".") + f', k = {_tt["CONTENT"]["k_studies"]}), '
-           f'whose study-level median rises from {_te[("CONTENT", "<=2016")]["median_pct"]}% up to 2016 to '
-           f'{_te[("CONTENT", ">=2022")]["median_pct"]}% from 2022')
-    add_in("A2.", "A2 temporal exposure",
-           f'({_te[("EXPOSURE", "<=2016")]["median_pct"]}% up to 2016, {_te[("EXPOSURE", "2020-2021")]["median_pct"]}% in 2020–2021; '
-           f'k = {_te[("EXPOSURE", "<=2016")]["k_studies"]} and {_te[("EXPOSURE", "2020-2021")]["k_studies"]})')
-    add_in("A2.", "A2 temporal recall",
-           f'({_te[("RECALL", "2017-2019")]["median_pct"]}% in 2017–2019, {_te[("RECALL", ">=2022")]["median_pct"]}% from 2022)')
 else:
     print("SKIPPED: the November re-screen funnel (§4.4) is counted from stage-3 screening files built "
           "from record dumps that are not redistributed; its numbers are asserted in the working repository.")
+
+# --- A2 temporal bullet (rewritten 2026-11-23 after the phaseB_temporal p-value fix) -------------
+_tt = {r["construct"]: r for r in rows("temporal_trend.csv")}
+_te = {(r["construct"], r["era"]): r for r in rows("temporal.csv")}
+_sig = [k for k, r in _tt.items() if r["p"] and float(r["p"]) < .05]
+_claim(_sig == ["CONTENT"], lambda: f"constructs with a significant year trend are now {_sig}: rewrite the A2 temporal bullet")
+for _era in ("<=2016", "2017-2019", "2020-2021", ">=2022"):
+    _m = {c: float(_te[(c, _era)]["median_pct"]) for c in ("EXPOSURE", "REACH", "SHARING", "CONTENT", "RECALL") if (c, _era) in _te}
+    _claim(min(_m, key=_m.get) == "EXPOSURE" and max(_m, key=_m.get) == "RECALL",
+           lambda: f"in era {_era} exposure is not lowest or recall not highest: {_m}")
+
+# --- A2 temporal bullet, shortened at Sacha's request (2026-11-23) --------------------------------
+add_in("A2.", "A2 temporal content",
+       f'only content prevalence trends with study year (ρ = {float(_tt["CONTENT"]["rho"]):.2f}'.replace("0.", ".")
+       + f', *p* = {float(_tt["CONTENT"]["p"]):.3f}'.replace("0.", ".") + f', k = {_tt["CONTENT"]["k_studies"]}), '
+       f'rising from {_te[("CONTENT", "<=2016")]["median_pct"]}% up to 2016 to {_te[("CONTENT", ">=2022")]["median_pct"]}% from 2022')
 
 def main():
     misses = []

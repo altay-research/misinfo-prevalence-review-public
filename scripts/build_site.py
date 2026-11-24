@@ -462,7 +462,7 @@ def tiles_html(head):
     out = []
     for key, evidence, phrase in rows:
         h = head[key]
-        val = f"{h['median']:.0f}" if key == "CONCENTRATION" else f"{h['median']}"
+        val = f"{h['median']:g}" if key == "CONCENTRATION" else f"{h['median']}"
         cls = "t-conc" if key == "CONCENTRATION" else EVIDENCE_COLOUR[evidence]
         extra = (f'<span class="k2">{head["CONCENTRATION"]["band_median"]:.1f}% across the '
                  f'{head["CONCENTRATION"]["band_k"]} studies reporting the top 1% or less</span>'
@@ -562,8 +562,8 @@ def site_figure_5(svg):
     headings. The article's copy keeps them, since it is in the posted preprint.
     """
     out, dropped = svg, 0
-    for label in ("5 studies reporting the top 1%", "4 panels, 6 estimates"):
-        m = re.search(r"<text[^>]*>" + re.escape(label) + r"</text>", out)
+    for label in (r"\d+ studies reporting the top 1%", r"\d+ panels, \d+ estimates"):
+        m = re.search(r"<text[^>]*>" + label + r"</text>", out)
         if not m:
             raise SystemExit(f"figure 5: subtitle not found, has the figure changed? {label!r}")
         out = out[:m.start()] + out[m.end():]
@@ -659,7 +659,7 @@ def main():
         "EXPOSURE": f"{head['exposure']['median']}", "EXPOSURE_K": str(head["exposure"]["k"]),
         "REACH": f"{head['reach']['median']}", "REACH_K": str(head["reach"]["k"]),
         "RECALL": f"{head['recall_seen']['median']}", "RECALL_K": str(head["recall_seen"]["k"]),
-        "CONC": f"{head['concentration']['median']:.0f}", "CONC_K": str(head["concentration"]["k"]),
+        "CONC": f"{head['concentration']['median']:g}", "CONC_K": str(head["concentration"]["k"]),
         "CONC_BAND": f"{head['concentration']['band_median']:.1f}",
         "CONC_BAND_K": str(head["concentration"]["band_k"]),
         "CONTRAST": f"{head['contrast']}",

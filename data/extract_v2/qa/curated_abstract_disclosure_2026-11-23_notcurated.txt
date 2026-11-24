@@ -1,0 +1,15 @@
+# 2026-11-23: coded curated (denom_selection) in v1.7.25 but read as NOT rank-truncated or hand-selected
+# by the A7 coder; excluded from A7 like the September list. Their denom_selection code is a revision item.
+2-s2.0-105033279783
+2-s2.0-85053638221
+2-s2.0-85059494932
+2-s2.0-85160008311
+2-s2.0-85164339474
+2-s2.0-85195153909
+W2787552064
+W4411120741
+W7162938155
+W7170181457
+scholar_02
+scholar_07
+scholar_09

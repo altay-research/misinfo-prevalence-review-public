@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="610" font-family="Helvetica,Arial,sans-serif"><rect width="720" height="610" fill="#fff"/><text x="20" y="40" font-size="12" font-weight="bold" fill="#333333">Audience exposure</text>
-<text x="143.6" y="40" font-size="10" fill="#8a8f98">k = 20</text>
-<text x="154" y="62" font-size="10.5" text-anchor="end" fill="#333333">Facebook</text>
+<text x="143.6" y="40" font-size="10" fill="#8a8f98">k = 21</text>
+<text x="154" y="62" font-size="10.5" text-anchor="end" fill="#333333">Web browsing</text>
 <rect x="162" y="52" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="52" width="52.8" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
-<text x="302" y="62" font-size="9.5" fill="#8a8f98">40% (8)</text>
-<text x="154" y="80" font-size="10.5" text-anchor="end" fill="#333333">Web browsing</text>
+<rect x="162" y="52" width="56.6" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
+<text x="302" y="62" font-size="9.5" fill="#8a8f98">43% (9)</text>
+<text x="154" y="80" font-size="10.5" text-anchor="end" fill="#333333">Facebook</text>
 <rect x="162" y="70" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="70" width="52.8" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="80" font-size="9.5" fill="#8a8f98">40% (8)</text>
+<rect x="162" y="70" width="50.3" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="80" font-size="9.5" fill="#8a8f98">38% (8)</text>
 <text x="154" y="98" font-size="10.5" text-anchor="end" fill="#333333">Instagram</text>
 <rect x="162" y="88" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="88" width="19.8" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="98" font-size="9.5" fill="#8a8f98">15% (3)</text>
+<rect x="162" y="88" width="18.9" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="98" font-size="9.5" fill="#8a8f98">14% (3)</text>
 <text x="154" y="116" font-size="10.5" text-anchor="end" fill="#333333">Twitter/X</text>
 <rect x="162" y="106" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="106" width="19.8" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="116" font-size="9.5" fill="#8a8f98">15% (3)</text>
+<rect x="162" y="106" width="18.9" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="116" font-size="9.5" fill="#8a8f98">14% (3)</text>
 <text x="154" y="134" font-size="10.5" text-anchor="end" fill="#333333">No platform named</text>
 <rect x="162" y="124" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="124" width="13.2" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<rect x="162" y="124" width="12.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="302" y="134" font-size="9.5" fill="#8a8f98">10% (2)</text>
 <text x="154" y="152" font-size="10.5" text-anchor="end" fill="#333333">Google Search</text>
 <rect x="162" y="142" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="142" width="6.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<rect x="162" y="142" width="6.3" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="302" y="152" font-size="9.5" fill="#8a8f98">5% (1)</text>
 <text x="154" y="170" font-size="10.5" text-anchor="end" fill="#333333">YouTube</text>
 <rect x="162" y="160" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="160" width="6.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<rect x="162" y="160" width="6.3" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="302" y="170" font-size="9.5" fill="#8a8f98">5% (1)</text>
 <text x="360" y="40" font-size="12" font-weight="bold" fill="#333333">Reach</text>
 <text x="402.0" y="40" font-size="10" fill="#8a8f98">k = 32</text>
@@ -63,130 +63,130 @@
 <rect x="502" y="178" width="4.1" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="642" y="188" font-size="9.5" fill="#8a8f98">3% (1)</text>
 <text x="20" y="230" font-size="12" font-weight="bold" fill="#333333">Sharing</text>
-<text x="75.6" y="230" font-size="10" fill="#8a8f98">k = 57</text>
+<text x="75.6" y="230" font-size="10" fill="#8a8f98">k = 61</text>
 <text x="154" y="252" font-size="10.5" text-anchor="end" fill="#333333">Twitter/X</text>
 <rect x="162" y="242" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="242" width="83.4" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
-<text x="302" y="252" font-size="9.5" fill="#8a8f98">63% (36)</text>
+<rect x="162" y="242" width="77.9" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
+<text x="302" y="252" font-size="9.5" fill="#8a8f98">59% (36)</text>
 <text x="154" y="270" font-size="10.5" text-anchor="end" fill="#333333">Facebook</text>
 <rect x="162" y="260" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="260" width="32.4" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="270" font-size="9.5" fill="#8a8f98">25% (14)</text>
+<rect x="162" y="260" width="34.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="270" font-size="9.5" fill="#8a8f98">26% (16)</text>
 <text x="154" y="288" font-size="10.5" text-anchor="end" fill="#333333">Reddit</text>
 <rect x="162" y="278" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="278" width="11.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="288" font-size="9.5" fill="#8a8f98">9% (5)</text>
+<rect x="162" y="278" width="13.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="288" font-size="9.5" fill="#8a8f98">10% (6)</text>
 <text x="154" y="306" font-size="10.5" text-anchor="end" fill="#333333">WhatsApp</text>
 <rect x="162" y="296" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="296" width="11.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="306" font-size="9.5" fill="#8a8f98">9% (5)</text>
+<rect x="162" y="296" width="10.8" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="306" font-size="9.5" fill="#8a8f98">8% (5)</text>
 <text x="154" y="324" font-size="10.5" text-anchor="end" fill="#333333">Forums</text>
 <rect x="162" y="314" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="314" width="6.9" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<rect x="162" y="314" width="6.5" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="302" y="324" font-size="9.5" fill="#8a8f98">5% (3)</text>
-<text x="154" y="342" font-size="10.5" text-anchor="end" fill="#333333">Instagram</text>
+<text x="154" y="342" font-size="10.5" text-anchor="end" fill="#333333">YouTube</text>
 <rect x="162" y="332" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="332" width="4.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="342" font-size="9.5" fill="#8a8f98">4% (2)</text>
-<text x="154" y="360" font-size="10.5" text-anchor="end" fill="#333333">Other</text>
+<rect x="162" y="332" width="6.5" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="342" font-size="9.5" fill="#8a8f98">5% (3)</text>
+<text x="154" y="360" font-size="10.5" text-anchor="end" fill="#333333">Instagram</text>
 <rect x="162" y="350" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="350" width="4.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="360" font-size="9.5" fill="#8a8f98">4% (2)</text>
-<text x="154" y="378" font-size="10.5" text-anchor="end" fill="#333333">Telegram</text>
+<rect x="162" y="350" width="4.3" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="360" font-size="9.5" fill="#8a8f98">3% (2)</text>
+<text x="154" y="378" font-size="10.5" text-anchor="end" fill="#333333">Other</text>
 <rect x="162" y="368" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="368" width="4.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="378" font-size="9.5" fill="#8a8f98">4% (2)</text>
+<rect x="162" y="368" width="4.3" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="378" font-size="9.5" fill="#8a8f98">3% (2)</text>
 <text x="360" y="230" font-size="12" font-weight="bold" fill="#333333">Concentration</text>
-<text x="456.4" y="230" font-size="10" fill="#8a8f98">k = 22</text>
+<text x="456.4" y="230" font-size="10" fill="#8a8f98">k = 23</text>
 <text x="494" y="252" font-size="10.5" text-anchor="end" fill="#333333">Twitter/X</text>
 <rect x="502" y="242" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="242" width="84.0" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
-<text x="642" y="252" font-size="9.5" fill="#8a8f98">64% (14)</text>
+<rect x="502" y="242" width="86.1" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
+<text x="642" y="252" font-size="9.5" fill="#8a8f98">65% (15)</text>
 <text x="494" y="270" font-size="10.5" text-anchor="end" fill="#333333">Web browsing</text>
 <rect x="502" y="260" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="260" width="30.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="642" y="270" font-size="9.5" fill="#8a8f98">23% (5)</text>
+<rect x="502" y="260" width="28.7" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="642" y="270" font-size="9.5" fill="#8a8f98">22% (5)</text>
 <text x="494" y="288" font-size="10.5" text-anchor="end" fill="#333333">Facebook</text>
 <rect x="502" y="278" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="278" width="12.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<rect x="502" y="278" width="11.5" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="642" y="288" font-size="9.5" fill="#8a8f98">9% (2)</text>
 <text x="494" y="306" font-size="10.5" text-anchor="end" fill="#333333">Google Search</text>
 <rect x="502" y="296" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="296" width="6.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="642" y="306" font-size="9.5" fill="#8a8f98">5% (1)</text>
+<rect x="502" y="296" width="5.7" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="642" y="306" font-size="9.5" fill="#8a8f98">4% (1)</text>
 <text x="494" y="324" font-size="10.5" text-anchor="end" fill="#333333">Instagram</text>
 <rect x="502" y="314" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="314" width="6.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="642" y="324" font-size="9.5" fill="#8a8f98">5% (1)</text>
+<rect x="502" y="314" width="5.7" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="642" y="324" font-size="9.5" fill="#8a8f98">4% (1)</text>
 <text x="494" y="342" font-size="10.5" text-anchor="end" fill="#333333">Reddit</text>
 <rect x="502" y="332" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="332" width="6.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="642" y="342" font-size="9.5" fill="#8a8f98">5% (1)</text>
+<rect x="502" y="332" width="5.7" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="642" y="342" font-size="9.5" fill="#8a8f98">4% (1)</text>
 <text x="20" y="420" font-size="12" font-weight="bold" fill="#333333">Content prevalence</text>
-<text x="150.39999999999998" y="420" font-size="10" fill="#8a8f98">k = 297</text>
+<text x="150.39999999999998" y="420" font-size="10" fill="#8a8f98">k = 307</text>
 <text x="154" y="442" font-size="10.5" text-anchor="end" fill="#333333">Twitter/X</text>
 <rect x="162" y="432" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="432" width="36.4" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
-<text x="302" y="442" font-size="9.5" fill="#8a8f98">28% (82)</text>
+<rect x="162" y="432" width="36.5" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
+<text x="302" y="442" font-size="9.5" fill="#8a8f98">28% (85)</text>
 <text x="154" y="460" font-size="10.5" text-anchor="end" fill="#333333">YouTube</text>
 <rect x="162" y="450" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="450" width="32.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="460" font-size="9.5" fill="#8a8f98">24% (72)</text>
+<rect x="162" y="450" width="32.2" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="460" font-size="9.5" fill="#8a8f98">24% (75)</text>
 <text x="154" y="478" font-size="10.5" text-anchor="end" fill="#333333">TikTok</text>
 <rect x="162" y="468" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="468" width="22.2" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="478" font-size="9.5" fill="#8a8f98">17% (50)</text>
+<rect x="162" y="468" width="21.9" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="478" font-size="9.5" fill="#8a8f98">17% (51)</text>
 <text x="154" y="496" font-size="10.5" text-anchor="end" fill="#333333">Facebook</text>
 <rect x="162" y="486" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="486" width="16.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="496" font-size="9.5" fill="#8a8f98">12% (36)</text>
+<rect x="162" y="486" width="16.3" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="496" font-size="9.5" fill="#8a8f98">12% (38)</text>
 <text x="154" y="514" font-size="10.5" text-anchor="end" fill="#333333">Instagram</text>
 <rect x="162" y="504" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="504" width="8.9" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="514" font-size="9.5" fill="#8a8f98">7% (20)</text>
+<rect x="162" y="504" width="9.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="514" font-size="9.5" fill="#8a8f98">7% (21)</text>
 <text x="154" y="532" font-size="10.5" text-anchor="end" fill="#333333">Other</text>
 <rect x="162" y="522" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="522" width="8.9" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="532" font-size="9.5" fill="#8a8f98">7% (20)</text>
+<rect x="162" y="522" width="9.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="532" font-size="9.5" fill="#8a8f98">7% (21)</text>
 <text x="154" y="550" font-size="10.5" text-anchor="end" fill="#333333">Reddit</text>
 <rect x="162" y="540" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="540" width="7.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<rect x="162" y="540" width="7.3" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="302" y="550" font-size="9.5" fill="#8a8f98">6% (17)</text>
 <text x="154" y="568" font-size="10.5" text-anchor="end" fill="#333333">News outlets</text>
 <rect x="162" y="558" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="162" y="558" width="6.2" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="302" y="568" font-size="9.5" fill="#8a8f98">5% (14)</text>
+<rect x="162" y="558" width="6.4" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="302" y="568" font-size="9.5" fill="#8a8f98">5% (15)</text>
 <text x="360" y="420" font-size="12" font-weight="bold" fill="#333333">Self-reported recall</text>
-<text x="504.0" y="420" font-size="10" fill="#8a8f98">k = 103</text>
+<text x="504.0" y="420" font-size="10" fill="#8a8f98">k = 108</text>
 <text x="494" y="442" font-size="10.5" text-anchor="end" fill="#333333">No platform named</text>
 <rect x="502" y="432" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="432" width="83.3" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
-<text x="642" y="442" font-size="9.5" fill="#8a8f98">63% (65)</text>
+<rect x="502" y="432" width="85.6" height="12" fill="#0072B2" rx="2" fill-opacity="1"/>
+<text x="642" y="442" font-size="9.5" fill="#8a8f98">65% (70)</text>
 <text x="494" y="460" font-size="10.5" text-anchor="end" fill="#333333">Facebook</text>
 <rect x="502" y="450" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="450" width="33.3" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="642" y="460" font-size="9.5" fill="#8a8f98">25% (26)</text>
+<rect x="502" y="450" width="31.8" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="642" y="460" font-size="9.5" fill="#8a8f98">24% (26)</text>
 <text x="494" y="478" font-size="10.5" text-anchor="end" fill="#333333">WhatsApp</text>
 <rect x="502" y="468" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="468" width="25.6" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<rect x="502" y="468" width="24.4" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="642" y="478" font-size="9.5" fill="#8a8f98">19% (20)</text>
 <text x="494" y="496" font-size="10.5" text-anchor="end" fill="#333333">Twitter/X</text>
 <rect x="502" y="486" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="486" width="15.4" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="642" y="496" font-size="9.5" fill="#8a8f98">12% (12)</text>
+<rect x="502" y="486" width="14.7" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="642" y="496" font-size="9.5" fill="#8a8f98">11% (12)</text>
 <text x="494" y="514" font-size="10.5" text-anchor="end" fill="#333333">Instagram</text>
 <rect x="502" y="504" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="504" width="12.8" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="642" y="514" font-size="9.5" fill="#8a8f98">10% (10)</text>
+<rect x="502" y="504" width="12.2" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="642" y="514" font-size="9.5" fill="#8a8f98">9% (10)</text>
 <text x="494" y="532" font-size="10.5" text-anchor="end" fill="#333333">Other</text>
 <rect x="502" y="522" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="522" width="11.5" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
-<text x="642" y="532" font-size="9.5" fill="#8a8f98">9% (9)</text>
+<rect x="502" y="522" width="11.0" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<text x="642" y="532" font-size="9.5" fill="#8a8f98">8% (9)</text>
 <text x="494" y="550" font-size="10.5" text-anchor="end" fill="#333333">TikTok</text>
 <rect x="502" y="540" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="540" width="7.7" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<rect x="502" y="540" width="7.3" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="642" y="550" font-size="9.5" fill="#8a8f98">6% (6)</text>
 <text x="494" y="568" font-size="10.5" text-anchor="end" fill="#333333">News outlets</text>
 <rect x="502" y="558" width="132" height="12" fill="#eef1f4" rx="2"/>
-<rect x="502" y="558" width="5.1" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
+<rect x="502" y="558" width="4.9" height="12" fill="#0072B2" rx="2" fill-opacity="0.75"/>
 <text x="642" y="568" font-size="9.5" fill="#8a8f98">4% (4)</text></svg>

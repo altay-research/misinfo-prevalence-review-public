@@ -1,20 +1,20 @@
 MANIFEST — public replication package
-built           : 2026-11-23
-freeze          : data/extract_v2/estimates_v1.7.25_frozen.csv
-freeze MD5      : b392eb9da1717ee9e16c21e162fa4b0a
-estimates/studies: 1159 / 493
-files           : 2520
-total size      : 72.6 MB
+built           : 2026-11-24
+freeze          : data/extract_v2/estimates_v1.7.26_frozen.csv
+freeze MD5      : 78b81f58f9c3d315cdb4747672957b16
+estimates/studies: 1201 / 512
+files           : 2543
+total size      : 77.2 MB
 
 By directory
 ------------
-  (root)                     5 files    181.3 KB
-  .git                    1331 files     27.3 MB
+  (root)                     6 files    183.7 KB
+  .git                    1338 files     27.4 MB
   .github                    5 files      3.4 KB
-  companion                 43 files      8.1 MB
-  data                     823 files     23.2 MB
-  docs                     240 files     13.1 MB
-  scripts                   67 files    806.8 KB
+  companion                 43 files      9.0 MB
+  data                     838 files     26.6 MB
+  docs                     240 files     13.3 MB
+  scripts                   67 files    781.8 KB
   searches                   6 files     25.3 KB
 
 Excluded, and why
@@ -76,9 +76,9 @@ Files
         3650  .git/hooks/update.sample
       146287  .git/index
          240  .git/info/exclude
-        8433  .git/logs/HEAD
-        8433  .git/logs/refs/heads/main
-        5324  .git/logs/refs/remotes/origin/main
+        8671  .git/logs/HEAD
+        8671  .git/logs/refs/heads/main
+        5478  .git/logs/refs/remotes/origin/main
         2691  .git/objects/00/05b3cb0a4ee9d3928d180e55559ff3d08c652b
          181  .git/objects/00/4ad41131aa55f9e246a3aed91a9bd5a7332bc7
          926  .git/objects/00/60068910119856ecf38e4ce00abd100bcea941
@@ -97,6 +97,7 @@ Files
          251  .git/objects/02/9132e48fbbe533ea024838ba94548f29867828
          104  .git/objects/02/cff8273de8aa329a9903323c4db2f8f88a5ed6
          595  .git/objects/02/ee031f93a6f3f3a71785577fa135d8e96b6025
+        5682  .git/objects/02/f21f9ed1124af9c5646ce87fc593e23b37f8ab
          689  .git/objects/03/39a5c2645db30df15d99b2f08ddf89849de7bc
          396  .git/objects/03/8a99f4e1ed375e9dcb90e717aa3e1dc266234e
           55  .git/objects/03/8e5aec05953e8d4b795d23031044611ce41e98
@@ -358,6 +359,7 @@ Files
         9509  .git/objects/38/0542440c1fba47e01b47fdaf681bd2ceed8024
         2648  .git/objects/38/3affd167308b29ca3022b8bd54fdd1fd2dd185
          266  .git/objects/38/4c9a5aa33c4f39ff3c3ed0b6d3168e2dfc34f6
+         376  .git/objects/38/4ee1830c5df274b92941440a81461e7ddf8cbe
         4868  .git/objects/38/65193a76f9a31c0930ee4978c73ce1f69247c8
         5021  .git/objects/38/6e3e3ad6f3829d6eb4df6822602927623159f4
         3918  .git/objects/38/71ea685190f7cc674ab7e2fd17b6d7264512ec
@@ -418,6 +420,7 @@ Files
         6217  .git/objects/42/5a44601a7d55181d1de446b64ac9b70e4d7cf6
         7333  .git/objects/42/5c91f7216652c93e965fd7e9efb5dd86642e41
         1478  .git/objects/42/8ef373db51c1d3fb057aa75318fbb08a010d6c
+         217  .git/objects/43/0c1ba54855dbbde2e974895950c9e487f3c770
         2715  .git/objects/43/740145247f2606eb9d4e52c9a05501ace50833
          342  .git/objects/43/b4a92489acd2d37c35de44f8aada8f7e8ec5ae
         5607  .git/objects/43/dd3b249bcfaee6b4ab36a1b83d6df9318323fb
@@ -461,6 +464,7 @@ Files
         5046  .git/objects/49/7b7f31c39e7a6c54f55af66c7cb49ce71ee5b6
         4481  .git/objects/49/97502d71061c417fb8d7a20316401a9a4886f4
        21847  .git/objects/49/b2e739c126b1ce358b8147af7e2ad961722480
+         370  .git/objects/4a/0656a52aa2ffcbe24daf587c160c3be1b12b23
         3000  .git/objects/4a/0d804b452ef2fdfc0069345a39d1583c660035
         1350  .git/objects/4a/4bf478ba6fdb7517a969d2053992c99770c0b8
       524981  .git/objects/4a/62523744f147da8251e9a1c6af1a30e7ae6fe3
@@ -529,6 +533,7 @@ Files
        56084  .git/objects/56/c5951317c63dfa09774a2c1f9fbdc7bfcc5ee2
          262  .git/objects/56/f75195c259c53e7ee04580a91c33273180c82d
          346  .git/objects/56/fe519575d99e31bd66cd36aa8830fcb456b221
+         182  .git/objects/57/296f5d2f4f4a8716452005ff59cb5cd10e5992
         1134  .git/objects/58/207daebcb342a79a42e55fa53553110f3e248c
         2495  .git/objects/58/59ac15a70dacd4c13ec3030789274fbf48c0b0
         3634  .git/objects/58/7c2bf9a56eb0cd929e733305d376e772bedccf
@@ -573,6 +578,7 @@ Files
         6389  .git/objects/60/f5afcf39a7428fb00d8cf8df1b36f29d98642c
         7880  .git/objects/60/f90ce35d476adcbefd9b5f55676e886c24c720
         2799  .git/objects/62/042c08ec05e2d2f8cbef2ce5b2500d8c0e93d3
+       58379  .git/objects/62/0ad4e3691d3c61010e6fcf475b1e260241c2b3
         2532  .git/objects/62/1964d4544f4e85ac85348f8919b0da8a3c6732
         5683  .git/objects/62/52576ab7a17a59e7304e8bef28aba96499e936
         5589  .git/objects/62/5d8db35f60a5deeb2d99329a0d659abcb9ebf8
@@ -1376,6 +1382,7 @@ Files
         2604  .git/objects/fe/edc442226e0bbd75f46ac33e5309394c215ad8
         3294  .git/objects/fe/f666c4d6f9abe3c8cd59474eb927ff9948a128
         4609  .git/objects/ff/2be4c90dce7c444e078628c12687bc749195e0
+         104  .git/objects/ff/3dbdd5bd79758a62d73cf3c2f1a25806ea14a7
         2273  .git/objects/ff/84d6ab7f4b98618ab94b9bc50ea27e03e8c722
           55  .git/objects/ff/8767c4d3a8cec728948bb35c980ba5d227da76
         9348  .git/objects/ff/8eb58b6ab4b4e346c9ed45ae530c63194b2668
@@ -1392,35 +1399,36 @@ Files
          838  .github/ISSUE_TEMPLATE/missing-study.yml
          970  .github/workflows/pages.yml
           29  .gitignore
+        1128  .zenodo.json
         3078  LICENSE
-      174176  MANIFEST.txt
+      175487  MANIFEST.txt
         7291  README.md
         1484  companion/site/404.html
         4598  companion/site/assets/agg.js
        19056  companion/site/assets/site.css
        23603  companion/site/assets/site.js
-     2380502  companion/site/data/estimates.json
+     2481298  companion/site/data/estimates.json
         5450  companion/site/data/index.html
-       14187  companion/site/data/meta.json
-       27923  companion/site/data/slices.json
-      180665  companion/site/data/studies.json
+       14130  companion/site/data/meta.json
+       28658  companion/site/data/slices.json
+      187494  companion/site/data/studies.json
         5275  companion/site/descriptives/index.html
      3282701  companion/site/downloads/Altay_Systematic_Review_Misinfo.pdf
-      167368  companion/site/downloads/fulltext_exclusions.csv
-      112660  companion/site/downloads/included_studies.csv
-     1810766  companion/site/downloads/misinfo_prevalence_estimates.csv
-      156720  companion/site/downloads/study_characteristics.csv
+      923806  companion/site/downloads/fulltext_exclusions.csv
+      116830  companion/site/downloads/included_studies.csv
+     1902533  companion/site/downloads/misinfo_prevalence_estimates.csv
+      162667  companion/site/downloads/study_characteristics.csv
        12247  companion/site/estimates/index.html
        22285  companion/site/explore/index.html
          327  companion/site/favicon.svg
-       15361  companion/site/figures/figure_1.svg
-       13611  companion/site/figures/figure_2.svg
+       15360  companion/site/figures/figure_1.svg
+       13925  companion/site/figures/figure_2.svg
         6665  companion/site/figures/figure_3.svg
-       10050  companion/site/figures/figure_4.svg
-        3410  companion/site/figures/figure_5.svg
+        9495  companion/site/figures/figure_4.svg
+        3417  companion/site/figures/figure_5.svg
         8483  companion/site/figures/supplementary_figure_1.svg
        15013  companion/site/figures/supplementary_figure_2.svg
-        3074  companion/site/index.html
+        3076  companion/site/index.html
        10137  companion/site/studies/index.html
         1293  companion/site_src/404.html
         4598  companion/site_src/assets/agg.js
@@ -1444,6 +1452,7 @@ Files
       414144  data/extract_v2/estimates_reextracted.csv
      1574383  data/extract_v2/estimates_v1.7.23_frozen.csv
      1810766  data/extract_v2/estimates_v1.7.25_frozen.csv
+     1902533  data/extract_v2/estimates_v1.7.26_frozen.csv
        10271  data/extract_v2/full_reextract_2026-09/INSTRUCTIONS.md
         5422  data/extract_v2/full_reextract_2026-09/PROVENANCE.md
         2029  data/extract_v2/full_reextract_2026-09/README.md
@@ -1967,9 +1976,14 @@ Files
        81645  data/extract_v2/qa/behavioural_arm_dispositions.csv
          714  data/extract_v2/qa/behavioural_arm_funnel.json
         8502  data/extract_v2/qa/blind_reliability.csv
+       11577  data/extract_v2/qa/changelog_v1726.csv
          313  data/extract_v2/qa/cordonnier_changelog.csv
        60558  data/extract_v2/qa/curated_abstract_disclosure_2026-09-11.csv
          646  data/extract_v2/qa/curated_abstract_disclosure_2026-09-11_notcurated.txt
+       29171  data/extract_v2/qa/curated_abstract_disclosure_2026-11-23_additions.csv
+         409  data/extract_v2/qa/curated_abstract_disclosure_2026-11-23_notcurated.txt
+         671  data/extract_v2/qa/curated_abstract_disclosure_2026-11-24_additions.csv
+         484  data/extract_v2/qa/curated_abstract_disclosure_2026-11-24_notcurated.txt
        30460  data/extract_v2/qa/curation_adjudication.csv
         1615  data/extract_v2/qa/decided_drops.csv
          365  data/extract_v2/qa/decisions_sacha_2026-09-16.csv
@@ -2038,8 +2052,9 @@ Files
         1184  data/extract_v2/qa/openalex_not_retrieved.csv
        32690  data/extract_v2/qa/prisma_dispositions.csv
         4942  data/extract_v2/qa/prisma_orphans.csv
+      345705  data/extract_v2/qa/prisma_rebuild_2026-11/merged_outcomes.csv
        25620  data/extract_v2/qa/reach_windows_2026-09-15.csv
-       31094  data/extract_v2/qa/recall_windows_2026-09-14.csv
+       32238  data/extract_v2/qa/recall_windows_2026-09-14.csv
          268  data/extract_v2/qa/reextraction_rulings_2026-09-16.csv
          235  data/extract_v2/qa/review_pooled_drops.csv
        70081  data/extract_v2/qa/rob_appraisals_v145.csv
@@ -2071,6 +2086,11 @@ Files
         9419  data/extract_v2/qa/triage_192_287.csv
        10832  data/extract_v2/qa/triage_96_192.csv
         1854  data/extract_v2/qa/v1.2_drops_ledger.csv
+       60386  data/extract_v2/qa/v1726_integrity/integrity_mistral.csv
+         551  data/extract_v2/qa/v1726_integrity/rob_coding_rulings_sacha_2026-11-24.csv
+       33703  data/extract_v2/qa/v1726_integrity/rob_final.csv
+        1963  data/extract_v2/qa/v1726_integrity/rulings_chat_2026-11-24.csv
+       13935  data/extract_v2/qa/v1726_integrity/venue_metadata.csv
      1323301  data/extract_v2/repair_2026-09/repair_estimates_final.csv
         2985  data/grey/grey_advocacy.csv
         2519  data/grey/grey_curation.csv
@@ -2083,7 +2103,7 @@ Files
         3768  data/grey/sys_advocacy.csv
         3494  data/grey/sys_factcheck.csv
         3480  data/grey/sys_regulator.csv
-       22526  data/identifiers/included_studies.csv
+       23142  data/identifiers/included_studies.csv
         4309  data/inputs/README.md
         4852  data/inputs/included_refs_overrides.csv
        11023  data/inputs/nonmisinfo_concentration.csv
@@ -2104,7 +2124,7 @@ Files
         2169  data/kappa/rob_p2_60_90.csv
        27874  data/rob/risk_of_bias_master.csv
        34635  data/rob/risk_of_bias_master_v2.csv
-      667796  data/rob/risk_of_bias_v3_master.csv
+      700261  data/rob/risk_of_bias_v3_master.csv
          488  data/rob/rob_v3_band_deviations.csv
          255  data/rob/rob_v3_by_construct.csv
        23814  data/rob/rob_v3_coverage.csv
@@ -2166,48 +2186,49 @@ Files
        20097  data/rob/v3out/shard_r15.csv
         7535  data/rob/v3out/shard_r16.csv
        53468  data/rob/v3out/shard_r17.csv
+       33703  data/rob/v3out/shard_r18.csv
       421320  data/screen_abstract_2026-06-21.csv
        59350  data/screen_stage5_2026-06-21.csv
      3349501  data/screen_title_2026-06-20.csv
         5191  data/screening_goldset.csv
         5922  data/seed_berriche_annexe1.csv
-         740  data/synth/phaseB/appendix_content_sharing.csv
-        7335  data/synth/phaseB/concentration.csv
-         992  data/synth/phaseB/concentration_by_threshold.csv
+         747  data/synth/phaseB/appendix_content_sharing.csv
+        7687  data/synth/phaseB/concentration.csv
+        1018  data/synth/phaseB/concentration_by_threshold.csv
          285  data/synth/phaseB/concentration_null.csv
          360  data/synth/phaseB/concentration_null.json
         1306  data/synth/phaseB/concentration_source.csv
-        5844  data/synth/phaseB/concentration_standardized.csv
-        2721  data/synth/phaseB/construct_distributions.csv
-        1694  data/synth/phaseB/corpus_counts.csv
+        6078  data/synth/phaseB/concentration_standardized.csv
+        2718  data/synth/phaseB/construct_distributions.csv
+        1695  data/synth/phaseB/corpus_counts.csv
         3410  data/synth/phaseB/correction_direction.csv
          955  data/synth/phaseB/correction_direction.json
          181  data/synth/phaseB/coverage_breadth.csv
-         285  data/synth/phaseB/coverage_classification_level.csv
-        1795  data/synth/phaseB/coverage_country_norm.csv
+         286  data/synth/phaseB/coverage_classification_level.csv
+        1816  data/synth/phaseB/coverage_country_norm.csv
          271  data/synth/phaseB/coverage_denom_scope.csv
          255  data/synth/phaseB/coverage_ground_truth.csv
          479  data/synth/phaseB/coverage_platform.csv
          368  data/synth/phaseB/coverage_sampling_frame.csv
          392  data/synth/phaseB/coverage_topic.csv
-       10215  data/synth/phaseB/diagnostics.csv
-     1613471  data/synth/phaseB/estimates_full.json
+       10109  data/synth/phaseB/diagnostics.csv
+     1669185  data/synth/phaseB/estimates_full.json
          955  data/synth/phaseB/grade_sof.csv
-        1392  data/synth/phaseB/heterogeneity.csv
-        1329  data/synth/phaseB/leave_one_out_wholediet.csv
+        1390  data/synth/phaseB/heterogeneity.csv
+        1356  data/synth/phaseB/leave_one_out_wholediet.csv
           84  data/synth/phaseB/metareg_measurement_pred.csv
-         889  data/synth/phaseB/metareg_multivariable.csv
-         323  data/synth/phaseB/metareg_r2_bootstrap.csv
-         258  data/synth/phaseB/metareg_r2_within_content.csv
-         685  data/synth/phaseB/metareg_univariable.csv
-         778  data/synth/phaseB/perturbation.csv
-        3932  data/synth/phaseB/perturbation.json
+         896  data/synth/phaseB/metareg_multivariable.csv
+         328  data/synth/phaseB/metareg_r2_bootstrap.csv
+         254  data/synth/phaseB/metareg_r2_within_content.csv
+         686  data/synth/phaseB/metareg_univariable.csv
+         779  data/synth/phaseB/perturbation.csv
+        3933  data/synth/phaseB/perturbation.json
          479  data/synth/phaseB/platform_by_construct.csv
-         875  data/synth/phaseB/platform_by_construct.md
-         381  data/synth/phaseB/precision_weighting.csv
+         873  data/synth/phaseB/platform_by_construct.md
+         380  data/synth/phaseB/precision_weighting.csv
          284  data/synth/phaseB/ratio_bootstrap.csv
          218  data/synth/phaseB/recall_split.csv
-      146972  data/synth/phaseB/regression_data.csv
+      152628  data/synth/phaseB/regression_data.csv
         1879  data/synth/phaseB/review_correction_symmetry.csv
          227  data/synth/phaseB/review_cramers_v.csv
          213  data/synth/phaseB/review_human_verified_subset.csv
@@ -2215,34 +2236,36 @@ Files
          289  data/synth/phaseB/review_matched_concentration.csv
          169  data/synth/phaseB/review_weight_shares.csv
          288  data/synth/phaseB/rob_sans610.csv
-        3678  data/synth/phaseB/sensitivity.csv
-      167368  data/synth/phaseB/si_fulltext_exclusions.csv
-      112660  data/synth/phaseB/si_included_studies.csv
-       35096  data/synth/phaseB/si_rescreen_exclusions.csv
-      156720  data/synth/phaseB/si_study_characteristics.csv
+        3676  data/synth/phaseB/sensitivity.csv
+      923806  data/synth/phaseB/si_fulltext_exclusions.csv
+      116830  data/synth/phaseB/si_included_studies.csv
+      311853  data/synth/phaseB/si_not_retrieved.csv
+        1428  data/synth/phaseB/si_other_reports.csv
+       15855  data/synth/phaseB/si_rescreen_exclusions.csv
+      162667  data/synth/phaseB/si_study_characteristics.csv
          254  data/synth/phaseB/slices_breadth_audience.csv
          244  data/synth/phaseB/slices_breadth_content.csv
          348  data/synth/phaseB/slices_by_construct.csv
-        6340  data/synth/phaseB/slices_concentration.csv
+        6730  data/synth/phaseB/slices_concentration.csv
          249  data/synth/phaseB/slices_country_scope.csv
          407  data/synth/phaseB/slices_denom_audience.csv
          381  data/synth/phaseB/slices_denom_content.csv
-         336  data/synth/phaseB/slices_ground_truth.csv
+         335  data/synth/phaseB/slices_ground_truth.csv
          221  data/synth/phaseB/slices_measurement.csv
          915  data/synth/phaseB/slices_platform.csv
          510  data/synth/phaseB/slices_sampling.csv
          569  data/synth/phaseB/slices_topic.csv
-        3827  data/synth/phaseB/slices_whole_diet.csv
-        1219  data/synth/phaseB/small_study_effects.csv
+        3921  data/synth/phaseB/slices_whole_diet.csv
+        1216  data/synth/phaseB/small_study_effects.csv
        15382  data/synth/phaseB/subgroups.csv
          980  data/synth/phaseB/subgroups_summary.json
-         524  data/synth/phaseB/temporal.csv
-         143  data/synth/phaseB/temporal_trend.csv
+         523  data/synth/phaseB/temporal.csv
+         142  data/synth/phaseB/temporal_trend.csv
        59080  data/synth/phaseB/titles.json
          350  data/synth/phaseB/uncertainty_medians.csv
          832  data/synth/phaseB/venue_sensitivity.csv
-       17681  data/synth/phaseB/whole_diet.csv
-        2018  data/synth/prisma_counts.json
+       17854  data/synth/phaseB/whole_diet.csv
+       16341  data/synth/prisma_counts.json
        27330  data/synth/venue_types.csv
         5177  data/verify/adj_0_45.csv
         2932  data/verify/adj_135_162.csv
@@ -2264,8 +2287,8 @@ Files
        28245  docs/CODEBOOK_estimates.md
        18064  docs/DECISIONS_REGISTER.md
         4555  docs/ENVIRONMENT.md
-      111796  docs/FROZEN.md
-        6465  docs/METHODS_PROVENANCE.md
+      112850  docs/FROZEN.md
+        6467  docs/METHODS_PROVENANCE.md
        20585  docs/PIPELINE.md
        10469  docs/RA_package/RA_coding_sheet.csv
         1563  docs/RA_package/README.md
@@ -2355,7 +2378,7 @@ Files
        99520  docs/RA_package/value_verification_2026-09/V_values_sacha_FILLED.csv
       170382  docs/RA_package/value_verification_2026-09/code_V_laura.html
       170382  docs/RA_package/value_verification_2026-09/code_V_sacha.html
-        8910  docs/SI_lists_README.md
+        1439  docs/SI_lists_README.md
         1606  docs/blind_reextraction_results.md
         2524  docs/box1_ccdh_meta.svg
         6146  docs/cleaning_methods.md
@@ -2370,41 +2393,41 @@ Files
          762  docs/codex_check_wave5/codex_full_disagreements.csv
         3890  docs/codex_check_wave5/returned/wave5_codes.json
        19460  docs/codex_check_wave5/wave5_worklist.csv
-     1550115  docs/companion_dashboard.html
+     1603046  docs/companion_dashboard.html
         6950  docs/construct_and_concentration_rules.md
        14615  docs/corpus_repair_2026-09/REPAIR_REPORT.md
-        3202  docs/counts_crosswalk.md
+        3204  docs/counts_crosswalk.md
        10063  docs/data_quality_methods.md
-       29177  docs/dataset_provenance.md
+       29361  docs/dataset_provenance.md
         4969  docs/estimate_selection_rule.md
         3135  docs/extraction_protocol_v2.md
         4799  docs/fig1_prevalence_by_construct.svg
-        9951  docs/fig2_method_drivers.svg
-       18598  docs/fig3_whole_diet_backbone.svg
-        4900  docs/fig4_concentration_curve.svg
+        9386  docs/fig2_method_drivers.svg
+       19046  docs/fig3_whole_diet_backbone.svg
+        5038  docs/fig4_concentration_curve.svg
         6665  docs/fig5_forest_constructs.svg
-       13486  docs/figA_exposure_reach_split.svg
-      111009  docs/figB_by_id_method.svg
-       50248  docs/figC_breadth_gradient.svg
-      122082  docs/figD_by_topic.svg
-      114768  docs/figE_by_platform.svg
-        5101  docs/figF_rob_by_construct.svg
+       13593  docs/figA_exposure_reach_split.svg
+      115351  docs/figB_by_id_method.svg
+       51464  docs/figC_breadth_gradient.svg
+      126643  docs/figD_by_topic.svg
+      118986  docs/figE_by_platform.svg
+        5204  docs/figF_rob_by_construct.svg
         6502  docs/figG_concentration_comparison.svg
-      119344  docs/figH_ground_truth.svg
+      123902  docs/figH_ground_truth.svg
        15375  docs/figI_by_political.svg
         6212  docs/figJ_by_age.svg
-        3665  docs/figK_concentration_flow.svg
-        9170  docs/figL_concentration_lorenz.svg
-       15361  docs/figN_platform_panels.svg
-        4941  docs/figP_breadth_panels.svg
-        6894  docs/figP_classification_level_panels.svg
+        3672  docs/figK_concentration_flow.svg
+        9526  docs/figL_concentration_lorenz.svg
+       15360  docs/figN_platform_panels.svg
+        4942  docs/figP_breadth_panels.svg
+        7206  docs/figP_classification_level_panels.svg
        15013  docs/figP_country_norm_panels.svg
         6241  docs/figP_denom_scope_panels.svg
         8483  docs/figP_ground_truth_panels.svg
        10218  docs/figP_sampling_frame_panels.svg
-       13611  docs/figP_topic_panels.svg
+       13925  docs/figP_topic_panels.svg
         6061  docs/figQ_matched_concentration.svg
-        5699  docs/fig_funnel.svg
+        5681  docs/fig_funnel.svg
         5575  docs/gpt_check_2026-09/INSTRUCTIONS.md
          411  docs/gpt_check_2026-09/MANIFEST.md
         1643  docs/gpt_check_2026-09/PROVENANCE.md
@@ -2477,23 +2500,23 @@ Files
         1926  docs/grey_lit_protocol.md
        15413  docs/human_review_provenance.md
        15993  docs/learned_review_rules.md
-       17480  docs/litreview_measurement.html
+       17461  docs/litreview_measurement.html
         8050  docs/llm_provenance.md
-      133734  docs/manuscript_draft.md
+      130308  docs/manuscript_draft.md
        28171  docs/moderator_codebook.md
         8333  docs/package_promises_2026-09-14.md
-      104351  docs/phaseB_dashboard.html
-       61534  docs/phaseB_descriptives.html
-      604330  docs/phaseB_figure_gallery.html
-       48436  docs/phaseB_figures.html
-       31310  docs/phaseB_slices.html
+      104576  docs/phaseB_dashboard.html
+       62104  docs/phaseB_descriptives.html
+      623371  docs/phaseB_figure_gallery.html
+       48859  docs/phaseB_figures.html
+       31999  docs/phaseB_slices.html
      3282701  docs/preprint/Altay_Systematic_Review_Misinfo.pdf
         5184  docs/prisma_checklist.md
-      538503  docs/prisma_flow.png
-       16492  docs/prisma_flow.svg
+      642953  docs/prisma_flow.png
+       15509  docs/prisma_flow.svg
        10881  docs/protocol.md
         5426  docs/replication_package.md
-     1018297  docs/research_log.md
+     1042988  docs/research_log.md
        11414  docs/rob_checklist_v3.md
         1730  docs/screening_criteria.txt
         2312  docs/screening_criteria_stage2.txt
@@ -2506,10 +2529,10 @@ Files
         5886  scripts/appendix_content_sharing.py
        16623  scripts/build_companion_dashboard.py
        16847  scripts/build_litreview_html.py
-       62124  scripts/build_public_package.py
-       38967  scripts/build_site.py
+       64726  scripts/build_public_package.py
+       38960  scripts/build_site.py
         4960  scripts/check_invariants.py
-      123151  scripts/check_manuscript_stats.py
+      124611  scripts/check_manuscript_stats.py
         2281  scripts/check_pipeline_docs.py
        28013  scripts/check_site.py
         2845  scripts/fetch_abstracts_crossref_pubmed.py
@@ -2520,22 +2543,22 @@ Files
         2553  scripts/lib_slices.py
         6457  scripts/make_behavioural_arm_dispositions.py
         5210  scripts/make_box1.py
-       17568  scripts/make_counts_crosswalk.py
+       17335  scripts/make_counts_crosswalk.py
         6830  scripts/make_forest_plot.py
         7959  scripts/make_manuscript_docx.py
-       23313  scripts/make_nhb_docx.py
-       37521  scripts/make_prisma.py
+       23254  scripts/make_nhb_docx.py
+       18954  scripts/make_prisma.py
         4874  scripts/make_si_characteristics.py
-       37091  scripts/make_si_lists.py
+       24161  scripts/make_si_lists.py
         2041  scripts/openalex_keyword_search.py
         6554  scripts/phaseB_concentration_null.py
         5734  scripts/phaseB_concentration_table.py
        15865  scripts/phaseB_dashboard.py
        18015  scripts/phaseB_descriptives.py
         5392  scripts/phaseB_export_json.py
-       20079  scripts/phaseB_figures.py
+       20164  scripts/phaseB_figures.py
        12889  scripts/phaseB_figures2.py
-       18915  scripts/phaseB_figures3.py
+       18912  scripts/phaseB_figures3.py
         9064  scripts/phaseB_grade.py
         8345  scripts/phaseB_metareg.R
         6554  scripts/phaseB_metareg_robustness.R
@@ -2563,11 +2586,11 @@ Files
          821  scripts/serve_site.sh
         5704  scripts/snowball_openalex.py
        13548  scripts/stress_site.mjs
-        7144  scripts/sync_doc_freeze_headers.py
+        7042  scripts/sync_doc_freeze_headers.py
         2665  scripts/sync_provenance_ledger.py
         4031  scripts/tune_search.py
         9689  scripts/validate_frozen.py
-       14561  scripts/validate_prisma.py
+       16745  scripts/validate_prisma.py
         9773  scripts/venue_sensitivity.py
         1219  searches/README.md
         1897  searches/query_log.md

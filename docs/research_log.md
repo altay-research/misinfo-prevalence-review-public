@@ -12566,3 +12566,252 @@ Author-edits guard after the update: 13 anchors carried numbers or a phrase the 
 Site rebuilt (check_site 1159/1159, stress 610/610, worker 40/40); authors now S.A. + L.H. with the title-page affiliations; Data page keeps the PsyArXiv preprint and its PDF (Sacha chose "keep, add a note") with a line that preprint version 1 reports v1.7.23; download button "Download the preprint (version 1)". Package README citations Altay & Hitz. The clean-clone test (README's three commands on a fresh clone) caught the new guard assertions crashing on files the package does not ship (stage-3 screening files built from record dumps; Mistral extraction folders quoting full texts): both now SKIP with a message, like the archived-abstract check, and the README says so. Zenodo record 23978950 was minted by the GitHub integration from release v1.7.23 (concept DOI 10.5281/zenodo.23978949), so a new version = a GitHub release v1.7.25 on the public repo.
 
 Public repo pushed (3a44054) after a clean-clone run passed end to end (pre/metareg/post all exit 0, data/synth byte-identical; drift clean after rob_checklist_v3 and two internal notes were moved to v1.7.25). Pages deploy succeeded; live meta.json = v1.7.25, 493 / 1159, both authors. No GitHub release yet (that is the Zenodo step; awaiting Sacha).
+
+## 2026-11-23 (afternoon) — independent audit of the v1.7.25 update, and fixes
+Sacha asked for an independent check. A fresh Opus agent audited read-only against the data (report kept in the session
+scratchpad; summary here): 11 errors, 17 risks, 10 nits; it recomputed headline medians, the meta-regression, A4 windows
+(9 of 15 new codes spot-checked against full texts), every re-check number, PRISMA arithmetic, figure swaps, checklist
+pages, SD1/SD2 and the 493 references, all correct. Each error was re-verified here before fixing.
+**Fixed (master via update_manuscript_v1725.py, now 85 edits; Word files tracked):** E1 reach-sharing "one point" -> a
+tenth; E2 (+0.6 -> +1.4 pp, wrong since before v1.7.23); E3 borderline exclusion now moves Content to 20.2%; E4 MY BUG:
+the new B1 paragraph had split the asymmetry paragraph and carried its last sentence away (restored in 02 by undoing the
+tracked deletion); E5 ground-truth gradient (fact-checker verdicts 1.5% now lowest with domain lists); E6 climate now two
+studies (his wording "represents ... the whole corpus" kept; ledger re-anchored); E7 A5 94/30/62 (stale since before
+v1.7.23); E8 k = 113; E9/R1 the 6 removed were included studies and the full-text pass ran twice; E10 154 disputes (138
++ 16) in 57 decisions, not 57 disputes; E11 blind re-extraction covers 438 of 493 (limitation and A2); R2 the screening
+checks' zero point estimate was too optimistic but 46/17,583 (0.3%) is inside their bounds; R3 "most ... (95 of 141)";
+R4 "third model family"/"third-model" everywhere incl. PRISMA box and caption; R6 "about a quarter"; R7 Cramér's V
+dropped (partly true by construction); R9 correction direction regenerated through v1.7.25 (64 versions; 25 up/24 down,
+p = 1.000; all 29/31, p = .90) and, found doing it, "the largest single movement" was false since before v1.7.23 (the
++14.45 pp concentration correction at v1.4.7) -> rewritten; R12 behavioural platforms "two-thirds" (67/101) and
+"none for Telegram"; R15 repair removals split 16 + 2; R16 reply to editor; R17 Reporting Summary lastupdate and 208
+wording; N4 Table 2 "S.A.". One stray fragment created while dropping V (".97)") caught by the accepted-text check and
+removed. Checklist page numbers re-derived from accepted renders (Reliability 18-21, Data availability 23, B1 7-14, B1b 14)
+and rebuilt from the original with one merged edit file. Guards: stats 287/287, author edits 171/171, invariants,
+validate_prisma, validate_frozen, pipeline docs, drift clean; verify_docx 287/287. Public package rebuilt, clean clone
+byte-identical end to end, pushed (430c1ba), live.
+**Not fixed, for Sacha (pre-existing or judgment):** R5 topic interval clears sampling frame by 0.1 (true as worded);
+R8 A7's 95 studies are a September coding (21 new curated studies uncoded); R11 "2005-2026" vs a 1996 study; R13 subgroup
+"90 behavioural" vs 101 elsewhere (different sets); R14 two removed repair studies not in SD2/ledger; N1 99.5% at 50%
+corruption; N2 Supp Table 1 recall 23% is pooled (seen-only 22%); N3 539 cells vs 531 panel sum; N8 Note E recount;
+N9 source-concentration "five estimates" vs 7; N10 "eight studies" median is over 10 contrasts; OA-W2992531903 SD1 record.
+
+Figure PDFs (rsvg-convert from the v1.7.25 SVGs) added to editor_requests_2026-11-19/08_figures_REVISED. Memory updated with the open list.
+
+## 2026-11-23 (evening) — Sacha's round on v1.7.25: progress
+His files (01: all my edits accepted + 13 untracked edits; 02: same + 13 edits + 10 comments) archived in
+docs/.backups/sacha_round_2026-11-23/. His 26 edits carried into the master by scripts/apply_sacha_round_2026_11_23.py
+(ledger rounds 2026-11-23-main/-si; two typos amended by tracked edit: "Opus 5.5.," and "world.I").
+update_manuscript_v1725.py is FROZEN (it rebuilds from main and would drop his edits).
+scripts/apply_round2_2026_11_23.py (master + tracked in his files): reach/sharing no longer a "gap"; "stable across
+2005–2026" -> "over time" (a 1996 study); source concentration "Seven estimates, from five studies"; partisan median
+over ten contrasts; his SI comments #1 (retired bullet deleted), #2/#3 (miscoding, time trend cut to two sentences),
+#4 (GRADE I² one sentence), #6 (A4 bounded-window paragraph deleted), #7, #8 (ladder, fewer colons), #10 (Note E
+register); Supp Table 1 recall-seen high-RoB 22% (seen-only 18/81; the checker now computes it). Figure 4 band totals
+removed (phaseB_figures.py), caption updated, swap tracked. "submitted dataset" -> "an earlier version of the dataset" /
+"the corpus as it then stood". Reporting Summary: data years 1996–2026.
+A7 recoded: the September file covered 115 studies, 4 of which left the corpus; 42 current curated studies were never
+coded. An Opus agent coded them on the September scheme (curated_abstract_disclosure_2026-11-23_additions.csv); 13 read
+as not rank-truncated/hand-selected go to curated_abstract_disclosure_2026-11-23_notcurated.txt, as in September.
+A7 now 122 studies: 78 stated / 34 sample size only / 10 neither; 86 headline, 28 (33%) without the selection (was
+95 / 64 / 26 / 5 / 73 / 23 (32%)). REVISION ITEMS from the coder: those 13 studies carry denom_selection = curated in
+v1.7.25 though their samples are not curated on reading; 2-s2.0-85095575703 has an empty denominator field;
+2-s2.0-85186874194 abstract 221 vs body/frozen 220 videos; PMID-42295743 abstract 563 vs frozen 562.
+
+## 2026-11-23 (evening) — PRISMA audit; Sacha's decisions; Sci-Hub disclosure basis
+Independent PRISMA audit (Opus, read-only; report in session scratchpad prisma_audit/PRISMA_AUDIT.md): box arithmetic
+closes, but the record ledger is wrong in places, all pre-existing (June–September). Verified here: the second-reader
+re-screen box shows 112 excluded, but data/verify/ gives 64 excluded on review, 25 adjudicated INCLUDE (in
+included_verified.txt) and 23 needs-full-text never decided. Other findings (false one-word-title duplicates, never
+screened OpenAlex/snowball records, three unreported searches, SD2 not complete, stage 5 was full text, checks
+described as covering more than they did) are listed in the report and in memory.
+Sacha's decisions: (1) disclose ALL retrieval sources, including Sci-Hub; (2) rebuild the PRISMA ledger and figure
+before upload; (3) screen the undecided records now. Two Opus agents launched: PRISMA rebuild (writes PRISMA scripts
+and data/extract_v2/qa/prisma_rebuild_2026-11/) and undecided screening (data/extract_v2/qa/undecided_2026-11/, decision
+page on his Desktop; no shadow libraries).
+Retrieval sources, counted from data/stage5/*.report.jsonl (June stage 5, the PDF finder scripts/pdf_finder/ with
+Sci-Hub enabled, log §30): successes by source Unpaywall 138, Sci-Hub (sci-hub.vg) 91, Europe PMC 80, OpenAlex and
+repository landing pages ~29, Semantic Scholar 2, OSF 1. Of the 91 Sci-Hub DOIs, 15 are included studies in v1.7.25
+and 0 are full-text exclusions. Later rounds used OpenAlex OA, Unpaywall, Europe PMC, S.A.'s own PDF library and his
+institutional access through his browser. Draft Methods sentence (to apply with the PRISMA text): "Full texts were
+retrieved from open-access copies (Unpaywall, Europe PMC, OpenAlex and institutional repositories), S.A.'s own library
+and institutional access, and, in one retrieval round in June 2026, an automated tool that also queried Sci-Hub, which
+supplied the full text of 15 included studies."
+
+## 2026-11-23 (afternoon): undecided records ruled; PRISMA judgement calls ruled; follow-up launched
+
+**Undecided-records screen (459 records; commit 499ef002).** Records the PRISMA audit found with no screening or
+eligibility decision (OpenAlex never screened 73; snowball never screened 4; Scopus missing from the title screen 2;
+overturned second-reader rejections 35; concentration query 33; September Scopus behavioural 81; snowball records
+advanced in June with no outcome 231). Stage-3 instruments reused unchanged (mistral-large-4-0, T=0, seed 42, hashes
+asserted). Outcomes: 257 excluded at title/abstract, 160 excluded at full text, 16 not retrieved, 26 candidates.
+No shadow library was used. Files: data/extract_v2/qa/undecided_2026-11/ (REPORT.md, outcomes_pending.csv).
+
+**Manual retrieval.** S.A. opened the 16 unretrieved papers (13 DOIs, 3 Scholar title searches) and found one:
+Yang et al., J. Communication 2025 (W4413962300, 10.1093/joc/jqaf035). Mistral full-text pass: EXCLUDE; its only
+prevalence figures (2.3% of web traffic, 14.0% of Facebook engagement for unreliable sources) are cited from
+Altay et al. 2022, not measured (rule R8). The 15 others stay NOT_RETRIEVED. The 2 papers whose Mistral pass
+stalled (W4313023844, W4307700164) were re-run; S.A. ruled both EXCLUDE.
+
+**S.A.'s rulings** (decision page, 74 cards; saved as undecided_rulings_sacha_FILLED.csv; resolved in
+final_rulings.csv). Comments addressed in chat:
+- W3170757121 (Wojcieszak et al. 2021, news avenues): INCLUDE, 948 of 163,826 news visits to untrustworthy sites.
+- W7154958187 (Google search for House members, JQD 2025): INCLUDE, 0.6% of news results unreliable (checked
+  verbatim, Results).
+- W4385965234 (entropy echo chambers): EXCLUDE, subgroup-only shares (S.A.: "if still unsure, exclude").
+- W4406127278 (ElectionRumors2022): INCLUDE, concentration rows only (top 1% of users 84% of retweets, top 0.1%
+  40%); keyword-collected corpus may hold corrections, noted in coding.
+- Six studies Claude recommended including were ruled EXCLUDE on the page without a reason (tobacco tweets; fake
+  news targeting corporations; online hate and misinformation videos; hurricane climate coverage; GM-food rumours;
+  advertisers monetizing misinformation). Claude flagged them as includable under the corpus rules; S.A. replied "ok
+  to all you said", recorded as INCLUDE, to be reconfirmed on the next decision page. The two health-quality
+  studies (carpal tunnel websites; retrograde-ejaculation YouTube) stay EXCLUDE.
+- Rossini et al. (JQD, Brazil) is the same survey as included Rossini 2021: its rows join that study.
+- Net: 14 INCLUDE rulings = 13 new studies + 1 merge; 35 EXCLUDE; 5 DUPLICATE.
+
+**PRISMA judgement calls (from the ledger rebuild REPORT.md), S.A.'s rulings:**
+1. 80 stage-5 "maybe after full text": not covered by the undecided screen; sent to the follow-up (full text on Mistral).
+2. 178 June extractions with no estimate: 171 were in the undecided screen and are now decided; the other 7 go to
+   the follow-up.
+3. Deduplication rules: accepted.
+4. 745 September-repair UNSURE never sought: screen them on Mistral (follow-up).
+5. Mistral-only screening is not a screening decision: accepted (S.A. validates all rulings anyway).
+6. Keyword-rule reason categories (67 "other", verbatim kept): accepted.
+7. 21 abstract-only includes counted as assessed: kept, with a note under the flow diagram ("included on the abstract").
+8. Different-DOI copies of included studies = additional reports: accepted, provided they are true copies. Checked:
+   Google Search, QAnon and the OSF v1 pairs are clearly the same study; the tanning record carries a wrong DOI
+   (10.1186/s13011-018-0152-7) for the same article, so it becomes a DUPLICATE; the Australian-Chinese chapter vs the
+   2025 attitudes-to-democracy preprint, and the German "then and now" preprint vs "Little change", are verified in
+   the follow-up.
+9. API hit counts vs downloaded (Scopus 20,409 vs 20,344; PubMed 5,179 vs 5,167): one Methods sentence giving both.
+10. September Scopus behavioural query had a single reader: Mistral second-reader screen (follow-up).
+
+**Follow-up launched** (agent; Mistral does the reading): items 1, 2, 4, 10 and the two pair checks. Outputs in
+data/extract_v2/qa/prisma_followup_2026-11/, decision page ~/Desktop/prisma_followup_decisions.html.
+Afterwards: merge all outcomes into prisma_rebuild_2026-11/merged_outcomes.csv, extract the new includes, freeze
+v1.7.26, rerun the pipeline, update numbers and PRISMA text as tracked changes (asking S.A. before the big rerun).
+
+## 2026-11-23 (evening): round 3 on 01/02 (Sacha's edits + remaining SI comments)
+
+S.A. edited the round-2 working copies (archived: docs/.backups/sacha_round2_2026-11-23/). Word-level enumeration
+(diff_author_edits.py --untracked) found 3 untracked deletions, now in the master and the ledger (round 2026-11-23b):
+"Two deserve mention here." (main robustness paragraph); the Figure 4 caption sentence on omitted bands
+(make_nhb_docx.py); the within-content ladder sentences in the B2 ladder paragraph. 02 held 11 comments, mostly the
+earlier ones still anchored plus new follow-ups. scripts/apply_round3_2026_11_23.py addressed them as tracked changes:
+- miscoding bullet (A2) deleted ("still tempted to remove"); the main-text list of checks drops it (tracked in 01).
+- time-trend bullet kept: it is the evidence behind the main text's "stable over time" (answered in chat).
+- GRADE inconsistency sentence rewritten in plain terms.
+- A4 reach-window paragraph ("explain") rewritten in plain terms: panels of recruited people 18.0% (k = 25) against
+  whole-platform or elite-account denominators 1.7% (k = 7).
+- Note E rewritten in full in the manuscript's register and shortened (977 to about 480 words); the
+  flagged-pool composition paragraph cut; Kreps et al. 2022 still cited (no renumbering).
+All comments removed from 02 after addressing. Checker: assertions on the cut text retired (perturbation, within-content
+ladder), Note E assertions re-pointed to the new wording; 276/277 (the remaining failure is the known PRISMA
+not-retrieved key, fixed with the PRISMA text). Ledger rows 2026-09-18 #79/#81/#82 marked superseded. Author-edit guard,
+invariants and drift check pass. Delivered to editor_requests_2026-11-19/ after confirming his files were unchanged.
+Open: a proposal for further SI cuts (B1 is 4,268 of the SI's ~9,200 words).
+
+## 2026-11-23 (evening, later): round 3 accepted
+S.A. accepted all round-3 tracked changes in 01/02 (archived: docs/.backups/sacha_round3_2026-11-23/). One untracked
+edit of his: "No secular trend in the gaps (exploratory):" -> "No secular trend in the gaps:" (SI A2), carried into the
+master and the ledger (round 2026-11-23c). Ledger scopes of the 2026-11-23b/c rows corrected (SI rows -> si, the
+caption deletion -> figure). Guards pass (checker 276/277, the known PRISMA key).
+
+## 2026-11-23 (night): PRISMA follow-up run (agent; Mistral reads, Claude checks)
+Tasks approved by S.A. 2026-11-23: (1) 80 stage-5 "maybe" + 7 extra June no-rows records re-read at full text; (2) the
+September repair's UNSURE-at-title records never sought (693 still EXCLUDED_SCREENING of 745) screened blind;
+(3) blind second reader on all 230 records of the September 4 Scopus behavioural query; (4) two additional-report pairs
+checked, plus the Tanning wrong-DOI correction. Stage-3 instruments unchanged (mistral-large-4-0, temp 0, seed 42; screen
+511062fab2578da5, filter 185cb1d14cd074a1, full text fbe28f7fa8811580). Scripts scripts/prisma_followup_*.py; outputs
+data/extract_v2/qa/prisma_followup_2026-11/ (REPORT.md); run folders .work/prisma_followup_2026-11/.
+- Screen of 923 records: INCLUDE 140 / MAYBE 367 / EXCLUDE 416; filter on 452 T2: QUALIFIES 1 / POSSIBLE 113 / OUT 338.
+- Second reader (T3): new records 90.1% agreement, kappa 0.50 (n = 81); held records 85.6%, kappa 0.65 (n = 146).
+- Retrieval: 223 sought, 115 texts (87 on file), 108 not retrieved -> needs_manual_retrieval.csv. No shadow library.
+- Full text: 113 read by Mistral, 40 INCLUDE with a row; Claude's check: 25 INCLUDE, 12 UNSURE, 3 EXCLUDE, 1 DUPLICATE.
+- Pair (a) Kruger & Zhang chapter vs van Antwerpen ESM: different studies (wrong text filed under the chapter id).
+  Pair (b) Oswald & Munzert preprint vs JQD 2026: same study. PMID-37632797 -> DUPLICATE (ledger_corrections.csv).
+- outcomes_pending.csv (806): 582 excluded T/A, 75 excluded FT, 110 not retrieved, 2 duplicates, 37 pending ruling.
+- Decision page ~/Desktop/prisma_followup_decisions.html (48 cards). Laptop sleep stalled both runners (16:45-18:30);
+  restarted, resumed. Nothing committed by the agent; ledger script and freeze untouched.
+
+## 2026-11-24 (night) — PRISMA follow-up: manual retrieval ingested, checked, page updated
+
+- Manual retrieval of needs_manual_retrieval.csv (108 rows): Claude drove Sacha's Chrome (his institutional access),
+  tried each paper's publisher PDF in-page, kept tabs needing his save click, closed dead ends (no access); papers with
+  no DOI were tried via Crossref title lookup and Scopus record pages (nothing fetchable there). Two open-access PDFs
+  were fetched directly. No shadow library.
+- Result: 26 records obtained (scripts/prisma_followup_ingest_manual.py; matched by DOI printed in the PDF, else by
+  the nmr_<n> file name; deduplicated on MD5; one second publisher version of the PNAS paper logged and not used):
+  data/extract_v2/qa/prisma_followup_2026-11/manual_retrieval_log.csv. 84 stay not_retrieved.
+- Identity check: 3 low-score texts read by eye and accepted (RIGHT_TEXT in prisma_followup_build_fulltext_folder.py:
+  Russian original with its DOI on p. 1; Sci Rep registered-report banner; JAAD page opening with the previous letter).
+- Mistral blind full-text check (same stage-3 instrument) on the 26: 8 INCLUDE, 18 EXCLUDE. Claude's lean check
+  (scripts/prisma_followup_claude_check.py, 2026-11-24 block) of the 8 plus the JAAD acne letter: 5 INCLUDE (Chen 2015
+  self-reported sharing 67.8%; Viral Justice TikTok 0/150 videos, 2.7% of comments; ijerph MISFA 19% of 300 tweets;
+  Saudi remedy tweets from low-quality sources, per term; King 2025 seen misinformation 93.3%), 3 UNSURE (White
+  Helmets narrative-side coding; Nigeria Likert exposure levels; GPT-4 one question x100), 1 EXCLUDE (acne letter:
+  AAD evidence grading, not falsity). Two Mistral RECALL labels corrected to SHARING.
+- outcomes_pending.csv now: 582 excluded T/A, 93 excluded FT, 84 not retrieved, 2 duplicates, 45 candidates.
+  Decision page rebuilt: ~/Desktop/prisma_followup_decisions.html, 63 cards (was 54). Awaiting Sacha's rulings;
+  then merge -> v1.7.26 freeze.
+
+## 2026-11-24: follow-up rulings archived; integrity and validity re-check of the includes before the merge
+S.A.'s rulings (63 cards) archived as prisma_followup_2026-11/prisma_followup_rulings_sacha_2026-11-24.csv. He asked that no
+included study be fake or fabricated, and that very bad studies stay out. 42 records (28 follow-up INCLUDE/UNSURE + 14
+undecided INCLUDE): OpenAlex venue/retraction metadata (scripts/v1726_venue_metadata.py; 0 retracted); duplicate-data check
+against the corpus (scripts/v1726_duplicate_check.py); blind Mistral integrity read with 5 SUSPECT and 5 CLEAN controls
+(scripts/v1726_integrity_mistral.py; a first launch failed on every call: top_p must be 1 at T=0); Claude's re-read of the
+weak-looking ones. Claude's earlier verdicts were wrong or too lenient for 11 of them. S.A. agreed in chat ("yes agree") to 3
+DUPLICATE and 11 EXCLUDE (v1726_integrity/rulings_chat_2026-11-24.csv) and to the principle: exclusions rest on rules applied
+to the whole corpus; genuine but weak studies stay with a HIGH risk-of-bias rating. Open: 8 borderline records; the included
+ivermectin study 2-s2.0-85169998829 (users tagged by retweets) to be reviewed for consistency.
+
+## 2026-11-24 (later): v1.7.26 frozen; package update in progress
+S.A. "ok": 7 more excludes + ivermectin dropped (rulings_chat_2026-11-24.csv). Mistral integrity run: 5/5 suspect controls SUSPECT, 5/5
+clean controls CLEAN; of the 21 kept candidates none SUSPECT, 10 CONCERN, all reporting slips (those bearing on a used figure checked).
+v1.7.26 (scripts/apply_v1726.py): 1,201 estimates / 512 studies; 20 studies + Rossini rows enter, ivermectin leaves. RoB for the 20 by
+Mistral (rob_checklist_v3 unchanged), reviewed by Claude (1 item changed). Full pipeline rerun incl. bootstrap B=200.
+PRISMA: prisma_merge_outcomes.py merges 1,264 outcomes; 5 leftover OpenAlex records settled by Claude; validate_prisma PASS, 0 awaiting.
+Master: update_manuscript_v1726_mech.py + update_manuscript_v1726.py (DO NOT RE-RUN); checker 277/277; author edits 196/196 (20 ledger
+contexts renumbered). Word: apply_docx_v1726.py on copies of the round-3 files (S.A.'s editor_requests copies verified identical to round 3);
+all edits tracked, verify 0 missing, 46/6 superscripts intact; 8 figures swapped tracked; captions 5 and 6 tracked.
+WIP copy: docs/.backups/round_2026-11-24_v1726_WIP/.
+REMAINING: (1) clean working notes out of Supplementary Data 2 reason_detail (335 rows carry T1_/T2_/"Sacha"/quotes from rulings: fix in
+make_si_lists.py or prisma_merge_outcomes.py, then rerun validate_prisma, make_si_lists); (2) PRISMA checklist page numbers + item 11 count
+(493 -> 512); (3) reply_to_editor.txt (493/1,159 -> 512/1,201, medians, new point on the reconciliation); (4) sync_doc_freeze_headers
+(SI_lists_README pattern unmatched); (5) render 01/02 and eyeball; (6) deliver to editor_requests_2026-11-19 only after re-checking that
+his files are still identical to round 3 and no ~$ lock; (7) JQD W7146985142 values vs published PDF; guards; commit.
+
+## 2026-11-24 (14:35): v1.7.26 package delivered to editor_requests_2026-11-19
+Every REMAINING item above done. Supplementary Data 2: reasons rewritten or cleaned (make_si_lists.public_reason; full reader reasons in
+merged_outcomes; category from the first 150 characters); 1,350 rows, no working notes. Figure 5 label 72.5% (was rounded to 72).
+Checklist pages shifted from LibreOffice renders of the accepted files (old vs new), tracked; item 11 = 512, item 19 = 1,201. Reply updated.
+JQD W7146985142: all six values match the published PDF (text says 8% reach in 2024, its Table 1 says 9%: an inconsistency in the paper).
+All guards pass (277/277; 196/196; drift clean; Word verify 0 missing). Previous package: docs/.backups/editor_requests_v1725_2026-11-24.
+Open: JQD 2024 reach 8 vs 9; website-level studies consistency list; site headline rounding (72 vs 72.5); release/DOI; SI cuts; two scripts
+hold S.A.'s email address (flagged by the privacy hook), move to env before any release.
+
+## 2026-11-24 (15:00): pre-approval audit (S.A.'s request); Sci-Hub wording made general at his request
+Sci-Hub sentence -> "... and other online sources" (S.A.). Independent recompute (fresh code, no pipeline imports): counts, medians, IQRs,
+bootstrap CIs, top-1% and PRISMA states reproduce; 44,458 ledger rows, each unique with one state; every Scopus and OpenAlex dump record
+is in the ledger; 43 of 44 new rows' quotes verbatim in the text (the 44th is split by a column break). Errors found and fixed (tracked):
+(1) Table 2/4.8/B1: PABAK 0.78 was measured on 89 studies with the superseded instrument, not on all studies (also wrong in the submitted
+version); (2) 4.1/4.5 credited Opus with extraction/appraisal of the 20 last studies; (3) Table 2 repair re-screen is Scopus only;
+(4) snowball counts aligned with Figure 6; (5) US count 155 (NEW-jung-icwsm label); (6) Figure 6 and caption: 22 abstract-only studies
+(the OA- prefix hid two). Public repo, site: v1.7.25; Zenodo release v1.7.23. Not published: awaiting S.A.
+
+## 2026-11-24 (15:30): S.A. approved the last 20 studies' rows and RoB ratings; reliability run started
+Page of 21 cards (scripts/v1726_build_rob_decisions.py); all 21 APPROVE (v1726_integrity/rob_coding_rulings_sacha_2026-11-24.csv). Text:
+"no model verdict on a contested coding" (4.8, B1; S.A. ok); 4.7, 4.1, B1 now say S.A. approved the rows and ratings. AI statement kept (S.A.).
+Non-retrieval limitation: deferred to the revision (S.A.). Blind second RoB (rob_v3_reliability_mistral.py, 100 random studies, seed 20261124)
+started; slow network (upload ~6-9 KB/s) stalls it. Score: scripts/score_rob_v3_reliability.py.
+
+## 2026-11-24 (15:30): round 4 accepted
+S.A. accepted every tracked change in 01/02 with no wording edits (archived docs/.backups/sacha_round4_2026-11-24; text identical to the
+delivered version with changes accepted). Figure 6 caption reworded at his request (tracked in 01, carried to make_nhb_docx.py).
+
+## 2026-11-24 (16:00): published as v1.7.26; DOI now the concept DOI
+S.A.: the paper cites the concept DOI 10.5281/zenodo.23978949 (always the latest version) instead of the v1.7.23 version DOI (01, checklist,
+Reporting Summary, master); release v1.7.26 on the public repo approved. The research log stays in the public package as is. The RoB
+reliability run is paused at 20 of 100 (S.A. submits without it; resume for the revision). Note A7: 124 studies (2 new); 3 new studies carry
+a wrong "curated" denominator code, left for the next freeze (effect: denom_fine R2 18.3 -> 18.4). Clean-copy run of the package passes.

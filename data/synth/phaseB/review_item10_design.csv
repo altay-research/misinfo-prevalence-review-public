@@ -1,9 +1,9 @@
 denom_class,item10_high,item10_low,pct_high
-all_media,0,7,0
-curated_sample,106,32,77
-n/a,8,13,38
-news_diet,5,4,56
+all_media,0,8,0
+curated_sample,111,36,76
+n/a,8,14,36
+news_diet,5,5,50
 political_news,14,4,78
-population,10,110,8
-single_source,13,6,68
-topical,131,19,87
+population,11,114,9
+single_source,13,7,65
+topical,130,21,86

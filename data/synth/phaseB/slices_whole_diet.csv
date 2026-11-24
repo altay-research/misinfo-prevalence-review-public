@@ -2,6 +2,7 @@ id,construct,denom,country,platform,topic,study_median,n_est,rob
 2-s2.0-85209206311,EXPOSURE,all_media,United States,web_cross_platform,general_news,0.13,3,LOW
 2-s2.0-85037352356,REACH,population,United States,web_cross_platform,general_news,0.34,1,MODERATE
 2-s2.0-85083323285,EXPOSURE,all_media/news_diet,United States,other,general_news,0.57,2,MODERATE
+W3170757121,EXPOSURE,news_diet,United States,web_cross_platform,general_news,0.58,1,MODERATE
 NEW-bergeronboutin-sciadv2026,EXPOSURE,all_media,United States,Facebook,general_news,0.6,2,LOW
 NEW-berriche-fakerisland2026,REACH,population,France,Twitter/X,general_news,0.9,1,MODERATE
 W4293124965,EXPOSURE,news_diet,United States,web_cross_platform,general_news,0.97,8,LOW

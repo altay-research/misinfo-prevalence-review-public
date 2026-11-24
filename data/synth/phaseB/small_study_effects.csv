@@ -1,13 +1,13 @@
 group,k,spearman_rho,rho_ci_lo,rho_ci_hi,t,df,p_value,direction,significant,test
-EXPOSURE,19,-0.282,-0.661,0.212,-1.21,17,0.2426,larger samples find LESS,no,"spearman(n, value) [REPORTABLE]"
-EXPOSURE,19,,,,0.79,17,0.4393,,no,egger [DIAGNOSTIC ONLY - do not report]
+EXPOSURE,20,-0.312,-0.671,0.165,-1.39,18,0.1803,larger samples find LESS,no,"spearman(n, value) [REPORTABLE]"
+EXPOSURE,20,,,,0.78,18,0.4435,,no,egger [DIAGNOSTIC ONLY - do not report]
 REACH,32,-0.634,-0.809,-0.358,-4.5,30,0.0001,larger samples find LESS,yes,"spearman(n, value) [REPORTABLE]"
 REACH,32,,,,0.81,30,0.4258,,no,egger [DIAGNOSTIC ONLY - do not report]
-SHARING,56,-0.149,-0.403,0.127,-1.11,54,0.2735,larger samples find LESS,no,"spearman(n, value) [REPORTABLE]"
-SHARING,56,,,,-1.45,54,0.1522,,no,egger [DIAGNOSTIC ONLY - do not report]
-CONTENT,294,-0.369,-0.466,-0.263,-6.78,292,0.0,larger samples find LESS,yes,"spearman(n, value) [REPORTABLE]"
-CONTENT,293,,,,-1.15,291,0.2512,,no,egger [DIAGNOSTIC ONLY - do not report]
-RECALL,103,-0.182,-0.368,0.018,-1.86,101,0.0655,larger samples find LESS,no,"spearman(n, value) [REPORTABLE]"
-RECALL,103,,,,-0.54,101,0.5887,,no,egger [DIAGNOSTIC ONLY - do not report]
-WHOLE-DIET backbone,39,-0.545,-0.738,-0.268,-3.95,37,0.0003,larger samples find LESS,yes,"spearman(n, value) [REPORTABLE]"
-WHOLE-DIET backbone,39,,,,1.34,37,0.1899,,no,egger [DIAGNOSTIC ONLY - do not report]
+SHARING,59,-0.216,-0.453,0.051,-1.67,57,0.101,larger samples find LESS,no,"spearman(n, value) [REPORTABLE]"
+SHARING,59,,,,-1.87,57,0.067,,no,egger [DIAGNOSTIC ONLY - do not report]
+CONTENT,304,-0.38,-0.475,-0.277,-7.14,302,0.0,larger samples find LESS,yes,"spearman(n, value) [REPORTABLE]"
+CONTENT,303,,,,-1.26,301,0.2084,,no,egger [DIAGNOSTIC ONLY - do not report]
+RECALL,108,-0.195,-0.375,-0.0,-2.05,106,0.0433,larger samples find LESS,yes,"spearman(n, value) [REPORTABLE]"
+RECALL,108,,,,-0.52,106,0.6059,,no,egger [DIAGNOSTIC ONLY - do not report]
+WHOLE-DIET backbone,40,-0.563,-0.748,-0.296,-4.19,38,0.0002,larger samples find LESS,yes,"spearman(n, value) [REPORTABLE]"
+WHOLE-DIET backbone,40,,,,1.32,38,0.1941,,no,egger [DIAGNOSTIC ONLY - do not report]

@@ -42,7 +42,7 @@ def freeze_facts():
     # the main-set size is canonical in counts_crosswalk.md; read it rather than re-deriving the
     # predicate here, so this script cannot disagree with the drift check about what "main set" means
     cw = open(os.path.join(ROOT, "docs/counts_crosswalk.md"), encoding="utf-8").read()
-    f["main_set"] = int(re.search(r"\| Estimates in the main analysis set \| (\d+) \|", cw).group(1))
+    f["main_set"] = int(re.search(r"\| Estimates in the main analysis set \| ([\d,]+) \|", cw).group(1).replace(",", ""))
     f["est_c"] = f"{f['estimates']:,}"
     f["studies_c"] = f"{f['studies']:,}"
     f["main_c"] = f"{f['main_set']:,}"
@@ -73,9 +73,6 @@ EDITS = [
     ("docs/grade_certainty_framework.md",
      r"Current result \(v[\d.]+\):",
      "Current result ({version}):"),
-    ("docs/SI_lists_README.md",
-     r"from freeze v[\d.]+ and the PRISMA",
-     "from freeze {version} and the PRISMA"),
     ("docs/METHODS_PROVENANCE.md",
      r"As at freeze \*\*v[\d.]+\*\* \([\d-]+\): [\d,]+ estimate rows / [\d,]+ studies, [\d,]+ of them in the main",
      "As at freeze **{version}** ({date}): {est_c} estimate rows / {studies_c} studies, {main_c} of them in the main"),

@@ -1,9 +1,581 @@
 {
+  "freeze": "1.7.26",
+  "studies": 512,
+  "estimates": 1201,
+  "studies_assessed_on_abstract_only": 22,
+  "reason_labels": {
+    "dup_data": "Same survey or dataset as an included study",
+    "no_estimate": "Eligible topic, but no codeable estimate",
+    "integrity": "Data-integrity concerns (fabricated, predatory or internally inconsistent)",
+    "not_primary": "Not a primary empirical report (review, commentary, news item, meeting abstract)",
+    "construct": "Wrong construct or unit (belief, intention, stance, quality ratings, source-level ratings, bots or simulations, effects)",
+    "denominator": "No eligible estimate (no share with a valid denominator; curated or all-false sample; scale means only; value not printed)",
+    "stage5_maybe": "Eligibility not confirmed on the full text (rated maybe at the June full-text screen)",
+    "june_no_rows": "No qualifying estimate found at the June full-text extraction (reason not recorded)",
+    "other": "Not eligible on full text, other or unspecified reason"
+  },
+  "route_labels": {
+    "september_repair": "September 2026 re-screen under corrected criteria (corpus repair)",
+    "november_rescreen": "November 2026 re-screen by a third model family",
+    "november_rules_pass": "November 2026 full-text re-read of earlier exclusions",
+    "other_check": "other checks (false-negative audits, human validation, dispositioning)"
+  },
+  "streams": {
+    "scopus": {
+      "identified": 20344,
+      "dup_at_search": 0,
+      "dup_rebuild": 13,
+      "awaiting_screening": 0,
+      "screened": 20331,
+      "first_pass_excluded": 18773,
+      "recovered": 755,
+      "recovered_by": {
+        "september_repair": 477,
+        "november_rescreen": 124,
+        "november_rules_pass": 22,
+        "other_check": 132
+      },
+      "excluded_screening": 18018,
+      "excluded_screening_by_stage": {
+        "abstract": 940,
+        "november_undecided_screen": 595,
+        "second_reader": 48,
+        "title": 16435
+      },
+      "advanced": 1558,
+      "sought": 2313,
+      "not_retrieved": 924,
+      "awaiting_ft": 0,
+      "excluded_ft": 977,
+      "included": 412,
+      "other_reports": 0,
+      "assessed": 1389,
+      "excluded_ft_by_reason": {
+        "dup_data": 3,
+        "no_estimate": 43,
+        "integrity": 21,
+        "not_primary": 95,
+        "construct": 443,
+        "denominator": 295,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 77
+      },
+      "label": "Scopus, main query",
+      "column": "db",
+      "date": "2026-06-20"
+    },
+    "scopus_conc": {
+      "identified": 497,
+      "dup_at_search": 0,
+      "dup_rebuild": 6,
+      "awaiting_screening": 0,
+      "screened": 491,
+      "first_pass_excluded": 486,
+      "recovered": 1,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 0,
+        "november_rules_pass": 0,
+        "other_check": 1
+      },
+      "excluded_screening": 485,
+      "excluded_screening_by_stage": {
+        "november_undecided_screen": 23,
+        "title_abstract": 462
+      },
+      "advanced": 5,
+      "sought": 6,
+      "not_retrieved": 3,
+      "awaiting_ft": 0,
+      "excluded_ft": 3,
+      "included": 0,
+      "other_reports": 0,
+      "assessed": 3,
+      "excluded_ft_by_reason": {
+        "dup_data": 0,
+        "no_estimate": 0,
+        "integrity": 0,
+        "not_primary": 0,
+        "construct": 2,
+        "denominator": 1,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 0
+      },
+      "label": "Scopus, concentration query",
+      "column": "db",
+      "date": "2026-06-21"
+    },
+    "pubmed": {
+      "identified": 5167,
+      "dup_at_search": 4757,
+      "dup_rebuild": 0,
+      "awaiting_screening": 0,
+      "screened": 410,
+      "first_pass_excluded": 405,
+      "recovered": 15,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 15,
+        "november_rules_pass": 0,
+        "other_check": 0
+      },
+      "excluded_screening": 390,
+      "excluded_screening_by_stage": {
+        "adjudication": 12,
+        "title_abstract": 378
+      },
+      "advanced": 5,
+      "sought": 20,
+      "not_retrieved": 10,
+      "awaiting_ft": 0,
+      "excluded_ft": 5,
+      "included": 5,
+      "other_reports": 0,
+      "assessed": 10,
+      "excluded_ft_by_reason": {
+        "dup_data": 1,
+        "no_estimate": 0,
+        "integrity": 1,
+        "not_primary": 0,
+        "construct": 0,
+        "denominator": 3,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 0
+      },
+      "label": "PubMed",
+      "column": "db",
+      "date": "2026-06-24"
+    },
+    "openalex": {
+      "identified": 9378,
+      "dup_at_search": 4556,
+      "dup_rebuild": 4,
+      "awaiting_screening": 0,
+      "screened": 4818,
+      "first_pass_excluded": 4788,
+      "recovered": 158,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 153,
+        "november_rules_pass": 1,
+        "other_check": 4
+      },
+      "excluded_screening": 4630,
+      "excluded_screening_by_stage": {
+        "adjudication": 119,
+        "november_undecided_screen": 75,
+        "title_abstract": 4436
+      },
+      "advanced": 30,
+      "sought": 188,
+      "not_retrieved": 88,
+      "awaiting_ft": 0,
+      "excluded_ft": 84,
+      "included": 15,
+      "other_reports": 1,
+      "assessed": 100,
+      "excluded_ft_by_reason": {
+        "dup_data": 2,
+        "no_estimate": 1,
+        "integrity": 18,
+        "not_primary": 11,
+        "construct": 18,
+        "denominator": 31,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 3
+      },
+      "label": "OpenAlex",
+      "column": "db",
+      "date": "2026-06-24"
+    },
+    "scopus_beh": {
+      "identified": 230,
+      "dup_at_search": 149,
+      "dup_rebuild": 1,
+      "awaiting_screening": 0,
+      "screened": 80,
+      "first_pass_excluded": 73,
+      "recovered": 4,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 0,
+        "november_rules_pass": 0,
+        "other_check": 4
+      },
+      "excluded_screening": 69,
+      "excluded_screening_by_stage": {
+        "november_undecided_screen": 69
+      },
+      "advanced": 7,
+      "sought": 11,
+      "not_retrieved": 5,
+      "awaiting_ft": 0,
+      "excluded_ft": 6,
+      "included": 0,
+      "other_reports": 0,
+      "assessed": 6,
+      "excluded_ft_by_reason": {
+        "dup_data": 0,
+        "no_estimate": 0,
+        "integrity": 0,
+        "not_primary": 0,
+        "construct": 1,
+        "denominator": 4,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 1
+      },
+      "label": "Scopus, behavioural-design query",
+      "column": "db",
+      "date": "2026-09-04"
+    },
+    "pubmed_beh": {
+      "identified": 23,
+      "dup_at_search": 0,
+      "dup_rebuild": 23,
+      "awaiting_screening": 0,
+      "screened": 0,
+      "first_pass_excluded": 0,
+      "recovered": 0,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 0,
+        "november_rules_pass": 0,
+        "other_check": 0
+      },
+      "excluded_screening": 0,
+      "excluded_screening_by_stage": {},
+      "advanced": 0,
+      "sought": 0,
+      "not_retrieved": 0,
+      "awaiting_ft": 0,
+      "excluded_ft": 0,
+      "included": 0,
+      "other_reports": 0,
+      "assessed": 0,
+      "excluded_ft_by_reason": {
+        "dup_data": 0,
+        "no_estimate": 0,
+        "integrity": 0,
+        "not_primary": 0,
+        "construct": 0,
+        "denominator": 0,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 0
+      },
+      "label": "PubMed, behavioural-design query",
+      "column": "db",
+      "date": "2026-09-04"
+    },
+    "openalex_beh": {
+      "identified": 6972,
+      "dup_at_search": 2089,
+      "dup_rebuild": 29,
+      "awaiting_screening": 0,
+      "screened": 4854,
+      "first_pass_excluded": 4669,
+      "recovered": 2,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 2,
+        "november_rules_pass": 0,
+        "other_check": 0
+      },
+      "excluded_screening": 4667,
+      "excluded_screening_by_stage": {
+        "abstract": 371,
+        "title": 4296
+      },
+      "advanced": 185,
+      "sought": 187,
+      "not_retrieved": 99,
+      "awaiting_ft": 0,
+      "excluded_ft": 69,
+      "included": 19,
+      "other_reports": 0,
+      "assessed": 88,
+      "excluded_ft_by_reason": {
+        "dup_data": 0,
+        "no_estimate": 3,
+        "integrity": 2,
+        "not_primary": 3,
+        "construct": 30,
+        "denominator": 20,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 11
+      },
+      "label": "OpenAlex, behavioural-design query",
+      "column": "db",
+      "date": "2026-09-07"
+    },
+    "snowball": {
+      "identified": 1822,
+      "dup_at_search": 0,
+      "dup_rebuild": 181,
+      "awaiting_screening": 0,
+      "screened": 1641,
+      "first_pass_excluded": 1378,
+      "recovered": 14,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 13,
+        "november_rules_pass": 0,
+        "other_check": 1
+      },
+      "excluded_screening": 1364,
+      "excluded_screening_by_stage": {
+        "november_undecided_screen": 67,
+        "title_abstract": 1297
+      },
+      "advanced": 263,
+      "sought": 277,
+      "not_retrieved": 24,
+      "awaiting_ft": 0,
+      "excluded_ft": 205,
+      "included": 47,
+      "other_reports": 1,
+      "assessed": 253,
+      "excluded_ft_by_reason": {
+        "dup_data": 6,
+        "no_estimate": 0,
+        "integrity": 1,
+        "not_primary": 5,
+        "construct": 54,
+        "denominator": 93,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 46
+      },
+      "label": "Citation searching (OpenAlex, backward and forward)",
+      "column": "other",
+      "date": "2026-06-22"
+    },
+    "scholar": {
+      "identified": 15,
+      "dup_at_search": 5,
+      "dup_rebuild": 1,
+      "awaiting_screening": 0,
+      "screened": 9,
+      "first_pass_excluded": 0,
+      "recovered": 0,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 0,
+        "november_rules_pass": 0,
+        "other_check": 0
+      },
+      "excluded_screening": 0,
+      "excluded_screening_by_stage": {},
+      "advanced": 9,
+      "sought": 9,
+      "not_retrieved": 0,
+      "awaiting_ft": 0,
+      "excluded_ft": 1,
+      "included": 5,
+      "other_reports": 3,
+      "assessed": 9,
+      "excluded_ft_by_reason": {
+        "dup_data": 0,
+        "no_estimate": 0,
+        "integrity": 0,
+        "not_primary": 0,
+        "construct": 0,
+        "denominator": 0,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 1
+      },
+      "label": "Google Scholar check",
+      "column": "other",
+      "date": "2026-09-04"
+    },
+    "hand": {
+      "identified": 10,
+      "dup_at_search": 0,
+      "dup_rebuild": 1,
+      "awaiting_screening": 0,
+      "screened": 9,
+      "first_pass_excluded": 0,
+      "recovered": 0,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 0,
+        "november_rules_pass": 0,
+        "other_check": 0
+      },
+      "excluded_screening": 0,
+      "excluded_screening_by_stage": {},
+      "advanced": 9,
+      "sought": 9,
+      "not_retrieved": 0,
+      "awaiting_ft": 0,
+      "excluded_ft": 0,
+      "included": 9,
+      "other_reports": 0,
+      "assessed": 9,
+      "excluded_ft_by_reason": {
+        "dup_data": 0,
+        "no_estimate": 0,
+        "integrity": 0,
+        "not_primary": 0,
+        "construct": 0,
+        "denominator": 0,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 0
+      },
+      "label": "Added by the authors (seed studies, own library, expert-identified)",
+      "column": "other",
+      "date": ""
+    }
+  },
+  "columns": {
+    "db": {
+      "identified": 42611,
+      "dup_at_search": 11551,
+      "dup_rebuild": 76,
+      "awaiting_screening": 0,
+      "screened": 30984,
+      "first_pass_excluded": 29194,
+      "recovered": 935,
+      "recovered_by": {
+        "september_repair": 477,
+        "november_rescreen": 294,
+        "november_rules_pass": 23,
+        "other_check": 141
+      },
+      "excluded_screening": 28259,
+      "excluded_screening_by_stage": {
+        "abstract": 1311,
+        "adjudication": 131,
+        "november_undecided_screen": 762,
+        "second_reader": 48,
+        "title": 20731,
+        "title_abstract": 5276
+      },
+      "advanced": 1790,
+      "sought": 2725,
+      "not_retrieved": 1129,
+      "awaiting_ft": 0,
+      "excluded_ft": 1144,
+      "included": 451,
+      "other_reports": 1,
+      "assessed": 1596,
+      "excluded_ft_by_reason": {
+        "dup_data": 6,
+        "no_estimate": 47,
+        "integrity": 42,
+        "not_primary": 109,
+        "construct": 494,
+        "denominator": 354,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 92
+      }
+    },
+    "other": {
+      "identified": 1847,
+      "dup_at_search": 5,
+      "dup_rebuild": 183,
+      "awaiting_screening": 0,
+      "screened": 1659,
+      "first_pass_excluded": 1378,
+      "recovered": 14,
+      "recovered_by": {
+        "september_repair": 0,
+        "november_rescreen": 13,
+        "november_rules_pass": 0,
+        "other_check": 1
+      },
+      "excluded_screening": 1364,
+      "excluded_screening_by_stage": {
+        "november_undecided_screen": 67,
+        "title_abstract": 1297
+      },
+      "advanced": 281,
+      "sought": 295,
+      "not_retrieved": 24,
+      "awaiting_ft": 0,
+      "excluded_ft": 206,
+      "included": 61,
+      "other_reports": 4,
+      "assessed": 271,
+      "excluded_ft_by_reason": {
+        "dup_data": 6,
+        "no_estimate": 0,
+        "integrity": 1,
+        "not_primary": 5,
+        "construct": 54,
+        "denominator": 93,
+        "stage5_maybe": 0,
+        "june_no_rows": 0,
+        "other": 47
+      }
+    }
+  },
+  "total": {
+    "identified": 44458,
+    "dup_at_search": 11556,
+    "dup_rebuild": 259,
+    "awaiting_screening": 0,
+    "screened": 32643,
+    "first_pass_excluded": 30572,
+    "recovered": 949,
+    "recovered_by": {
+      "september_repair": 477,
+      "november_rescreen": 307,
+      "november_rules_pass": 23,
+      "other_check": 142
+    },
+    "excluded_screening": 29623,
+    "excluded_screening_by_stage": {
+      "abstract": 1311,
+      "adjudication": 131,
+      "november_undecided_screen": 829,
+      "second_reader": 48,
+      "title": 20731,
+      "title_abstract": 6573
+    },
+    "advanced": 2071,
+    "sought": 3020,
+    "not_retrieved": 1153,
+    "awaiting_ft": 0,
+    "excluded_ft": 1350,
+    "included": 512,
+    "other_reports": 5,
+    "assessed": 1867,
+    "excluded_ft_by_reason": {
+      "dup_data": 12,
+      "no_estimate": 47,
+      "integrity": 43,
+      "not_primary": 114,
+      "construct": 548,
+      "denominator": 447,
+      "stage5_maybe": 0,
+      "june_no_rows": 0,
+      "other": 139
+    }
+  },
+  "states": {
+    "DUPLICATE": 259,
+    "EXCLUDED_FT": 1350,
+    "EXCLUDED_SCREENING": 29623,
+    "INCLUDED": 512,
+    "NOT_RETRIEVED": 1153,
+    "OTHER_REPORT": 5
+  },
+  "merged_outcomes_applied": 1264,
   "identified": {
     "scopus_corpus": 20344,
     "openalex_netnew": 4822,
     "pubmed_netnew": 410,
-    "snowball_advancing": 331,
+    "snowball_advancing": 266,
     "behavioural_arm_netnew": 5382
   },
   "behavioural_arm": {
@@ -34,47 +606,10 @@
     },
     "studies_in_freeze": 19
   },
-  "title_screen": {
-    "EXCLUDE": 17583,
-    "INCLUDE": 276,
-    "MAYBE": 2483
-  },
-  "abstract_screen": {
-    "EXCLUDE": 1120,
-    "INCLUDE": 635,
-    "MAYBE": 264
-  },
-  "stage5_screen": {
-    "EXCLUDE": 190,
-    "INCLUDE": 111,
-    "MAYBE": 91
-  },
-  "included_or_staged_to_reconcile": 1563,
-  "maybe_not_selected": 420,
-  "terminal_states": {
-    "INCLUDED_FROZEN": 493,
-    "ARM_EXCLUDED_ABSTRACT": 374,
-    "DROPPED": 153,
-    "VERIFY_REJECTED": 112,
-    "ARM_NOT_RETRIEVED": 99,
-    "DROPPED_V2_UNLEDGERED": 72,
-    "ARM_EXCLUDED_FULL_TEXT": 61,
-    "DISP_EXCLUDED": 48,
-    "INCLUDED_NOT_RETRIEVED": 48,
-    "DISP_INCLUDED_NO_DATA": 44,
-    "DEDUP_COLLAPSED": 23,
-    "DISP_EXCLUDED_TITLE_SCREEN": 14,
-    "DISP_EXCLUDED_OUT_OF_SCOPE": 6,
-    "ARM_EXCLUDED_AT_RULING": 5,
-    "ARM_INCLUDED_NO_DATA": 4,
-    "DISP_EXCLUDED_FULL_TEXT": 3,
-    "DISP_INCLUDED_RECOVERED": 3,
-    "DISP_DUPLICATE_RECORD": 1
-  },
-  "frozen_studies": 493,
-  "abstract_only": 62,
-  "dropped_union": 177,
-  "not_retrieved": 69,
-  "dedup_collapsed": 33,
-  "orphans": []
+  "notes": {
+    "scopus_api_total": 20409,
+    "scopus_downloaded": 20344,
+    "pubmed_hits": 5179,
+    "pubmed_fetched": 5167
+  }
 }

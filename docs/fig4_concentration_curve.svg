@@ -52,6 +52,8 @@
 <circle cx="470.2" cy="210.0" r="5" fill="#0072B2cc" stroke="#fff"/>
 <circle cx="372.1" cy="82.0" r="5" fill="#D55E00cc" stroke="#fff"/>
 <circle cx="564.0" cy="101.2" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="438.0" cy="101.2" r="5" fill="#D55E00cc" stroke="#fff"/>
+<circle cx="312.0" cy="242.0" r="5" fill="#D55E00cc" stroke="#fff"/>
 <circle cx="570.0" cy="54.0" r="5" fill="#0072B2" stroke="none"/>
 <text x="580.0" y="58.0" font-size="10" text-anchor="start" fill="#555" font-weight="normal">exposure</text>
 <circle cx="570.0" cy="72.0" r="5" fill="#D55E00" stroke="none"/>

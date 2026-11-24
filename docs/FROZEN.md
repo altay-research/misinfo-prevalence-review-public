@@ -1,3 +1,22 @@
+# FROZEN DATASET v1.7.26 (2026-11-24) - REVISION BRANCH rev/v1.7.24, not the submitted version
+Estimate dataset frozen. Downstream analysis refers to THIS snapshot ON THIS BRANCH. The submitted
+manuscript (NHB, 2026-11-12) rests on v1.7.23, which stays the pointer on main until the revision.
+
+- File: data/extract_v2/estimates_v1.7.26_frozen.csv
+- Rows: 1201 estimates / 512 studies
+- MD5: 78b81f58f9c3d315cdb4747672957b16
+- Git tag: dataset-frozen-v1.7.26 (supersedes v1.7.25 for the revision)
+- Built by: scripts/apply_v1726.py (changelog: data/extract_v2/qa/changelog_v1726.csv)
+
+## v1.7.25 -> v1.7.26 - the PRISMA follow-up
+
+The PRISMA audit found records with no recorded decision; they were screened blind (Mistral), read at full
+text (Mistral, checked by Claude) and ruled by Sacha (2026-11-23/24), then screened for integrity and
+re-read (data/extract_v2/qa/v1726_integrity/). 20 studies enter (RoB shard_r18), Rossini's exposure rows
+join 2-s2.0-85086031086, and the ivermectin study 2-s2.0-85169998829 leaves (users tagged by retweets).
+
+---
+
 # FROZEN DATASET v1.7.25 (2026-11-20) - REVISION BRANCH rev/v1.7.24, not the submitted version
 Estimate dataset frozen. Downstream analysis refers to THIS snapshot ON THIS BRANCH. The submitted
 manuscript (NHB, 2026-11-12) rests on v1.7.23, which stays the pointer on main until the revision.

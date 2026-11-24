@@ -1,6 +1,6 @@
 value,n_studies,sl_median,sl_iqr,sl_range,n_est,el_median
-classifier/LLM,21,16.9,3.2–29.4,0.5–56.0,33,12.0
-domain_list/NewsGuard,78,7.4,2.4–21.7,0.0–92.5,248,5.0
-fact_checker,23,1.5,0.6–19.0,0.0–90.0,69,8.7
-researcher_coding,265,23.9,9.9–39.5,0.0–94.3,411,20.0
-self_report,102,45.0,27.8–63.2,2.2–95.1,245,37.0
+classifier/LLM,22,12.9,3.1–26.4,0.0–54.6,42,8.6
+domain_list/NewsGuard,82,7.0,1.8–20.0,0.0–92.5,253,5.0
+fact_checker,26,1.4,0.6–17.3,0.0–90.0,74,7.6
+researcher_coding,271,23.9,9.8–39.6,0.0–94.3,418,20.1
+self_report,107,46.0,27.9–63.0,2.2–95.1,261,37.4

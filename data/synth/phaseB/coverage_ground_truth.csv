@@ -1,7 +1,7 @@
 ground_truth,EXPOSURE,REACH,SHARING,CONCENTRATION,CONTENT,RECALL
-Researcher coding,1,4,18,4,253,1
-Domain list,18,26,32,14,19,0
-Respondents themselves,0,0,0,0,0,102
-Fact-checker,1,2,6,2,14,2
-Classifier,1,2,2,2,17,0
-TOTAL studies,20,32,57,22,297,103
+Researcher coding,1,4,18,5,258,1
+Domain list,19,26,34,14,20,0
+Respondents themselves,0,0,0,0,0,107
+Fact-checker,1,2,7,2,17,2
+Classifier,1,2,3,2,18,0
+TOTAL studies,21,32,61,23,307,108

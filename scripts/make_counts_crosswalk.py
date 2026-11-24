@@ -74,12 +74,10 @@ def canonical():
         "n_records_db_june": ident["scopus_corpus"] + ident["openalex_netnew"] + ident["pubmed_netnew"],
         "n_records_behavioural_arm": ident["behavioural_arm_netnew"],
         "n_records_other": ident["snowball_advancing"],
-        "n_assessed": pc["included_or_staged_to_reconcile"],
-        # Both not-retrieved states, or the crosswalk reports 46 while the PRISMA figure reports
-        # 145: folding the September behavioural arm into the funnel (ruling P1) gave its 99
-        # unretrieved records their own terminal state, and this count did not learn about it.
-        "n_not_retrieved": (pc["terminal_states"].get("INCLUDED_NOT_RETRIEVED", 0)
-                            + pc["terminal_states"].get("ARM_NOT_RETRIEVED", 0)),
+        # The PRISMA ledger was rebuilt on 2026-11-23 (scripts/prisma_ledger.py): totals now come from its
+        # "total" block, one number per box of the redrawn Figure 6.
+        "n_assessed": pc["total"]["sought"],
+        "n_not_retrieved": pc["total"]["not_retrieved"],
         "n_rob": len(rob),
     }
 

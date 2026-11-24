@@ -279,6 +279,18 @@ QA_FILES = [
     # Whether each headline abstract discloses how its content sample was selected (Note B).
     "data/extract_v2/qa/curated_abstract_disclosure_2026-09-11.csv",
     "data/extract_v2/qa/curated_abstract_disclosure_2026-09-11_notcurated.txt",
+    # v1.7.26: the last 20 studies (integrity screen, rulings, risk of bias) and the merged record outcomes
+    "data/extract_v2/qa/changelog_v1726.csv",
+    "data/extract_v2/qa/v1726_integrity/venue_metadata.csv",
+    "data/extract_v2/qa/v1726_integrity/integrity_mistral.csv",
+    "data/extract_v2/qa/v1726_integrity/rulings_chat_2026-11-24.csv",
+    "data/extract_v2/qa/v1726_integrity/rob_final.csv",
+    "data/extract_v2/qa/v1726_integrity/rob_coding_rulings_sacha_2026-11-24.csv",
+    "data/extract_v2/qa/prisma_rebuild_2026-11/merged_outcomes.csv",
+    "data/extract_v2/qa/curated_abstract_disclosure_2026-11-23_additions.csv",
+    "data/extract_v2/qa/curated_abstract_disclosure_2026-11-23_notcurated.txt",
+    "data/extract_v2/qa/curated_abstract_disclosure_2026-11-24_additions.csv",
+    "data/extract_v2/qa/curated_abstract_disclosure_2026-11-24_notcurated.txt",
     "data/extract_v2/qa/frozen_dois.json",
     "data/extract_v2/qa/abstract_only_list.json",
     "data/extract_v2/qa/cordonnier_changelog.csv",
@@ -870,6 +882,32 @@ def write_pages_workflow(out):
     return p
 
 
+def write_zenodo(out, meta):
+    """`.zenodo.json`: what the Zenodo GitHub integration reads when a release is published. Without
+    it Zenodo takes the creator list from the repository owner, which listed only S.A. on the v1.7.23
+    record; L.H. has been a co-author since 2026-11-20 (added 2026-11-23)."""
+    z = {
+        "title": f"Replication package and interactive companion for \"{meta['title']}\" (dataset {meta['version']})",
+        "upload_type": "dataset",
+        "license": "cc-by-4.0",
+        "creators": [
+            {"name": "Altay, Sacha", "affiliation": "AMIAD, Institut Polytechnique de Paris"},
+            {"name": "Hitz, Laura", "affiliation": "Center for Philanthropy Studies, University of Basel"},
+        ],
+        "description": (f"<p>Replication package and interactive companion for the systematic review "
+                        f"\"{meta['title']}\".</p><p>Frozen dataset {meta['version']}: {int(meta['rows']):,} "
+                        f"estimates from {meta['studies']} studies, MD5 {meta['md5']}.</p><p>Everything needed to "
+                        f"reproduce the paper's numbers, figures and tables from one frozen dataset: the dataset, the "
+                        f"analysis scripts and their run order, the methods and the append-only research log, the "
+                        f"search queries, and the companion website.</p>"),
+        "version": meta["version"],
+        "access_right": "open",
+    }
+    p = os.path.join(out, ".zenodo.json")
+    open(p, "w", encoding="utf-8").write(json.dumps(z, ensure_ascii=False, indent=2) + "\n")
+    return p
+
+
 def write_readme(out, meta):
     p = os.path.join(out, "README.md")
     open(p, "w", encoding="utf-8").write(README_TEXT.format(**meta))
@@ -880,7 +918,7 @@ def write_readme(out, meta):
 # final scan
 # ---------------------------------------------------------------------------------------------
 
-GENERATED = ("LICENSE", "README.md", "MANIFEST.txt", ".github/workflows/pages.yml",
+GENERATED = (".zenodo.json", "LICENSE", "README.md", "MANIFEST.txt", ".github/workflows/pages.yml",
              ".github/ISSUE_TEMPLATE/*.yml")
 
 
@@ -1068,6 +1106,7 @@ def main():
                            paper_ref=f", preprint at {pre}" if pre else "",
                            paper_cite=f" Preprint: {pre}" if pre else
                                       " Preprint to follow; this line is updated when it is posted."))
+    write_zenodo(out, dict(version=version, rows=rows, studies=n_studies, md5=md5, title=paper_title()))
 
     # ---- final scan --------------------------------------------------------------------------
     print("\n--- final scan ---")

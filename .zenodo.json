@@ -1,0 +1,18 @@
+{
+  "title": "Replication package and interactive companion for \"Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration\" (dataset v1.7.26)",
+  "upload_type": "dataset",
+  "license": "cc-by-4.0",
+  "creators": [
+    {
+      "name": "Altay, Sacha",
+      "affiliation": "AMIAD, Institut Polytechnique de Paris"
+    },
+    {
+      "name": "Hitz, Laura",
+      "affiliation": "Center for Philanthropy Studies, University of Basel"
+    }
+  ],
+  "description": "<p>Replication package and interactive companion for the systematic review \"Rare on screens but on everyone's mind: a systematic review of misinformation prevalence, exposure, and concentration\".</p><p>Frozen dataset v1.7.26: 1,201 estimates from 512 studies, MD5 78b81f58f9c3d315cdb4747672957b16.</p><p>Everything needed to reproduce the paper's numbers, figures and tables from one frozen dataset: the dataset, the analysis scripts and their run order, the methods and the append-only research log, the search queries, and the companion website.</p>",
+  "version": "v1.7.26",
+  "access_right": "open"
+}

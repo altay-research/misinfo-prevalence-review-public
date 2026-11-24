@@ -1,7 +1,7 @@
 # Certainty-of-Evidence Framework (GRADE, adapted for prevalence)
 
 > **APPLIED, and re-derived on every re-freeze** via `scripts/phaseB_grade.py` →
-> `data/synth/phaseB/grade_sof.csv`. Current result (v1.7.25): EXPOSURE HIGH · REACH MODERATE ·
+> `data/synth/phaseB/grade_sof.csv`. Current result (v1.7.26): EXPOSURE HIGH · REACH MODERATE ·
 > RECALL MODERATE · SHARING MODERATE · CONCENTRATION MODERATE · CONTENT VERY LOW.
 > NB this framework doc is NOT the source of truth — grade_sof.csv is, and the ratings move between
 > freezes. EXPOSURE was HIGH on v1.4.6, MODERATE from the CI-width criterion, and HIGH again on

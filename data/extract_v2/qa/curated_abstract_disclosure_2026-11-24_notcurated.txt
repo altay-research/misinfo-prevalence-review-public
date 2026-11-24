@@ -1,0 +1,10 @@
+# v1.7.26 studies whose denom_selection is "curated" but whose items are not rank-truncated or hand-picked (Claude, 2026-11-24):
+# keyword or API collections, or all posts of purposively chosen pages/channels (cf. 2-s2.0-105033279783). Not counted in Note A7.
+# The first three should lose the curated code at the next freeze (denom_fine R2 18.3 -> 18.4; denom p .070 -> .079).
+2-s2.0-85115324504
+W4410606929
+2-s2.0-85100501124
+W2979643654
+W3015170206
+2-s2.0-105016506408
+W7154958187

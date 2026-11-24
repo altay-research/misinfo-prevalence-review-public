@@ -1,7 +1,7 @@
 # Environment
 
 The software the published numbers were produced on, and the minimum a reproducer needs.
-Freeze **v1.7.25**. Recorded 2026-09-07, freeze pointer refreshed 2026-09-14.
+Freeze **v1.7.26**. Recorded 2026-09-07, freeze pointer refreshed 2026-09-14.
 
 ## Interpreters
 

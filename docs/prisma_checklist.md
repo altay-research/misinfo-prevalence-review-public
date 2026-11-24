@@ -1,6 +1,6 @@
 # PRISMA 2020 Checklist — "Rare on screens but on everyone's mind"
 
-Manuscript: `docs/manuscript_draft.md` (frozen dataset v1.7.25). Drafted 2026-08-12; section and
+Manuscript: `docs/manuscript_draft.md` (frozen dataset v1.7.26). Drafted 2026-08-12; section and
 figure numbers re-verified against the Nature Human Behaviour build (`scripts/make_nhb_docx.py`)
 on 2026-09-07. Supplementary material is numbered as Supplementary Notes A-E and Supplementary
 Figs. 1-2, which is the numbering the submitted files use.

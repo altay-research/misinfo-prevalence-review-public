@@ -1,0 +1,103 @@
+op,ruling,id,what,why
+remove_row,2026-11-24,2-s2.0-85169998829,SHARING 57,"users tagged by retweet network, as 2-s2.0-85192025533 (S.A.)"
+remove_row,2026-11-24,2-s2.0-85169998829,SHARING 55,"users tagged by retweet network, as 2-s2.0-85192025533 (S.A.)"
+add_row,2026-11-24,2-s2.0-105000853687,RECALL 93.3,from 2-s2.0-105000853687
+add_row,2026-11-24,2-s2.0-105000853687,RECALL 25.7,from 2-s2.0-105000853687
+add_row,2026-11-24,2-s2.0-105002693512,CONTENT 52,from 2-s2.0-105002693512
+row_not_entered,2026-11-24,2-s2.0-0031174888,CONTENT 19.4,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,2-s2.0-0031174888,CONTENT 7.4,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,2-s2.0-0031174888,CONTENT 9.4,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,2-s2.0-0031174888,CONTENT 2.6,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+add_row,2026-11-24,2-s2.0-0031174888,CONTENT 35.8,from 2-s2.0-0031174888
+edit,2026-11-24,2-s2.0-85100501124,construct: EXPOSURE -> SHARING,Claude's check against the paper
+edit,2026-11-24,2-s2.0-85100501124,sharing_subtype:  -> content_share,Claude's check against the paper
+edit,2026-11-24,2-s2.0-85100501124,exposure_type: proportion -> ,Claude's check against the paper
+edit,2026-11-24,2-s2.0-85100501124,population_scope: other -> general_public,Claude's check against the paper
+add_row,2026-11-24,2-s2.0-85100501124,SHARING 4.0,from 2-s2.0-85100501124
+add_row,2026-11-24,2-s2.0-85202766488,SHARING 0.27,from 2-s2.0-85202766488
+add_row,2026-11-24,2-s2.0-85202766488,SHARING 0.17,from 2-s2.0-85202766488
+add_row,2026-11-24,2-s2.0-85202766488,SHARING 0.03,from 2-s2.0-85202766488
+add_row,2026-11-24,2-s2.0-85202766488,SHARING 0.02,from 2-s2.0-85202766488
+add_row,2026-11-24,2-s2.0-85202766488,SHARING 0.01,from 2-s2.0-85202766488
+edit,2026-11-24,2-s2.0-85202766488,value_pct: 0.00 -> 0.002,Claude's check against the paper
+add_row,2026-11-24,2-s2.0-85202766488,SHARING 0.002,from 2-s2.0-85202766488
+row_not_entered,2026-11-24,2-s2.0-85117917051,CONTENT 53.8,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,2-s2.0-85117917051,CONTENT 48.1,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,2-s2.0-85117917051,CONTENT 42.3,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,2-s2.0-85117917051,CONTENT 34.6,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,2-s2.0-85117917051,CONTENT 32.7,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,2-s2.0-85117917051,CONTENT 26.9,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+add_row,2026-11-24,2-s2.0-85117917051,CONTENT 14.6,from 2-s2.0-85117917051
+add_row,2026-11-24,2-s2.0-105016506408,CONTENT 0.54,from 2-s2.0-105016506408
+add_row,2026-11-24,2-s2.0-85115324504,CONTENT 3.5,from 2-s2.0-85115324504
+add_row,2026-11-24,2-s2.0-85115324504,CONTENT 26.37,from 2-s2.0-85115324504
+add_row,2026-11-24,2-s2.0-85115324504,SHARING 20,from 2-s2.0-85115324504
+add_row,2026-11-24,2-s2.0-85115324504,SHARING 16,from 2-s2.0-85115324504
+add_row,2026-11-24,2-s2.0-85115324504,SHARING 16.4,from 2-s2.0-85115324504
+row_not_entered,2026-11-24,2-s2.0-85217821777,CONTENT 8.7,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,2-s2.0-85217821777,CONTENT 8.8,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+add_row,2026-11-24,2-s2.0-85217821777,CONTENT 0,from 2-s2.0-85217821777
+add_row,2026-11-24,2-s2.0-85217821777,CONTENT 2.7,from 2-s2.0-85217821777
+add_row,2026-11-24,2-s2.0-84951923910,RECALL 67.8,from 2-s2.0-84951923910
+row_not_entered,2026-11-24,2-s2.0-85159854851,RECALL 5.26,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+add_row,2026-11-24,2-s2.0-85159854851,RECALL 30.26,from 2-s2.0-85159854851
+edit,2026-11-24,2-s2.0-85159854851,value_pct: 83.07 -> 16.93,Claude's check against the paper
+edit,2026-11-24,2-s2.0-85159854851,value_raw: 83.07% of participants stated that they had not performed one of the behaviors -> 100 - 83.07 (83.07% had done none of the four behaviours),Claude's check against the paper
+edit,2026-11-24,2-s2.0-85159854851,"measure_type: % of respondents reporting none of the four disinformation-spreading behaviors (share, like, create/publish, comment on such posts) in the last few months -> % of respondents reporting at least one of four disinformation-spreading behaviours (share, like, create/publish, comment) in the last few months",Claude's check against the paper
+add_row,2026-11-24,2-s2.0-85159854851,RECALL 16.93,from 2-s2.0-85159854851
+row_not_entered,2026-11-24,W4410606929,CONTENT 1.44,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 1.87,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 44.1,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 22.3,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 17.9,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 27.4,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 17.8,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 72.2,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 26.0,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 62.1,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 46.7,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 26.6,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 7.1,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4410606929,CONTENT 7.1,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+add_row,2026-11-24,W4410606929,CONTENT 9.67,from W4410606929
+row_not_entered,2026-11-24,W4399205974,CONTENT 0.1153,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4399205974,SHARING 1.2876,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4399205974,SHARING 3.0538,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4399205974,SHARING 0.7925,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+edit,2026-11-24,W4399205974,construct: CONTENT -> SHARING,Claude's check against the paper
+edit,2026-11-24,W4399205974,sharing_subtype:  -> content_share,Claude's check against the paper
+add_row,2026-11-24,W4399205974,SHARING 0.9143,from W4399205974
+add_row,2026-11-24,W4399205974,SHARING 1.9565,from W4399205974
+add_row,2026-11-24,2-s2.0-85136066795,RECALL 36.4,from 2-s2.0-85136066795
+edit,2026-11-24,W3170757121,value_pct: 0.6 -> 0.58,Claude's check against the paper
+add_row,2026-11-24,W3170757121,EXPOSURE 0.58,from W3170757121
+add_row,2026-11-24,2-s2.0-85086031086,RECALL 66,from W3163887441
+add_row,2026-11-24,2-s2.0-85086031086,RECALL 50,from W3163887441
+row_not_entered,2026-11-24,W2979643654,CONTENT 0.04,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W2979643654,CONTENT 0.04,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W2979643654,CONTENT 0.01,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+add_row,2026-11-24,W2979643654,CONTENT 0.001,from W2979643654
+row_not_entered,2026-11-24,W3015170206,CONTENT 0.12,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+add_row,2026-11-24,W3015170206,CONTENT 1.1,from W3015170206
+edit,2026-11-24,W3015170206,construct: EXPOSURE -> SHARING,Claude's check against the paper
+edit,2026-11-24,W3015170206,sharing_subtype:  -> content_share,Claude's check against the paper
+edit,2026-11-24,W3015170206,exposure_type: proportion -> ,Claude's check against the paper
+add_row,2026-11-24,W3015170206,SHARING 1.1,from W3015170206
+row_not_entered,2026-11-24,W7154958187,CONTENT 26.4,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+add_row,2026-11-24,W7154958187,CONTENT 0.6,from W7154958187
+add_row,2026-11-24,W2924561613,RECALL 90.8,from W2924561613
+add_row,2026-11-24,W2924561613,RECALL 58.0,from W2924561613
+add_row,2026-11-24,W2924561613,RECALL 51.8,from W2924561613
+add_row,2026-11-24,W2924561613,RECALL 50.3,from W2924561613
+add_row,2026-11-24,W2924561613,RECALL 51.4,from W2924561613
+add_row,2026-11-24,W2924561613,RECALL 45.4,from W2924561613
+add_row,2026-11-24,W2924561613,RECALL 32.2,from W2924561613
+add_row,2026-11-24,W2924561613,RECALL 30.2,from W2924561613
+row_not_entered,2026-11-24,W4406127278,CONCENTRATION 81,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4406127278,CONCENTRATION 35,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4406127278,CONCENTRATION 85,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+row_not_entered,2026-11-24,W4406127278,CONCENTRATION 41,"secondary, overlapping, within-misinformation or not a falsity measure (Claude's check, 2026-11-24)"
+edit,2026-11-24,W4406127278,denom_selection: curated -> ,Claude's check against the paper
+add_row,2026-11-24,W4406127278,CONCENTRATION 84,from W4406127278
+edit,2026-11-24,W4406127278,denom_selection: curated -> ,Claude's check against the paper
+add_row,2026-11-24,W4406127278,CONCENTRATION 40,from W4406127278

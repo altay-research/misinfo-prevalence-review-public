@@ -1,12 +1,12 @@
 topic,EXPOSURE,REACH,SHARING,CONCENTRATION,CONTENT,RECALL
-"Health, non-COVID",1,3,3,1,158,18
-COVID-19,0,3,13,2,67,34
-General news,16,19,12,11,10,32
-"Politics, elections",3,9,24,5,23,17
-Vaccines,0,1,5,1,18,4
-Other,0,0,0,1,5,7
+"Health, non-COVID",1,3,3,1,160,18
+COVID-19,0,3,16,2,70,35
+General news,17,19,12,11,10,33
+"Politics, elections",3,9,24,6,26,20
+Vaccines,0,1,5,1,19,4
+Other,0,0,1,1,5,8
 "Science, other",0,0,1,0,10,0
-"War, geopolitics",0,1,0,2,4,2
+"War, geopolitics",0,1,0,2,5,2
 "Crime, society",0,1,0,0,4,2
 "Economy, finance",0,0,0,0,1,0
-TOTAL studies,20,32,57,22,297,103
+TOTAL studies,21,32,61,23,307,108

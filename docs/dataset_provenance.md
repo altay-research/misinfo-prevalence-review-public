@@ -83,11 +83,12 @@ Method: additive columns on a COPY; every affected row carries `v12a_status`, `v
 
 ## Freeze table (generated from `docs/FROZEN.md` — do not hand-edit)
 
-45 freezes recorded. The **top row is the live dataset**; every script resolves it
+46 freezes recorded. The **top row is the live dataset**; every script resolves it
 from the `File:` line of `FROZEN.md`, never from this table.
 
 | version | date | rows / studies | MD5 | git tag | built by |
 |---|---|---|---|---|---|
+| **v1.7.26** | 2026-11-24 | 1201 estimates / 512 studies | `78b81f58f9c3…` | `dataset-frozen-v1.7.26` | scripts/apply_v1726.py (changelog: data/extract_v2/qa/changelog_v1726.csv) |
 | **v1.7.25** | 2026-11-20 | 1159 estimates / 493 studies | `b392eb9da171…` | `dataset-frozen-v1.7.25` | scripts/apply_v1725.py (changelog: data/extract_v2/qa/changelog_v1725.csv) |
 | **v1.7.24** | 2026-11-13 | 1056 estimates / 447 studies | `b3f5daee66a7…` | `dataset-frozen-v1.7.24` | scripts/apply_v1724.py (changelog: data/extract_v2/qa/changelog_v1724.csv) |
 | **v1.7.23** | 2026-09-16 | 1048 estimates / 443 studies | `08f050baf450…` | `dataset-frozen-v1.7.23` | scripts/apply_v1723.py (changelog: data/extract_v2/qa/changelog_v1723.csv) |

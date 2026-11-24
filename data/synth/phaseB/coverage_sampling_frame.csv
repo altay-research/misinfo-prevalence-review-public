@@ -1,10 +1,10 @@
 sampling_frame,EXPOSURE,REACH,SHARING,CONCENTRATION,CONTENT,RECALL
-Keyword or topic sample,0,3,29,6,246,0
-Panel of tracked users,17,24,6,12,0,0
-Convenience sample,0,1,1,0,7,48
-Survey sample,0,0,0,0,0,52
-Full census,4,2,14,2,24,0
-Curated seed set,0,1,7,3,10,0
-Purposive sample,0,1,3,0,13,3
+Keyword or topic sample,0,3,31,6,252,0
+Panel of tracked users,18,24,7,12,0,0
+Convenience sample,0,1,1,0,7,49
+Survey sample,0,0,0,0,0,56
+Full census,4,2,15,2,26,0
+Curated seed set,0,1,7,4,11,0
+Purposive sample,0,1,3,0,14,3
 Random platform sample,0,0,1,0,5,0
-TOTAL studies,20,32,57,22,297,103
+TOTAL studies,21,32,61,23,307,108

@@ -1,0 +1,23 @@
+id,final,reason
+2-s2.0-85209247841,DUPLICATE,same data as included 2-s2.0-85215303159 (353530 posts; 95230911 interactions)
+W3212567067,DUPLICATE,same data as included 2-s2.0-105035056055 (30436 videos; 7157 channels)
+W4401697118,DUPLICATE,thesis containing included 2-s2.0-85218448454 and 2-s2.0-85212052138
+2-s2.0-85217187198,EXCLUDE,38% appears only in the Discussion; no item or table supports it
+2-s2.0-85111616600,EXCLUDE,low-quality source = personal account; not a falsity measure
+2-s2.0-85146653526,EXCLUDE,truth of the 10 videos was not coded
+2-s2.0-85016071623,EXCLUDE,coding not a falsity measure (jewellery ad coded misleading); 233/377 is not 61.3%
+2-s2.0-85106137737,EXCLUDE,unrelated messages dropped; denominator is misinformation plus debunking
+2-s2.0-85060459832,EXCLUDE,misinformation = lacking peer-reviewed evidence
+2-s2.0-85130755362,EXCLUDE,classifier trained on news articles; no test on tweets reported
+2-s2.0-85044312907,EXCLUDE,figure is seeing 10+ of 20 items; not a prevalence
+2-s2.0-85083022645,EXCLUDE,unscientific source alone can make a post misinformation
+2-s2.0-85192025533,EXCLUDE,users tagged by whom they retweet; check included 2-s2.0-85169998829 (similar tagging)
+W4392767624,EXCLUDE,only recall estimate based on use of unreliable outlets (S.A.: exclude if the only one)
+2-s2.0-85195693295,EXCLUDE,misinformation includes claims without any credible source; two different totals printed
+W2910840873,EXCLUDE,sample kept only posts coders agreed on (kappa 0.51-0.53)
+W4388668632,EXCLUDE,no denominator printed
+2-s2.0-85103688364,EXCLUDE,unverifiable messages counted as misinformation; 14% vs 11.3% in tables
+2-s2.0-85216248484,EXCLUDE,misleading not defined; no independent double coding
+2-s2.0-84855932246,EXCLUDE,whole websites as units (as the IUD ruling)
+2-s2.0-85123451680,EXCLUDE,whole websites as units (as the IUD ruling)
+2-s2.0-85169998829,DROP_FROM_CORPUS,users tagged by retweet network (as 2-s2.0-85192025533)

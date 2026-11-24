@@ -1,52 +1,37 @@
 #!/usr/bin/env python3
-"""PRISMA 2020 flow diagram, GENERATED from the reconciliation, never hardcoded.
+"""PRISMA 2020 flow diagram (new review; databases and other methods), drawn from the record ledger.
 
-Every count on the figure is derived: from data/synth/prisma_counts.json (written by
-scripts/validate_prisma.py), from the freeze named in docs/FROZEN.md, or from the screening and
-arm ledgers themselves. A flow diagram is the one figure a reader checks with a calculator, so the
-script asserts its own arithmetic before it writes anything:
+Every number comes from data/synth/prisma_counts.json, which scripts/validate_prisma.py writes from
+the record-level ledger (one row per identified record, data/synth/prisma_terminal_states.csv).
+Nothing is typed here. Before writing, the script re-asserts every box identity it draws, per column
+and for the whole flow, so the figure cannot show a box that does not close.
 
-  * the four terminal outcomes partition the assessed set (PRISMA's bottom-up reconciliation);
-  * the per-stream contributions to the retrieval box sum to that same assessed set, so the reader
-    can add the boxes down the page and land on the retrieval total;
-  * the Scopus spine closes at the title stage, and the abstract/stage-5 coverage of the
-    title-advanced records accounts for every one of them;
-  * no text line overflows its box, and the canvas fits everything drawn on it.
+Layout, following the PRISMA 2020 template for new reviews that searched databases and other sources:
+  Identification  records identified per source (with search dates); duplicates removed
+  Screening       records screened -> excluded; excluded records re-screened later and recovered
+                  (September corrected-criteria re-screen, November third-model re-screen) re-enter
+                  the flow at "reports sought", so no record is counted twice and none sits outside
+                  the totals; records awaiting a decision have their own box
+                  reports sought -> not retrieved; reports assessed -> excluded with reasons
+  Included        studies included in the review, and the reports of those studies
 
-WHAT THE LEDGER CANNOT SUPPORT, THE FIGURE NAMES. Two arms ran full-text screens whose per-record
-outcomes live in the arm reports rather than in the record ledger validate_prisma.py reconciles:
-citation snowballing (331 advanced to retrieval, only its retained studies carry a terminal state)
-and the corpus repair (335 screened at full text, likewise). Those residuals are drawn as a note
-instead of being absorbed into a box. The same is true of the title-advanced records that never
-reached a second screen; they get their own box rather than disappearing between two totals.
-
-PRISMA 2020 structure: databases/registers and "other methods" (citation searching) appear as
-separate identification arms, per the 2020 template.
-
-Inputs : data/synth/prisma_counts.json  (run scripts/validate_prisma.py first)
-Outputs: docs/prisma_flow.svg (+ .png if rsvg-convert or cairosvg is available)
+Inputs : data/synth/prisma_counts.json (run scripts/validate_prisma.py first)
+Outputs: docs/prisma_flow.svg and docs/prisma_flow.png (rsvg-convert or cairosvg, if available)
 
 Run: python3 scripts/validate_prisma.py && python3 scripts/make_prisma.py
 """
 
-import csv
-import glob
 import json
 import os
 import re
 import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-COUNTS = os.path.join(ROOT, "data/synth/prisma_counts.json")
-
 P = lambda *a: os.path.join(ROOT, *a)
-
 
 # --- text metrics -----------------------------------------------------------------------------
 # Helvetica advance widths (AFM, per 1000 em). Box heights and line breaks are computed from these,
-# so a bad width estimate surfaces as an overflowing line, which the final assertion refuses to
-# write. Box text used to be wrapped at a fixed character count, which silently ran past the border
-# whenever a line happened to be full of wide glyphs.
+# and the final assertion refuses to write a figure with a line wider than its box.
 _W = {" ": 278, "!": 278, '"': 355, "%": 889, "&": 667, "'": 191, "(": 333, ")": 333,
       "*": 389, "+": 584, ",": 278, "-": 333, ".": 278, "/": 278, ":": 278, ";": 278,
       "<": 584, "=": 584, ">": 584, "?": 556, "·": 333, "’": 222, "–": 556}
@@ -61,8 +46,9 @@ for _c, _w in zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ",
                    722, 778, 667, 778, 722, 667, 611, 722, 667, 944, 667, 667, 611]):
     _W[_c] = _w
 
-OVERFLOW = []          # (text, pixels over its box) for every line drawn; asserted at the end
-PAD, LH, TOP, BOT = 12, 16, 20, 12
+OVERFLOW = []
+PAD, TOP, BOT = 10, 18, 10
+INK, LINE = "#0f172a", "#334155"
 
 
 def tw(s, fs, bold=False):
@@ -73,8 +59,7 @@ def esc(t):
     return str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def wrap(text, maxw, fs, bold=False, indent="   "):
-    """Greedy wrap to a pixel width; continuation lines are indented."""
+def wrap(text, maxw, fs, bold=False, indent="  "):
     out, cur = [], ""
     for word in text.split(" "):
         cand = f"{cur} {word}".strip() if cur else word
@@ -87,561 +72,263 @@ def wrap(text, maxw, fs, bold=False, indent="   "):
     return [out[0]] + [indent + ln for ln in out[1:]]
 
 
-def box(x, y, w, lines, fill="#ffffff", stroke="#334155", fs=12.5, bold0=True):
-    """Draw a box sized to its wrapped text. Returns (svg, height)."""
-    maxw = w - 2 * PAD
-    flat = []
-    for i, ln in enumerate(lines):
-        b = bold0 and i == 0
-        flat += [(sub, b) for sub in wrap(ln, maxw, fs, b)]
-    h = TOP + LH * (len(flat) - 1) + BOT
-    o = [f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="5" '
-         f'fill="{fill}" stroke="{stroke}"/>']
-    ty = y + TOP
-    for txt, b in flat:
-        OVERFLOW.append((txt, tw(txt, fs, b) - maxw))
-        bb = ' font-weight="700"' if b else ""
-        o.append(f'<text x="{x+PAD}" y="{ty}" font-size="{fs}"{bb} '
-                 f'fill="#0f172a">{esc(txt)}</text>')
-        ty += LH
-    return "\n".join(o), h
+class Canvas:
+    def __init__(self):
+        self.s = []
+
+    def box(self, x, y, w, lines, fill="#ffffff", stroke=LINE, fs=12, bold0=True, lh=None):
+        """Draw a box sized to its wrapped text; returns its bottom y."""
+        lh = lh or round(fs * 1.32)
+        maxw = w - 2 * PAD
+        flat = []
+        for i, ln in enumerate(lines):
+            b = bold0 and i == 0
+            flat += [(sub, b) for sub in wrap(ln, maxw, fs, b)]
+        h = TOP + lh * (len(flat) - 1) + BOT
+        self.s.append(f'<rect x="{x}" y="{y:.0f}" width="{w}" height="{h:.0f}" rx="4" fill="{fill}" stroke="{stroke}"/>')
+        ty = y + TOP
+        for txt, b in flat:
+            OVERFLOW.append((txt, tw(txt, fs, b) - maxw))
+            bb = ' font-weight="700"' if b else ""
+            self.s.append(f'<text x="{x + PAD}" y="{ty:.0f}" font-size="{fs}"{bb} fill="{INK}">{esc(txt)}</text>')
+            ty += lh
+        return y + h
+
+    def arrow(self, x1, y1, x2, y2):
+        self.s.append(f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="{LINE}" '
+                      f'stroke-width="1.3" marker-end="url(#a)"/>')
+
+    def line(self, x1, y1, x2, y2):
+        self.s.append(f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="{LINE}" stroke-width="1.3"/>')
+
+    def band(self, x, y0, y1, label, fill="#dbeafe"):
+        self.s.append(f'<rect x="{x}" y="{y0:.0f}" width="22" height="{y1 - y0:.0f}" rx="4" fill="{fill}" stroke="#93c5fd"/>')
+        cy = (y0 + y1) / 2
+        self.s.append(f'<text x="{x + 15}" y="{cy:.0f}" font-size="12" font-weight="700" fill="{INK}" '
+                      f'text-anchor="middle" transform="rotate(-90 {x + 15} {cy:.0f})">{label}</text>')
 
 
-def arrow(x1, y1, x2, y2):
-    return (f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#334155" '
-            f'stroke-width="1.3" marker-end="url(#a)"/>')
+def n(x):
+    return f"{x:,}"
 
 
-def line(x1, y1, x2, y2):
-    return (f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" '
-            f'stroke="#334155" stroke-width="1.3"/>')
+def date(d):
+    if not d:
+        return ""
+    y, m, dd = d.split("-")
+    return f"{int(dd)} {['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][int(m) - 1]} {y}"
 
 
-# --- data -------------------------------------------------------------------------------------
-def canon(x):
-    """Normalise the six ID schemes, exactly as validate_prisma.py does."""
-    x = str(x or "").strip().replace("https://openalex.org/", "")
-    if x.startswith("OA-"):
-        x = x[3:]
-    if x.startswith("PMID-"):
-        return x
-    if re.fullmatch(r"\d+", x):
-        return "PMID-" + x
-    return x
+def reassert(b, name):
+    """The identities validate_prisma.py checked, re-asserted on exactly the numbers drawn."""
+    assert b["identified"] == b["dup_at_search"] + b["dup_rebuild"] + b["screened"] + b["awaiting_screening"], name
+    assert b["screened"] == b["first_pass_excluded"] + b["advanced"], name
+    assert b["excluded_screening"] == b["first_pass_excluded"] - b["recovered"], name
+    assert b["sought"] == b["advanced"] + b["recovered"], name
+    assert b["sought"] == b["not_retrieved"] + b["awaiting_ft"] + b["assessed"], name
+    assert b["assessed"] == b["excluded_ft"] + b["included"] + b["other_reports"], name
+    assert sum(b["excluded_ft_by_reason"].values()) == b["excluded_ft"], name
+    assert sum(b["recovered_by"].values()) == b["recovered"], name
+    assert sum(b["excluded_screening_by_stage"].values()) == b["excluded_screening"], name
 
 
-def rc(path):
-    return list(csv.DictReader(open(P(path), encoding="utf-8", errors="replace"))) \
-        if os.path.exists(P(path)) else []
-
-
-def rj(path):
-    out = []
-    for ln in open(P(path), encoding="utf-8", errors="replace"):
-        ln = ln.strip()
-        if ln:
-            try:
-                out.append(json.loads(ln))
-            except ValueError:
-                pass
-    return out
-
-
-def ids(rows, field):
-    return {canon(r.get(field)) for r in rows if r.get(field)} - {""}
-
-
-# The reason each terminal state prints on the figure, in the order the excluded box lists them.
-# Module-level because scripts/make_si_lists.py imports it: the supplementary exclusion list and the
-# figure have to group records under the same labels or the two documents disagree about why a
-# quarter of the corpus left the funnel. It used to match these labels by string prefix, which made
-# two labels that start alike a silent mis-filing.
-#
-# PRISMA item 17 wants an ELIGIBILITY CRITERION, not the stage that applied it. Five labels used to
-# end "(review of pending records)" or "(September behavioural query)" — the name of a pipeline
-# pass, which tells a reader nothing about why the record was ineligible — and the
-# DROPPED_V2_UNLEDGERED label announced that no reason was logged. The per-record reasons behind
-# that state were recovered from the campaign ledgers on 2026-09-15 (see
-# data/extract_v2/qa/exclusion_reasons_2026-09-15_REPORT.md), so the label now says what the
-# records have in common instead.
-EXCL_LABELS = [
-    ("DROPPED", "No qualifying estimate at full text: no denominator, curated sample, wrong construct, or secondary source"),
-    ("DROPPED_V2_UNLEDGERED", "No qualifying estimate at the second full-text extraction, or a duplicate of a counted record"),
-    ("DISP_EXCLUDED", "Not a prevalence or exposure estimate"),
-    ("DEDUP_COLLAPSED", "Duplicate of an included record"),
-    ("DISP_EXCLUDED_TITLE_SCREEN", "Off-topic on the title, with no retrievable full text"),
-    ("DISP_EXCLUDED_OUT_OF_SCOPE", "Out of scope: producer-side, curated or secondary, not audience consumption"),
-    ("DISP_EXCLUDED_FULL_TEXT", "Not eligible on full-text reading: no qualifying estimate"),
-    ("DISP_DUPLICATE_RECORD", "Duplicate publication of an included record"),
-    ("ARM_EXCLUDED_FULL_TEXT", "Not eligible on full-text reading: no falsity coding, stance not falsity, or no numeric estimate"),
-    ("ARM_EXCLUDED_AT_RULING", "Extracted, then excluded: quality-only, value not printed by the study, or unreliable tables"),
-]
-
-
-# The 2026-06-21 second-reader re-screen of the 635 screening includes worked from titles and
-# abstracts (its adjudication input, data/verify/disputed.jsonl, holds only eid/title/abstract; no
-# reject reason cites a table, figure or methods section; the round produced a "needs full text"
-# category). Until v1.7.24 its rejections were labelled "Not eligible on full-text re-reading" and
-# counted among full-text exclusions. Sacha ruled on 2026-11-13 that they are a SCREENING outcome
-# (finding (b), research log). They leave the assessed set and get their own box on the spine and
-# their own supplementary list; the November full-text pass re-read 89 of them and 6 were included.
-RESCREEN = ("VERIFY_REJECTED", "Excluded at a second-reader title/abstract re-screen of the screening includes")
-
-
-def load():
-    d = json.load(open(COUNTS, encoding="utf-8"))
-    ident, ts = d["identified"], d["terminal_states"]
-
-    # Ruling P1 (2026-09-14) folded the September behavioural arm into the identified total as a
-    # fifth database stream. The Google Scholar recall check stays out: it is a probe of the primary
-    # query's recall, not a search arm, and is reported the way the supplementary concentration
-    # query already is.
-    db = (ident["scopus_corpus"] + ident["openalex_netnew"] + ident["pubmed_netnew"]
-          + ident["behavioural_arm_netnew"])
-    arm = d["behavioural_arm"]
-
-    title_excl = d["title_screen"].get("EXCLUDE", 0)
-    title_adv = d["title_screen"].get("INCLUDE", 0) + d["title_screen"].get("MAYBE", 0)
-    abs_excl = d["abstract_screen"].get("EXCLUDE", 0)
-    st5_excl = d["stage5_screen"].get("EXCLUDE", 0)
-
-    # The behavioural arm's records reach terminal states at four different stages, and only the
-    # ones that reached FULL TEXT belong in the retrieval column. Its abstract-stage exclusions are
-    # a screening outcome of its own stream, reported in the arm's box, so they come out of the
-    # sought-for-retrieval total rather than inflating it.
-    arm_abs_excl = ts.get("ARM_EXCLUDED_ABSTRACT", 0)
-    n_rescreen = ts.get("VERIFY_REJECTED", 0)
-    assessed_total = d["included_or_staged_to_reconcile"] - arm_abs_excl - n_rescreen
-    included = ts.get("INCLUDED_FROZEN", 0)
-    not_retrieved = ts.get("INCLUDED_NOT_RETRIEVED", 0) + ts.get("ARM_NOT_RETRIEVED", 0)
-    no_data = (ts.get("DISP_INCLUDED_NO_DATA", 0) + ts.get("DISP_INCLUDED_RECOVERED", 0)
-               + ts.get("ARM_INCLUDED_NO_DATA", 0))
-
-    # Substantive reasons, in PRISMA's sense; the pipeline stage that produced each is in the
-    # research log, not on the figure. Keyed by terminal state (see EXCL_LABELS above) so that
-    # KNOWN below can check the mapping is total.
-    excl_reasons = [(lab, ts.get(st, 0)) for st, lab in EXCL_LABELS]
-    excl_total = sum(n for _, n in excl_reasons)
-
-    # A terminal state this script does not know about would silently shrink the excluded box and
-    # break the reconciliation with a bare arithmetic message. Two such states were added to the
-    # ledger after this script was written, and the figure then sat unregenerated for several
-    # freezes. Name the offender instead.
-    KNOWN = ({st for st, _ in EXCL_LABELS}
-             | {"INCLUDED_FROZEN", "INCLUDED_NOT_RETRIEVED", "VERIFY_REJECTED",
-                "DISP_INCLUDED_NO_DATA", "DISP_INCLUDED_RECOVERED",
-                "ARM_NOT_RETRIEVED", "ARM_INCLUDED_NO_DATA", "ARM_EXCLUDED_ABSTRACT"})
-    unknown = {k: v for k, v in ts.items() if k not in KNOWN and v}
-    assert not unknown, (
-        f"PRISMA: terminal state(s) not mapped to a flow box: {unknown}. "
-        f"Give each one a box or an exclusion reason in make_prisma.py.")
-
-    # ASSERTION 1 (bottom-up): the four outcomes must partition the assessed set exactly.
-    lhs = included + not_retrieved + no_data + excl_total
-    assert lhs == assessed_total, (
-        f"PRISMA does not reconcile: {included}+{not_retrieved}+{no_data}+{excl_total}"
-        f" = {lhs} but assessed = {assessed_total}. Fix the ledger, do not fudge the figure.")
-
-    # ---- the freeze ---------------------------------------------------------------------------
-    spec = open(P("docs/FROZEN.md"), encoding="utf-8").read()
-    fp = re.search(r"File:\s*(\S+)", spec).group(1).strip("`")
-    rows = list(csv.DictReader(open(P(fp), encoding="utf-8")))
-    ver = re.search(r"v([\d.]+)", os.path.basename(fp)).group(1)
-    frozen = ids(rows, "id")
-
-    # ---- the Scopus spine ---------------------------------------------------------------------
-    title_rows = rc("data/screen_title_2026-06-20.csv")
-    abs_rows = rc("data/screen_abstract_2026-06-21.csv")
-    st5_rows = rc("data/screen_stage5_2026-06-21.csv")
-    tadv = {canon(r["eid"]) for r in title_rows if r.get("label") in ("INCLUDE", "MAYBE")}
-    A, S5 = ids(abs_rows, "eid"), ids(st5_rows, "eid")
-
-    # Stage 2 could only screen the records for which an abstract was retrievable; the rest were
-    # routed to the stage-5 full-text gate, which did not reach all of them. That remainder is a
-    # real hole in the spine, so it is counted here and drawn, not left between two totals.
-    title_dups = ident["scopus_corpus"] - (title_excl + title_adv)
-    n_abs_screened = len(A & tadv)
-    n_st5_new = len(S5 - A)
-    n_st5_reread = len(S5 & A)
-    n_no_second_screen = len(tadv - (A | S5))
-
-    # 165 records carry BOTH an abstract-stage and a stage-5 label, so the per-file label counts
-    # cannot be subtracted from 2,759 without double-counting. Resolve one outcome per record
-    # (include beats exclude beats maybe) and report that partition, which does subtract.
-    inc_abs = {canon(r["eid"]) for r in abs_rows if r.get("label") == "INCLUDE"}
-    inc_st5 = {canon(r["eid"]) for r in st5_rows if r.get("label") == "INCLUDE"}
-    exc_scr = ({canon(r["eid"]) for r in abs_rows if r.get("label") == "EXCLUDE"}
-               | {canon(r["eid"]) for r in st5_rows if r.get("label") == "EXCLUDE"})
-    tagged = ids(rc("data/extract/include635_tagged.csv"), "eid")
-    spine_inc = tadv & (inc_abs | inc_st5 | tagged)
-    spine_exc = (tadv - spine_inc) & exc_scr
-    spine_maybe = (tadv - spine_inc - spine_exc) & (A | S5)
-
-    # ASSERTION 2 (spine, top-down): identification and the title stage must close, and the four
-    # resolved outcomes must partition the title-advanced records exactly.
-    assert title_excl + title_adv + title_dups == ident["scopus_corpus"], (
-        f"PRISMA spine: {title_excl}+{title_adv}+{title_dups} != {ident['scopus_corpus']}")
-    assert (len(spine_inc) + len(spine_exc) + len(spine_maybe) + n_no_second_screen
-            == title_adv == len(tadv)), (
-        f"PRISMA spine: {len(spine_inc)}+{len(spine_exc)}+{len(spine_maybe)}"
-        f"+{n_no_second_screen} != {title_adv}")
-    assert n_abs_screened + n_st5_new + n_no_second_screen == title_adv, (
-        f"PRISMA spine coverage: {n_abs_screened}+{n_st5_new}+{n_no_second_screen} != {title_adv}")
-
-    # ---- who reaches the retrieval box, and from which stream -----------------------------------
-    # The retrieval total is defined bottom-up by validate_prisma.py's partition. Without this
-    # decomposition the figure showed a box whose number could not be reached by adding anything
-    # above it. The sets below are the SAME ledgers validate_prisma.py unions into `advanced`; the
-    # assertion at the end of this block is what keeps the two from drifting apart -- this file
-    # re-derives stream ATTRIBUTION only, never terminal states.
-    staged = ids(rc("data/extract_v2/qa/openalex_candidates_STAGED.csv"), "id")
-    oa_rows, pm_rows = rj("data/openalex_adjudicate.jsonl"), rj("data/pubmed_adjudicate.jsonl")
-    inc_oa = {canon(r["oaid"]) for r in oa_rows if r.get("label") == "INCLUDE"}
-    inc_pm = {canon(r["pmid"]) for r in pm_rows if r.get("label") == "INCLUDE"}
-    arm_disp = {canon(r["id"]): r["disposition"]
-                for r in rc("data/extract_v2/qa/behavioural_arm_dispositions.csv") if r.get("id")}
-    arm_abs_ids = {k for k, v in arm_disp.items() if v == "ARM_EXCLUDED_ABSTRACT"}
-    repair_rows = rc("data/extract_v2/repair_2026-09/repair_screen.csv")
-    repair_ids = ids(repair_rows, "item_id")
-    snow_rows = rj("data/snowball/advancing.jsonl")
-    snow_ids = {canon(r["oaid"]) for r in snow_rows}
-    scholar_ids = {canon(r["id"]) for r in rows if r.get("source") == "scholar_arm_2026-09"}
-
-    rescreen_ids = {canon(r["id"]) for r in rc("data/synth/prisma_terminal_states.csv")
-                    if r.get("terminal_state") == "VERIFY_REJECTED"}
-    assert len(rescreen_ids) == n_rescreen, (len(rescreen_ids), n_rescreen)
-    assert rescreen_ids <= (inc_abs | inc_st5 | tagged), \
-        "a re-screen rejection is not a Scopus screening include; the spine box would misattribute it"
-    assessed_ids = ((inc_abs | inc_st5 | tagged | inc_oa | inc_pm | staged
-                     | set(arm_disp) | frozen) - {""}) - arm_abs_ids - rescreen_ids
-    scopus = (inc_abs | inc_st5 | tagged) & assessed_ids
-    oapm = ((inc_oa | staged | inc_pm) - scopus) & assessed_ids
-    behav = ((set(arm_disp) - arm_abs_ids) - scopus - oapm) & assessed_ids
-    repair = (repair_ids - scopus - oapm - behav) & assessed_ids
-    snow = (snow_ids - scopus - oapm - behav - repair) & assessed_ids
-    scholar = (scholar_ids - scopus - oapm - behav - repair - snow) & assessed_ids
-    # Stage 3 of the November Mistral re-check (v1.7.25): records this review had excluded at
-    # title/abstract, re-screened blind by a second model family and confirmed at full text. Like the
-    # corpus repair, only the studies it added to the freeze carry a terminal state; until
-    # 2026-11-23 they fell through to "seed and hand-added records", which they are not.
-    s3_ids = {canon(r["id"]) for r in rows
-              if (r.get("data_provenance") or "").startswith("screening_pass_2026-11")}
-    s3 = (s3_ids - scopus - oapm - behav - repair - snow - scholar) & assessed_ids
-    direct = assessed_ids - scopus - oapm - behav - repair - snow - scholar - s3
-    streams = [("Scopus", len(scopus)), ("OpenAlex keyword and PubMed", len(oapm)),
-               ("September behavioural query", len(behav)), ("corpus repair", len(repair)),
-               ("citation snowballing", len(snow)), ("Google Scholar recall check", len(scholar)),
-               ("November third-model re-screen", len(s3)),
-               ("seed and hand-added records", len(direct))]
-
-    # ASSERTION 3 (top-down): the streams drawn above the retrieval box must sum to it.
-    assert len(assessed_ids) == assessed_total, (
-        f"PRISMA: stream union is {len(assessed_ids)} but the ledger's assessed set is "
-        f"{assessed_total}; the two derivations have drifted.")
-    assert sum(n for _, n in streams) == assessed_total, (
-        f"PRISMA: streams sum to {sum(n for _, n in streams)}, assessed = {assessed_total}")
-
-    # ---- the arms' own funnels ------------------------------------------------------------------
-    netnew_total = ident["openalex_netnew"] + ident["pubmed_netnew"]
-    netnew_adj = len(oa_rows) + len(pm_rows)
-    netnew_inc = len(inc_oa) + len(inc_pm)
-
-    snow_screen = [r for f in sorted(glob.glob(P("data/snowball/screen/*.csv")))
-                   for r in csv.DictReader(open(f, encoding="utf-8", errors="replace"))]
-    snow = dict(core=sum(1 for _ in open(P("data/snowball/core_dois.txt"), encoding="utf-8")),
-                candidates=len(rj("data/snowball/candidates.jsonl")),
-                screened=len(snow_screen),
-                excluded=sum(1 for r in snow_screen if r.get("label") == "EXCLUDE"),
-                advancing=len(snow_rows),
-                ledgered=len(snow_ids & assessed_ids))
-
-    rep_est = rc("data/extract_v2/repair_2026-09/repair_estimates_final.csv")
-    repair_stats = dict(pool=title_excl + abs_excl,
-                        fulltext=len(repair_rows),
-                        eligible=sum(1 for r in repair_rows if r.get("screen") == "INCLUDE"),
-                        excluded=sum(1 for r in repair_rows if r.get("screen") == "EXCLUDE"),
-                        main_pool=len({r["id"] for r in rep_est if r.get("pool") == "main"}),
-                        ledgered=len(repair_ids & assessed_ids))
-
-    QS = "data/extract_v2/qa/screening_pass_2026-11"
-    s3_rul = rc(QS + "/fulltext/screening_fulltext_rulings_sacha_2026-11-19.csv")
-    s3_stats = dict(screened=len(rc(QS + "/per_record.csv")),
-                    flagged=len(rc(QS + "/candidates.csv")),
-                    sought=len(rc(QS + "/retrieval_list.csv")),
-                    read=len(rc(QS + "/fulltext_manifest.csv")),
-                    eligible=sum(1 for r in s3_rul if r.get("RULING") == "INCLUDE"),
-                    extracted=len({r.get("study_id") or r.get("id") for r in rc(QS + "/extraction/rows.csv")}),
-                    entered=len(s3_ids), own=len(s3), via_snow=len(s3_ids & snow_ids))
-    # the 19 (v1.7.25) were snowballed records that had advanced to retrieval in the summer but never
-    # received a full-text decision; they stay attributed to snowballing, where they first advanced.
-    assert s3_stats["own"] + s3_stats["via_snow"] == s3_stats["entered"], s3_stats
-
-    # the spine box's arithmetic, as printed on it
-    assert len(spine_inc) + len((scopus | rescreen_ids) - tadv) - n_rescreen == len(scopus), (
-        f"PRISMA spine box: {len(spine_inc)} + tagged - {n_rescreen} != {len(scopus)}")
-    return dict(ident=ident, db=db, arm=arm, ver=ver, n_est=len(rows),
-                title_excl=title_excl, title_adv=title_adv, title_dups=title_dups,
-                abs_excl=abs_excl, st5_excl=st5_excl,
-                maybe_not_selected=d.get("maybe_not_selected", 0),
-                n_abs_screened=n_abs_screened,
-                n_st5_new=n_st5_new, n_st5_reread=n_st5_reread,
-                n_no_second_screen=n_no_second_screen,
-                spine_inc=len(spine_inc), spine_exc=len(spine_exc),
-                spine_exc_abs=len(spine_exc & {canon(r["eid"]) for r in abs_rows
-                                               if r.get("label") == "EXCLUDE"}),
-                spine_maybe=len(spine_maybe),
-                scopus_adv=len(scopus), scopus_tagged=len((scopus | rescreen_ids) - tadv),
-                n_rescreen=n_rescreen,
-                netnew_total=netnew_total, netnew_adj=netnew_adj, netnew_inc=netnew_inc,
-                netnew_staged=len(oapm) - netnew_inc, netnew_adv=len(oapm),
-                snow=snow, repair=repair_stats, streams=streams, s3=s3_stats,
-                assessed=assessed_total, included=included, not_retrieved=not_retrieved,
-                nr_main=ts.get("INCLUDED_NOT_RETRIEVED", 0), nr_arm=ts.get("ARM_NOT_RETRIEVED", 0),
-                no_data=no_data, excl_reasons=excl_reasons, excl_total=excl_total,
-                n_behav=len({r["id"] for r in rows if r["source"] == "behavioural_arm_2026-09"}),
-                n_scholar=len(scholar), n_repair=repair_stats["ledgered"])
-
-
-# --- drawing ----------------------------------------------------------------------------------
-W = 1300
-LX, LW = 70, 440            # the spine
-MX, MW = 525, 360           # side outcomes (exclusions, records not retrieved)
-RX, RW = 910, 360           # the parallel identification streams
-BUS = RX - 15               # vertical bus carrying the parallel streams down into the spine
-GAP = 34
+STAGE_LABELS = [("title", "at the title screen"), ("abstract", "at the abstract screen"),
+                ("title_abstract", "at a single title-and-abstract screen"),
+                ("adjudication", "at adjudication of screener disagreements"),
+                ("second_reader", "by the second-reader re-screen of abstract includes"),
+                ("november_undecided_screen", "at the November 2026 screen of undecided records")]
+SHORT_ROUTE = {"september_repair": "September 2026 re-screen under corrected criteria",
+               "november_rescreen": "November 2026 re-screen by a third model family",
+               "november_rules_pass": "November 2026 full-text re-read",
+               "other_check": "other checks"}
 
 
 def main():
-    d = load()
-    s = []
+    d = json.load(open(P("data/synth/prisma_counts.json"), encoding="utf-8"))
+    S, Cc, T = d["streams"], d["columns"], d["total"]
+    for name, b in list(Cc.items()) + [("total", T)]:
+        reassert(b, name)
+    assert Cc["db"]["included"] + Cc["other"]["included"] == T["included"] == d["studies"]
+    labels = d["reason_labels"]
 
-    def put(x, y, w, lines, **kw):
-        svg, h = box(x, y, w, lines, **kw)
-        s.append(svg)
-        return y + h
+    W = 1500
+    LX, LW = 52, 330          # databases column: main boxes
+    LS, LSW = 400, 330        # databases column: side boxes
+    RX, RW = 770, 320         # other methods: main boxes
+    RS, RSW = 1108, 352       # other methods: side boxes
+    G = 30
+    cv = Canvas()
+    db, ot = Cc["db"], Cc["other"]
 
-    i, a, sn, rp = d["ident"], d["arm"], d["snow"], d["repair"]
+    # ---- column headers -------------------------------------------------------------------------
+    y = 70
+    cv.s.append(f'<rect x="{LX}" y="{y}" width="{LS + LSW - LX}" height="30" rx="4" fill="#fde68a" stroke="#d97706"/>')
+    cv.s.append(f'<text x="{(LX + LS + LSW) / 2:.0f}" y="{y + 20}" font-size="13" font-weight="700" fill="{INK}" '
+                f'text-anchor="middle">Identification of studies via databases</text>')
+    cv.s.append(f'<rect x="{RX}" y="{y}" width="{RS + RSW - RX}" height="30" rx="4" fill="#e5e7eb" stroke="#6b7280"/>')
+    cv.s.append(f'<text x="{(RX + RS + RSW) / 2:.0f}" y="{y + 20}" font-size="13" font-weight="700" fill="{INK}" '
+                f'text-anchor="middle">Identification of studies via other methods</text>')
+    y0 = y + 30 + 16
 
     # ---- identification -------------------------------------------------------------------------
-    y0 = 74
-    yl = put(LX, y0, LW, [
-        f'Records identified from databases (n = {d["db"]:,})',
-        f'Scopus {i["scopus_corpus"]:,} · OpenAlex keyword {i["openalex_netnew"]:,} · '
-        f'PubMed {i["pubmed_netnew"]:,} · OpenAlex behavioural and preprint-venue query '
-        f'{i["behavioural_arm_netnew"]:,} (September 2026)'], fill="#f1f5f9")
+    dbs = [k for k, b in S.items() if b["column"] == "db"]
+    ots = [k for k, b in S.items() if b["column"] == "other"]
+    a = cv.box(LX, y0, LW, [f"Records identified from databases (n = {n(db['identified'])})"]
+               + [f"{S[k]['label']}, {date(S[k]['date'])}: {n(S[k]['identified'])}" for k in dbs], fs=11.5)
+    cv.box(LS, y0, LSW, [f"Records removed before screening (n = {n(db['dup_at_search'] + db['dup_rebuild'])})",
+                         f"Duplicates removed when the searches were run: {n(db['dup_at_search'])}",
+                         f"Duplicates found when the record ledger was rebuilt (same id, same DOI or same full "
+                         f"title in two sources; the copy that went furthest is kept): {n(db['dup_rebuild'])}"],
+           fs=11.5)
+    b_ = cv.box(RX, y0, RW, [f"Records identified from other methods (n = {n(ot['identified'])})"]
+                + [f"{S[k]['label']}{', ' + date(S[k]['date']) if S[k]['date'] else ''}: {n(S[k]['identified'])}"
+                   for k in ots], fs=11.5)
+    cv.box(RS, y0, RSW, [f"Records removed before screening (n = {n(ot['dup_at_search'] + ot['dup_rebuild'])})",
+                         f"Already held when the source was searched: {n(ot['dup_at_search'])}",
+                         f"Duplicates of records from another source, found when the ledger was rebuilt: "
+                         f"{n(ot['dup_rebuild'])}"], fs=11.5)
+    for x, w, sx in ((LX, LW, LS), (RX, RW, RS)):
+        cv.arrow(x + w, y0 + 24, sx, y0 + 24)
+    y1 = max(a, b_) + G
 
-    # Each stream that joins the funnel between the abstract screen and the retrieval box gets its
-    # own box, ending in the number it contributes. The two arms whose full-text decisions are not
-    # in the record ledger say so on the face of the figure.
-    arms = [
-        (["Databases: OpenAlex keyword and PubMed, screened in their own stream "
-          f'(n = {d["netnew_total"]:,})',
-          f'{d["netnew_total"]-d["netnew_adj"]:,} excluded at screening, {d["netnew_adj"]} '
-          f'adjudicated, {d["netnew_inc"]} included; {d["netnew_staged"]} further OpenAlex '
-          f'records staged for retrieval.',
-          f'{d["netnew_adv"]} advance to retrieval'], "#f1f5f9"),
-        ([f'Databases: September behavioural and preprint-venue query, screened in its own stream '
-          f'(n = {i["behavioural_arm_netnew"]:,})',
-          f'{a["duplicates_collapsed"]} duplicates removed, {a["records_screened_unique"]:,} '
-          f'unique; {a["title_screen"].get("EXCLUDE", 0):,} excluded at title; '
-          f'{a["sought_for_retrieval"]} sought; {a["terminal_states"].get("ARM_EXCLUDED_ABSTRACT", 0)} '
-          f'excluded at abstract adjudication.',
-          f'{a["sought_at_full_text"]} advance to retrieval ({a["assessed_at_full_text"]} assessed '
-          f'at full text, {a["not_retrieved"]} not retrieved); {d["n_behav"]} studies held'],
-         "#f1f5f9"),
-        ([f'Other methods: OpenAlex citation snowballing (n = {sn["candidates"]:,})',
-          f'backward and forward citations of {sn["core"]} core studies; {sn["screened"]:,} '
-          f'candidates screened, {sn["excluded"]:,} excluded.',
-          f'{sn["advancing"]} advance to full-text retrieval, of which {sn["ledgered"]} carry a '
-          f'terminal state in the record ledger and {sn["advancing"]-sn["ledgered"]} do not '
-          f'(see the note below)'], "#fff7ed"),
-        ([f'Other methods: corpus repair (n = {rp["pool"]:,})',
-          f'this review’s own {d["title_excl"]:,} title-stage and {d["abs_excl"]:,} '
-          "abstract-stage exclusions, re-screened under corrected criteria by two independent "
-          "model families; "
-          f'{rp["fulltext"]} papers retrieved and screened at full text, {rp["eligible"]} eligible, '
-          f'{rp["excluded"]} excluded.',
-          f'{rp["main_pool"]} of the {rp["eligible"]} carried a main-pool estimate at the repair’s '
-          f'own freeze; {rp["ledgered"]} survive in the current freeze and carry a terminal state, '
-          f'{rp["fulltext"]-rp["ledgered"]} do not (see the note below)'], "#fff7ed"),
-        ([f'Other methods: November third-model re-screen (n = {d["s3"]["screened"]:,})',
-          "every title- and abstract-screened record, re-screened blind by a third model family "
-          f'(Mistral Large); {d["s3"]["flagged"]:,} flagged as possible false exclusions, filtered '
-          f'under the settled rules and read; {d["s3"]["sought"]} sought, {d["s3"]["read"]} '
-          f'retrieved and assessed at full text, {d["s3"]["eligible"]} eligible.',
-          f'{d["s3"]["extracted"]} extracted (one duplicated two included studies); '
-          f'{d["s3"]["entered"]} entered the dataset and {d["s3"]["extracted"]-d["s3"]["entered"]} '
-          f'were dropped at extraction or at the integrity screen. {d["s3"]["own"]} advance to '
-          f'retrieval here; the other {d["s3"]["via_snow"]} were snowballed records that had '
-          f'advanced without a full-text decision and are counted there'], "#fff7ed"),
-        (["Other methods: Google Scholar recall check",
-          "a hand-run probe of the primary query’s recall rather than a search arm; "
-          f'{d["n_scholar"]} studies held'], "#fff7ed"),
-    ]
-    yr, mids = y0, []
-    for lines, fill in arms:
-        top = yr
-        yr = put(RX, yr, RW, lines, fill=fill, fs=11.5)
-        mids.append((top + yr) / 2)
-        yr += 12
-    yr -= 12
+    # ---- screening --------------------------------------------------------------------------------
+    def screening_row(x, w, sx, sw, b, ytop, yprev):
+        cv.arrow(x + w / 2, yprev, x + w / 2, ytop)
+        bot = cv.box(x, ytop, w, [f"Records screened (n = {n(b['screened'])})",
+                                  "titles and abstracts; records with no abstract were sought in full text"], fs=11.5)
+        st = b["excluded_screening_by_stage"]
+        lines = [f"Records excluded (n = {n(b['excluded_screening'])})"]
+        lines += [f"{lab}: {n(st[k])}" for k, lab in STAGE_LABELS if st.get(k)]
+        sb = cv.box(sx, ytop, sw, lines, fill="#fef2f2", fs=11)
+        cv.arrow(x + w, ytop + 22, sx, ytop + 22)
+        if b["awaiting_screening"]:
+            sb2 = cv.box(sx, sb + 10, sw, [f"Awaiting a screening decision (n = {n(b['awaiting_screening'])})",
+                                           "never screened in June; being screened in November 2026"],
+                         fill="#fffbeb", fs=11)
+            cv.line(x + w, bot - 14, x + w + 9, bot - 14)
+            cv.line(x + w + 9, bot - 14, x + w + 9, sb + 26)
+            cv.arrow(x + w + 9, sb + 26, sx, sb + 26)
+            sb = sb2
+        return bot, sb
 
-    # ---- the Scopus spine ------------------------------------------------------------------------
-    y = yl + GAP
-    s.append(arrow(LX + LW // 2, yl, LX + LW // 2, y))
-    top = y
-    y = put(LX, y, LW, [f'Scopus records screened at title (n = {d["title_excl"]+d["title_adv"]:,})',
-                        f'{d["title_dups"]} duplicate records removed before screening'])
-    mid = (top + y) / 2
-    put(MX, top, MW, [f'Excluded at title screen (n = {d["title_excl"]:,})',
-                      "not a study of misinformation prevalence or exposure"],
-        fill="#fef2f2", fs=11.5)
-    s.append(arrow(LX + LW, mid, MX, mid))
+    yl, ys_l = screening_row(LX, LW, LS, LSW, db, y1, a)
+    yr, ys_r = screening_row(RX, RW, RS, RSW, ot, y1, b_)
 
-    y += GAP
-    s.append(arrow(LX + LW // 2, y - GAP, LX + LW // 2, y))
-    top = y
-    y = put(LX, y, LW, [
-        f'Records advancing from the title screen (n = {d["title_adv"]:,})',
-        f'{d["n_abs_screened"]:,} screened at abstract and {d["n_st5_new"]} more at the stage-5 '
-        f'full-text gate (records with no retrievable abstract); {d["n_st5_reread"]} of the '
-        f'abstract-screened records were re-read at that gate'])
-    mid = (top + y) / 2
-    ymr = put(MX, top, MW, [
-        f'Excluded at the abstract or stage-5 screen (n = {d["spine_exc"]:,})',
-        f'{d["spine_exc_abs"]:,} at the abstract screen, {d["st5_excl"]} at the stage-5 screen',
-        f'Rated "maybe" and not advanced (n = {d["spine_maybe"]})'],
-        fill="#fef2f2", fs=11.5)
-    s.append(arrow(LX + LW, mid, MX, mid))
-    ymr += 12
-    put(MX, ymr, MW, [
-        f'No further decision recorded (n = {d["n_no_second_screen"]:,})',
-        "title-advanced records with no retrievable abstract that the stage-5 gate did not reach"],
-        fill="#fffbeb", fs=11.5)
-    s.append(arrow(LX + LW, mid + 8, MX, ymr + 14))
+    # recovered box: excluded records re-screened later and sent to full text
+    def recovered_box(sx, sw, b, ytop):
+        rb = b["recovered_by"]
+        lines = [f"Excluded records recovered by a later re-screen (n = {n(b['recovered'])})",
+                 f"of the {n(b['first_pass_excluded'])} records the first screen excluded or missed"]
+        lines += [f"{SHORT_ROUTE[k]}: {n(v)}" for k, v in rb.items() if v]
+        return cv.box(sx, ytop, sw, lines, fill="#ecfeff", stroke="#0e7490", fs=11)
 
-    y += GAP
-    s.append(arrow(LX + LW // 2, y - GAP, LX + LW // 2, y))
-    y = put(LX, y, LW, [
-        f'Scopus records advancing to retrieval (n = {d["scopus_adv"]:,})',
-        f'{d["spine_inc"]} of the {d["title_adv"]:,} title-advanced records '
-        f'({d["title_adv"]:,} less {d["spine_exc"]:,} excluded, {d["spine_maybe"]} left at '
-        f'"maybe" and {d["n_no_second_screen"]} undecided), plus {d["scopus_tagged"]} record '
-        f'from the tagged include list that predates the title screen, less '
-        f'{d["n_rescreen"]} excluded at the second-reader re-screen'])
-    mid_r = (y - 40 + y) / 2
-    put(MX, y - 64, MW, [RESCREEN[1] + f' (n = {d["n_rescreen"]})',
-                         "two independent readers per record, a third on disagreement, from titles "
-                         "and abstracts"], fill="#fef2f2", fs=11.5)
-    s.append(arrow(LX + LW, mid_r, MX, mid_r))
+    yrec_l = ys_l + 14
+    yrec_r = ys_r + 14
+    rl = recovered_box(LS, LSW, db, yrec_l)
+    rr = recovered_box(RS, RSW, ot, yrec_r)
 
-    # ---- the merge --------------------------------------------------------------------------------
-    y4 = max(y, yr) + 46
-    s.append(arrow(LX + LW // 2, y, LX + LW // 2, y4))
-    yjoin = y4 - 24
-    for m in mids:                                  # each stream onto the bus
-        s.append(line(RX, m, BUS, m))
-    s.append(line(BUS, mids[0], BUS, yjoin))
-    s.append(line(BUS, yjoin, LX + LW - 60, yjoin))
-    s.append(arrow(LX + LW - 60, yjoin, LX + LW - 60, y4 - 2))
+    y2 = max(yl, yr, rl, rr) + G
+    # ---- reports sought ---------------------------------------------------------------------------
+    def sought_row(x, w, sx, sw, b, ytop, yprev, rec_top, rec_bot):
+        cv.arrow(x + w / 2, yprev, x + w / 2, ytop)
+        bot = cv.box(x, ytop, w, [f"Reports sought for retrieval (n = {n(b['sought'])})",
+                                  f"{n(b['advanced'])} advanced at screening + {n(b['recovered'])} recovered"],
+                     fs=11.5)
+        # recovered -> sought
+        mid = (rec_top + rec_bot) / 2
+        cv.line(sx, mid, sx - 12, mid)
+        cv.line(sx - 12, mid, sx - 12, ytop + 14)
+        cv.arrow(sx - 12, ytop + 14, x + w, ytop + 14)
+        lines = [f"Reports not retrieved (n = {n(b['not_retrieved'])})"]
+        sb = cv.box(sx, ytop + 30, sw, lines, fill="#fffbeb", fs=11)
+        cv.arrow(x + w, ytop + 38 + 6, sx, ytop + 38 + 6)
+        if b["awaiting_ft"]:
+            top2 = sb + 8
+            sb = cv.box(sx, top2, sw, [f"Awaiting a full-text decision (n = {n(b['awaiting_ft'])})",
+                                       "being assessed in November 2026"], fill="#fffbeb", fs=11)
+            cv.line(x + w, bot - 8, x + w + 9, bot - 8)
+            cv.line(x + w + 9, bot - 8, x + w + 9, top2 + 18)
+            cv.arrow(x + w + 9, top2 + 18, sx, top2 + 18)
+        return bot, sb
 
-    top = y4
-    y = put(LX, y4, LW, [
-        f'Reports sought for retrieval (n = {d["assessed"]:,})',
-        " · ".join(f"{lab} {n}" for lab, n in d["streams"]) + f' = {d["assessed"]:,}'])
-    mid = (top + y) / 2
-    put(MX, top, MW, [f'Not retrieved (n = {d["not_retrieved"]:,})',
-                      f'{d["nr_main"]} from the main streams, {d["nr_arm"]} from the September '
-                      f'behavioural query'], fill="#fffbeb", fs=11.5)
-    s.append(arrow(LX + LW, mid, MX, mid))
+    yl, sl = sought_row(LX, LW, LS, LSW, db, y2, yl, yrec_l, rl)
+    yr, sr = sought_row(RX, RW, RS, RSW, ot, y2, yr, yrec_r, rr)
 
-    y += GAP
-    s.append(arrow(LX + LW // 2, y - GAP, LX + LW // 2, y))
-    top = y
-    y = put(LX, y, LW, [f'Reports assessed for eligibility '
-                        f'(n = {d["assessed"]-d["not_retrieved"]:,})'])
-    rl = [f'Reports excluded (n = {d["excl_total"]:,})']
-    rl += [f"· {lab} (n = {n})" for lab, n in d["excl_reasons"] if n]
-    ybot = put(MX, top, RX + RW - MX, rl, fill="#fef2f2", fs=11.5)
-    s.append(arrow(LX + LW, top + 14, MX, top + 14))
+    y3 = max(yl, yr, sl, sr) + G
+    # ---- assessed ---------------------------------------------------------------------------------
+    def assessed_row(x, w, sx, sw, b, ytop, yprev):
+        cv.arrow(x + w / 2, yprev, x + w / 2, ytop)
+        bot = cv.box(x, ytop, w, [f"Reports assessed for eligibility (n = {n(b['assessed'])})"], fs=11.5)
+        lines = [f"Reports excluded (n = {n(b['excluded_ft'])})"]
+        lines += [f"{labels[k]}: {n(v)}" for k, v in b["excluded_ft_by_reason"].items() if v]
+        sb = cv.box(sx, ytop, sw, lines, fill="#fef2f2", fs=11)
+        cv.arrow(x + w, ytop + 20, sx, ytop + 20)
+        return bot, sb
 
-    y = max(y, ybot) - 42 + 20
-    s.append(arrow(LX + LW // 2, top + 42, LX + LW // 2, y))
-    y = put(LX, y, LW,
-            [f'Included, but contributed no codeable estimate (n = {d["no_data"]:,})'],
-            fill="#fffbeb")
+    yl, sl = assessed_row(LX, LW, LS, LSW, db, y3, yl)
+    yr, sr = assessed_row(RX, RW, RS, RSW, ot, y3, yr)
 
-    y += GAP
-    s.append(arrow(LX + LW // 2, y - GAP, LX + LW // 2, y))
-    y = put(LX, y, LW, [f'Studies included in the review (n = {d["included"]:,})',
-                        f'contributing {d["n_est"]:,} estimates'],
-            fill="#ecfdf5", stroke="#047857")
+    # ---- included ---------------------------------------------------------------------------------
+    y4 = max(sl, sr) + G
+    IX, IW = 470, 560
+    reports = T["included"] + T["other_reports"]
+    yi = cv.box(IX, y4, IW, [f"Studies included in the review (n = {n(T['included'])}), contributing "
+                             f"{n(d['estimates'])} estimates",
+                             f"Reports of included studies (n = {n(reports)}), of which {n(T['other_reports'])} are "
+                             f"additional reports (preprint or second copy) of an included study",
+                             f"From databases: {n(db['included'])} studies; from other methods: "
+                             f"{n(ot['included'])} studies. {d['studies_assessed_on_abstract_only']} studies were "
+                             f"assessed on the abstract alone (no full text retrievable)"],
+                fill="#ecfdf5", stroke="#047857", fs=12)
+    for x, w, yb in ((LX, LW, yl), (RX, RW, yr)):
+        cv.line(x + w / 2, yb, x + w / 2, y4 - 14)
+        cv.line(x + w / 2, y4 - 14, IX + IW / 2 + (-60 if x == LX else 60), y4 - 14)
+        cv.arrow(IX + IW / 2 + (-60 if x == LX else 60), y4 - 14, IX + IW / 2 + (-60 if x == LX else 60), y4)
 
-    # ---- band labels and notes --------------------------------------------------------------------
-    for ly, lab in [(y0 + 90, "Identification"), (y4 - 120, "Screening"), (y - 40, "Included")]:
-        s.append(f'<text x="26" y="{ly:.0f}" font-size="11" font-weight="700" fill="#94a3b8" '
-                 f'transform="rotate(-90 26 {ly:.0f})">{lab}</text>')
+    # ---- phase bands --------------------------------------------------------------------------------
+    cv.band(16, y0, y1 - 8, "Identification")
+    cv.band(16, y1, y4 - 20, "Screening")
+    cv.band(16, y4, yi, "Included", fill="#dcfce7")
 
-    ny = y + 30
-    notes = [
-        f'Reports sought for retrieval = {d["included"]} included + {d["not_retrieved"]} not '
-        f'retrieved + {d["no_data"]} without a codeable estimate + {d["excl_total"]} excluded '
-        f'= {d["assessed"]:,}.',
-        f'Note. The citation-snowballing, corpus-repair and November re-screen arms ran their own '
-        f'full-text screens, and their per-record outcomes are held in the arm ledgers rather than '
-        f'in the record ledger reconciled here; only their retained studies carry a terminal state. '
-        f'{sn["advancing"]-sn["ledgered"]} snowballed records, {rp["fulltext"]-rp["ledgered"]} '
-        f'repaired records and {d["s3"]["sought"]-d["s3"]["entered"]} re-screened records '
-        f'therefore sit outside every total below the retrieval box. The repair’s '
-        f'{rp["eligible"]} eligible papers and the {d["no_data"]} reports without a codeable '
-        f'estimate are different quantities and do not subtract: the repair’s non-pooled papers '
-        f'yielded estimates that the author’s class-level rulings sent to the appendix pool.',
-        f'The abstract-stage screen file records {d["abs_excl"]:,} exclusions and the stage-5 file '
-        f'{d["st5_excl"]}. {d["abs_excl"]-d["spine_exc_abs"]} of the {d["abs_excl"]:,} are records '
-        f'the title screen did not advance, so the spine\u2019s resolved exclusion count is '
-        f'{d["spine_exc"]:,} rather than {d["abs_excl"]+d["st5_excl"]:,}.']
-    for txt in notes:
-        for ln in wrap(txt, W - 320, 10.5, indent=""):
-            s.append(f'<text x="36" y="{ny:.0f}" font-size="10.5" fill="#64748b">{esc(ln)}</text>')
-            ny += 14
-        ny += 4
+    # ---- note -------------------------------------------------------------------------------------
+    note = (f"Each identified record ends in exactly one box. Excluded records recovered by a later re-screen are "
+            f"counted once, in the box where they ended. Totals: {n(T['identified'])} records identified = "
+            f"{n(T['dup_at_search'] + T['dup_rebuild'])} duplicates + {n(T['excluded_screening'])} excluded at "
+            f"screening + {n(T['not_retrieved'])} not retrieved + "
+            f"{n(T['excluded_ft'])} excluded at full text + "
+            f"{n(reports)} reports of included studies.")
+    ny = yi + 26
+    for ln in wrap(note, W - 80, 11, indent=""):
+        cv.s.append(f'<text x="40" y="{ny:.0f}" font-size="11" fill="#475569">{esc(ln)}</text>')
+        ny += 15
+    total_check = (T["dup_at_search"] + T["dup_rebuild"] + T["excluded_screening"] + T["awaiting_screening"]
+                   + T["not_retrieved"] + T["awaiting_ft"] + T["excluded_ft"] + reports)
+    assert total_check == T["identified"], f"terminal boxes sum to {total_check}, identified {T['identified']}"
 
-    # ASSERTION 4: nothing drawn may overrun its box. The wrap above sizes every box to its text,
-    # so a failure here means a single unbreakable token is wider than the column.
     worst = max(OVERFLOW, key=lambda t: t[1])
     assert worst[1] <= 0, f"PRISMA: line overflows its box by {worst[1]:.0f}px: {worst[0]!r}"
-
-    # ASSERTION 5: the canvas is measured from what was actually drawn, and the white ground is
-    # painted to that same height. A literal canvas height cut the last box in half; painting the
-    # ground at the old literal then left a transparent strip that renders as a black band.
-    body = "\n".join(s)
-    drawn = [float(yy) + float(hh) for yy, hh in
-             re.findall(r'<rect[^>]*y="([0-9.]+)"[^>]*height="([0-9.]+)"', body)]
+    body = "\n".join(cv.s)
+    drawn = [float(yy) + float(hh) for yy, hh in re.findall(r'<rect[^>]*y="([0-9.]+)"[^>]*height="([0-9.]+)"', body)]
     drawn += [float(yy) + 6 for yy in re.findall(r'<text[^>]*y="([0-9.]+)"', body)]
-    drawn += [float(yy) for yy in re.findall(r'<line[^>]*y2="([0-9.]+)"', body)]
-    H = int(max(drawn)) + 24
-    assert max(drawn) <= H, f"PRISMA content reaches y={max(drawn):.0f} on a {H}-high canvas"
-
-    head = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
+    H = int(max(drawn)) + 20
+    head = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
             f'font-family="Helvetica,Arial,sans-serif">',
-            '<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" '
-            'orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#334155"/></marker></defs>',
+            '<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">'
+            f'<path d="M0,0 L7,3 L0,6 Z" fill="{LINE}"/></marker></defs>',
             f'<rect width="{W}" height="{H}" fill="white"/>',
-            '<text x="36" y="32" font-size="17" font-weight="700" fill="#0f172a">'
-            'PRISMA 2020 flow: prevalence, exposure and concentration of misinformation</text>',
-            '<text x="36" y="52" font-size="11.5" fill="#64748b">Counts from the released '
-            'dataset; primary searches run 20 to 24 June 2026, top-up searches September 2026'
-            '</text>']
-
+            f'<text x="40" y="36" font-size="17" font-weight="700" fill="{INK}">PRISMA 2020 flow diagram: '
+            'prevalence, exposure and concentration of misinformation</text>']
     out = P("docs/prisma_flow.svg")
     open(out, "w", encoding="utf-8").write("\n".join(head + [body, "</svg>"]))
-    print(f"reconciliation OK: {d['included']} + {d['not_retrieved']} + {d['no_data']} + "
-          f"{d['excl_total']} = {d['assessed']}")
-    print("streams OK: " + " + ".join(str(n) for _, n in d["streams"]) + f" = {d['assessed']}")
-    print(f"included {d['included']} studies / {d['n_est']} estimates (frozen v{d['ver']})")
+    print(f"identified {n(T['identified'])} = duplicates {n(T['dup_at_search'] + T['dup_rebuild'])} + excluded at "
+          f"screening {n(T['excluded_screening'])} + awaiting screening {T['awaiting_screening']} + not retrieved "
+          f"{n(T['not_retrieved'])} + awaiting full text {T['awaiting_ft']} + excluded at full text "
+          f"{n(T['excluded_ft'])} + reports of included studies {reports}")
+    print(f"studies included {T['included']} (databases {db['included']}, other methods {ot['included']}); "
+          f"{d['estimates']:,} estimates (freeze v{d['freeze']})")
     print(f"wrote {os.path.relpath(out, ROOT)} ({W}x{H})")
     png = out.replace(".svg", ".png")
-    for cmd in (["rsvg-convert", out, "-o", png], ["cairosvg", out, "-o", png]):
+    for cmd in (["rsvg-convert", "-z", "1.5", out, "-o", png], ["cairosvg", out, "-o", png]):
         try:
             subprocess.run(cmd, check=True, capture_output=True)
             print(f"wrote {os.path.relpath(png, ROOT)}")

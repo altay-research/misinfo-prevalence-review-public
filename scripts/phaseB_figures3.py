@@ -131,7 +131,7 @@ def fig_flow():
     # non-misinfo comparators (denom != 'other' i.e. not the misinfo side, and user-level only).
     import statistics as _st
     _bt = list(csv.DictReader(open(ROOT/"data/synth/phaseB/concentration_by_threshold.csv")))
-    misinfo = round(float(next(r for r in _bt if r["unit"]=="user" and "1%" in r["threshold_band"])
+    misinfo = (float(next(r for r in _bt if r["unit"]=="user" and "1%" in r["threshold_band"])
                           ["median_activity_share_pct"]))
     _nmrows = [r for r in csv.DictReader(open(ROOT/"data/inputs/nonmisinfo_concentration.csv"))
            if r["top_pct"]=="1" and (r["share"] or "").strip()
@@ -166,7 +166,7 @@ def fig_flow():
         sh=barH*share/100
         P.append(f'<rect x="{act_x}" y="{top}" width="{barW}" height="{sh}" fill="{col}"/>')
         P.append(f'<rect x="{act_x}" y="{top+sh}" width="{barW}" height="{barH-sh}" fill="#e5e7eb"/>')
-        P.append(txt(act_x+barW/2,top+sh/2+4,f"{share}%",13,"middle","#fff","bold"))
+        P.append(txt(act_x+barW/2,top+sh/2+4,f"{share:g}%",13,"middle","#fff","bold"))
         P.append(txt(act_x+barW/2,top+barH+14,"activity",10,"middle","#888"))
         # observed spread across the contributing studies, so the median is not read as a constant
         wx=act_x+barW+16

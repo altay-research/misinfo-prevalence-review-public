@@ -1,0 +1,3 @@
+study_id,disclosure,headline_pct_in_abstract,selection_in_methods,abstract_quote,note
+2-s2.0-85117917051,not_stated,no,yes,We found 52 videos containing M&D about vaccines.,"Added 2026-11-24 for v1.7.26 (Claude): the related-videos network sample (vacina+autismo, 158 videos) is not described in the abstract, which gives no percentage."
+2-s2.0-85217821777,not_stated,no,yes,"mixed-methods approach that includes qualitative content analysis, semi-structured interviews, systematic fact-checking, and digital trace data",Added 2026-11-24 for v1.7.26 (Claude): top 50 videos by views in each of three hashtag campaigns; the abstract names neither the cut nor the size.
